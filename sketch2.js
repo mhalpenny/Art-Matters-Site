@@ -85,6 +85,7 @@ function draw() {
   linkR.position((windowWidth/2)+offset, windowHeight/2);
   linkA.position((windowWidth/2), (windowHeight/2)+offset);
 
+  tint(255, fade);
   image(layerR, 70, -100);
 
 //---ANIMATION---

@@ -6,7 +6,7 @@ var offsetY = 20;
 var amW, amH;
 
 function preload() {
-  amlogo = loadImage('assets/amlogo.png');
+  amlogo = loadImage('assets/layerR.png');
 }
 
 function setup(){
@@ -48,18 +48,10 @@ image(amlogo, amW, amH);
 resources.style("z-index", "-1");
 resources.position((amW - offsetX), (amH - offsetY));
 
-var circ = ellipse(100, 100, 50, 50);
-
 }
-circ.mouseOver(animate);
 
 }
 
-function animate()
-{
-  fill(255);
-  ellipse(100, 100, 50, 50);
-;}
 
 function windowResized() {
   resizeCanvas(windowWidth, (windowHeight));

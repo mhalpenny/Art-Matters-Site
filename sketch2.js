@@ -6,11 +6,15 @@ var nameP;
 var animate = false;
 var fade = 0;
 var offset;
+var layerR;
+
+function preload() {
+    layerR = loadImage('assets/layerR.png');
+}
 
 function setup() {
 
   //---SETUP---
-
   frameRate(60);
   canvas = createCanvas(windowWidth, windowHeight);
   canvas.style("z-index", "-1");
@@ -19,12 +23,17 @@ function setup() {
 
 
   //---LINKS---
-
   // nameP = createP('Your name!');
   linkR = createA('#', 'RESOURCES');
   linkR.style('text-decoration', 'none');
   linkR.style('color', 'black');
   linkR.style('letter-spacing', '5');
+
+  linkA = createA('#', 'ABOUT');
+  linkA.style('text-decoration', 'none');
+  linkA.style('color', 'black');
+  linkA.style('letter-spacing', '5');
+
 
 
   button = createButton("go go go go");
@@ -33,14 +42,13 @@ function setup() {
 
   linkR.mouseOver(overpara);
   linkR.mouseOut(outpara);
+  linkA.mouseOver(overpara);
+  linkA.mouseOut(outpara);
 
-}
+  //---IMAGES---
+//image(layerR, windowWidth/2, windowHeight/2);
 
 
-//---TEXT---
-
-function updateText() {
-  nameP.html(nameInput.value());
 }
 
 //---HOVER---
@@ -75,6 +83,9 @@ function draw() {
   background(bgcolor);
   offset = windowWidth*0.1;
   linkR.position((windowWidth/2)+offset, windowHeight/2);
+  linkA.position((windowWidth/2), (windowHeight/2)+offset);
+
+  image(layerR, 70, -100);
 
 //---ANIMATION---
 
@@ -86,6 +97,7 @@ function draw() {
   }
 
   ellipse(windowWidth/2, windowHeight/2, slider.value(), slider.value());
+
 
 }
 

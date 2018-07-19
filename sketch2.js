@@ -18,15 +18,16 @@ function setup() {
   // canvas.mousePressed(changeColor);
 
   bgcolor = color(200);
-  nameP = createP('Your name!');
+  // nameP = createP('Your name!');
+  linkR = createA('#', 'RESOURCES');
 
   button = createButton("go go go go");
   button.mousePressed(changeColor);
   slider = createSlider(10, 100, 86);
   nameInput = createInput('type your name');
 
-  nameP.mouseOver(overpara);
-  nameP.mouseOut(outpara);
+  linkR.mouseOver(overpara);
+  linkR.mouseOut(outpara);
 
   nameInput.changed(updateText);
 }
@@ -36,12 +37,12 @@ function updateText() {
 }
 
 function overpara() {
-  nameP.html('your moues is over me');
+  linkR.html('RESOURCES');
   animate = true;
 }
 
 function outpara() {
-  nameP.html('your mouse is out');
+  linkR.html('RESOURCES');
   animate = false;
   fade = 0;
 }
@@ -56,6 +57,7 @@ function changeColor() {
 
 
 function draw() {
+  noStroke();
   background(bgcolor);
 
   // var c = color('rgb(0, 0 255)');
@@ -65,8 +67,7 @@ function draw() {
   if (animate == true && fade <=255){
     fade += 10;
   }
+
   ellipse(windowWidth/2, windowHeight/2, slider.value(), slider.value());
   //nameP.html(input.value());
-  text(nameInput.value(), 10, 20);
-
 }

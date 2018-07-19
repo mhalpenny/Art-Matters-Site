@@ -1,5 +1,3 @@
-// https://vimeo.com/channels/learningp5js/142698161
-
 var bgcolor;
 var button;
 var slider;
@@ -7,34 +5,45 @@ var nameInput;
 var nameP;
 var animate = false;
 var fade = 0;
+var offset;
 
 function setup() {
+
+  //---SETUP---
+
   frameRate(60);
   canvas = createCanvas(windowWidth, windowHeight);
   canvas.style("z-index", "-1");
   canvas.position(0,0);
-  canvas.mouseOver(overpara);
-  // canvas.mouseOut(outpara);
-  // canvas.mousePressed(changeColor);
+  bgcolor = color(255);
 
-  bgcolor = color(200);
+
+  //---LINKS---
+
   // nameP = createP('Your name!');
   linkR = createA('#', 'RESOURCES');
+  linkR.style('text-decoration', 'none');
+  linkR.style('color', 'black');
+  linkR.style('letter-spacing', '5');
+
 
   button = createButton("go go go go");
   button.mousePressed(changeColor);
   slider = createSlider(10, 100, 86);
-  nameInput = createInput('type your name');
 
   linkR.mouseOver(overpara);
   linkR.mouseOut(outpara);
 
-  nameInput.changed(updateText);
 }
+
+
+//---TEXT---
 
 function updateText() {
   nameP.html(nameInput.value());
 }
+
+//---HOVER---
 
 function overpara() {
   linkR.html('RESOURCES');
@@ -46,6 +55,9 @@ function outpara() {
   animate = false;
   fade = 0;
 }
+
+//---COLOR---
+
 function changeColor() {
   bgcolor = color(random(255))
 
@@ -55,12 +67,17 @@ function changeColor() {
 //   changeColor();
 // }
 
+//---***DRAW***-------------------------------------
 
 function draw() {
+
   noStroke();
   background(bgcolor);
+  offset = windowWidth*0.1;
+  linkR.position((windowWidth/2)+offset, windowHeight/2);
 
-  // var c = color('rgb(0, 0 255)');
+//---ANIMATION---
+
   var c = color( 255, 0, 255, fade);
   fill(c);
 
@@ -69,5 +86,10 @@ function draw() {
   }
 
   ellipse(windowWidth/2, windowHeight/2, slider.value(), slider.value());
-  //nameP.html(input.value());
+
+}
+
+function windowResized() {
+  resizeCanvas(windowWidth, (windowHeight));
+
 }

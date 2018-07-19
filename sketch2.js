@@ -6,11 +6,10 @@ var slider;
 var nameInput;
 var nameP;
 var animate = false;
-var timer = 500;
-var fade = 1;
+var logoPos = 100;
 
 function setup() {
-  frameRate(1);
+  frameRate(60);
   canvas = createCanvas(windowWidth, windowHeight);
   canvas.style("z-index", "-1");
   canvas.position(0,0);
@@ -39,12 +38,12 @@ function updateText() {
 function overpara() {
   nameP.html('your moues is over me');
   animate = true;
-
 }
 
 function outpara() {
   nameP.html('your mouse is out');
   animate = false;
+  logoPos = 100;
 }
 function changeColor() {
   bgcolor = color(random(255))
@@ -60,11 +59,9 @@ function draw() {
   background(bgcolor);
   fill(255, 0, 175);
   if (animate == true){
-    for (var i = 0; i<1000; i++){
-  fill(255, 0, 255);
-  ellipse(100+i, 100+i, slider.value(), slider.value());
-}
-}
+    logoPos += 10;
+  }
+  ellipse(logoPos, logoPos, slider.value(), slider.value());
   //nameP.html(input.value());
   text(nameInput.value(), 10, 20);
 

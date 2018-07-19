@@ -6,7 +6,7 @@ var slider;
 var nameInput;
 var nameP;
 var animate = false;
-var logoPos = 100;
+var fade = 0;
 
 function setup() {
   frameRate(60);
@@ -43,7 +43,7 @@ function overpara() {
 function outpara() {
   nameP.html('your mouse is out');
   animate = false;
-  logoPos = 100;
+  fade = 0;
 }
 function changeColor() {
   bgcolor = color(random(255))
@@ -57,11 +57,15 @@ function changeColor() {
 
 function draw() {
   background(bgcolor);
-  fill(255, 0, 175);
-  if (animate == true){
-    logoPos += 10;
+
+  // var c = color('rgb(0, 0 255)');
+  var c = color( 255, 0, 255, fade);
+  fill(c);
+
+  if (animate == true && fade <=255){
+    fade += 10;
   }
-  ellipse(logoPos, logoPos, slider.value(), slider.value());
+  ellipse(windowWidth/2, windowHeight/2, slider.value(), slider.value());
   //nameP.html(input.value());
   text(nameInput.value(), 10, 20);
 

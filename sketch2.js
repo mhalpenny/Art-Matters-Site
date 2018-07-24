@@ -34,6 +34,30 @@ function setup() {
   linkA.style('color', 'black');
   linkA.style('letter-spacing', '5');
 
+  linkCU = createA('#', 'CONTACT US');
+  linkCU.style('text-decoration', 'none');
+  linkCU.style('color', 'black');
+  linkCU.style('letter-spacing', '5');
+
+  linkAr = createA('#', 'ARCHIVE');
+  linkAr.style('text-decoration', 'none');
+  linkAr.style('color', 'black');
+  linkAr.style('letter-spacing', '5');
+
+  linkGI = createA('#', 'GET INVOLVED');
+  linkGI.style('text-decoration', 'none');
+  linkGI.style('color', 'black');
+  linkGI.style('letter-spacing', '5');
+
+  linkE = createA('#', 'EVENTS');
+  linkE.style('text-decoration', 'none');
+  linkE.style('color', 'black');
+  linkE.style('letter-spacing', '5');
+
+  linkCO = createA('#', 'CALL-OUTS');
+  linkCO.style('text-decoration', 'none');
+  linkCO.style('color', 'black');
+  linkCO.style('letter-spacing', '5');
 
 
   button = createButton("go go go go");
@@ -83,7 +107,13 @@ function draw() {
   background(bgcolor);
   offset = windowWidth*0.1;
   linkR.position((windowWidth/2)+offset, windowHeight/2);
-  linkA.position((windowWidth/2), (windowHeight/2)+offset);
+  linkA.position((windowWidth/2), (windowHeight/2)+offset*1.5);
+  linkCU.position((windowWidth/2)-offset, (windowHeight/2)-offset);
+  linkE.position((windowWidth/2)-offset*2, (windowHeight/2)+offset*1.2);
+  linkGI.position((windowWidth/2)+offset, (windowHeight/2)+offset);
+  linkAr.position((windowWidth/2)-offset*2.5, (windowHeight/2)+(offset/2));
+  linkCO.position((windowWidth/2)-offset*3, (windowHeight/2)-(offset/3));
+
 
   tint(255, fade);
   image(layerR, 70, -100);

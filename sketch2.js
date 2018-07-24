@@ -3,14 +3,16 @@ var button;
 var slider;
 var nameInput;
 var nameP;
-var animateR, animateA = false;
-var fadeR, fadeA = 0;
+var animateR, animateA, animateCO = false;
+var fadeR, fadeA, fadeCO = 0;
 var offset;
-var layerR, layerA;
+var layerR, layerA, layerCO;
 
 function preload() {
+
     layerR = loadImage('assets/layerR.png');
     layerA = loadImage('assets/layerA.png');
+    layerCO = loadImage('assets/layerCO.png');
 }
 
 function setup() {
@@ -20,7 +22,6 @@ function setup() {
   canvas = createCanvas(windowWidth, windowHeight);
   canvas.style("z-index", "-1");
   canvas.position(0,0);
-  bgcolor = color(255);
 
 
   //---LINKS---
@@ -66,6 +67,8 @@ function setup() {
   linkR.mouseOut(offLinkR);
   linkA.mouseOver(overLinkA);
   linkA.mouseOut(offLinkA);
+  linkCO.mouseOver(overLinkCO);
+  linkCO.mouseOut(offLinkCO);
 
 
 }
@@ -88,6 +91,15 @@ function overLinkA() {
 function offLinkA() {
   animateA = false;
   fadeA = 0;
+}
+
+function overLinkCO() {
+  animateCO = true;
+}
+
+function offLinkCO() {
+  animateCO = false;
+  fadeCO = 0;
 }
 
 
@@ -127,6 +139,16 @@ function draw() {
 
   if (animateA == true && fadeA <=255){
     fadeA += 10;
+  }
+  //---CO---
+  tint(255, fadeCO);
+  image(layerCO, 70, -100);
+
+  var c = color( 255, 0, 255, fadeCO);
+  fill(c);
+
+  if (animateCO == true && fadeCO <=255){
+    fadeCO += 10;
   }
 
 

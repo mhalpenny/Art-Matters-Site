@@ -3,13 +3,14 @@ var button;
 var slider;
 var nameInput;
 var nameP;
-var animate = false;
-var fade = 0;
+var animateR, animateA = false;
+var fadeR, fadeA = 0;
 var offset;
-var layerR;
+var layerR, layerA;
 
 function preload() {
     layerR = loadImage('assets/layerR.png');
+    layerA = loadImage('assets/layerA.png');
 }
 
 function setup() {
@@ -23,7 +24,7 @@ function setup() {
 
 
   //---LINKS---
-  // nameP = createP('Your name!');
+
   linkR = createA('#', 'RESOURCES');
   linkR.style('text-decoration', 'none');
   linkR.style('color', 'black');
@@ -59,52 +60,43 @@ function setup() {
   linkCO.style('color', 'black');
   linkCO.style('letter-spacing', '5');
 
+//---EVENTS---
 
-  button = createButton("go go go go");
-  button.mousePressed(changeColor);
-  slider = createSlider(10, 100, 86);
-
-  linkR.mouseOver(overpara);
-  linkR.mouseOut(outpara);
-  linkA.mouseOver(overpara);
-  linkA.mouseOut(outpara);
-
-  //---IMAGES---
-//image(layerR, windowWidth/2, windowHeight/2);
+  linkR.mouseOver(overLinkR);
+  linkR.mouseOut(offLinkR);
+  linkA.mouseOver(overLinkA);
+  linkA.mouseOut(offLinkA);
 
 
 }
 
 //---HOVER---
 
-function overpara() {
-  linkR.html('RESOURCES');
-  animate = true;
+function overLinkR() {
+  animateR = true;
 }
 
-function outpara() {
-  linkR.html('RESOURCES');
-  animate = false;
-  fade = 0;
+function offLinkR() {
+  animateR = false;
+  fadeR = 0;
 }
 
-//---COLOR---
-
-function changeColor() {
-  bgcolor = color(random(255))
-
+function overLinkA() {
+  animateA = true;
 }
 
-// function mousePressed() {
-//   changeColor();
-// }
+function offLinkA() {
+  animateA = false;
+  fadeA = 0;
+}
+
 
 //---***DRAW***-------------------------------------
 
 function draw() {
 
   noStroke();
-  background(bgcolor);
+  background(255, 30);
   offset = windowWidth*0.1;
   linkR.position((windowWidth/2)+offset, windowHeight/2);
   linkA.position((windowWidth/2), (windowHeight/2)+offset*1.5);
@@ -114,20 +106,28 @@ function draw() {
   linkAr.position((windowWidth/2)-offset*2.5, (windowHeight/2)+(offset/2));
   linkCO.position((windowWidth/2)-offset*3, (windowHeight/2)-(offset/3));
 
-
-  tint(255, fade);
-  image(layerR, 70, -100);
-
 //---ANIMATION---
 
-  var c = color( 255, 0, 255, fade);
+//---R---
+  tint(255, fadeR);
+  image(layerR, 70, -100);
+
+  var c = color( 255, 0, 255, fadeR);
   fill(c);
 
-  if (animate == true && fade <=255){
-    fade += 10;
+  if (animateR == true && fadeR <=255){
+    fadeR += 10;
   }
+  //---A---
+  tint(255, fadeA);
+  image(layerA, 70, -100);
 
-  ellipse(windowWidth/2, windowHeight/2, slider.value(), slider.value());
+  var c = color( 255, 0, 255, fadeA);
+  fill(c);
+
+  if (animateA == true && fadeA <=255){
+    fadeA += 10;
+  }
 
 
 }

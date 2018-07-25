@@ -99,7 +99,7 @@ function overLinkCO() {
 
 function offLinkCO() {
   animateCO = false;
-  fadeCOs = 0;
+  fadeCO = 0;
 }
 
 

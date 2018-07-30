@@ -8,6 +8,11 @@ a{
   color: black;
 }
 
+/* should be seperate ideas but cascades to all in the language div, non harmful*/
+#FR:hover{
+font-style: oblique;
+}
+
 #lang{
   float: right;
   margin-right: 1%;

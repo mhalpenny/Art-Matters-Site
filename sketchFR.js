@@ -57,6 +57,11 @@ function setup() {
   linkCO.style('color', 'black');
   linkCO.style('letter-spacing', '5');
 
+  linkAO = createA('#', 'ANTI-OPPRESSION STATEMENT');
+
+  linkEN = createA('index.html', 'EN');
+  linkFR = createA('indexFR.html', 'FR');
+
 //---EVENTS---
 
   linkR.mouseOver(overLinkR);
@@ -115,6 +120,11 @@ function draw() {
   linkGI.position((windowWidth/2)+offset, (windowHeight/2)+offset);
   linkAr.position((windowWidth/2)-offset*2.5, (windowHeight/2)+(offset/2));
   linkCO.position((windowWidth/2)-offset*3, (windowHeight/2)-(offset/3));
+  linkAO.position(15, 15);
+  // fill(0);
+  // rect(windowWidth-60, 10, 60, 20);
+  linkEN.position(windowWidth-60, 15);
+  linkFR.position(windowWidth-35, 15);
 
 //---ANIMATION---
 

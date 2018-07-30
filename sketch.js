@@ -1,8 +1,3 @@
-var bgcolor;
-var button;
-var slider;
-var nameInput;
-var nameP;
 var animateR, animateA, animateCO = false;
 var fadeR, fadeA, fadeCO = 0;
 var offset;
@@ -13,6 +8,7 @@ function preload() {
     layerR = loadImage('assets/layerR.png');
     layerA = loadImage('assets/layerA.png');
     layerCO = loadImage('assets/layerCO.png');
+    amLogo = loadImage('assets/amlogo.png');
 }
 
 function setup() {
@@ -22,7 +18,6 @@ function setup() {
   canvas = createCanvas(windowWidth, windowHeight);
   canvas.style("z-index", "-1");
   canvas.position(0,0);
-
 
   //---LINKS---
   // optionally migrate to CSS for all links
@@ -61,6 +56,12 @@ function setup() {
   linkCO.style('text-decoration', 'none');
   linkCO.style('color', 'black');
   linkCO.style('letter-spacing', '5');
+
+  linkAO = createA('pdf/AM_AntiO.pdf', 'ANTI-OPPRESSION STATEMENT');
+
+  linkEN = createA('index.html', 'EN');
+  linkFR = createA('indexFR.html', 'FR');
+
 
 //---EVENTS---
 
@@ -112,6 +113,11 @@ function draw() {
 
   noStroke();
   background(255, 30);
+
+  tint(255, 255);
+  image(amLogo, (width/2)-60, (height/2)-60);
+
+  //positioning
   offset = windowWidth*0.1;
   linkR.position((windowWidth/2)+offset, windowHeight/2);
   linkA.position((windowWidth/2), (windowHeight/2)+offset*1.5);
@@ -120,6 +126,11 @@ function draw() {
   linkGI.position((windowWidth/2)+offset, (windowHeight/2)+offset);
   linkAr.position((windowWidth/2)-offset*2.5, (windowHeight/2)+(offset/2));
   linkCO.position((windowWidth/2)-offset*3, (windowHeight/2)-(offset/3));
+  linkAO.position(15, 15);
+  // fill(0);
+  // rect(windowWidth-60, 10, 60, 20);
+  linkEN.position(windowWidth-60, 15);
+  linkFR.position(windowWidth-35, 15);
 
 //---ANIMATION---
 

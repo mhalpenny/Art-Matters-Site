@@ -1,8 +1,3 @@
-var bgcolor;
-var button;
-var slider;
-var nameInput;
-var nameP;
 var animateR, animateA, animateCO = false;
 var fadeR, fadeA, fadeCO = 0;
 var offset;
@@ -27,17 +22,17 @@ function setup() {
   //---LINKS---
   // optionally migrate to CSS for all links
 
-  linkR = createA('#', 'RESOURCES');
+  linkR = createA('#', 'RESSOURCES');
   linkR.style('text-decoration', 'none');
   linkR.style('color', 'black');
   linkR.style('letter-spacing', '5');
 
-  linkA = createA('#', 'ABOUT');
+  linkA = createA('#', 'À PROPOS');
   linkA.style('text-decoration', 'none');
   linkA.style('color', 'black');
   linkA.style('letter-spacing', '5');
 
-  linkCU = createA('#', 'CONTACT US');
+  linkCU = createA('#', 'NOUS JOINDRE');
   linkCU.style('text-decoration', 'none');
   linkCU.style('color', 'black');
   linkCU.style('letter-spacing', '5');
@@ -47,17 +42,17 @@ function setup() {
   linkAr.style('color', 'black');
   linkAr.style('letter-spacing', '5');
 
-  linkGI = createA('#', 'GET INVOLVED');
+  linkGI = createA('#', 'DEVENIR LE ENGAGE');
   linkGI.style('text-decoration', 'none');
   linkGI.style('color', 'black');
   linkGI.style('letter-spacing', '5');
 
-  linkE = createA('#', 'EVENTS');
+  linkE = createA('#', 'ÉVÉNEMENTS');
   linkE.style('text-decoration', 'none');
   linkE.style('color', 'black');
   linkE.style('letter-spacing', '5');
 
-  linkCO = createA('#', 'CALL-OUTS');
+  linkCO = createA('#', 'APPELS EN COURS');
   linkCO.style('text-decoration', 'none');
   linkCO.style('color', 'black');
   linkCO.style('letter-spacing', '5');

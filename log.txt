@@ -1,0 +1,13 @@
+TO UPDATE
+
+1) Base files for subpage
+2) Head bar is JS for formatting
+3) APIs
+4) Subpage formatting
+5) Gabor icons
+7) slow hove text effect
+6) server speed test
+
+MAYBE
+1) research bootstrap
+2)draggable divs

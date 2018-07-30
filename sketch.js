@@ -114,9 +114,6 @@ function draw() {
   noStroke();
   background(255, 30);
 
-  tint(255, 255);
-  image(amLogo, (width/2)-60, (height/2)-60);
-
   //positioning
   offset = windowWidth*0.1;
   linkR.position((windowWidth/2)+offset, windowHeight/2);
@@ -165,6 +162,8 @@ function draw() {
     fadeCO += 10;
   }
 
+  tint(255, 255);
+  image(amLogo, (width/2)-60, (height/2)-60);
 
 }
 

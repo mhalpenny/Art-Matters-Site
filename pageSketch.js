@@ -19,49 +19,60 @@ function setup() {
   canvas.style("z-index", "-1");
   canvas.position(0,0);
 
-
   //---LINKS---
   // optionally migrate to CSS for all links
 
-  linkR = createA('#', 'RESSOURCES');
+  linkR = createA('#', 'RESOURCES');
   linkR.style('text-decoration', 'none');
   linkR.style('color', 'black');
   linkR.style('letter-spacing', '5');
+  linkR.style('font-size', '11');
 
-  linkA = createA('#', 'À PROPOS');
+  linkA = createA('#', 'ABOUT');
   linkA.style('text-decoration', 'none');
   linkA.style('color', 'black');
   linkA.style('letter-spacing', '5');
+    linkA.style('font-size', '8');
 
-  linkCU = createA('#', 'NOUS JOINDRE');
+  linkCU = createA('#', 'CONTACT US');
   linkCU.style('text-decoration', 'none');
   linkCU.style('color', 'black');
   linkCU.style('letter-spacing', '5');
+    linkCU.style('font-size', '8');
 
   linkAr = createA('#', 'ARCHIVE');
   linkAr.style('text-decoration', 'none');
   linkAr.style('color', 'black');
   linkAr.style('letter-spacing', '5');
+    linkAr.style('font-size', '11');
 
-  linkGI = createA('#', 'DEVENIR LE ENGAGE');
+  linkGI = createA('#', 'GET INVOLVED');
   linkGI.style('text-decoration', 'none');
   linkGI.style('color', 'black');
   linkGI.style('letter-spacing', '5');
+    linkGI.style('font-size', '8');
 
-  linkE = createA('#', 'ÉVÉNEMENTS');
+  linkE = createA('#', 'EVENTS');
   linkE.style('text-decoration', 'none');
   linkE.style('color', 'black');
   linkE.style('letter-spacing', '5');
+    linkE.style('font-size', '11');
 
-  linkCO = createA('#', 'APPELS EN COURS');
+  linkCO = createA('#', 'CALL-OUTS');
   linkCO.style('text-decoration', 'none');
   linkCO.style('color', 'black');
   linkCO.style('letter-spacing', '5');
+  linkCO.style('font-size', '11');
 
-  linkAO = createA('#', 'ANTI-OPPRESSION STATEMENT');
+  // linkAO = createA('pdf/AM_AntiO.pdf', 'ANTI-OPPRESSION STATEMENT');
 
   linkEN = createA('index.html', 'EN');
+  linkEN.style('font-size', '11');
+  linkEN.style('letter-spacing', '5');
   linkFR = createA('indexFR.html', 'FR');
+  linkFR.style('font-size', '11');
+  linkFR.style('letter-spacing', '5');
+
 
 //---EVENTS---
 
@@ -113,25 +124,27 @@ function draw() {
 
   noStroke();
   background(255, 30);
-  offset = windowWidth*0.1;
-  linkR.position((windowWidth/2)+offset, windowHeight/2);
-  linkA.position((windowWidth/2), (windowHeight/2)+offset*1.5);
-  linkCU.position((windowWidth/2)-offset, (windowHeight/2)-offset);
-  linkE.position((windowWidth/2)-offset*2, (windowHeight/2)+offset*1.2);
-  linkGI.position((windowWidth/2)+offset, (windowHeight/2)+offset);
-  linkAr.position((windowWidth/2)-offset*2.5, (windowHeight/2)+(offset/2));
-  linkCO.position((windowWidth/2)-offset*3, (windowHeight/2)-(offset/3));
-  linkAO.position(15, 15);
+
+  //positioning
+  offset = windowWidth/5.5;
+  linkCO.position(offset*2, 40);
+  linkR.position(offset, 40);
+  linkA.position(offset*2,  windowHeight - 15);
+  linkCU.position(offset*3,  windowHeight - 15);
+  linkE.position(offset*3, 40);
+  linkGI.position(offset*5, windowHeight - 15);
+  linkAr.position((offset*4)-20, 40);
+  // linkAO.position(15, 15);
   // fill(0);
   // rect(windowWidth-60, 10, 60, 20);
-  linkEN.position(windowWidth-60, 15);
-  linkFR.position(windowWidth-35, 15);
+  linkEN.position(windowWidth-80, 15);
+  linkFR.position(windowWidth-50, 15);
 
 //---ANIMATION---
 
 //---R---
   tint(255, fadeR);
-  image(layerR, 70, -100);
+  image(layerR, offset, 0, 50, 100);
 
   var c = color( 255, 0, 255, fadeR);
   fill(c);
@@ -151,7 +164,7 @@ function draw() {
   }
   //---CO---
   tint(255, fadeCO);
-  image(layerCO, 70, -100);
+  image(layerCO, offset*2, 0, 50, 100);
 
   var c = color( 255, 0, 255, fadeCO);
   fill(c);
@@ -161,7 +174,7 @@ function draw() {
   }
 
   tint(255, 255);
-  image(amLogo, (width/2)-60, (height/2)-60);
+  image(amLogo, 25, 5, 80, 80);
 
 }
 

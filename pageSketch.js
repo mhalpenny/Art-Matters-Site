@@ -28,29 +28,11 @@ function setup() {
   linkR.style('letter-spacing', '5');
   linkR.style('font-size', '11');
 
-  linkA = createA('#', 'ABOUT');
-  linkA.style('text-decoration', 'none');
-  linkA.style('color', 'black');
-  linkA.style('letter-spacing', '5');
-  linkA.style('font-size', '8');
-
-  linkCU = createA('#', 'CONTACT US');
-  linkCU.style('text-decoration', 'none');
-  linkCU.style('color', 'black');
-  linkCU.style('letter-spacing', '5');
-  linkCU.style('font-size', '8');
-
   linkAr = createA('#', 'ARCHIVE');
   linkAr.style('text-decoration', 'none');
   linkAr.style('color', 'black');
   linkAr.style('letter-spacing', '5');
   linkAr.style('font-size', '11');
-
-  linkGI = createA('#', 'GET INVOLVED');
-  linkGI.style('text-decoration', 'none');
-  linkGI.style('color', 'black');
-  linkGI.style('letter-spacing', '5');
-  linkGI.style('font-size', '8');
 
   linkE = createA('#', 'EVENTS');
   linkE.style('text-decoration', 'none');
@@ -64,15 +46,34 @@ function setup() {
   linkCO.style('letter-spacing', '5');
   linkCO.style('font-size', '11');
 
-  linkAO = createA('pdf/AM_AntiO.pdf', 'ANTI-OPPRESSION STATEMENT');
-  linkAO.style('letter-spacing', '2');
-
   linkEN = createA('index.html', 'EN');
   linkEN.style('font-size', '11');
   linkEN.style('letter-spacing', '5');
   linkFR = createA('indexFR.html', 'FR');
   linkFR.style('font-size', '11');
   linkFR.style('letter-spacing', '5');
+
+  //moved to html
+  // linkAO = createA('pdf/AM_AntiO.pdf', 'ANTI-OPPRESSION STATEMENT');
+  // linkAO.style('letter-spacing', '2');
+  //
+  // linkGI = createA('#', 'GET INVOLVED');
+  // linkGI.style('text-decoration', 'none');
+  // linkGI.style('color', 'black');
+  // linkGI.style('letter-spacing', '5');
+  // linkGI.style('font-size', '8');
+  //
+  // linkA = createA('#', 'ABOUT');
+  // linkA.style('text-decoration', 'none');
+  // linkA.style('color', 'black');
+  // linkA.style('letter-spacing', '5');
+  // linkA.style('font-size', '8');
+  //
+  // linkCU = createA('#', 'CONTACT US');
+  // linkCU.style('text-decoration', 'none');
+  // linkCU.style('color', 'black');
+  // linkCU.style('letter-spacing', '5');
+  // linkCU.style('font-size', '8');
 
 
   //---EVENTS---
@@ -138,16 +139,19 @@ function draw() {
   offsetY = windowHeight / 5;
   linkCO.position(offsetX * 2, 40);
   linkR.position(offsetX, 40);
-  linkA.position(25, windowHeight - 15);
-  linkCU.position(25, windowHeight - 15);
   linkE.position(offsetX * 3, 40);
-  linkGI.position(25, windowHeight - 15);
   linkAr.position((offsetX * 4) - 20, 40);
-  linkAO.position(25, windowHeight - 15);
+
   // fill(0);
   // rect(windowWidth-60, 10, 60, 20);
   linkEN.position(windowWidth - 80, 15);
   linkFR.position(windowWidth - 50, 15);
+
+//moved to html
+  // linkA.position(25, windowHeight - 15);
+  // linkCU.position(25, windowHeight - 15);
+  // linkAO.position(25, windowHeight - 15);
+  // linkGI.position(25, windowHeight - 15);
 
   //---ANIMATION---
 

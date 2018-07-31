@@ -2,8 +2,10 @@ var animateR, animateA, animateCO = false;
 var fadeR, fadeA, fadeCO;
 var offset;
 var layerR, layerA, layerCO;
-var xoff = 0.0;
-var perlin = 0;
+// var xoff = 0.0;
+// var perlin = 0;
+// var paraR, ppR = 400;
+
 
 function preload() {
 
@@ -86,7 +88,7 @@ function setup() {
 
 function overLinkR() {
   animateR = true;
-  linkR.style('font-style', 'oblique');
+  linkR.style('font-style', 'italic');
 }
 
 function offLinkR() {
@@ -94,6 +96,12 @@ function offLinkR() {
   fadeR = 0;
   linkR.style('font-style', 'normal');
 }
+
+// function cascadeR(){
+//   paraR = createP('RESOURCES');
+//   paraR.position(ppR, ppR);
+//   ppR = ppR - 20;
+// }
 
 function overLinkA() {
   animateA = true;
@@ -124,10 +132,10 @@ function draw() {
   //positioning
 
   offset = (windowWidth*0.1);
-  perlinX = noise((xoff*3));
-  perlinY = noise((xoff*2));
-  xoff = xoff + 0.01;
-  linkR.position((windowWidth/2)+(offset*1.4)*perlinX, (windowHeight/2)-(20*perlinY));
+  // perlinX = noise((xoff*3));
+  // perlinY = noise((xoff*2));
+  // xoff = xoff + 0.01;
+  linkR.position((windowWidth/2)+(offset*1.4), (windowHeight/2)-(20));
   linkA.position((windowWidth/2), (windowHeight/2)+offset*1.5);
   linkCU.position((windowWidth/2)-offset, (windowHeight/2)-(offset*1.2));
   linkE.position((windowWidth/2)-offset*2, (windowHeight/2)+offset*1.2);

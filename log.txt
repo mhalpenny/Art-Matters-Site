@@ -8,6 +8,7 @@ TO UPDATE
 5) Gabor icons
 7) slow hove text effect
 6) server speed test
+9) object function animation
 
 MAYBE
 1) research bootstrap

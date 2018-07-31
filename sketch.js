@@ -2,6 +2,8 @@ var animateR, animateA, animateCO = false;
 var fadeR, fadeA, fadeCO;
 var offset;
 var layerR, layerA, layerCO;
+var xoff = 0.0;
+var perlin = 0;
 
 function preload() {
 
@@ -120,12 +122,16 @@ function draw() {
   background(255, 30);
 
   //positioning
-  offset = windowWidth*0.1;
-  linkR.position((windowWidth/2)+offset, windowHeight/2);
+
+  offset = (windowWidth*0.1);
+  perlinX = noise((xoff*3));
+  perlinY = noise((xoff*2));
+  xoff = xoff + 0.01;
+  linkR.position((windowWidth/2)+(offset*1.4)*perlinX, (windowHeight/2)-(20*perlinY));
   linkA.position((windowWidth/2), (windowHeight/2)+offset*1.5);
-  linkCU.position((windowWidth/2)-offset, (windowHeight/2)-offset);
+  linkCU.position((windowWidth/2)-offset, (windowHeight/2)-(offset*1.2));
   linkE.position((windowWidth/2)-offset*2, (windowHeight/2)+offset*1.2);
-  linkGI.position((windowWidth/2)+offset, (windowHeight/2)+offset);
+  linkGI.position((windowWidth/2)+(offset*1.1), (windowHeight/2)+(offset*0.8));
   linkAr.position((windowWidth/2)-offset*2.5, (windowHeight/2)+(offset/2));
   linkCO.position((windowWidth/2)-offset*3, (windowHeight/2)-(offset/3));
   linkAO.position(15, 15);
@@ -134,8 +140,10 @@ function draw() {
   linkEN.position(windowWidth-60, 15);
   linkFR.position(windowWidth-35, 15);
 
-//---ANIMATION---
+//---LINK ANIMATION---
 
+
+//---ANIMATION---
 //---R---
   tint(255, fadeR);
   image(layerR, 70, -100);

@@ -9,6 +9,7 @@ TO UPDATE
 7) slow hove text effect
 6) server speed test
 9) object function animation
+10) click logo brings to top
 
 MAYBE
 1) research bootstrap

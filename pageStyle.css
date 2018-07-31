@@ -9,6 +9,10 @@ body{
   height: 100%;
   z-index: 1;
 }
+
+p{
+
+}
 a{
   /* font-family: monospace; */
   font-weight: 50;
@@ -37,6 +41,7 @@ font-style: oblique;
   /* height:70%; */
   margin-top: 10%;
   margin-left: 15%;
+  color: blue;
 }
 footer{
   position: absolute;

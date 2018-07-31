@@ -2,6 +2,8 @@ var animateR, animateE, animateCO = false;
 var fadeR, fadeE, fadeCO = 0;
 var offset;
 var layerR, layerE, layerCO;
+var logoSpin = 0;
+var logoY = 45;
 
 function preload() {
 
@@ -15,7 +17,7 @@ function setup() {
 
   //---SETUP---
   frameRate(60);
-  canvas = createCanvas(windowWidth, windowHeight);
+  canvas = createCanvas(windowWidth, windowHeight*4);
   canvas.style("z-index", "-1");
   canvas.position(0, 0);
 
@@ -126,6 +128,24 @@ function offLinkCO() {
   fadeCO = 0;
 }
 
+//---MOUSEWHEEL---
+
+function mouseWheel(event) {
+  print(event.delta);
+  //smoothen delta
+
+  //move the square according to the vertical scroll amount
+  logoSpin += 40;
+  if (logoY >= 45){
+    logoY += (event.delta);
+  } else {
+    logoY = 45;
+  }
+
+  //uncomment to block page scrolling
+  // return false;
+}
+
 
 //---***DRAW***-------------------------------------
 
@@ -186,8 +206,16 @@ function draw() {
     fadeCO += 10;
   }
 
+  //---LOGO---
+  angleMode(DEGREES);
+  imageMode(CENTER);
   tint(255, 255);
-  image(amLogo, 25, 5, 80, 80);
+  push();
+  translate(60, logoY);
+  rotate(logoSpin);
+  image(amLogo, 0, 0, 80, 80);
+  pop();
+
 
 }
 

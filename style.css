@@ -3,10 +3,12 @@ a{
   /* font-family: monospace; */
   font-weight: 50;
   font-size: 15px;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Didact Gothic', sans-serif;
+  /* font-family: 'CopyTrial-Medium', sans-serif; */
   text-decoration: none;
   color: black;
 }
+
 
 /* should be seperate ideas but cascades to all in the language div, non harmful*/
 #FR:hover{

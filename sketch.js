@@ -1,5 +1,5 @@
 var animateR, animateA, animateCO = false;
-var fadeR, fadeA, fadeCO = 0;
+var fadeR, fadeA, fadeCO;
 var offset;
 var layerR, layerA, layerCO;
 
@@ -58,6 +58,7 @@ function setup() {
   linkCO.style('letter-spacing', '5');
 
   linkAO = createA('pdf/AM_AntiO.pdf', 'ANTI-OPPRESSION STATEMENT');
+  linkAO.style('letter-spacing', '2');
 
   linkEN = createA('index.html', 'EN');
   linkFR = createA('indexFR.html', 'FR');
@@ -72,6 +73,10 @@ function setup() {
   linkCO.mouseOver(overLinkCO);
   linkCO.mouseOut(offLinkCO);
 
+  //instantiate animations.
+  fadeA = 0;
+  fadeCO = 0;
+  fadeR = 0;
 
 }
 

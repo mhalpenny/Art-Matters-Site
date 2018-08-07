@@ -3,7 +3,7 @@ var fadeR, fadeE, fadeCO = 0;
 var offset;
 var layerR, layerE, layerCO;
 var logoSpin = 0;
-var logoY = 45;
+var logoY = 50;
 
 function preload() {
 
@@ -17,7 +17,7 @@ function setup() {
 
   //---SETUP---
   frameRate(60);
-  var bodyH = document.getElementById('wrapper');
+  var bodyH = document.getElementById('gallery');
   var canvasH = bodyH.scrollHeight;
   canvas = createCanvas(windowWidth, canvasH);
   canvas.style("z-index", "-1");
@@ -142,7 +142,7 @@ function mouseWheel(event) {
   //smoothen delta
 
   //move the square according to the vertical scroll amount
-  logoSpin += (event.delta/10);
+  logoSpin += (event.delta);
 
 
   //uncomment to block page scrolling
@@ -215,7 +215,9 @@ function draw() {
   angleMode(DEGREES);
   imageMode(CENTER);
   tint(255, 255);
+
   var top = window.pageYOffset + 50;
+
   push();
   translate(55, top);
   rotate(logoSpin);

@@ -1,9 +1,23 @@
+//-------------------------------------------------------------
+//     Created by Matthew Halpenny for Art Matters 2019
+//-------------------------------------------------------------
+
+
+//-------------------------------------------------------------
+//     VARIABLES
+//-------------------------------------------------------------
+
 var animateR, animateE, animateCO = false;
 var fadeR, fadeE, fadeCO = 0;
 var offset;
 var layerR, layerE, layerCO;
 var logoSpin = 0;
 var logoY = 50;
+var time = 0;
+
+//-------------------------------------------------------------
+//     PRELOAD
+//-------------------------------------------------------------
 
 function preload() {
 
@@ -13,17 +27,27 @@ function preload() {
   amLogo = loadImage('assets/amlogo.png');
 }
 
+//-------------------------------------------------------------
+//     SETUP
+//-------------------------------------------------------------
+
 function setup() {
 
-  //---SETUP---
   frameRate(60);
+  //retrieve div id
   var bodyH = document.getElementById('gallery');
+  //use id to get div height for canvas scrolling length
   var canvasH = bodyH.scrollHeight;
+  //create canvas at appropriate length for page
   canvas = createCanvas(windowWidth, canvasH);
+  //basic canvas formatting
   canvas.style("z-index", "-1");
   canvas.position(0, 0);
 
-  //---LINKS---
+  //-------------------------------------------------------------
+  //     LINKS (SETUP)
+  //-------------------------------------------------------------
+
   // optionally migrate to CSS for all links
 
   linkR = createA('#', 'RESOURCES');
@@ -100,6 +124,101 @@ function setup() {
   fadeR = 0;
 }
 
+//-------------------------------------------------------------
+//     DRAW
+//-------------------------------------------------------------
+
+
+function draw() {
+
+  noStroke();
+  background(255, 30);
+
+  //positioning
+  offsetX = windowWidth / 5.5;
+  offsetY = windowHeight / 5;
+  linkCO.position(offsetX * 2, 40);
+  linkR.position(offsetX, 40);
+  linkE.position(offsetX * 3, 40);
+  linkAr.position((offsetX * 4) - 20, 40);
+
+  // fill(0);
+  // rect(windowWidth-60, 10, 60, 20);
+  linkEN.position(windowWidth - 80, 15);
+  linkFR.position(windowWidth - 50, 15);
+
+  //moved to html
+  linkA.position(offsetX + 50, 60);
+  linkCU.position(offsetX * 2 + 50, 60);
+  // linkAO.position(25, windowHeight - 15);
+  linkGI.position(offsetX * 3 + 50, 60);
+
+  //-------------------------------------------------------------
+  //     ANIMATIONS (DRAW)
+  //-------------------------------------------------------------
+
+  //---R---
+
+  tint(255, fadeR);
+  image(layerR, offsetX - 20, 0, 50, 100);
+
+  var c = color(255, 0, 255, fadeR);
+  fill(c);
+
+  if (animateR == true && fadeR <= 255) {
+    fadeR += 10;
+  }
+
+  //---E---
+
+  tint(255, fadeE);
+  image(layerE, (offsetX * 3) - 20, 0, 50, 100);
+
+  var c = color(255, 0, 255, fadeE);
+  fill(c);
+
+  if (animateE == true && fadeE <= 255) {
+    fadeE += 10;
+  }
+
+  //---CO---
+
+  tint(255, fadeCO);
+  image(layerCO, (offsetX * 2) - 20, 0, 50, 100);
+
+  var c = color(255, 0, 255, fadeCO);
+  fill(c);
+
+  if (animateCO == true && fadeCO <= 255) {
+    fadeCO += 10;
+  }
+
+  //---LOGO---
+
+  angleMode(DEGREES);
+  imageMode(CENTER);
+  tint(255, 255);
+  var top = window.pageYOffset + 50;
+  push();
+  translate(55, top);
+  rotate(logoSpin);
+  if (time >= 1) {
+    image(amLogo, 0, 0, 80, 80);
+    time = 0;
+  }
+  pop();
+  time++;
+}
+
+//-------------------------------------------------------------
+//     FUNCTIONS
+//-------------------------------------------------------------
+
+function windowResized() {
+  resizeCanvas(windowWidth, (windowHeight));
+
+}
+
 //---HOVER---
 
 function overLinkR() {
@@ -142,92 +261,9 @@ function mouseWheel(event) {
   //smoothen delta
 
   //move the square according to the vertical scroll amount
-  logoSpin += (event.delta);
+  logoSpin += (event.delta/2);
 
-
+  background(255);
   //uncomment to block page scrolling
   // return false;
-}
-
-
-//---***DRAW***-------------------------------------
-
-function draw() {
-
-  noStroke();
-  background(255, 30);
-
-  //positioning
-  offsetX = windowWidth / 5.5;
-  offsetY = windowHeight / 5;
-  linkCO.position(offsetX * 2, 40);
-  linkR.position(offsetX, 40);
-  linkE.position(offsetX * 3, 40);
-  linkAr.position((offsetX * 4) - 20, 40);
-
-  // fill(0);
-  // rect(windowWidth-60, 10, 60, 20);
-  linkEN.position(windowWidth - 80, 15);
-  linkFR.position(windowWidth - 50, 15);
-
-//moved to html
-  linkA.position(offsetX + 50, 60);
-  linkCU.position(offsetX*2 + 50, 60);
-  // linkAO.position(25, windowHeight - 15);
-  linkGI.position(offsetX*3 + 50, 60);
-
-  //--------------------------------
-  //             ANIMATION
-  //--------------------------------
-
-  //---R---
-  tint(255, fadeR);
-  image(layerR, offsetX-20, 0, 50, 100);
-
-  var c = color(255, 0, 255, fadeR);
-  fill(c);
-
-  if (animateR == true && fadeR <= 255) {
-    fadeR += 10;
-  }
-  //---E---
-  tint(255, fadeE);
-  image(layerE, (offsetX*3)-20, 0, 50, 100);
-
-  var c = color(255, 0, 255, fadeE);
-  fill(c);
-
-  if (animateE == true && fadeE <= 255) {
-    fadeE += 10;
-  }
-  //---CO---
-  tint(255, fadeCO);
-  image(layerCO, (offsetX*2)-20, 0, 50, 100);
-
-  var c = color(255, 0, 255, fadeCO);
-  fill(c);
-
-  if (animateCO == true && fadeCO <= 255) {
-    fadeCO += 10;
-  }
-
-  //---LOGO---
-  angleMode(DEGREES);
-  imageMode(CENTER);
-  tint(255, 255);
-
-  var top = window.pageYOffset + 50;
-
-  push();
-  translate(55, top);
-  rotate(logoSpin);
-  image(amLogo, 0, 0, 80, 80);
-  pop();
-
-
-}
-
-function windowResized() {
-  resizeCanvas(windowWidth, (windowHeight));
-
 }

@@ -32,7 +32,7 @@ a{
 
 
 /* should be seperate ideas but cascades to all in the language div, non harmful*/
-#FR:hover{
+/* #FR:hover{
 font-style: oblique;
 }
 
@@ -40,7 +40,7 @@ font-style: oblique;
   float: right;
   margin-right: 1%;
   width: 30%;
-}
+} */
 
 #gallery{
   background-color: white;
@@ -53,6 +53,7 @@ font-style: oblique;
   margin-left: 15%;
   color: blue;
 }
+
 #funding{
   width:40%;
   float:right;
@@ -69,4 +70,45 @@ footer{
   width:100%;
   height:10%;
   /* bottom: 0; */
+}
+
+#smBar{
+  float: left;
+  margin-left: 45%;
+  height:10%;
+  padding: 5px;
+}
+
+.smIcon{
+  width: 45px;
+  height: 45px;
+  border: none;
+  cursor: crosshair;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+background-color: transparent;
+}
+
+.smIcon:hover{
+  box-shadow: 0 12px 16px 0 rgba(255,255,255,0.24), 0 17px 50px 0 rgba(255,255,255,0.19);
+}
+
+
+#facebook{
+  background-image: url('assets/facebook.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+#instagram{
+  background-image: url('assets/instagram.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+#vimeo{
+  background-image: url('assets/vimeo.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
 }

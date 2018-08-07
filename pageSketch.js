@@ -51,9 +51,14 @@ function setup() {
   linkEN = createA('index.html', 'EN');
   linkEN.style('font-size', '11');
   linkEN.style('letter-spacing', '5');
+  linkEN.style('text-decoration', 'none');
+  linkEN.style('color', 'black');
+  
   linkFR = createA('indexFR.html', 'FR');
   linkFR.style('font-size', '11');
   linkFR.style('letter-spacing', '5');
+  linkFR.style('text-decoration', 'none');
+  linkFR.style('color', 'black');
 
   //moved to html
   // linkAO = createA('pdf/AM_AntiO.pdf', 'ANTI-OPPRESSION STATEMENT');

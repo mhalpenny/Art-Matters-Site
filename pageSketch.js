@@ -198,24 +198,29 @@ function draw() {
   angleMode(DEGREES);
   imageMode(CENTER);
   tint(255, 255);
-  var top = window.pageYOffset + 50;
+  var wOffset = windowWidth/800;
+  var sizeOffset = windowWidth/1000;
+  var top = window.pageYOffset + 62;
   push();
-  translate(55, top);
+  translate((60*wOffset), top);
   rotate(logoSpin);
-  if (time >= 1) {
-    image(amLogo, 0, 0, 80, 80);
-    time = 0;
-  }
+  image(amLogo, 0, 0, 85*sizeOffset, 85*sizeOffset);
   pop();
-  time++;
+
 }
+
 
 //-------------------------------------------------------------
 //     FUNCTIONS
 //-------------------------------------------------------------
 
 function windowResized() {
-  resizeCanvas(windowWidth, (windowHeight));
+
+  var bodyH = document.getElementById('gallery');
+  //use id to get div height for canvas scrolling length
+  var canvasH = bodyH.scrollHeight;
+
+  resizeCanvas(windowWidth, (canvasH));
 
 }
 
@@ -261,7 +266,7 @@ function mouseWheel(event) {
   //smoothen delta
 
   //move the square according to the vertical scroll amount
-  logoSpin += (event.delta/2);
+  logoSpin += (event.delta);
 
   background(255);
   //uncomment to block page scrolling

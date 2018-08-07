@@ -10,6 +10,9 @@ TO UPDATE
 6) server speed test
 9) object function animation
 10) click logo brings to top
+11) mobile nav bar
+12) fixed logo
+13) social icons
 
 MAYBE
 1) research bootstrap

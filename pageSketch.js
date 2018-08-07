@@ -17,7 +17,7 @@ function setup() {
 
   //---SETUP---
   frameRate(60);
-  canvas = createCanvas(windowWidth, windowHeight*4);
+  canvas = createCanvas(windowWidth, windowHeight);
   canvas.style("z-index", "-1");
   canvas.position(0, 0);
 
@@ -30,7 +30,7 @@ function setup() {
   linkR.style('letter-spacing', '5');
   linkR.style('font-size', '11');
 
-  linkAr = createA('#', 'ARCHIVE');
+  linkAr = createA('http://artmattersfestival.org/archive/', 'ARCHIVE');
   linkAr.style('text-decoration', 'none');
   linkAr.style('color', 'black');
   linkAr.style('letter-spacing', '5');
@@ -58,24 +58,24 @@ function setup() {
   //moved to html
   // linkAO = createA('pdf/AM_AntiO.pdf', 'ANTI-OPPRESSION STATEMENT');
   // linkAO.style('letter-spacing', '2');
-  //
-  // linkGI = createA('#', 'GET INVOLVED');
-  // linkGI.style('text-decoration', 'none');
-  // linkGI.style('color', 'black');
-  // linkGI.style('letter-spacing', '5');
-  // linkGI.style('font-size', '8');
-  //
-  // linkA = createA('#', 'ABOUT');
-  // linkA.style('text-decoration', 'none');
-  // linkA.style('color', 'black');
-  // linkA.style('letter-spacing', '5');
-  // linkA.style('font-size', '8');
-  //
-  // linkCU = createA('#', 'CONTACT US');
-  // linkCU.style('text-decoration', 'none');
-  // linkCU.style('color', 'black');
-  // linkCU.style('letter-spacing', '5');
-  // linkCU.style('font-size', '8');
+
+  linkGI = createA('getInvolved.html', 'GET INVOLVED');
+  linkGI.style('text-decoration', 'none');
+  linkGI.style('color', 'black');
+  linkGI.style('letter-spacing', '5');
+  linkGI.style('font-size', '8');
+
+  linkA = createA('about.html', 'ABOUT');
+  linkA.style('text-decoration', 'none');
+  linkA.style('color', 'black');
+  linkA.style('letter-spacing', '5');
+  linkA.style('font-size', '8');
+
+  linkCU = createA('#', 'CONTACT US');
+  linkCU.style('text-decoration', 'none');
+  linkCU.style('color', 'black');
+  linkCU.style('letter-spacing', '5');
+  linkCU.style('font-size', '8');
 
 
   //---EVENTS---
@@ -135,12 +135,8 @@ function mouseWheel(event) {
   //smoothen delta
 
   //move the square according to the vertical scroll amount
-  logoSpin += 40;
-  if (logoY >= 45){
-    logoY += (event.delta);
-  } else {
-    logoY = 45;
-  }
+  logoSpin += (event.delta/10);
+
 
   //uncomment to block page scrolling
   // return false;
@@ -168,12 +164,14 @@ function draw() {
   linkFR.position(windowWidth - 50, 15);
 
 //moved to html
-  // linkA.position(25, windowHeight - 15);
-  // linkCU.position(25, windowHeight - 15);
+  linkA.position(offsetX + 50, 60);
+  linkCU.position(offsetX*2 + 50, 60);
   // linkAO.position(25, windowHeight - 15);
-  // linkGI.position(25, windowHeight - 15);
+  linkGI.position(offsetX*3 + 50, 60);
 
-  //---ANIMATION---
+  //--------------------------------
+  //             ANIMATION
+  //--------------------------------
 
   //---R---
   tint(255, fadeR);
@@ -211,7 +209,7 @@ function draw() {
   imageMode(CENTER);
   tint(255, 255);
   push();
-  translate(60, logoY);
+  translate(55, 50);
   rotate(logoSpin);
   image(amLogo, 0, 0, 80, 80);
   pop();

@@ -136,10 +136,10 @@ function draw() {
   // perlinY = noise((xoff*2));
   // xoff = xoff + 0.01;
   linkR.position((windowWidth/2)+(offset*1.4), (windowHeight/2)-(20));
-  linkA.position((windowWidth/2), (windowHeight/2)+offset*1.5);
-  linkCU.position((windowWidth/2)-offset, (windowHeight/2)-(offset*1.2));
+  linkA.position((windowWidth/2), (windowHeight/2)+offset*1.3);
+  linkCU.position((windowWidth/2)-offset, (windowHeight/2)-offset*1.3);
   linkE.position((windowWidth/2)-offset*2, (windowHeight/2)+offset*1.2);
-  linkGI.position((windowWidth/2)+(offset*1.1), (windowHeight/2)+(offset*0.8));
+  linkGI.position((windowWidth/2)+(offset*1.1), (windowHeight/2)+(offset/2));
   linkAr.position((windowWidth/2)-offset*2.5, (windowHeight/2)+(offset/2));
   linkCO.position((windowWidth/2)-offset*3, (windowHeight/2)-(offset/3));
   linkAO.position(15, 15);

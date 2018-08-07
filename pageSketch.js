@@ -17,7 +17,9 @@ function setup() {
 
   //---SETUP---
   frameRate(60);
-  canvas = createCanvas(windowWidth, windowHeight);
+  var bodyH = document.getElementById('wrapper');
+  var canvasH = bodyH.scrollHeight;
+  canvas = createCanvas(windowWidth, canvasH);
   canvas.style("z-index", "-1");
   canvas.position(0, 0);
 
@@ -53,7 +55,7 @@ function setup() {
   linkEN.style('letter-spacing', '5');
   linkEN.style('text-decoration', 'none');
   linkEN.style('color', 'black');
-  
+
   linkFR = createA('indexFR.html', 'FR');
   linkFR.style('font-size', '11');
   linkFR.style('letter-spacing', '5');
@@ -213,8 +215,9 @@ function draw() {
   angleMode(DEGREES);
   imageMode(CENTER);
   tint(255, 255);
+  var top = window.pageYOffset + 50;
   push();
-  translate(55, 50);
+  translate(55, top);
   rotate(logoSpin);
   image(amLogo, 0, 0, 80, 80);
   pop();

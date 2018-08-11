@@ -12,6 +12,7 @@ var fadeR, fadeA, fadeCO, fadeMain;
 var linkOffset = 60;
 var linkBuffer = 60;
 var layerR, layerA, layerCO;
+var fadeIncr = 20;
 
 
 //-------------------------------------------------------------
@@ -33,7 +34,7 @@ function preload() {
 
 function setup() {
 
-  frameRate(15);
+  frameRate(10);
   canvas = createCanvas(windowWidth, windowHeight);
   canvas.style("z-index", "-1");
   canvas.position(0, 0);
@@ -92,7 +93,7 @@ function setup() {
 function draw() {
 
   noStroke();
-  background(255, 120);
+  background(255, 50);
 
   //positioning
   linkR.position(20, linkBuffer + linkOffset);
@@ -119,50 +120,32 @@ function draw() {
   imageMode(CENTER);
 
   //---MAIN---
+  if (mainOff == false){
   tint(255, fadeMain);
   image(layerMain, windowWidth/2, height/2, windowWidth, windowHeight);
-
-  var c = color(255, 0, 255, fadeMain);
-  fill(c);
-
-  if (mainOff == true) {
-    fadeMain -= 50;
-  } else{
-    fadeMain += 10;
+  fadeMain += fadeIncr;
+  console.log("increase");
   }
 
   //---R---
+  if (animateR == true) {
   tint(255, fadeR);
   image(layerR, windowWidth/2, height/2, windowWidth, windowHeight);
-
-  var c = color(255, 0, 255, fadeR);
-  fill(c);
-
-  if (animateR == true && fadeR <= 255) {
-    fadeR += 10;
+  fadeR += fadeIncr;
   }
 
   //---A---
+  if (animateA == true) {
   tint(255, fadeA);
   image(layerA, windowWidth/2, height/2, windowWidth, windowHeight);
-
-  var c = color(255, 0, 255, fadeA);
-  fill(c);
-
-  if (animateA == true && fadeA <= 255) {
-    fadeA += 10;
+  fadeA += fadeIncr;
   }
 
   //---CO---
+  if (animateCO == true) {
   tint(255, fadeCO);
   image(layerCO, windowWidth/2, height/2, windowWidth, windowHeight);
-
-
-  var c = color(255, 0, 255, fadeCO);
-  fill(c);
-
-  if (animateCO == true && fadeCO <= 255) {
-    fadeCO += 10;
+  fadeCO += fadeIncr;
   }
 
   //-------------------------------------------------------------
@@ -185,6 +168,8 @@ function overLinkR() {
   animateR = true;
   linkR.style('font-style', 'italic');
   mainOff = true;
+  fadeMain = 0;
+  console.log("reload off");
 }
 
 function offLinkR() {
@@ -192,12 +177,14 @@ function offLinkR() {
   fadeR = 0;
   linkR.style('font-style', 'normal');
   mainOff = false;
+  console.log("reload on");
 }
 
 function overLinkA() {
   animateA = true;
   linkA.style('font-style', 'italic');
   mainOff = true;
+  fadeMain = 0;
 }
 
 function offLinkA() {
@@ -211,6 +198,7 @@ function overLinkCO() {
   animateCO = true;
   linkCO.style('font-style', 'italic');
   mainOff = true;
+  fadeMain = 0;
 }
 
 function offLinkCO() {

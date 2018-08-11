@@ -23,11 +23,11 @@ function preload() {
 
   layerR = loadImage('assets/RedLayer.png');
   layerA = loadImage('assets/BlueLayer.png');
-  layerCO = loadImage('assets/VioletLayer.png');
+  layerE = loadImage('assets/VioletLayer.png');
   layerGI = loadImage('assets/GrayLayer.png');
-  layerCU = loadImage('assets/OrangeLayer.png');
+  layerCO = loadImage('assets/OrangeLayer.png');
   layerAO = loadImage('assets/GreenLayer.png');
-  layerE = loadImage('assets/YellowLayer.png');
+  layerCU = loadImage('assets/YellowLayer.png');
   layerMain = loadImage('assets/LayerAll.png')
   amLogo = loadImage('assets/amlogo.png');
 }
@@ -117,9 +117,9 @@ function draw() {
   linkCU.position(20, linkBuffer + linkOffset*3);
   linkE.position(20, linkBuffer + linkOffset*4);
   linkGI.position(20, linkBuffer + linkOffset*5);
-  linkAr.position(20, linkBuffer + linkOffset*6);
-  linkCO.position(20, linkBuffer + linkOffset*7);
-  linkAO.position(20, linkBuffer + linkOffset*8);
+  linkCO.position(20, linkBuffer + linkOffset*6);
+  linkAO.position(20, linkBuffer + linkOffset*7);
+  linkAr.position(20, linkBuffer + linkOffset*8);
   // fill(0);
   // rect(windowWidth-60, 10, 60, 20);
   linkEN.position(windowWidth - 60, 15);

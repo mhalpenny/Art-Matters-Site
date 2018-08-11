@@ -33,7 +33,7 @@ function preload() {
 
 function setup() {
 
-  frameRate(60);
+  frameRate(15);
   canvas = createCanvas(windowWidth, windowHeight);
   canvas.style("z-index", "-1");
   canvas.position(0, 0);
@@ -92,7 +92,7 @@ function setup() {
 function draw() {
 
   noStroke();
-  background(255, 30);
+  background(255, 120);
 
   //positioning
   linkR.position(20, linkBuffer + linkOffset);

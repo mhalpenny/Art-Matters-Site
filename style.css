@@ -11,9 +11,9 @@ p{
 a{
   /* font-family: monospace; */
   font-weight: 50;
-  font-size: 15px;
+  font-size: 12px;
   font-family: 'Didact Gothic', sans-serif;
-  /* font-family: 'CopyTrial-Medium', sans-serif; */
+  letter-spacing: 5;
   text-decoration: none;
   color: black;
 }

@@ -160,7 +160,7 @@ function draw() {
   //---R---
 
   tint(255, fadeR);
-  image(layerR, offsetX - 20, 0, 50, 100);
+  image(layerR, offsetX, 45, 50, 100);
 
   var c = color(255, 0, 255, fadeR);
   fill(c);
@@ -172,7 +172,7 @@ function draw() {
   //---E---
 
   tint(255, fadeE);
-  image(layerE, (offsetX * 3) - 20, 0, 50, 100);
+  image(layerE, (offsetX * 3), 45, 50, 100);
 
   var c = color(255, 0, 255, fadeE);
   fill(c);
@@ -184,7 +184,7 @@ function draw() {
   //---CO---
 
   tint(255, fadeCO);
-  image(layerCO, (offsetX * 2) - 20, 0, 50, 100);
+  image(layerCO, (offsetX * 2) , 45, 50, 100);
 
   var c = color(255, 0, 255, fadeCO);
   fill(c);

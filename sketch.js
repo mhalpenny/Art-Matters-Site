@@ -7,8 +7,8 @@
 //     VARIABLES
 //-------------------------------------------------------------
 
-var animateR, animateA, animateCO = false;
-var fadeR, fadeA, fadeCO;
+var animateR, animateA, animateCO, mainOff = false;
+var fadeR, fadeA, fadeCO, fadeMain;
 var linkOffset = 60;
 var linkBuffer = 60;
 var layerR, layerA, layerCO;
@@ -20,9 +20,10 @@ var layerR, layerA, layerCO;
 
 function preload() {
 
-  layerR = loadImage('assets/layerR.png');
-  layerA = loadImage('assets/layerA.png');
-  layerCO = loadImage('assets/layerCO.png');
+  layerR = loadImage('assets/RedLayer.png');
+  layerA = loadImage('assets/BlueLayer.png');
+  layerCO = loadImage('assets/VioletLayer.png');
+  layerMain = loadImage('assets/LayerAll.png')
   amLogo = loadImage('assets/amlogo.png');
 }
 
@@ -57,7 +58,6 @@ function setup() {
 
   linkCO = createA('#', 'CALL-OUTS');
 
-
   linkAO = createA('pdf/AM_AntiO.pdf', 'ANTI-OPPRESSION STATEMENT');
 
   linkEN = createA('index.html', 'EN');
@@ -80,6 +80,7 @@ function setup() {
   fadeA = 0;
   fadeCO = 0;
   fadeR = 0;
+  fadeMain = 255;
 
 }
 
@@ -114,9 +115,25 @@ function draw() {
   //     PNG ANIMATIONS (DRAW)
   //-------------------------------------------------------------
 
+  //align with the cnter of the page
+  imageMode(CENTER);
+
+  //---MAIN---
+  tint(255, fadeMain);
+  image(layerMain, windowWidth/2, height/2, windowWidth, windowHeight);
+
+  var c = color(255, 0, 255, fadeMain);
+  fill(c);
+
+  if (mainOff == true) {
+    fadeMain -= 50;
+  } else{
+    fadeMain += 10;
+  }
+
   //---R---
   tint(255, fadeR);
-  image(layerR, 70, -100);
+  image(layerR, windowWidth/2, height/2, windowWidth, windowHeight);
 
   var c = color(255, 0, 255, fadeR);
   fill(c);
@@ -124,9 +141,10 @@ function draw() {
   if (animateR == true && fadeR <= 255) {
     fadeR += 10;
   }
+
   //---A---
   tint(255, fadeA);
-  image(layerA, 70, -100);
+  image(layerA, windowWidth/2, height/2, windowWidth, windowHeight);
 
   var c = color(255, 0, 255, fadeA);
   fill(c);
@@ -134,9 +152,11 @@ function draw() {
   if (animateA == true && fadeA <= 255) {
     fadeA += 10;
   }
+
   //---CO---
   tint(255, fadeCO);
-  image(layerCO, 70, -100);
+  image(layerCO, windowWidth/2, height/2, windowWidth, windowHeight);
+
 
   var c = color(255, 0, 255, fadeCO);
   fill(c);
@@ -164,30 +184,40 @@ function draw() {
 function overLinkR() {
   animateR = true;
   linkR.style('font-style', 'italic');
+  mainOff = true;
 }
 
 function offLinkR() {
   animateR = false;
   fadeR = 0;
   linkR.style('font-style', 'normal');
+  mainOff = false;
 }
 
 function overLinkA() {
   animateA = true;
+  linkA.style('font-style', 'italic');
+  mainOff = true;
 }
 
 function offLinkA() {
   animateA = false;
   fadeA = 0;
+  linkA.style('font-style', 'normal');
+  mainOff = false;
 }
 
 function overLinkCO() {
   animateCO = true;
+  linkCO.style('font-style', 'italic');
+  mainOff = true;
 }
 
 function offLinkCO() {
   animateCO = false;
   fadeCO = 0;
+  linkCO.style('font-style', 'normal');
+  mainOff = false;
 }
 
 function windowResized() {

@@ -13,6 +13,8 @@ TO UPDATE
 11) mobile nav bar
 12) fixed logo
 13) social icons
+***only draw images if not full
+***only draw background on call
 
 MAYBE
 1) research bootstrap

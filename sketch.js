@@ -7,7 +7,7 @@
 //     VARIABLES
 //-------------------------------------------------------------
 
-var animateR, animateA, animateCO, mainOff = false;
+var animateR, animateA, animateCO, mainOff, erase = false;
 var fadeR, fadeA, fadeCO, fadeMain;
 var linkOffset = 60;
 var linkBuffer = 60;
@@ -80,7 +80,11 @@ function setup() {
   fadeA = 0;
   fadeCO = 0;
   fadeR = 0;
-  fadeMain = 255;
+
+  //draw main image
+  imageMode(CENTER);
+  tint(255, 255);
+  image(layerMain, windowWidth/2, height/2, windowWidth, windowHeight);
 
 }
 
@@ -92,7 +96,10 @@ function setup() {
 function draw() {
 
   noStroke();
-  background(255, 30);
+  //only draw the background if needed
+  if (erase == true){
+  background(255, 100);
+ }
 
   //positioning
   linkR.position(20, linkBuffer + linkOffset);
@@ -120,23 +127,23 @@ function draw() {
 
   //---MAIN---
   tint(255, fadeMain);
+  if (fadeMain < 255){
   image(layerMain, windowWidth/2, height/2, windowWidth, windowHeight);
-
+  }
   var c = color(255, 0, 255, fadeMain);
   fill(c);
 
   if (mainOff == true) {
     fadeMain -= 50;
-  } else{
+  } else if (mainOff == false){
     fadeMain += 10;
   }
 
   //---R---
   tint(255, fadeR);
+  if (fadeR < 255){
   image(layerR, windowWidth/2, height/2, windowWidth, windowHeight);
-
-  var c = color(255, 0, 255, fadeR);
-  fill(c);
+}
 
   if (animateR == true && fadeR <= 255) {
     fadeR += 10;
@@ -144,23 +151,18 @@ function draw() {
 
   //---A---
   tint(255, fadeA);
+  if (fadeA < 255){
   image(layerA, windowWidth/2, height/2, windowWidth, windowHeight);
-
-  var c = color(255, 0, 255, fadeA);
-  fill(c);
-
+}
   if (animateA == true && fadeA <= 255) {
     fadeA += 10;
   }
 
   //---CO---
   tint(255, fadeCO);
+  if (fadeCO < 255){
   image(layerCO, windowWidth/2, height/2, windowWidth, windowHeight);
-
-
-  var c = color(255, 0, 255, fadeCO);
-  fill(c);
-
+}
   if (animateCO == true && fadeCO <= 255) {
     fadeCO += 10;
   }
@@ -185,6 +187,11 @@ function overLinkR() {
   animateR = true;
   linkR.style('font-style', 'italic');
   mainOff = true;
+  if (fadeR < 200){
+  erase = true;
+} else{
+  erase = false;
+}
 }
 
 function offLinkR() {
@@ -192,12 +199,14 @@ function offLinkR() {
   fadeR = 0;
   linkR.style('font-style', 'normal');
   mainOff = false;
+  erase = false;
 }
 
 function overLinkA() {
   animateA = true;
   linkA.style('font-style', 'italic');
   mainOff = true;
+  erase = true;
 }
 
 function offLinkA() {
@@ -205,12 +214,14 @@ function offLinkA() {
   fadeA = 0;
   linkA.style('font-style', 'normal');
   mainOff = false;
+  erase = false;
 }
 
 function overLinkCO() {
   animateCO = true;
   linkCO.style('font-style', 'italic');
   mainOff = true;
+  erase = true;
 }
 
 function offLinkCO() {
@@ -218,6 +229,7 @@ function offLinkCO() {
   fadeCO = 0;
   linkCO.style('font-style', 'normal');
   mainOff = false;
+  erase = false;
 }
 
 function windowResized() {

@@ -12,7 +12,7 @@ var fadeR, fadeA, fadeCO, fadeE, fadeAO, fadeCU, fadeGI, fadeMain;
 var linkOffset = 60;
 var linkBuffer = 60;
 var layerR, layerA, layerCO, layerE, layerAO, layerCU, layerGI;
-var fadeIncr = 20;
+var fadeIncr = 30;
 
 
 //-------------------------------------------------------------
@@ -28,7 +28,7 @@ function preload() {
   layerCO = loadImage('assets/OrangeLayer.png');
   layerAO = loadImage('assets/GreenLayer.png');
   layerCU = loadImage('assets/YellowLayer.png');
-  layerMain = loadImage('assets/LayerAll.png')
+  layerMain = loadImage('assets/LayerAllFull.png')
   amLogo = loadImage('assets/amlogo.png');
 }
 
@@ -38,7 +38,7 @@ function preload() {
 
 function setup() {
 
-  frameRate(10);
+  frameRate(15);
   canvas = createCanvas(windowWidth, windowHeight);
   canvas.style("z-index", "-1");
   canvas.position(0, 0);

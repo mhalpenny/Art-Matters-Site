@@ -11,6 +11,7 @@ var animateR, animateA, animateCO, animateGI, animateAr, animateE, animateCU, ma
 var fadeR, fadeA, fadeCO, fadeE, fadeAr, fadeCU, fadeGI, fadeMain;
 var linkOffset, linkBuffer;
 var layerR, layerA, layerCO, layerE, layerAr, layerCU, layerGI;
+var iconR, iconA, iconCO, iconE, iconAr, iconCU, iconGI;
 var fadeIncr = 35;
 // var cpuPause = false;
 

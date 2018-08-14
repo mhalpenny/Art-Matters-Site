@@ -21,6 +21,7 @@ var fadeIncr = 35;
 
 function preload() {
 
+//layers
   layerR = loadImage('assets/RedLayer.png');
   layerA = loadImage('assets/BlueLayer.png');
   layerE = loadImage('assets/VioletLayer.png');
@@ -28,10 +29,20 @@ function preload() {
   layerCO = loadImage('assets/OrangeLayer.png');
   layerAO = loadImage('assets/GreenLayer.png');
   layerCU = loadImage('assets/YellowLayer.png');
-  layerMain = loadImage('assets/LayerAll80.png')
+  layerMain = loadImage('assets/LayerAll80.png');
+  //icons
+  iconR = loadImage('assets/rIcon.png');
+  iconA = loadImage('assets/bIcon.png');
+  iconE = loadImage('assets/vIcon.png');
+  iconGI = loadImage('assets/gyIcon.png');
+  iconCO = loadImage('assets/oIcon.png');
+  iconAO = loadImage('assets/gIcon.png');
+  iconCU = loadImage('assets/yIcon.png');
+  //logo
   amLogo = loadImage('assets/amlogo.png');
 }
 
+//-------------------------------------------------------------
 //-------------------------------------------------------------
 //     SETUP
 //-------------------------------------------------------------
@@ -117,7 +128,7 @@ function draw() {
 
 if (windowWidth > 650){
   //variable math
-  linkOffset = 70 - (windowHeight)*0.01
+  linkOffset = 70 - (windowHeight)*0.02
   linkBuffer = 70 - (windowHeight)*0.015
   var linkMargin = 29;
 } else {
@@ -175,6 +186,7 @@ if (windowWidth > 650){
   if (animateR == true) {
   tint(255, fadeR);
   image(layerR, windowWidth/2, height/2, windowWidth, windowHeight);
+  image(iconR, linkMargin, (linkBuffer + linkOffset), 50, 50);
   fadeR += fadeIncr;
   }
 
@@ -182,6 +194,7 @@ if (windowWidth > 650){
   if (animateA == true) {
   tint(255, fadeA);
   image(layerA, windowWidth/2, height/2, windowWidth, windowHeight);
+  image(iconA, linkMargin, (linkBuffer + linkOffset*2), 50, 50);
   fadeA += fadeIncr;
   }
 
@@ -189,6 +202,7 @@ if (windowWidth > 650){
   if (animateCO == true) {
   tint(255, fadeCO);
   image(layerCO, windowWidth/2, height/2, windowWidth, windowHeight);
+  image(iconCO, linkMargin, (linkBuffer + linkOffset*6), 50, 50);
   fadeCO += fadeIncr;
   }
 
@@ -196,6 +210,7 @@ if (windowWidth > 650){
   if (animateGI == true) {
   tint(255, fadeGI);
   image(layerGI, windowWidth/2, height/2, windowWidth, windowHeight);
+  image(iconGI, linkMargin, (linkBuffer + linkOffset*5), 50, 50);
   fadeGI += fadeIncr;
   }
 
@@ -203,6 +218,7 @@ if (windowWidth > 650){
   if (animateAO == true) {
   tint(255, fadeAO);
   image(layerAO, windowWidth/2, height/2, windowWidth, windowHeight);
+  image(iconAO, linkMargin, (linkBuffer + linkOffset*7), 50, 50);
   fadeAO += fadeIncr;
   }
 
@@ -210,6 +226,7 @@ if (windowWidth > 650){
   if (animateCU == true) {
   tint(255, fadeCU);
   image(layerCU, windowWidth/2, height/2, windowWidth, windowHeight);
+  image(iconCU, linkMargin, (linkBuffer + linkOffset*3), 50, 50);
   fadeCU += fadeIncr;
   }
 
@@ -217,6 +234,7 @@ if (windowWidth > 650){
   if (animateE == true) {
   tint(255, fadeE);
   image(layerE, windowWidth/2, height/2, windowWidth, windowHeight);
+  image(iconE, linkMargin, (linkBuffer + linkOffset*4), 50, 50);
   fadeE += fadeIncr;
   }
 
@@ -227,11 +245,11 @@ if (windowWidth > 650){
   if (windowWidth > 650){
     imageMode(CENTER);
     tint(255, 255);
-    image(amLogo, 60, 50, 95, 95);
+    image(amLogo, 70, 50, 105, 105);
   } else {
     imageMode(CENTER);
     tint(255, 255);
-    image(amLogo, 50, 50, 70, 70);
+    image(amLogo, 65, 50, 90, 90);
   }
 
 }

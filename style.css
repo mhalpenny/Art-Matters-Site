@@ -9,11 +9,11 @@ p{
 }
 
 a{
-  /* font-family: monospace; */
+  /* font-family: Helvetica; */
   font-weight: 50;
   font-size: 12px;
   font-family: 'Didact Gothic', sans-serif;
-  letter-spacing: 5;
+  letter-spacing: 5px;
   text-decoration: none;
   color: black;
 }

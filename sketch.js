@@ -112,14 +112,14 @@ function draw() {
   background(255, 50);
 
   //positioning
-  linkR.position(20, linkBuffer + linkOffset);
-  linkA.position(20, linkBuffer + linkOffset*2);
-  linkCU.position(20, linkBuffer + linkOffset*3);
-  linkE.position(20, linkBuffer + linkOffset*4);
-  linkGI.position(20, linkBuffer + linkOffset*5);
-  linkCO.position(20, linkBuffer + linkOffset*6);
-  linkAO.position(20, linkBuffer + linkOffset*7);
-  linkAr.position(20, linkBuffer + linkOffset*8);
+  linkR.position(28, linkBuffer + linkOffset);
+  linkA.position(28, linkBuffer + linkOffset*2);
+  linkCU.position(28, linkBuffer + linkOffset*3);
+  linkE.position(28, linkBuffer + linkOffset*4);
+  linkGI.position(28, linkBuffer + linkOffset*5);
+  linkCO.position(28, linkBuffer + linkOffset*6);
+  linkAO.position(28, linkBuffer + linkOffset*7);
+  linkAr.position(28, linkBuffer + linkOffset*8);
   // fill(0);
   // rect(windowWidth-60, 10, 60, 20);
   linkEN.position(windowWidth - 60, 15);
@@ -139,7 +139,8 @@ function draw() {
   if (mainOff == false){
   tint(255, fadeMain);
   image(layerMain, windowWidth/2, height/2, windowWidth, windowHeight);
-  fadeMain += fadeIncr;
+  // fadeMain += fadeIncr;
+  fadeMain += 20;
   console.log("increase");
   }
 

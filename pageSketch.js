@@ -207,7 +207,6 @@ function draw() {
     if (windowWidth > 650){
   translate(linkMargin*2.5, topNew);
   rotate(logoSpin);
-  background(255);
   image(amLogo, 0, 0, 100, 100);
 } else{
   translate(linkMargin*1.5, topNew);
@@ -342,7 +341,7 @@ function offLinkE() {
 function mouseWheel(event) {
   print(event.delta);
   //smoothen delta
-
+  background(255);
   //move the square according to the vertical scroll amount
   logoSpin += (event.delta);
 

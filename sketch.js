@@ -9,10 +9,10 @@
 
 var animateR, animateA, animateCO, animateGI, animateAO, animateE, animateCU, mainOff = false;
 var fadeR, fadeA, fadeCO, fadeE, fadeAO, fadeCU, fadeGI, fadeMain;
-var linkOffset = 60;
-var linkBuffer = 60;
+var linkOffset, linkBuffer;
 var layerR, layerA, layerCO, layerE, layerAO, layerCU, layerGI;
 var fadeIncr = 35;
+// var cpuPause = false;
 
 
 //-------------------------------------------------------------
@@ -111,6 +111,14 @@ function draw() {
   noStroke();
   background(255, 50);
 
+  // if (cpuPause == false){
+  //   background(255, 50);
+  // }
+
+  //variable math
+  linkOffset = 70 - (windowHeight)*0.01
+  linkBuffer = 70 - (windowHeight)*0.02
+
   //positioning
   linkR.position(28, linkBuffer + linkOffset);
   linkA.position(28, linkBuffer + linkOffset*2);
@@ -127,7 +135,6 @@ function draw() {
 
 
 
-
   //-------------------------------------------------------------
   //     PNG ANIMATIONS (DRAW)
   //-------------------------------------------------------------
@@ -136,13 +143,26 @@ function draw() {
   imageMode(CENTER);
 
   //---MAIN---
+  // if (mainOff == false && cpuPause == false){
   if (mainOff == false){
   tint(255, fadeMain);
   image(layerMain, windowWidth/2, height/2, windowWidth, windowHeight);
   // fadeMain += fadeIncr;
-  fadeMain += 20;
-  console.log("increase");
+  fadeMain += fadeIncr;
   }
+
+  //pause animation if already at max
+  // if (fadeMain <= 20){
+  //   cpuPause = false;
+  // } else if (fadeMain == 500){
+  //   cpuPause = true;
+  // }
+
+//debugging
+  // fill(0);
+  // textSize(14);
+  // text(fadeMain, 200, 20);
+  // text(fadeR, 250, 20);
 
   //---R---
   if (animateR == true) {

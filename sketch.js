@@ -115,21 +115,28 @@ function draw() {
   //   background(255, 50);
   // }
 
+if (windowWidth > 650){
   //variable math
   linkOffset = 70 - (windowHeight)*0.01
-  linkBuffer = 70 - (windowHeight)*0.02
+  linkBuffer = 70 - (windowHeight)*0.015
+  var linkMargin = 29;
+} else {
+  //variable math
+  linkOffset = 50 - (windowHeight)*0.01
+  linkBuffer = 70 - (windowHeight)*0.015
+  var linkMargin = 29;
+}
 
   //positioning
-  linkR.position(28, linkBuffer + linkOffset);
-  linkA.position(28, linkBuffer + linkOffset*2);
-  linkCU.position(28, linkBuffer + linkOffset*3);
-  linkE.position(28, linkBuffer + linkOffset*4);
-  linkGI.position(28, linkBuffer + linkOffset*5);
-  linkCO.position(28, linkBuffer + linkOffset*6);
-  linkAO.position(28, linkBuffer + linkOffset*7);
-  linkAr.position(28, linkBuffer + linkOffset*8);
-  // fill(0);
-  // rect(windowWidth-60, 10, 60, 20);
+  linkR.position(linkMargin, linkBuffer + linkOffset);
+  linkA.position(linkMargin, linkBuffer + linkOffset*2);
+  linkCU.position(linkMargin, linkBuffer + linkOffset*3);
+  linkE.position(linkMargin, linkBuffer + linkOffset*4);
+  linkGI.position(linkMargin, linkBuffer + linkOffset*5);
+  linkCO.position(linkMargin, linkBuffer + linkOffset*6);
+  linkAO.position(linkMargin, linkBuffer + linkOffset*7);
+  linkAr.position(linkMargin, linkBuffer + linkOffset*8);
+
   linkEN.position(windowWidth - 60, 15);
   linkFR.position(windowWidth - 35, 15);
 
@@ -217,9 +224,15 @@ function draw() {
   //     LOGO ANIMATION (DRAW)
   //-------------------------------------------------------------
 
-  imageMode(CENTER);
-  tint(255, 255);
-  image(amLogo, 60, 50, 95, 95);
+  if (windowWidth > 650){
+    imageMode(CENTER);
+    tint(255, 255);
+    image(amLogo, 60, 50, 95, 95);
+  } else {
+    imageMode(CENTER);
+    tint(255, 255);
+    image(amLogo, 50, 50, 70, 70);
+  }
 
 }
 

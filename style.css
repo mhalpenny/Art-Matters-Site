@@ -12,7 +12,7 @@ a{
   /* font-family: Helvetica; */
   font-size: 12px;
   font-family: 'Didact Gothic', sans-serif;
-  font-weight: 50;
+  font-weight: bold;
   letter-spacing: 5px;
   text-decoration: none;
   color: black;
@@ -28,4 +28,10 @@ font-style: oblique;
   float: right;
   margin-right: 1%;
   width: 30%;
+}
+
+@media only screen and (max-width: 650px) {
+  a{
+    text-shadow: 1px 1px white;
+}
 }

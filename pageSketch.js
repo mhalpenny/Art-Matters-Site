@@ -74,6 +74,14 @@ function setup() {
   linkEN = createA('index.html', 'EN');
   linkFR = createA('indexFR.html', 'FR');
 
+  home = createA('index.html', 'O');
+  //debugging
+  // home.style('color', 'black');
+  home.style('color', 'transparent');
+  home.style('font-size', '72px');
+  home.class('noselect');
+
+
   //---EVENTS---
 
   linkR.mouseOver(overLinkR);
@@ -90,6 +98,7 @@ function setup() {
   linkCU.mouseOut(offLinkCU);
   linkAr.mouseOver(overLinkAr);
   linkAr.mouseOut(offLinkAr);
+
 
   //instantiate animations.
   fadeA = 0;
@@ -138,6 +147,8 @@ function draw() {
 
     linkEN.position(windowWidth - 65, 15);
     linkFR.position(windowWidth - 35, 15);
+
+
 
   //-------------------------------------------------------------
   //     PNG ANIMATIONS (DRAW)
@@ -203,6 +214,7 @@ function draw() {
   var wOffset = windowWidth/800;
   var sizeOffset = windowWidth/1000;
   var topNew = top + 62;
+  home.position(linkMargin + 13, topNew - 35);
   push();
     if (windowWidth > 650){
   translate(linkMargin*2.5, topNew);
@@ -349,7 +361,6 @@ function mouseWheel(event) {
   //uncomment to block page scrolling
   // return false;
 }
-
 
 function windowResized() {
 

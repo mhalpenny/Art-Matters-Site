@@ -12,7 +12,7 @@ var offset;
 var logoSpin = 0;
 var logoY = 50;
 var animateR, animateA, animateCO, animateGI, animateAr, animateE, animateCU, mainOff = false;
-var fadeR, fadeA, fadeCO, fadeE, fadeAr, fadeCU, fadeGI, fadeMain;
+var fadeR, fadeA, fadeCO, fadeE, fadeAr, fadeCU, fadeGI, fadeBack;
 var linkOffset, linkBuffer;
 var fadeIncr = 35;
 // var cpuPause = false;
@@ -40,7 +40,7 @@ function preload() {
 
 function setup() {
 
-  frameRate(12);
+  frameRate(15);
   //retrieve div id
   var bodyH = document.getElementById('gallery');
   //use id to get div height for canvas scrolling length
@@ -108,6 +108,7 @@ function setup() {
   fadeCU = 0;
   fadeE = 0;
   fadeGI = 0;
+  fadeBack = 50;
 
 }
 
@@ -119,8 +120,9 @@ function setup() {
 function draw() {
 
   noStroke();
-  background(255, 50);
-
+  background(255, fadeBack);
+  fadeBack = 50;
+  
   var top = window.pageYOffset;
 
   if (windowWidth > 650){
@@ -353,11 +355,10 @@ function offLinkE() {
 function mouseWheel(event) {
   print(event.delta);
   //smoothen delta
-  background(255);
+  fadeBack = 255;
   //move the square according to the vertical scroll amount
   logoSpin += (event.delta);
 
-  // background(255);
   //uncomment to block page scrolling
   // return false;
 }

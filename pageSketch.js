@@ -126,22 +126,6 @@ function draw() {
   background(255, fadeBack);
   fadeBack = 50;
 
-
-//---DIV BACKGROUND---
-  var myDiv = document.getElementById('artists');
-  // var bColor = color(bColorVal, 0, 0);
-  //
-  // myDiv.style.backgroundImage = "url('assets/div.jpg')";
-  // myDiv.style.backgroundImage = 'url(' +bDiv+ ')';
-
-  var rect = myDiv.getBoundingClientRect();
-  imageMode(CORNER);
-  var wDiv = rect.right - rect.left;
-  var hDiv = rect.bottom - rect.top;
-  image(bDiv, rect.left, rect.top, wDiv, hDiv);
-
-
-
   //---NAV---
   var top = window.pageYOffset;
 
@@ -157,7 +141,21 @@ function draw() {
     var linkMargin = 29;
   }
 
-    //positioning
+  //---DIV BACKGROUND---
+    var myDiv = document.getElementById('artists');
+    // var bColor = color(bColorVal, 0, 0);
+    //
+    // myDiv.style.backgroundImage = "url('assets/div.jpg')";
+    // myDiv.style.backgroundImage = 'url(' +bDiv+ ')';
+
+    var rect = myDiv.getBoundingClientRect();
+    imageMode(CORNER);
+    var wDiv = rect.right - rect.left;
+    var hDiv = rect.bottom - rect.top;
+    image(bDiv, rect.left, rect.top+top, wDiv, hDiv);
+
+
+    //---LINK POSITION---
     linkR.position(linkMargin, linkBuffer + linkOffset);
     linkA.position(linkMargin, linkBuffer + linkOffset*2);
     linkCU.position(linkMargin, linkBuffer + linkOffset*3);

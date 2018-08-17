@@ -24,12 +24,14 @@ body{
 p{
   font-weight: 50;
   font-size: 12px;
-  font-family: 'Didact Gothic', sans-serif;
+  font-family: 'Open Sans', sans-serif;
   line-height: 2;
-  letter-spacing: 2;
+  letter-spacing: 1.5;
   /* font-family: 'CopyTrial-Medium', sans-serif; */
   text-decoration: none;
   color: black;
+  background-color: white;
+  padding: 5%;
 }
 
 a{
@@ -55,7 +57,7 @@ font-style: oblique;
 
 #gallery{
   background-color: white;
-  border: 1px solid black;
+  /* border: 1px solid black; */
   padding: 5px;
 
   width:80%;
@@ -66,16 +68,40 @@ font-style: oblique;
   float: right;
 }
 
+#about{
+  width:80%;
+  float:left;
+  overflow:hidden;
+  margin-left: 12%;
+  padding: 3%;
+  background-color: #fc1364;
+  margin-bottom: 5%;
+}
+
 #funding{
   width:40%;
   float:right;
   overflow:hidden;
+  padding: 3%;
+  background-color: #efc458;
 }
 #hours{
   width:40%;
   float:left;
   overflow:hidden;
+  padding: 3%;
+    background-color: #114251;
 }
+
+#artists{
+  width:40%;
+  float:left;
+  overflow:hidden;
+  padding: 3%;
+    background-color: #114251;
+}
+
+
 
 footer{
  position: relative;

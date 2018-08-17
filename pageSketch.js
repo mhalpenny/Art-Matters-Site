@@ -174,6 +174,8 @@ function draw() {
   //     PNG ANIMATIONS (DRAW)
   //-------------------------------------------------------------
 
+  imageMode(CENTER);
+  
   //---R---
   if (animateR == true) {
   tint(255, fadeR);

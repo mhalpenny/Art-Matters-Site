@@ -19,3 +19,14 @@ TO UPDATE
 MAYBE
 1) research bootstrap
 2)draggable divs
+
+AM
+
+1) light background
+2) texture boxes
+3) remove call outs and CONTACT
+4) add media & calendar eventually
+5) new font
+6) map eventually
+7) forms two submissions, anonymous & contact
+two master lists - 1) names and info (coordinators) 2) totally anonymous, just student number and keywords (color coded keywords - not me)

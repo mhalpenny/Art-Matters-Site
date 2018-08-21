@@ -8,10 +8,12 @@ p{
   letter-spacing: 5;
 }
 
+
 a{
-  /* font-family: Helvetica; */
-  font-size: 12px;
-  font-family: 'Didact Gothic', sans-serif;
+  font-size: 20px;
+  /* font-family: 'Didact Gothic', sans-serif; */
+  /* font-family: 'Cabin Sketch', cursive; */
+font-family: 'Londrina Shadow', cursive;
   font-weight: normal;
   letter-spacing: 5px;
   text-decoration: none;
@@ -28,6 +30,13 @@ font-style: oblique;
   float: right;
   margin-right: 1%;
   width: 30%;
+
+  font-size: 12px;
+  font-family: 'Didact Gothic', sans-serif;
+  font-weight: normal;
+  letter-spacing: 5px;
+  text-decoration: none;
+  color: black;
 }
 
 @media only screen and (max-width: 650px) {

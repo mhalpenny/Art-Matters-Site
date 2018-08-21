@@ -78,7 +78,10 @@ function setup() {
   // linkAO = createA('pdf/AM_AntiO.pdf', 'ANTI-OPPRESSION STATEMENT');
 
   linkEN = createA('index.html', 'EN');
+  linkEN.id('lang');
   linkFR = createA('indexFR.html', 'FR');
+  linkFR.id('lang');
+
 
 
   //-------------------------------------------------------------
@@ -121,7 +124,9 @@ function setup() {
 function draw() {
 
   noStroke();
-  background(255, 50);
+  background(239, 251, 252, 50);
+  // background(255, 251, 242, 50);
+  // background(255, 234, 234, 50);
 
   // if (cpuPause == false){
   //   background(255, 50);
@@ -374,5 +379,5 @@ function offLinkE() {
 
 function windowResized() {
   resizeCanvas(windowWidth, (windowHeight));
-
+  background(239, 251, 252);
 }

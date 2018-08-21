@@ -75,7 +75,9 @@ function setup() {
   // linkAO = createA('pdf/AM_AntiO.pdf', 'ANTI-OPPRESSION STATEMENT');
 
   linkEN = createA('index.html', 'EN');
+  linkEN.id('lang');
   linkFR = createA('indexFR.html', 'FR');
+  linkFR.id('lang');
 
   home = createA('index.html', 'O');
   //debugging
@@ -123,7 +125,8 @@ function setup() {
 function draw() {
 
   noStroke();
-  background(255, fadeBack);
+  // background(255, fadeBack);
+  background(251, 251, 255, fadeBack);
   fadeBack = 50;
 
 
@@ -375,5 +378,7 @@ function windowResized() {
   var canvasH = bodyH.scrollHeight;
 
   resizeCanvas(windowWidth, (canvasH));
+
+  background(239, 251, 252);
 
 }

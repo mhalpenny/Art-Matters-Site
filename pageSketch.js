@@ -54,6 +54,8 @@ function setup() {
   canvas.style("z-index", "-1");
   canvas.position(0, 0);
 
+  background(17, 66, 81, 50);
+
   //-------------------------------------------------------------
   //     LINKS (SETUP)
   //-------------------------------------------------------------
@@ -75,7 +77,9 @@ function setup() {
   // linkAO = createA('pdf/AM_AntiO.pdf', 'ANTI-OPPRESSION STATEMENT');
 
   linkEN = createA('index.html', 'EN');
+  linkEN.id('lang');
   linkFR = createA('indexFR.html', 'FR');
+  linkFR.id('lang');
 
   home = createA('index.html', 'O');
   //debugging
@@ -123,7 +127,7 @@ function setup() {
 function draw() {
 
   noStroke();
-  background(255, fadeBack);
+  background(17, 66, 81, fadeBack);
   fadeBack = 50;
 
   //---NAV---
@@ -175,7 +179,7 @@ function draw() {
   //-------------------------------------------------------------
 
   imageMode(CENTER);
-  
+
   //---R---
   if (animateR == true) {
   tint(255, fadeR);
@@ -390,5 +394,7 @@ function windowResized() {
   var canvasH = bodyH.scrollHeight;
 
   resizeCanvas(windowWidth, (canvasH));
+
+  background(17, 66, 81, 50);
 
 }

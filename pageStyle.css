@@ -22,7 +22,7 @@ body{
 }
 
 p{
-  font-weight: 50;
+  /* font-weight: 50; */
   font-size: 12px;
   font-family: 'Open Sans', sans-serif;
   line-height: 2;
@@ -35,8 +35,10 @@ p{
 }
 
 a{
-  font-size: 11px;
-  font-family: 'Didact Gothic', sans-serif;
+  font-size: 22px;
+  /* font-family: 'Didact Gothic', sans-serif; */
+  /* font-family: 'Cabin Sketch', cursive; */
+font-family: 'Londrina Shadow', cursive;
   font-weight: normal;
   letter-spacing: 5px;
   text-decoration: none;
@@ -45,15 +47,22 @@ a{
 
 
 /* should be seperate ideas but cascades to all in the language div, non harmful*/
-/* #FR:hover{
+ /* #FR:hover{
 font-style: oblique;
-}
+} */
 
 #lang{
   float: right;
   margin-right: 1%;
   width: 30%;
-} */
+
+  font-size: 12px;
+  font-family: 'Didact Gothic', sans-serif;
+  font-weight: normal;
+  letter-spacing: 5px;
+  text-decoration: none;
+  color: black;
+}
 
 #gallery{
   background-color: transparent;
@@ -69,28 +78,31 @@ font-style: oblique;
 }
 
 #about{
-  width:80%;
+  width:70%;
   float:left;
   overflow:hidden;
-  margin-left: 12%;
-  padding: 3%;
+  margin-left: 5%;
+  padding: 5%;
   background-color: #fc1364;
-  margin-bottom: 5%;
+  margin-bottom: 7%;
 }
 
 #funding{
-  width:40%;
+  width:70%;
   float:right;
   overflow:hidden;
-  padding: 3%;
+  padding: 5%;
   background-color: #efc458;
+  margin-bottom: 7%;
 }
 #hours{
-  width:40%;
+  width:70%;
   float:left;
   overflow:hidden;
-  padding: 3%;
-    background-color: #114251;
+  margin-left: 5%;
+  padding: 5%;
+  background-color: #114251;
+  margin-bottom: 7%;
 }
 
 #artists{
@@ -154,3 +166,13 @@ background-color: transparent;
   background-position: center;
   background-size: contain;
 }
+
+/* @media only screen and (min-width: 1000px) {
+  p{
+    font-size: 12px;
+  }
+  a{
+    font-size: 18px;
+  }
+
+} */

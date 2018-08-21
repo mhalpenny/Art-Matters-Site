@@ -30,3 +30,4 @@ AM
 6) map eventually
 7) forms two submissions, anonymous & contact
 two master lists - 1) names and info (coordinators) 2) totally anonymous, just student number and keywords (color coded keywords - not me)
+8) large res screen compat

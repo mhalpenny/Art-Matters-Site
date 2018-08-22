@@ -126,7 +126,7 @@ function draw() {
 
   noStroke();
   // background(255, fadeBack);
-  background(251, 251, 255, fadeBack);
+  background(255, fadeBack);
   fadeBack = 50;
 
 
@@ -135,9 +135,9 @@ function draw() {
 
   if (windowWidth > 650){
     //variable math
-    linkOffset = 50;
+    linkOffset = 55;
     linkBuffer = top + 80;
-    var linkMargin = 29;
+    var linkMargin = 35;
   } else {
     //variable math
     linkOffset = 50;
@@ -379,6 +379,5 @@ function windowResized() {
 
   resizeCanvas(windowWidth, (canvasH));
 
-  background(239, 251, 252);
 
 }

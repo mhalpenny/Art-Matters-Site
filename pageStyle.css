@@ -30,19 +30,29 @@ p{
   /* font-family: 'CopyTrial-Medium', sans-serif; */
   text-decoration: none;
   color: black;
-  background-color: white;
+  background-color: rgba(255, 255, 255, 0.92);
   padding: 5%;
 }
 
 a{
-  font-size: 22px;
+  font-size: 20px;
   /* font-family: 'Didact Gothic', sans-serif; */
   /* font-family: 'Cabin Sketch', cursive; */
-font-family: 'Londrina Shadow', cursive;
-  font-weight: normal;
+/* font-family: 'Londrina Shadow', cursive; */
+/* font-family: 'Dosis', sans-serif; */
+ font-family: NAV;
+  font-weight: bold;
   letter-spacing: 5px;
   text-decoration: none;
   color: black;
+  text-align: right;
+
+}
+
+
+@font-face {
+    font-family: NAV;
+    src: url("fonts/Lack-Line-Regular.otf") format("opentype");
 }
 
 
@@ -69,38 +79,79 @@ font-style: oblique;
   /* border: 1px solid black; */
   padding: 5px;
 
-  width:80%;
-  height:190%;
+  width:70%;
+  /* height:190%; */
   margin-top: 8%;
-  margin-right: 2%;
+  margin-right: 3%;
   color: blue;
   float: right;
 }
 
-#about{
-  width:70%;
+
+.boxTitleRed{
+  width: 100%;
+  float:left;
+  font-size: 24px;
+  font-family: NAV;
+  line-height: 2;
+  letter-spacing: 5;
+  /* font-family: 'CopyTrial-Medium', sans-serif; */
+  text-decoration: none;
+  color: #fc1364;
+
+}
+
+.boxTitleYellow{
+  width:100%;
+  text-align: right;
+  right:0;
+  font-size: 24px;
+  font-family: NAV;
+  line-height: 2;
+  letter-spacing: 5;
+  text-decoration: none;
+  color: #efc458;
+
+}
+
+.boxTitleBlue{
+  width: 100%;
+  float:left;
+  font-size: 24px;
+  font-family: NAV;
+  line-height: 2;
+  letter-spacing: 5;
+  /* font-family: 'CopyTrial-Medium', sans-serif; */
+  text-decoration: none;
+  color: #114251;
+
+}
+
+.boxRed{
+  width:75%;
   float:left;
   overflow:hidden;
-  margin-left: 5%;
-  padding: 5%;
+  margin-left: 0%;
+  padding: 3%;
   background-color: #fc1364;
   margin-bottom: 7%;
 }
 
-#funding{
-  width:70%;
+.boxYellow{
+  width:75%;
   float:right;
   overflow:hidden;
-  padding: 5%;
+  padding: 3%;
   background-color: #efc458;
   margin-bottom: 7%;
 }
-#hours{
-  width:70%;
+
+.boxBlue{
+  width:75%;
   float:left;
   overflow:hidden;
-  margin-left: 5%;
-  padding: 5%;
+  margin-left: 0%;
+  padding: 3%;
   background-color: #114251;
   margin-bottom: 7%;
 }
@@ -115,7 +166,6 @@ font-style: oblique;
   border: 1px solid black;
 
 }
-
 
 
 footer{

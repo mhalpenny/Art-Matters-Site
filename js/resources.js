@@ -57,7 +57,7 @@ function setup() {
   //retrieve div id
   bodyH = document.getElementById('gallery');
   //use id to get div height for canvas scrolling length
-  canvasH = bodyH.scrollHeight;
+  canvasH = bodyH.scrollHeight + 200;
   //create canvas at appropriate length for page
   canvas = createCanvas(windowWidth, canvasH);
   //basic canvas formatting
@@ -152,23 +152,20 @@ function draw() {
 
   stroke(0, 30);
   strokeWeight(1.0);
-  spinX = map(mouseX, 0, windowWidth, 0, 30);
+  spinX = map(mouseX, 0, windowWidth, 0, 15);
   spinY = mouseY/100;
+  var warp = spinX + spinY;
 
   var widthInc = windowWidth / widthVal;
+  // var heightInc = canvasH / heightVal;
   var heightInc = canvasH / heightVal;
 
   for (var i = 0; i < widthVal; i++) {
     for (var j = 0; j < heightVal; j++) {
 
       push();
-      translate(30 + i * widthInc, 30 + j * heightInc);
-      if (flip == true) {
-        rotate(spinX*spinY);
-      } else {
-        rotate(-spinX*spinY);
-      }
-        line(-5, -5, 5, 5);
+      translate((30 + i * widthInc) + warp, (30 + j * heightInc) - warp);
+      ellipse(0, 0, 10, 10);
       pop();
       flip = !flip;
 
@@ -434,7 +431,7 @@ function windowResized() {
 
   var bodyH = document.getElementById('gallery');
   //use id to get div height for canvas scrolling length
-  var canvasH = bodyH.scrollHeight;
+  var canvasH = bodyH.scrollHeight + 200;
 
   resizeCanvas(windowWidth, (canvasH));
 

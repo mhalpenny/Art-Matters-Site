@@ -61,19 +61,19 @@ function setup() {
 
   // optionally migrate to CSS for all links
 
-  linkR = createA('#', 'RESOURCES');
+  linkR = createA('#', 'RESSOURCES');
 
-  linkA = createA('#', 'ABOUT');
+  linkA = createA('about.html', 'À PROPOS');
 
-  linkCU = createA('#', 'CONTACT US');
+  linkCU = createA('#', 'NOUS JOINDRE');
 
   linkAr = createA('#', 'ARCHIVE');
 
-  linkGI = createA('#', 'GET INVOLVED');
+  linkGI = createA('#', 'DEVENIR LE ENGAGE');
 
-  linkE = createA('#', 'EVENTS');
+  linkE = createA('#', 'ÉVÉNEMENTS');
 
-  linkCO = createA('#', 'CALL-OUTS');
+  linkCO = createA('#', 'APPELS EN COURS');
 
   // linkAO = createA('pdf/AM_AntiO.pdf', 'ANTI-OPPRESSION STATEMENT');
 
@@ -124,7 +124,7 @@ function setup() {
 function draw() {
 
   noStroke();
-  background(239, 251, 252, 50);
+  background(255, 50);
   // background(255, 251, 242, 50);
   // background(255, 234, 234, 50);
 
@@ -132,17 +132,17 @@ function draw() {
   //   background(255, 50);
   // }
 
-if (windowWidth > 650){
-  //variable math
-  linkOffset = 70 - (windowHeight)*0.02
-  linkBuffer = 70 - (windowHeight)*0.015
-  var linkMargin = 29;
-} else {
-  //variable math
-  linkOffset = 50 - (windowHeight)*0.01
-  linkBuffer = 70 - (windowHeight)*0.015
-  var linkMargin = 29;
-}
+  if (windowWidth > 650){
+    //variable math
+    linkOffset = 90 - (windowHeight)*0.02
+    linkBuffer = 80 - (windowHeight)*0.015
+    var linkMargin = 29;
+  } else {
+    //variable math
+    linkOffset = 75 - (windowHeight)*0.01
+    linkBuffer = 80 - (windowHeight)*0.015
+    var linkMargin = 29;
+  }
 
   //positioning
   linkR.position(linkMargin, linkBuffer + linkOffset);

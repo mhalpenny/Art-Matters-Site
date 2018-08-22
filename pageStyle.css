@@ -23,15 +23,15 @@ body{
 
 p{
   /* font-weight: 50; */
-  font-size: 12px;
-  font-family: 'Open Sans', sans-serif;
-  line-height: 2;
+  font-size: 14px;
+  /* font-family: 'Open Sans', sans-serif; */
+  font-family: 'Quicksand', sans-serif;
+  line-height: 1.5;
   letter-spacing: 1.5;
-  /* font-family: 'CopyTrial-Medium', sans-serif; */
   text-decoration: none;
   color: black;
   background-color: rgba(255, 255, 255, 0.92);
-  padding: 5%;
+  padding: 3%;
 }
 
 a{

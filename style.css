@@ -10,16 +10,22 @@ p{
 
 
 a{
-  font-size: 20px;
+  font-size: 22px;
   /* font-family: 'Didact Gothic', sans-serif; */
   /* font-family: 'Cabin Sketch', cursive; */
-font-family: 'Londrina Shadow', cursive;
+/* font-family: 'Londrina Shadow', cursive; */
+font-family: NAV;
   font-weight: normal;
   letter-spacing: 5px;
   text-decoration: none;
   color: black;
 }
 
+
+@font-face {
+    font-family: NAV;
+    src: url("fonts/Lack-Line-Regular.otf") format("opentype");
+}
 
 /* should be seperate ideas but cascades to all in the language div, non harmful*/
 #FR:hover{
@@ -41,6 +47,6 @@ font-style: oblique;
 
 @media only screen and (max-width: 650px) {
   a{
-    text-shadow: 1px 1px white;
+    /* text-shadow: 1px 1px white; */
 }
 }

@@ -81,7 +81,7 @@ font-style: oblique;
 
   width:70%;
   /* height:190%; */
-  margin-top: 8%;
+  margin-top: 5%;
   margin-right: 3%;
   color: blue;
   float: right;
@@ -133,7 +133,7 @@ font-style: oblique;
   overflow:hidden;
   margin-left: 0%;
   padding: 3%;
-  background-color: #fc1364;
+  background-color: rgba(252, 19, 100, 0.9);
   margin-bottom: 7%;
 }
 
@@ -142,7 +142,7 @@ font-style: oblique;
   float:right;
   overflow:hidden;
   padding: 3%;
-  background-color: #efc458;
+  background-color: rgba(239, 196, 88,0.9);
   margin-bottom: 7%;
 }
 
@@ -152,7 +152,7 @@ font-style: oblique;
   overflow:hidden;
   margin-left: 0%;
   padding: 3%;
-  background-color: #114251;
+  background-color: rgba(17, 66, 81, 0.9);
   margin-bottom: 7%;
 }
 

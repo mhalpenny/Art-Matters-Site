@@ -15,11 +15,13 @@ var fadeR, fadeA, fadeCO, fadeE, fadeAr, fadeCU, fadeGI, fadeBack;
 var linkOffset, linkBuffer;
 var fadeIncr = 35;
 var bColorVal = 0;
-var widthVal = 15;
-var heightVal = 20;
+var widthVal = 10;
+var heightVal = 10;
 var flip = true;
 var spinX, spinY;
 var bodyH, canvasH;
+var count = 0;
+var cascade = 0;
 // var cpuPause = false;
 
 //-------------------------------------------------------------
@@ -28,10 +30,10 @@ var bodyH, canvasH;
 
 function preload() {
   //icons
-  iconR = loadImage('assets/rIcon.png');
+  iconR = loadImage('assets/rrIcon.png');
   iconA = loadImage('assets/bIcon.png');
   iconE = loadImage('assets/vIcon.png');
-  iconGI = loadImage('assets/gyIcon.png');
+  iconGI = loadImage('assets/rIcon.png');
   iconCO = loadImage('assets/gIcon.png');
   iconAr = loadImage('assets/oIcon.png');
   iconCU = loadImage('assets/yIcon.png');
@@ -149,8 +151,20 @@ function draw() {
 //     BACKGROUD ANIMATION (DRAW)
 //-------------------------------------------------------------
 
+if (count < 30){
+stroke(252, 19, 100, 30);
+// colorCounter++;
+} else if (count > 30 && count < 60) {
+stroke(239, 196, 88, 90);
+// colorCounter++;
+} else if (count > 60 && count < 90){
+stroke(17, 66, 81, 30);
+// colorCounter = 0;
+} else if (count > 90){
+count = 0;
+}
 
-  stroke(0, 30);
+  // stroke(0, 30);
   strokeWeight(1.0);
   spinX = map(mouseX, 0, windowWidth, 0, 15);
   spinY = mouseY/100;
@@ -160,7 +174,9 @@ function draw() {
   // var heightInc = canvasH / heightVal;
   var heightInc = canvasH / heightVal;
 
+
   for (var i = 0; i < widthVal; i++) {
+
     for (var j = 0; j < heightVal; j++) {
 
       push();
@@ -172,7 +188,7 @@ function draw() {
 
     }
   }
-
+  count++;
 
   //-------------------------------------------------------------
   //     NAV ANIMATION (DRAW)

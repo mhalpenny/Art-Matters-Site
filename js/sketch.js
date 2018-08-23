@@ -50,7 +50,7 @@ function preload() {
 
 function setup() {
 
-  frameRate(12);
+  frameRate(15);
   canvas = createCanvas(windowWidth, windowHeight);
   canvas.style("z-index", "-1");
   canvas.position(0, 0);
@@ -61,7 +61,7 @@ function setup() {
 
   // optionally migrate to CSS for all links
 
-  linkR = createA('#', 'RESOURCES');
+  linkR = createA('resources.html', 'RESOURCES');
 
   linkA = createA('about.html', 'ABOUT');
 
@@ -379,5 +379,5 @@ function offLinkE() {
 
 function windowResized() {
   resizeCanvas(windowWidth, (windowHeight));
-  background(239, 251, 252);
+
 }

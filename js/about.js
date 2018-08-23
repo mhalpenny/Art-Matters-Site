@@ -78,7 +78,7 @@ function setup() {
   //     LINKS (SETUP)
   //-------------------------------------------------------------
 
-  linkR = createA('#', 'RESOURCES');
+  linkR = createA('resources.html', 'RESOURCES');
 
   linkA = createA('#', 'ABOUT');
 

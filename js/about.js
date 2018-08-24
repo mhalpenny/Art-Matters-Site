@@ -16,7 +16,7 @@ var linkOffset, linkBuffer;
 var fadeIncr = 35;
 var bColorVal = 0;
 var widthVal = 10;
-var heightVal = 15;
+var heightVal = 5;
 var flip = true;
 var spinX, spinY;
 var bodyH, canvasH;
@@ -146,59 +146,42 @@ function draw() {
   background(255, fadeBack);
   fadeBack = 50;
 
+  //for all moving elements
+  var top = window.pageYOffset;
+
+
+
 
 //-------------------------------------------------------------
 //     BACKGROUD ANIMATION (DRAW)
 //-------------------------------------------------------------
 
 
-
-  if (count < 30){
-  stroke(252, 19, 100, 30);
-  // colorCounter++;
-} else if (count > 30 && count < 60) {
-  stroke(239, 196, 88, 90);
-  // colorCounter++;
-} else if (count > 60 && count < 90){
-  stroke(17, 66, 81, 30);
-  // colorCounter = 0;
-} else if (count > 90){
-  count = 0;
-}
-
-  strokeWeight(1.0);
-  spinX = map(mouseX, 0, windowWidth, 0, 15);
-  spinY = mouseY/100;
-
-  var widthInc = windowWidth / widthVal;
-  var heightInc = canvasH / heightVal;
-
-  for (var i = 0; i < widthVal; i++) {
-    for (var j = 0; j < heightVal; j++) {
-
-      push();
-      translate(30 + i * widthInc, 30 + j * heightInc);
-      if (flip == true) {
-        rotate(spinX*spinY);
-      } else {
-        rotate(-spinX*spinY);
-      }
-        line(-5, -5, 5, 5);
-        line(5, -5, -5, 5);
-      pop();
-      flip = !flip;
+  //---DIV BACKGROUND---
+    var myDiv = document.getElementById('about');
+    var rectDiv = myDiv.getBoundingClientRect();
+    rectMode(CENTER);
+    // var wDiv = rectDiv.right - rectDiv.left;
+    // var hDiv = rectDiv.bottom - rectDiv.top;
+    fill(0);
+    push();
+    angleMode(DEGREES);
+    translate(rectDiv.right, rectDiv.top);
+    rotate(-50);
+    rect(0, 0+top, 250, 500);
+    pop();
+    push()
+    translate(rectDiv.right, rectDiv.top);
+    rotate(-140);
+    backgroundPattern(500, 250, 250, 125);
+    pop();
 
 
-    }
-  }
-  //increase loop count
-  count++;
+
 
   //-------------------------------------------------------------
   //     NAV ANIMATION (DRAW)
   //-------------------------------------------------------------
-
-  var top = window.pageYOffset;
 
   if (windowWidth > 650) {
     //variable math
@@ -290,12 +273,13 @@ function draw() {
   var wOffset = windowWidth / 800;
   var sizeOffset = windowWidth / 1000;
   var topNew = top + 62;
+  //draw pseudo link
   home.position(linkMargin + 13, topNew - 35);
   push();
   if (windowWidth > 650) {
-    translate(linkMargin * 2.5, topNew);
+    translate(linkMargin * 2.3, topNew);
     rotate(logoSpin);
-    image(amLogo, 0, 0, 100, 100);
+    image(amLogo, 0, 0, 110, 110);
   } else {
     translate(linkMargin * 1.5, topNew);
     rotate(logoSpin);
@@ -456,4 +440,38 @@ function windowResized() {
   resizeCanvas(windowWidth, (canvasH));
 
 
+}
+
+//-------------------------------------------------------------
+//     BOX NIMATION (FUNCTIONS)
+//-------------------------------------------------------------
+
+function backgroundPattern(w, h, tw, th){
+
+    stroke(255);
+    strokeWeight(1.0);
+    spinX = map(mouseX, 0, windowWidth, 0, 15);
+    spinY = mouseY/100;
+
+    var widthInc = w / widthVal;
+    var heightInc = h / heightVal;
+
+    for (var i = 0; i < widthVal; i++) {
+      for (var j = 0; j < heightVal; j++) {
+
+        push();
+        translate((30 + i * widthInc)-tw, (30 + j * heightInc)-th);
+        if (flip == true) {
+          rotate(spinX*spinY);
+        } else {
+          rotate(-spinX*spinY);
+        }
+          line(-5, -5, 5 , 5);
+          line(5, -5, -5, 5);
+        pop();
+        flip = !flip;
+
+
+      }
+    }
 }

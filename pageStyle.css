@@ -97,7 +97,10 @@ font-style: oblique;
   letter-spacing: 5;
   /* font-family: 'CopyTrial-Medium', sans-serif; */
   text-decoration: none;
-  color: #fc1364;
+  /* color: #fc1364; */
+  color: white;
+  background-color: rgba(252, 19, 100, 1);
+  margin-bottom: 5%;
 
 }
 
@@ -110,7 +113,9 @@ font-style: oblique;
   line-height: 2;
   letter-spacing: 5;
   text-decoration: none;
-  color: #efc458;
+  /* color: #efc458; */
+  color: white;
+    background-color: rgba(239, 196, 88, 0.0);
 
 }
 
@@ -123,7 +128,10 @@ font-style: oblique;
   letter-spacing: 5;
   /* font-family: 'CopyTrial-Medium', sans-serif; */
   text-decoration: none;
-  color: #114251;
+  /* color: #114251; */
+    margin-bottom: 5%;
+    color: white;
+      background-color: rgba(17, 66, 81, 0.9);
 
 }
 
@@ -133,7 +141,7 @@ font-style: oblique;
   overflow:hidden;
   margin-left: 0%;
   padding: 3%;
-  background-color: rgba(252, 19, 100, 0.9);
+  background-color: rgba(252, 19, 100, 1);
   margin-bottom: 7%;
 }
 

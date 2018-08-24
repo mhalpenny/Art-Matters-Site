@@ -32,10 +32,10 @@ function preload() {
   layerCU = loadImage('assets/YellowLayer.png');
   layerMain = loadImage('assets/LayerAll80.png');
   //icons
-  iconR = loadImage('assets/rIcon.png');
+  iconR = loadImage('assets/rrIcon.png');
   iconA = loadImage('assets/bIcon.png');
   iconE = loadImage('assets/vIcon.png');
-  iconGI = loadImage('assets/gyIcon.png');
+  iconGI = loadImage('assets/rIcon.png');
   iconCO = loadImage('assets/gIcon.png');
   iconAr = loadImage('assets/oIcon.png');
   iconCU = loadImage('assets/yIcon.png');

@@ -156,11 +156,11 @@ function draw() {
 
   //for all moving elements
   var top = window.pageYOffset;
-
+  // text(top, 140, 30+top);
 
 
 //-------------------------------------------------------------
-//     BACKGROUD ANIMATION (DRAW)
+//     INTERACTIVE SQUARES (DRAW)
 //-------------------------------------------------------------
 
 
@@ -203,6 +203,7 @@ function draw() {
     } else{
       translate(rectDiv.left, rectDiv.top+top);
     }
+
       rotate(45);
       rect(0, 0, width, height);
 
@@ -221,7 +222,7 @@ function draw() {
         var myDiv = document.getElementById('office');
         var rectDiv = myDiv.getBoundingClientRect();
         var slip2 = rectDiv.right - preSlide;
-        var move2 = slip2 - top;
+        var move2 = slip2 - (top-(canvasH/3));
 
         rectMode(CENTER);
         // var wDiv = rectDiv.right - rectDiv.left;
@@ -229,6 +230,7 @@ function draw() {
         fill(0, 0, 0, 170);
         push();
         angleMode(DEGREES);
+
         if (move2 > rectDiv.right){
         translate(move2, rectDiv.top+top);
 } else{

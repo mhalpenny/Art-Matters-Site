@@ -49,12 +49,15 @@ function setup() {
   //use id to get div height for canvas scrolling length
   var canvasH = bodyH.scrollHeight;
   //create canvas at appropriate length for page
-  canvas = createCanvas(windowWidth, canvasH);
+  canvas = createCanvas(windowWidth, canvasH+400);
   //basic canvas formatting
   canvas.style("z-index", "-1");
   canvas.position(0, 0);
 
-  background(17, 66, 81, 50);
+  background(255, 50);
+
+  //for safari scrolling
+  window.onwheel = function(){ return false; }
 
   //-------------------------------------------------------------
   //     LINKS (SETUP)
@@ -127,7 +130,7 @@ function setup() {
 function draw() {
 
   noStroke();
-  background(17, 66, 81, fadeBack);
+  background(255, fadeBack);
   fadeBack = 50;
 
   //---NAV---
@@ -395,6 +398,6 @@ function windowResized() {
 
   resizeCanvas(windowWidth, (canvasH));
 
-  background(17, 66, 81, 50);
+  background(255, 50);
 
 }

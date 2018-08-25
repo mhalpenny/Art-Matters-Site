@@ -21,6 +21,8 @@ var flip = true;
 var spinX, spinY;
 var bodyH, canvasH;
 var isAnimation = 400;
+var refresh = false;
+var refreshArray = [1];
 
 
 // var colorCounter = 0;
@@ -41,8 +43,7 @@ function preload() {
   iconCU = loadImage('assets/yIcon.png');
   //logo
   amLogo = loadImage('assets/amlogo.png');
-  //test
-  bDiv = loadImage('assets/div.jpg');
+
 }
 
 //-------------------------------------------------------------
@@ -57,7 +58,7 @@ function setup() {
   //     STYLING (SETUP)
   //-------------------------------------------------------------
 
-  frameRate(15);
+  frameRate(10);
   //retrieve div id
   bodyH = document.getElementById('gallery');
   //use id to get div height for canvas scrolling length
@@ -67,6 +68,7 @@ function setup() {
   //basic canvas formatting
   canvas.style("z-index", "-1");
   canvas.position(0, 0);
+
 
   //instantiate animations.
   fadeA = 0;
@@ -154,6 +156,18 @@ function draw() {
 
   //for all moving elements
   var top = window.pageYOffset;
+  logoSpin = top * 2;
+
+  if (refresh == 0){
+    refreshArray[0] = logoSpin;
+  } else if (refresh == 1){
+    refreshArray[1] = logoSpin;
+  }
+
+  if (refreshArray[0] != refreshArray[1]){
+    background(255);
+  }
+  refresh = !refresh;
 
 
 
@@ -493,9 +507,9 @@ function offLinkE() {
 function mouseWheel(event) {
   print(event.delta);
   //smoothen delta
-  fadeBack = 255;
+  // fadeBack = 255;
   //move the square according to the vertical scroll amount
-  logoSpin += (event.delta);
+  // logoSpin += (event.delta);
 
   //uncomment to block page scrolling
   // return false;

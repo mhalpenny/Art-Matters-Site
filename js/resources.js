@@ -16,12 +16,14 @@ var linkOffset, linkBuffer;
 var fadeIncr = 35;
 var bColorVal = 0;
 var widthVal = 10;
-var heightVal = 10;
+var heightVal = 5;
 var flip = true;
 var spinX, spinY;
 var bodyH, canvasH;
-var count = 0;
-var cascade = 0;
+var isAnimation = 400;
+
+
+// var colorCounter = 0;
 // var cpuPause = false;
 
 //-------------------------------------------------------------
@@ -59,7 +61,7 @@ function setup() {
   //retrieve div id
   bodyH = document.getElementById('gallery');
   //use id to get div height for canvas scrolling length
-  canvasH = bodyH.scrollHeight + 200;
+  canvasH = bodyH.scrollHeight + 50;
   //create canvas at appropriate length for page
   canvas = createCanvas(windowWidth, canvasH);
   //basic canvas formatting
@@ -82,7 +84,7 @@ function setup() {
 
   linkR = createA('resources.html', 'RESOURCES');
 
-  linkA = createA('about.html', 'ABOUT');
+  linkA = createA('#', 'ABOUT');
 
   linkCU = createA('#', 'CONTACT US');
 
@@ -106,6 +108,8 @@ function setup() {
   // home.style('color', 'black');
   home.style('color', 'transparent');
   home.style('font-size', '72px');
+  home.style('text-shadow', 'none');
+
   home.class('noselect');
 
 
@@ -128,6 +132,8 @@ function setup() {
   linkAr.mouseOver(overLinkAr);
   linkAr.mouseOut(offLinkAr);
 
+
+
 }
 
 //-------------------------------------------------------------
@@ -139,62 +145,117 @@ function setup() {
 function draw() {
 
 
-//-------------------------------------------------------------
-//    STYLING (DRAW)
-//-------------------------------------------------------------
+  //-------------------------------------------------------------
+  //    STYLING (DRAW)
+  //-------------------------------------------------------------
 
   background(255, fadeBack);
   fadeBack = 50;
 
-
-//-------------------------------------------------------------
-//     BACKGROUD ANIMATION (DRAW)
-//-------------------------------------------------------------
-
-if (count < 30){
-stroke(252, 19, 100, 30);
-// colorCounter++;
-} else if (count > 30 && count < 60) {
-stroke(239, 196, 88, 90);
-// colorCounter++;
-} else if (count > 60 && count < 90){
-stroke(17, 66, 81, 30);
-// colorCounter = 0;
-} else if (count > 90){
-count = 0;
-}
-
-  // stroke(0, 30);
-  strokeWeight(1.0);
-  spinX = map(mouseX, 0, windowWidth, 0, 15);
-  spinY = mouseY/100;
-  var warp = spinX + spinY;
-
-  var widthInc = windowWidth / widthVal;
-  // var heightInc = canvasH / heightVal;
-  var heightInc = canvasH / heightVal;
+  //for all moving elements
+  var top = window.pageYOffset;
 
 
-  for (var i = 0; i < widthVal; i++) {
 
-    for (var j = 0; j < heightVal; j++) {
+  //-------------------------------------------------------------
+  //     INTERACTIVE SQUARES (DRAW)
+  //-------------------------------------------------------------
 
-      push();
-      translate((30 + i * widthInc) + warp, (30 + j * heightInc) - warp);
-      ellipse(0, 0, 10, 10);
-      pop();
-      flip = !flip;
+  //variable for all squares
+  var width = (windowWidth / 1.7);
+  var height = (windowWidth / 3.2);
 
+  //---DIV BACKGROUND 1---
 
-    }
+  var myDiv = document.getElementById('AO');
+  var rectDiv = myDiv.getBoundingClientRect();
+
+  rectMode(CENTER);
+  fill(0, 0, 0, 100);
+  push();
+  angleMode(DEGREES);
+  translate(rectDiv.right + top, rectDiv.top);
+  rotate(45);
+  rect(0, 0 + top, width, height);
+  pop();
+  push()
+  translate(rectDiv.right, rectDiv.top);
+  rotate(-135);
+  backgroundPattern(width, height, width/2, height/2);
+  pop();
+
+  //---DIV BACKGROUND 2---
+
+  //variables for 2nd square
+  var leftOffset = rectDiv.left - isAnimation;
+  var leftToRight = leftOffset + top;
+
+  var myDiv = document.getElementById('V');
+  var rectDiv = myDiv.getBoundingClientRect();
+
+  rectMode(CENTER);
+  fill(0, 0, 0, 170);
+  push();
+  angleMode(DEGREES);
+
+  if (leftToRight < rectDiv.left) {
+    translate(leftToRight, rectDiv.top + top);
+  } else {
+    translate(rectDiv.left, rectDiv.top + top);
   }
-  count++;
+
+  rotate(-45);
+  rect(0, 0, width, height);
+  pop();
+  push();
+
+  if (leftToRight < rectDiv.left) {
+    translate(leftToRight, rectDiv.top + top);
+  } else {
+    translate(rectDiv.left, rectDiv.top + top);
+  }
+
+  rotate(135);
+  backgroundPattern(width, height, width/2, height/2);
+  pop();
+
+  //---DIV BACKGROUND 3---
+
+  //square 3 variables
+  var rightOffset = rectDiv.right + isAnimation;
+  var rightToLeft = rightOffset - (top - (canvasH / 3));
+
+  var myDiv = document.getElementById('AL');
+  var rectDiv = myDiv.getBoundingClientRect();
+
+  rectMode(CENTER);
+  fill(0, 0, 0, 170);
+  push();
+  angleMode(DEGREES);
+
+  if (rightToLeft > rectDiv.right) {
+    translate(rightToLeft, rectDiv.top + top);
+  } else {
+    translate(rectDiv.right, rectDiv.top + top);
+  }
+  rotate(45);
+  rect(0, 0, width, height);
+  pop();
+  push()
+  if (rightToLeft > rectDiv.right) {
+    translate(rightToLeft, rectDiv.top + top);
+  } else {
+    translate(rectDiv.right, rectDiv.top + top);
+  }
+  rotate(-135);
+  backgroundPattern(width, height, width/2, height/2);
+  pop();
+
+
 
   //-------------------------------------------------------------
   //     NAV ANIMATION (DRAW)
   //-------------------------------------------------------------
-
-  var top = window.pageYOffset;
 
   if (windowWidth > 650) {
     //variable math
@@ -286,12 +347,13 @@ count = 0;
   var wOffset = windowWidth / 800;
   var sizeOffset = windowWidth / 1000;
   var topNew = top + 62;
+  //draw pseudo link
   home.position(linkMargin + 13, topNew - 35);
   push();
   if (windowWidth > 650) {
-    translate(linkMargin * 2.5, topNew);
+    translate(linkMargin * 2.3, topNew);
     rotate(logoSpin);
-    image(amLogo, 0, 0, 100, 100);
+    image(amLogo, 0, 0, 110, 110);
   } else {
     translate(linkMargin * 1.5, topNew);
     rotate(logoSpin);
@@ -447,9 +509,42 @@ function windowResized() {
 
   var bodyH = document.getElementById('gallery');
   //use id to get div height for canvas scrolling length
-  var canvasH = bodyH.scrollHeight + 200;
+  var canvasH = bodyH.scrollHeight + 50;
 
   resizeCanvas(windowWidth, (canvasH));
 
 
+}
+
+//-------------------------------------------------------------
+//     BOX NIMATION (FUNCTIONS)
+//-------------------------------------------------------------
+
+function backgroundPattern(w, h, tw, th) {
+
+
+    stroke(255, 200);
+    noFill();
+    strokeWeight(1.5);
+    spinX = map(mouseX, 0, windowWidth, 0, 15);
+    spinY = mouseY / 100;
+    var warp = spinX + spinY;
+
+    var widthInc = w / widthVal;
+    // var heightInc = canvasH / heightVal;
+    var heightInc = h / heightVal;
+
+
+    for (var i = 0; i < widthVal; i++) {
+
+      for (var j = 0; j < heightVal; j++) {
+
+        push();
+        translate((30 + i * widthInc) - (tw + warp), (30 + j * heightInc) - (th + warp));
+        ellipse(0, 0, 10, 10);
+        pop();
+        flip = !flip;
+
+    }
+  }
 }

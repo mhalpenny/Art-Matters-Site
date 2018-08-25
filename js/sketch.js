@@ -65,7 +65,7 @@ function setup() {
 
   linkA = createA('about.html', 'ABOUT');
 
-  linkCU = createA('#', 'CONTACT US');
+  linkCU = createA('#', 'CALENDER');
 
   linkAr = createA('#', 'ARCHIVE');
 
@@ -73,7 +73,7 @@ function setup() {
 
   linkE = createA('#', 'EVENTS');
 
-  linkCO = createA('#', 'CALL-OUTS');
+  linkCO = createA('#', 'MAP');
 
   // linkAO = createA('pdf/AM_AntiO.pdf', 'ANTI-OPPRESSION STATEMENT');
 
@@ -251,7 +251,7 @@ if (windowWidth > 650){
   if (windowWidth > 650){
     imageMode(CENTER);
     tint(255, 255);
-    image(amLogo, 70, 50, 105, 105);
+    image(amLogo, 80, 60, 125, 125);
   } else {
     imageMode(CENTER);
     tint(255, 255);

@@ -20,9 +20,7 @@ var heightVal = 5;
 var flip = true;
 var spinX, spinY;
 var bodyH, canvasH;
-var count = 0;
-var preSlide = -400;
-var preSlide2 = 300;
+var isAnimation = 400;
 
 
 // var colorCounter = 0;
@@ -147,108 +145,111 @@ function setup() {
 function draw() {
 
 
-//-------------------------------------------------------------
-//    STYLING (DRAW)
-//-------------------------------------------------------------
+  //-------------------------------------------------------------
+  //    STYLING (DRAW)
+  //-------------------------------------------------------------
 
   background(255, fadeBack);
   fadeBack = 50;
 
   //for all moving elements
   var top = window.pageYOffset;
-  // text(top, 140, 30+top);
 
 
-//-------------------------------------------------------------
-//     INTERACTIVE SQUARES (DRAW)
-//-------------------------------------------------------------
 
+  //-------------------------------------------------------------
+  //     INTERACTIVE SQUARES (DRAW)
+  //-------------------------------------------------------------
+
+  //variable for all squares
+  var width = (windowWidth / 1.7);
+  var height = (windowWidth / 3.2);
 
   //---DIV BACKGROUND 1---
-    var myDiv = document.getElementById('about');
-    var rectDiv = myDiv.getBoundingClientRect();
-    var height = (windowWidth/1.7);
-    var width =  (windowWidth/3.2);
-    rectMode(CENTER);
-    // var wDiv = rectDiv.right - rectDiv.left;
-    // var hDiv = rectDiv.bottom - rectDiv.top;
 
-    fill(0, 0, 0, 170);
-    push();
-    angleMode(DEGREES);
-    translate(rectDiv.right, rectDiv.top);
-    rotate(-45);
-    rect(0, 0+top, width, height);
-    pop();
-    push()
-    translate(rectDiv.right, rectDiv.top);
-    rotate(-135);
-    backgroundPattern(500, 250, 250, 125);
-    pop();
+  var myDiv = document.getElementById('about');
+  var rectDiv = myDiv.getBoundingClientRect();
 
-    //---DIV BACKGROUND 2---
-      var myDiv = document.getElementById('funding');
-      var rectDiv = myDiv.getBoundingClientRect();
-      rectMode(CENTER);
-      // var wDiv = rectDiv.right - rectDiv.left;
-      // var hDiv = rectDiv.bottom - rectDiv.top;
-      fill(0, 0, 0, 170);
-      push();
-      angleMode(DEGREES);
+  rectMode(CENTER);
+  fill(0, 0, 0, 170);
+  push();
+  angleMode(DEGREES);
+  translate(rectDiv.right + top, rectDiv.top);
+  rotate(45);
+  rect(0, 0 + top, width, height);
+  pop();
+  push()
+  translate(rectDiv.right, rectDiv.top);
+  rotate(-135);
+  backgroundPattern(width, height, width/2, height/2);
+  pop();
 
-      var slip = rectDiv.left + preSlide;
-      var move = slip + top;
-        if (move < rectDiv.left){
-      translate(move, rectDiv.top+top);
-    } else{
-      translate(rectDiv.left, rectDiv.top+top);
-    }
+  //---DIV BACKGROUND 2---
 
-      rotate(45);
-      rect(0, 0, width, height);
+  //variables for 2nd square
+  var leftOffset = rectDiv.left - isAnimation;
+  var leftToRight = leftOffset + top;
 
-      pop();
-      push();
-      if (move < rectDiv.left){
-    translate(move, rectDiv.top+top);
-  } else{
-    translate(rectDiv.left, rectDiv.top+top);
+  var myDiv = document.getElementById('funding');
+  var rectDiv = myDiv.getBoundingClientRect();
+
+  rectMode(CENTER);
+  fill(0, 0, 0, 170);
+  push();
+  angleMode(DEGREES);
+
+  if (leftToRight < rectDiv.left) {
+    translate(leftToRight, rectDiv.top + top);
+  } else {
+    translate(rectDiv.left, rectDiv.top + top);
   }
-      rotate(135);
-      backgroundPattern(500, 250, 250, 125);
-      pop();
 
-      //---DIV BACKGROUND 3---
-        var myDiv = document.getElementById('office');
-        var rectDiv = myDiv.getBoundingClientRect();
-        var slip2 = rectDiv.right - preSlide;
-        var move2 = slip2 - (top-(canvasH/3));
+  rotate(-45);
+  rect(0, 0, width, height);
+  pop();
+  push();
 
-        rectMode(CENTER);
-        // var wDiv = rectDiv.right - rectDiv.left;
-        // var hDiv = rectDiv.bottom - rectDiv.top;
-        fill(0, 0, 0, 170);
-        push();
-        angleMode(DEGREES);
+  if (leftToRight < rectDiv.left) {
+    translate(leftToRight, rectDiv.top + top);
+  } else {
+    translate(rectDiv.left, rectDiv.top + top);
+  }
 
-        if (move2 > rectDiv.right){
-        translate(move2, rectDiv.top+top);
-} else{
-    translate(rectDiv.right, rectDiv.top+top);
-}
-        rotate(-45);
-        rect(0, 0, width, height);
-        pop();
-        push()
-        if (move2 > rectDiv.right){
-        translate(move2, rectDiv.top+top);
-} else{
-    translate(rectDiv.right, rectDiv.top+top);
-}
-        rotate(-135);
-        backgroundPattern(500, 250, 250, 125);
-        pop();
+  rotate(135);
+  backgroundPattern(width, height, width/2, height/2);
+  pop();
 
+  //---DIV BACKGROUND 3---
+
+  //square 3 variables
+  var rightOffset = rectDiv.right + isAnimation;
+  var rightToLeft = rightOffset - (top - (canvasH / 3));
+
+  var myDiv = document.getElementById('office');
+  var rectDiv = myDiv.getBoundingClientRect();
+
+  rectMode(CENTER);
+  fill(0, 0, 0, 170);
+  push();
+  angleMode(DEGREES);
+
+  if (rightToLeft > rectDiv.right) {
+    translate(rightToLeft, rectDiv.top + top);
+  } else {
+    translate(rectDiv.right, rectDiv.top + top);
+  }
+  rotate(45);
+  rect(0, 0, width, height);
+  pop();
+  push()
+  if (rightToLeft > rectDiv.right) {
+    translate(rightToLeft, rectDiv.top + top);
+  } else {
+    translate(rectDiv.right, rectDiv.top + top);
+  }
+  rotate(-135);
+  backgroundPattern(width, height, width/2, height/2);
+  pop();
 
 
 
@@ -519,32 +520,32 @@ function windowResized() {
 //     BOX NIMATION (FUNCTIONS)
 //-------------------------------------------------------------
 
-function backgroundPattern(w, h, tw, th){
+function backgroundPattern(w, h, tw, th) {
 
-    stroke(255);
-    strokeWeight(1.0);
-    spinX = map(mouseX, 0, windowWidth, 0, 15);
-    spinY = mouseY/100;
+  stroke(255);
+  strokeWeight(1.0);
+  spinX = map(mouseX, 0, windowWidth, 0, 15);
+  spinY = mouseY / 100;
 
-    var widthInc = w / widthVal;
-    var heightInc = h / heightVal;
+  var widthInc = w / widthVal;
+  var heightInc = h / heightVal;
 
-    for (var i = 0; i < widthVal; i++) {
-      for (var j = 0; j < heightVal; j++) {
+  for (var i = 0; i < widthVal; i++) {
+    for (var j = 0; j < heightVal; j++) {
 
-        push();
-        translate((30 + i * widthInc)-tw, (30 + j * heightInc)-th);
-        if (flip == true) {
-          rotate(spinX*spinY);
-        } else {
-          rotate(-spinX*spinY);
-        }
-          line(-5, -5, 5 , 5);
-          line(5, -5, -5, 5);
-        pop();
-        flip = !flip;
-
-
+      push();
+      translate((30 + i * widthInc) - tw, (30 + j * heightInc) - th);
+      if (flip == true) {
+        rotate(spinX * spinY);
+      } else {
+        rotate(-spinX * spinY);
       }
+      line(-5, -5, 5, 5);
+      line(5, -5, -5, 5);
+      pop();
+      flip = !flip;
+
+
     }
+  }
 }

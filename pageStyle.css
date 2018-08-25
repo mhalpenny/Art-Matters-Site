@@ -46,6 +46,7 @@ a{
   text-decoration: none;
   color: black;
   text-align: right;
+  text-shadow: 1px 1px white;
 
 }
 
@@ -90,7 +91,7 @@ font-style: oblique;
 
 .boxTitleRed{
   width: 100%;
-  float:left;
+  text-align: left;
   font-size: 24px;
   font-family: NAV;
   line-height: 2;
@@ -99,8 +100,7 @@ font-style: oblique;
   text-decoration: none;
   /* color: #fc1364; */
   color: white;
-  background-color: rgba(252, 19, 100, 1);
-  margin-bottom: 5%;
+  background-color: rgba(252, 19, 100, 0);
 
 }
 
@@ -121,7 +121,7 @@ font-style: oblique;
 
 .boxTitleBlue{
   width: 100%;
-  float:left;
+text-align: left;
   font-size: 24px;
   font-family: NAV;
   line-height: 2;
@@ -129,9 +129,8 @@ font-style: oblique;
   /* font-family: 'CopyTrial-Medium', sans-serif; */
   text-decoration: none;
   /* color: #114251; */
-    margin-bottom: 5%;
     color: white;
-      background-color: rgba(17, 66, 81, 0.9);
+      background-color: rgba(17, 66, 81, 0);
 
 }
 
@@ -141,7 +140,7 @@ font-style: oblique;
   overflow:hidden;
   margin-left: 0%;
   padding: 3%;
-  background-color: rgba(252, 19, 100, 1);
+  background-color: rgba(252, 19, 100, 0.9);
   margin-bottom: 7%;
 }
 

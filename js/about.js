@@ -21,6 +21,10 @@ var flip = true;
 var spinX, spinY;
 var bodyH, canvasH;
 var count = 0;
+var preSlide = -400;
+var preSlide2 = 300;
+
+
 // var colorCounter = 0;
 // var cpuPause = false;
 
@@ -59,7 +63,7 @@ function setup() {
   //retrieve div id
   bodyH = document.getElementById('gallery');
   //use id to get div height for canvas scrolling length
-  canvasH = bodyH.scrollHeight;
+  canvasH = bodyH.scrollHeight + 50;
   //create canvas at appropriate length for page
   canvas = createCanvas(windowWidth, canvasH);
   //basic canvas formatting
@@ -106,6 +110,8 @@ function setup() {
   // home.style('color', 'black');
   home.style('color', 'transparent');
   home.style('font-size', '72px');
+  home.style('text-shadow', 'none');
+
   home.class('noselect');
 
 
@@ -127,6 +133,8 @@ function setup() {
   linkCU.mouseOut(offLinkCU);
   linkAr.mouseOver(overLinkAr);
   linkAr.mouseOut(offLinkAr);
+
+
 
 }
 
@@ -151,30 +159,93 @@ function draw() {
 
 
 
-
 //-------------------------------------------------------------
 //     BACKGROUD ANIMATION (DRAW)
 //-------------------------------------------------------------
 
 
-  //---DIV BACKGROUND---
+  //---DIV BACKGROUND 1---
     var myDiv = document.getElementById('about');
     var rectDiv = myDiv.getBoundingClientRect();
+    var height = (windowWidth/1.7);
+    var width =  (windowWidth/3.2);
     rectMode(CENTER);
     // var wDiv = rectDiv.right - rectDiv.left;
     // var hDiv = rectDiv.bottom - rectDiv.top;
-    fill(0);
+
+    fill(0, 0, 0, 170);
     push();
     angleMode(DEGREES);
     translate(rectDiv.right, rectDiv.top);
-    rotate(-50);
-    rect(0, 0+top, 250, 500);
+    rotate(-45);
+    rect(0, 0+top, width, height);
     pop();
     push()
     translate(rectDiv.right, rectDiv.top);
-    rotate(-140);
+    rotate(-135);
     backgroundPattern(500, 250, 250, 125);
     pop();
+
+    //---DIV BACKGROUND 2---
+      var myDiv = document.getElementById('funding');
+      var rectDiv = myDiv.getBoundingClientRect();
+      rectMode(CENTER);
+      // var wDiv = rectDiv.right - rectDiv.left;
+      // var hDiv = rectDiv.bottom - rectDiv.top;
+      fill(0, 0, 0, 170);
+      push();
+      angleMode(DEGREES);
+
+      var slip = rectDiv.left + preSlide;
+      var move = slip + top;
+        if (move < rectDiv.left){
+      translate(move, rectDiv.top+top);
+    } else{
+      translate(rectDiv.left, rectDiv.top+top);
+    }
+      rotate(45);
+      rect(0, 0, width, height);
+
+      pop();
+      push();
+      if (move < rectDiv.left){
+    translate(move, rectDiv.top+top);
+  } else{
+    translate(rectDiv.left, rectDiv.top+top);
+  }
+      rotate(135);
+      backgroundPattern(500, 250, 250, 125);
+      pop();
+
+      //---DIV BACKGROUND 3---
+        var myDiv = document.getElementById('office');
+        var rectDiv = myDiv.getBoundingClientRect();
+        var slip2 = rectDiv.right - preSlide;
+        var move2 = slip2 - top;
+
+        rectMode(CENTER);
+        // var wDiv = rectDiv.right - rectDiv.left;
+        // var hDiv = rectDiv.bottom - rectDiv.top;
+        fill(0, 0, 0, 170);
+        push();
+        angleMode(DEGREES);
+        if (move2 > rectDiv.right){
+        translate(move2, rectDiv.top+top);
+} else{
+    translate(rectDiv.right, rectDiv.top+top);
+}
+        rotate(-45);
+        rect(0, 0, width, height);
+        pop();
+        push()
+        if (move2 > rectDiv.right){
+        translate(move2, rectDiv.top+top);
+} else{
+    translate(rectDiv.right, rectDiv.top+top);
+}
+        rotate(-135);
+        backgroundPattern(500, 250, 250, 125);
+        pop();
 
 
 
@@ -435,7 +506,7 @@ function windowResized() {
 
   var bodyH = document.getElementById('gallery');
   //use id to get div height for canvas scrolling length
-  var canvasH = bodyH.scrollHeight;
+  var canvasH = bodyH.scrollHeight + 50;
 
   resizeCanvas(windowWidth, (canvasH));
 

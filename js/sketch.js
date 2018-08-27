@@ -23,7 +23,7 @@ var valueM, valueC, valueE = 0;
 
 function preload() {
 
-//layers
+  //layers
   layerA = loadImage('assets/RedLayer.png');
   layerR = loadImage('assets/BlueLayer.png');
   layerM = loadImage('assets/VioletLayer.png');
@@ -132,6 +132,7 @@ function setup() {
   valueM = 0;
   valueE = 0;
   valueC = 0;
+  mainOff = false;
 
 }
 
@@ -146,39 +147,39 @@ function draw() {
   // background(239, 251, 252, 50);
   // background(255, 251, 242, 50);
   // background(255, 234, 234, 50);
-    background(255, 50);
+  background(255, 50);
   // if (cpuPause == false){
   //   background(255, 50);
   // }
 
-if (windowWidth > 650){
-  //variable math
-  linkOffset = 90 - (windowHeight)*0.02
-  linkBuffer = 80 - (windowHeight)*0.015
-  var linkMargin = 29;
-} else {
-  //variable math
-  linkOffset = 75 - (windowHeight)*0.01
-  linkBuffer = 80 - (windowHeight)*0.015
-  var linkMargin = 29;
-}
+  if (windowWidth > 650) {
+    //variable math
+    linkOffset = 90 - (windowHeight) * 0.02
+    linkBuffer = 80 - (windowHeight) * 0.015
+    var linkMargin = 29;
+  } else {
+    //variable math
+    linkOffset = 75 - (windowHeight) * 0.01
+    linkBuffer = 80 - (windowHeight) * 0.015
+    var linkMargin = 29;
+  }
 
   //positioning
   linkA.position(linkMargin, linkBuffer + linkOffset);
-  linkR.position(linkMargin, linkBuffer + linkOffset*2);
-  linkGI.position(linkMargin, linkBuffer + linkOffset*3);
-  linkM.position(linkMargin, linkBuffer + linkOffset*4);
-  linkC.position(linkMargin, linkBuffer + linkOffset*5);
-  linkE.position(linkMargin, linkBuffer + linkOffset*6);
+  linkR.position(linkMargin, linkBuffer + linkOffset * 2);
+  linkGI.position(linkMargin, linkBuffer + linkOffset * 3);
+  linkM.position(linkMargin, linkBuffer + linkOffset * 4);
+  linkC.position(linkMargin, linkBuffer + linkOffset * 5);
+  linkE.position(linkMargin, linkBuffer + linkOffset * 6);
   // linkAO.position(linkMargin, linkBuffer + linkOffset*7);
-  linkAr.position(linkMargin, linkBuffer + linkOffset*7);
+  linkAr.position(linkMargin, linkBuffer + linkOffset * 7);
 
   linkEN.position(windowWidth - 65, 15);
   linkFR.position(windowWidth - 35, 15);
 
-  linkCSM.position(linkMargin, linkBuffer + linkOffset*4);
-  linkCSC.position(linkMargin, linkBuffer + linkOffset*5);
-  linkCSE.position(linkMargin, linkBuffer + linkOffset*6);
+  linkCSM.position(linkMargin, linkBuffer + linkOffset * 4);
+  linkCSC.position(linkMargin, linkBuffer + linkOffset * 5);
+  linkCSE.position(linkMargin, linkBuffer + linkOffset * 6);
 
 
 
@@ -192,11 +193,11 @@ if (windowWidth > 650){
 
   //---MAIN---
   // if (mainOff == false && cpuPause == false){
-  if (mainOff == false){
-  tint(255, fadeMain);
-  image(layerMain, windowWidth/2, height/2, windowWidth, windowHeight);
-  // fadeMain += fadeIncr;
-  fadeMain += fadeIncr;
+  if (mainOff == false) {
+    tint(255, fadeMain);
+    image(layerMain, windowWidth / 2, height / 2, windowWidth, windowHeight);
+    // fadeMain += fadeIncr;
+    fadeMain += fadeIncr;
   }
 
   //pause animation if already at max
@@ -206,7 +207,7 @@ if (windowWidth > 650){
   //   cpuPause = true;
   // }
 
-//debugging
+  //debugging
   // fill(0);
   // textSize(14);
   // text(fadeMain, 200, 20);
@@ -214,99 +215,95 @@ if (windowWidth > 650){
 
   //---R---
   if (animateR == true) {
-  tint(255, fadeR);
-  image(layerR, windowWidth/2, height/2, windowWidth, windowHeight);
-  image(iconR, linkMargin, (linkBuffer + linkOffset*2), 50, 50);
-  fadeR += fadeIncr;
+    tint(255, fadeR);
+    image(layerR, windowWidth / 2, height / 2, windowWidth, windowHeight);
+    image(iconR, linkMargin, (linkBuffer + linkOffset * 2), 50, 50);
+    fadeR += fadeIncr;
   }
 
   //---A---
   if (animateA == true) {
-  tint(255, fadeA);
-  image(layerA, windowWidth/2, height/2, windowWidth, windowHeight);
-  image(iconA, linkMargin, (linkBuffer + linkOffset), 50, 50);
-  fadeA += fadeIncr;
+    tint(255, fadeA);
+    image(layerA, windowWidth / 2, height / 2, windowWidth, windowHeight);
+    image(iconA, linkMargin, (linkBuffer + linkOffset), 50, 50);
+    fadeA += fadeIncr;
   }
 
   //---M---
   if (animateM == true) {
-  tint(255, fadeM);
-  image(layerM, windowWidth/2, height/2, windowWidth, windowHeight);
-  image(iconM, linkMargin, (linkBuffer + linkOffset*4), 50, 50);
-  var m = map(fadeM, 0, 255, 0.0, 1.0);
-  var n = map(fadeM, 0, 255, 1.0, 0.0);
+    tint(255, fadeM);
+    image(layerM, windowWidth / 2, height / 2, windowWidth, windowHeight);
+    image(iconM, linkMargin, (linkBuffer + linkOffset * 4), 50, 50);
+    var m = map(fadeM, 0, 255, 0.0, 1.0);
+    var n = map(fadeM, 0, 255, 1.0, 0.0);
 
-  linkCSM.style("opacity", m);
-  linkM.style("opacity", n);
+    linkCSM.style("opacity", m);
+    linkM.style("opacity", n);
 
-  // linkCSM.position(linkMargin, linkBuffer + linkOffset*4);
-  fadeM += fadeIncr;
+    // linkCSM.position(linkMargin, linkBuffer + linkOffset*4);
+    fadeM += fadeIncr;
   }
 
   //---GI---
   if (animateGI == true) {
-  tint(255, fadeGI);
-  image(layerGI, windowWidth/2, height/2, windowWidth, windowHeight);
-  image(iconGI, linkMargin, (linkBuffer + linkOffset*3), 50, 50);
-  fadeGI += fadeIncr;
+    tint(255, fadeGI);
+    image(layerGI, windowWidth / 2, height / 2, windowWidth, windowHeight);
+    image(iconGI, linkMargin, (linkBuffer + linkOffset * 3), 50, 50);
+    fadeGI += fadeIncr;
   }
 
   //---Ar---
   if (animateAr == true) {
-  tint(255, fadeAr);
-  image(layerAr, windowWidth/2, height/2, windowWidth, windowHeight);
-  image(iconAr, linkMargin, (linkBuffer + linkOffset*7), 50, 50);
-  fadeAr += fadeIncr;
+    tint(255, fadeAr);
+    image(layerAr, windowWidth / 2, height / 2, windowWidth, windowHeight);
+    image(iconAr, linkMargin, (linkBuffer + linkOffset * 7), 50, 50);
+    fadeAr += fadeIncr;
   }
 
   //---C---
   if (animateC == true) {
-  tint(255, fadeC);
-  image(layerC, windowWidth/2, height/2, windowWidth, windowHeight);
-  image(iconC, linkMargin, (linkBuffer + linkOffset*5), 50, 50);
-  var m = map(fadeC, 0, 255, 0.0, 1.0);
-  var n = map(fadeC, 0, 255, 1.0, 0.0);
+    tint(255, fadeC);
+    image(layerC, windowWidth / 2, height / 2, windowWidth, windowHeight);
+    image(iconC, linkMargin, (linkBuffer + linkOffset * 5), 50, 50);
+    var m = map(fadeC, 0, 255, 0.0, 1.0);
+    var n = map(fadeC, 0, 255, 1.0, 0.0);
 
-  linkCSC.style("opacity", m);
-  linkC.style("opacity", n);
+    linkCSC.style("opacity", m);
+    linkC.style("opacity", n);
 
-  fadeC += fadeIncr;
+    fadeC += fadeIncr;
   }
 
   //---E---
   if (animateE == true) {
-  tint(255, fadeE);
-  image(layerE, windowWidth/2, height/2, windowWidth, windowHeight);
-  image(iconE, linkMargin, (linkBuffer + linkOffset*6), 50, 50);
-  var m = map(fadeE, 0, 255, 0.0, 1.0);
-  var n = map(fadeE, 0, 255, 1.0, 0.0);
+    tint(255, fadeE);
+    image(layerE, windowWidth / 2, height / 2, windowWidth, windowHeight);
+    image(iconE, linkMargin, (linkBuffer + linkOffset * 6), 50, 50);
+    var m = map(fadeE, 0, 255, 0.0, 1.0);
+    var n = map(fadeE, 0, 255, 1.0, 0.0);
 
-  linkCSE.style("opacity", m);
-  linkE.style("opacity", n);
+    linkCSE.style("opacity", m);
+    linkE.style("opacity", n);
 
-  fadeE += fadeIncr;
+    fadeE += fadeIncr;
   }
 
   //---CSM---
   if (animateCSM == true) {
 
 
-    var a = map(valueM, 0, 255, 0.0, 1.0);
-    var b = map(valueM, 0, 255, 1.0, 0.0);
+    var a = map(valueM, 0, 255, 0.0, 1.0, true);
+    var b = map(valueM, 0, 255, 1.0, 0.0, true);
 
     linkM.style("opacity", a);
     linkCSM.style("opacity", b);
 
     valueM += fadeIncr;
 
-    text(valueM, 150, 100);
-
-    if (a >= 1.0){
+    if (a >= 1.0) {
       animateCSM = false;
       valueM = 0;
     }
-
-
 
   }
 
@@ -314,15 +311,15 @@ if (windowWidth > 650){
   if (animateCSC == true) {
 
 
-    var c = map(valueC, 0, 255, 0.0, 1.0);
-    var d = map(valueC, 0, 255, 1.0, 0.0);
+    var c = map(valueC, 0, 255, 0.0, 1.0, true);
+    var d = map(valueC, 0, 255, 1.0, 0.0, true);
 
     linkC.style("opacity", c);
     linkCSC.style("opacity", d);
 
     valueC += fadeIncr;
 
-    if (c >= 1.0){
+    if (c >= 1.0) {
       animateCSC = false;
       valueC = 0;
     }
@@ -332,19 +329,18 @@ if (windowWidth > 650){
   //---CSE--
   if (animateCSE == true) {
 
-    var e = map(valueE, 0, 255, 0.0, 1.0);
-    var f = map(valueE, 0, 255, 1.0, 0.0);
+    var e = map(valueE, 0, 255, 0.0, 1.0, true);
+    var f = map(valueE, 0, 255, 1.0, 0.0, true);
 
     linkE.style("opacity", e);
     linkCSE.style("opacity", f);
 
-        valueE += fadeIncr;
+    valueE += fadeIncr;
 
-    if (e >= 1.0){
+    if (e >= 1.0) {
       animateCSE = false;
       valueE = 0;
     }
-
 
   }
 
@@ -352,7 +348,7 @@ if (windowWidth > 650){
   //     LOGO ANIMATION (DRAW)
   //-------------------------------------------------------------
 
-  if (windowWidth > 650){
+  if (windowWidth > 650) {
     imageMode(CENTER);
     tint(255, 255);
     image(amLogo, 80, 60, 125, 125);

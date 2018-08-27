@@ -156,7 +156,7 @@ function draw() {
 
   //for all moving elements
   var top = window.pageYOffset;
-  logoSpin = top * 2;
+  logoSpin = top/2;
 
   if (refresh == 0){
     refreshArray[0] = logoSpin;
@@ -185,7 +185,7 @@ function draw() {
   var rectDiv = myDiv.getBoundingClientRect();
 
   rectMode(CENTER);
-  fill(0, 0, 0, 170);
+  fill(0, 0, 0, 150);
   push();
   angleMode(DEGREES);
   translate(rectDiv.right + top, rectDiv.top);
@@ -208,7 +208,7 @@ function draw() {
   var rectDiv = myDiv.getBoundingClientRect();
 
   rectMode(CENTER);
-  fill(0, 0, 0, 170);
+  fill(0, 0, 0, 150);
   push();
   angleMode(DEGREES);
 
@@ -237,13 +237,13 @@ function draw() {
 
   //square 3 variables
   var rightOffset = rectDiv.right + isAnimation;
-  var rightToLeft = rightOffset - (top - (canvasH / 3));
+  var rightToLeft = rightOffset - (top - (canvasH / 4));
 
   var myDiv = document.getElementById('office');
   var rectDiv = myDiv.getBoundingClientRect();
 
   rectMode(CENTER);
-  fill(0, 0, 0, 170);
+  fill(0, 0, 0, 150);
   push();
   angleMode(DEGREES);
 

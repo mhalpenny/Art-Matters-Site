@@ -7,11 +7,11 @@
 //     VARIABLES
 //-------------------------------------------------------------
 
-var animateR, animateA, animateCO, animateGI, animateAr, animateE, animateCU, mainOff = false;
+var animateR, animateA, animateM, animateGI, animateAr, animateE, animateC, mainOff = false;
 var fadeR, fadeA, fadeCO, fadeE, fadeAr, fadeCU, fadeGI, fadeMain;
 var linkOffset, linkBuffer;
-var layerR, layerA, layerCO, layerE, layerAr, layerCU, layerGI;
-var iconR, iconA, iconCO, iconE, iconAr, iconCU, iconGI;
+var layerR, layerA, layerM, layerE, layerAr, layerC, layerGI;
+var iconR, iconA, iconM, iconE, iconAr, iconC, iconGI;
 var fadeIncr = 35;
 // var cpuPause = false;
 
@@ -23,22 +23,22 @@ var fadeIncr = 35;
 function preload() {
 
 //layers
-  layerR = loadImage('assets/RedLayer.png');
-  layerA = loadImage('assets/BlueLayer.png');
-  layerE = loadImage('assets/VioletLayer.png');
-  layerGI = loadImage('assets/GrayLayer.png');
-  layerCO = loadImage('assets/GreenLayer.png');
+  layerA = loadImage('assets/RedLayer.png');
+  layerR = loadImage('assets/BlueLayer.png');
+  layerM = loadImage('assets/VioletLayer.png');
+  layerE = loadImage('assets/GrayLayer.png');
+  layerC = loadImage('assets/GreenLayer.png');
   layerAr = loadImage('assets/OrangeLayer.png');
-  layerCU = loadImage('assets/YellowLayer.png');
+  layerGI = loadImage('assets/YellowLayer.png');
   layerMain = loadImage('assets/LayerAll80.png');
   //icons
-  iconR = loadImage('assets/rrIcon.png');
-  iconA = loadImage('assets/bIcon.png');
-  iconE = loadImage('assets/vIcon.png');
-  iconGI = loadImage('assets/rIcon.png');
-  iconCO = loadImage('assets/gIcon.png');
+  iconA = loadImage('assets/rrIcon.png');
+  iconR = loadImage('assets/bIcon.png');
+  iconM = loadImage('assets/vIcon.png');
+  iconE = loadImage('assets/rIcon.png');
+  iconC = loadImage('assets/gIcon.png');
   iconAr = loadImage('assets/oIcon.png');
-  iconCU = loadImage('assets/yIcon.png');
+  iconGI = loadImage('assets/yIcon.png');
   //logo
   amLogo = loadImage('assets/amlogo.png');
 }
@@ -65,7 +65,7 @@ function setup() {
 
   linkA = createA('about.html', 'ABOUT');
 
-  linkCU = createA('#', 'CALENDER');
+  linkC = createA('#', 'CALENDER');
 
   linkAr = createA('#', 'ARCHIVE');
 
@@ -73,7 +73,7 @@ function setup() {
 
   linkE = createA('#', 'EVENTS');
 
-  linkCO = createA('#', 'MAP');
+  linkM = createA('#', 'MAP');
 
   // linkAO = createA('pdf/AM_AntiO.pdf', 'ANTI-OPPRESSION STATEMENT');
 
@@ -93,14 +93,14 @@ function setup() {
   linkR.mouseOut(offLinkR);
   linkA.mouseOver(overLinkA);
   linkA.mouseOut(offLinkA);
-  linkCO.mouseOver(overLinkCO);
-  linkCO.mouseOut(offLinkCO);
+  linkM.mouseOver(overlinkM);
+  linkM.mouseOut(offlinkM);
   linkGI.mouseOver(overLinkGI);
   linkGI.mouseOut(offLinkGI);
   linkE.mouseOver(overLinkE);
   linkE.mouseOut(offLinkE);
-  linkCU.mouseOver(overLinkCU);
-  linkCU.mouseOut(offLinkCU);
+  linkC.mouseOver(overlinkC);
+  linkC.mouseOut(offlinkC);
   linkAr.mouseOver(overLinkAr);
   linkAr.mouseOut(offLinkAr);
 
@@ -145,12 +145,12 @@ if (windowWidth > 650){
 }
 
   //positioning
-  linkR.position(linkMargin, linkBuffer + linkOffset);
-  linkA.position(linkMargin, linkBuffer + linkOffset*2);
-  linkCU.position(linkMargin, linkBuffer + linkOffset*3);
-  linkE.position(linkMargin, linkBuffer + linkOffset*4);
-  linkGI.position(linkMargin, linkBuffer + linkOffset*5);
-  linkCO.position(linkMargin, linkBuffer + linkOffset*6);
+  linkA.position(linkMargin, linkBuffer + linkOffset);
+  linkR.position(linkMargin, linkBuffer + linkOffset*2);
+  linkGI.position(linkMargin, linkBuffer + linkOffset*3);
+  linkM.position(linkMargin, linkBuffer + linkOffset*4);
+  linkC.position(linkMargin, linkBuffer + linkOffset*5);
+  linkE.position(linkMargin, linkBuffer + linkOffset*6);
   // linkAO.position(linkMargin, linkBuffer + linkOffset*7);
   linkAr.position(linkMargin, linkBuffer + linkOffset*7);
 
@@ -192,7 +192,7 @@ if (windowWidth > 650){
   if (animateR == true) {
   tint(255, fadeR);
   image(layerR, windowWidth/2, height/2, windowWidth, windowHeight);
-  image(iconR, linkMargin, (linkBuffer + linkOffset), 50, 50);
+  image(iconR, linkMargin, (linkBuffer + linkOffset*2), 50, 50);
   fadeR += fadeIncr;
   }
 
@@ -200,15 +200,15 @@ if (windowWidth > 650){
   if (animateA == true) {
   tint(255, fadeA);
   image(layerA, windowWidth/2, height/2, windowWidth, windowHeight);
-  image(iconA, linkMargin, (linkBuffer + linkOffset*2), 50, 50);
+  image(iconA, linkMargin, (linkBuffer + linkOffset), 50, 50);
   fadeA += fadeIncr;
   }
 
-  //---CO---
-  if (animateCO == true) {
+  //---M---
+  if (animateM == true) {
   tint(255, fadeCO);
-  image(layerCO, windowWidth/2, height/2, windowWidth, windowHeight);
-  image(iconCO, linkMargin, (linkBuffer + linkOffset*6), 50, 50);
+  image(layerM, windowWidth/2, height/2, windowWidth, windowHeight);
+  image(iconM, linkMargin, (linkBuffer + linkOffset*4), 50, 50);
   fadeCO += fadeIncr;
   }
 
@@ -216,7 +216,7 @@ if (windowWidth > 650){
   if (animateGI == true) {
   tint(255, fadeGI);
   image(layerGI, windowWidth/2, height/2, windowWidth, windowHeight);
-  image(iconGI, linkMargin, (linkBuffer + linkOffset*5), 50, 50);
+  image(iconGI, linkMargin, (linkBuffer + linkOffset*3), 50, 50);
   fadeGI += fadeIncr;
   }
 
@@ -228,11 +228,11 @@ if (windowWidth > 650){
   fadeAr += fadeIncr;
   }
 
-  //---CU---
-  if (animateCU == true) {
+  //---C---
+  if (animateC == true) {
   tint(255, fadeCU);
-  image(layerCU, windowWidth/2, height/2, windowWidth, windowHeight);
-  image(iconCU, linkMargin, (linkBuffer + linkOffset*3), 50, 50);
+  image(layerC, windowWidth/2, height/2, windowWidth, windowHeight);
+  image(iconC, linkMargin, (linkBuffer + linkOffset*5), 50, 50);
   fadeCU += fadeIncr;
   }
 
@@ -240,7 +240,7 @@ if (windowWidth > 650){
   if (animateE == true) {
   tint(255, fadeE);
   image(layerE, windowWidth/2, height/2, windowWidth, windowHeight);
-  image(iconE, linkMargin, (linkBuffer + linkOffset*4), 50, 50);
+  image(iconE, linkMargin, (linkBuffer + linkOffset*6), 50, 50);
   fadeE += fadeIncr;
   }
 
@@ -299,33 +299,40 @@ function offLinkA() {
 
 //---CO---
 
-function overLinkCO() {
-  animateCO = true;
-  linkCO.style('font-style', 'italic');
+function overlinkM() {
+  animateM = true;
+  //temporary block until updated
+  // linkM.style('font-style', 'italic');
+  linkM.html("COMING SOON");
+
   mainOff = true;
   fadeMain = 0;
 }
 
-function offLinkCO() {
-  animateCO = false;
+function offlinkM() {
+  animateM = false;
   fadeCO = 0;
-  linkCO.style('font-style', 'normal');
+  // linkM.style('font-style', 'normal');
+  linkM.html("MAP");
+
   mainOff = false;
 }
 
 //---CU---
 
-function overLinkCU() {
-  animateCU = true;
-  linkCU.style('font-style', 'italic');
+function overlinkC() {
+  animateC = true;
+  // linkC.style('font-style', 'italic');
+  linkC.html("COMING SOON");
   mainOff = true;
   fadeMain = 0;
 }
 
-function offLinkCU() {
-  animateCU = false;
+function offlinkC() {
+  animateC = false;
   fadeCU = 0;
-  linkCU.style('font-style', 'normal');
+    linkC.html("CALENDER");
+  // linkC.style('font-style', 'normal');
   mainOff = false;
 }
 
@@ -365,7 +372,8 @@ function offLinkAr() {
 
 function overLinkE() {
   animateE = true;
-  linkE.style('font-style', 'italic');
+  // linkE.style('font-style', 'italic');
+  linkE.html("COMING SOON");
   mainOff = true;
   fadeMain = 0;
 }
@@ -373,7 +381,8 @@ function overLinkE() {
 function offLinkE() {
   animateE = false;
   fadeE = 0;
-  linkE.style('font-style', 'normal');
+  // linkE.style('font-style', 'normal');
+    linkE.html("EBENTS");
   mainOff = false;
 }
 

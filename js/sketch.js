@@ -7,12 +7,13 @@
 //     VARIABLES
 //-------------------------------------------------------------
 
-var animateR, animateA, animateM, animateGI, animateAr, animateE, animateC, mainOff = false;
-var fadeR, fadeA, fadeCO, fadeE, fadeAr, fadeCU, fadeGI, fadeMain;
+var animateR, animateA, animateM, animateGI, animateAr, animateE, animateC, mainOff, animateCSM, animateCSC, animateCSE = false;
+var fadeR, fadeA, fadeM, fadeE, fadeAr, fadeC, fadeGI, fadeMain;
 var linkOffset, linkBuffer;
 var layerR, layerA, layerM, layerE, layerAr, layerC, layerGI;
 var iconR, iconA, iconM, iconE, iconAr, iconC, iconGI;
 var fadeIncr = 35;
+var valueM, valueC, valueE = 0;
 // var cpuPause = false;
 
 
@@ -82,6 +83,21 @@ function setup() {
   linkFR = createA('indexFR.html', 'FR');
   linkFR.id('lang');
 
+  linkCSM = createA('#', 'COMING SOON');
+  linkCSM.style('opacity', '0');
+  linkCSM.style('z-index', '-1');
+
+  linkCSC = createA('#', 'COMING SOON');
+  linkCSC.style('opacity', '0');
+  linkCSC.style('z-index', '-1');
+
+  linkCSE = createA('#', 'COMING SOON');
+  linkCSE.style('opacity', '0');
+  linkCSE.style('z-index', '-1');
+
+
+
+
 
 
   //-------------------------------------------------------------
@@ -106,13 +122,16 @@ function setup() {
 
   //instantiate animations.
   fadeA = 0;
-  fadeCO = 0;
+  fadeM = 0;
   fadeR = 0;
   fadeAr = 0;
-  fadeCU = 0;
+  fadeC = 0;
   fadeE = 0;
   fadeGI = 0;
   fadeMain = 255;
+  valueM = 0;
+  valueE = 0;
+  valueC = 0;
 
 }
 
@@ -156,6 +175,11 @@ if (windowWidth > 650){
 
   linkEN.position(windowWidth - 65, 15);
   linkFR.position(windowWidth - 35, 15);
+
+  linkCSM.position(linkMargin, linkBuffer + linkOffset*4);
+  linkCSC.position(linkMargin, linkBuffer + linkOffset*5);
+  linkCSE.position(linkMargin, linkBuffer + linkOffset*6);
+
 
 
 
@@ -206,10 +230,17 @@ if (windowWidth > 650){
 
   //---M---
   if (animateM == true) {
-  tint(255, fadeCO);
+  tint(255, fadeM);
   image(layerM, windowWidth/2, height/2, windowWidth, windowHeight);
   image(iconM, linkMargin, (linkBuffer + linkOffset*4), 50, 50);
-  fadeCO += fadeIncr;
+  var m = map(fadeM, 0, 255, 0.0, 1.0);
+  var n = map(fadeM, 0, 255, 1.0, 0.0);
+
+  linkCSM.style("opacity", m);
+  linkM.style("opacity", n);
+
+  // linkCSM.position(linkMargin, linkBuffer + linkOffset*4);
+  fadeM += fadeIncr;
   }
 
   //---GI---
@@ -230,10 +261,16 @@ if (windowWidth > 650){
 
   //---C---
   if (animateC == true) {
-  tint(255, fadeCU);
+  tint(255, fadeC);
   image(layerC, windowWidth/2, height/2, windowWidth, windowHeight);
   image(iconC, linkMargin, (linkBuffer + linkOffset*5), 50, 50);
-  fadeCU += fadeIncr;
+  var m = map(fadeC, 0, 255, 0.0, 1.0);
+  var n = map(fadeC, 0, 255, 1.0, 0.0);
+
+  linkCSC.style("opacity", m);
+  linkC.style("opacity", n);
+
+  fadeC += fadeIncr;
   }
 
   //---E---
@@ -241,7 +278,74 @@ if (windowWidth > 650){
   tint(255, fadeE);
   image(layerE, windowWidth/2, height/2, windowWidth, windowHeight);
   image(iconE, linkMargin, (linkBuffer + linkOffset*6), 50, 50);
+  var m = map(fadeE, 0, 255, 0.0, 1.0);
+  var n = map(fadeE, 0, 255, 1.0, 0.0);
+
+  linkCSE.style("opacity", m);
+  linkE.style("opacity", n);
+
   fadeE += fadeIncr;
+  }
+
+  //---CSM---
+  if (animateCSM == true) {
+
+
+    var a = map(valueM, 0, 255, 0.0, 1.0);
+    var b = map(valueM, 0, 255, 1.0, 0.0);
+
+    linkM.style("opacity", a);
+    linkCSM.style("opacity", b);
+
+    valueM += fadeIncr;
+
+    text(valueM, 150, 100);
+
+    if (a >= 1.0){
+      animateCSM = false;
+      valueM = 0;
+    }
+
+
+
+  }
+
+  //---CSC---
+  if (animateCSC == true) {
+
+
+    var c = map(valueC, 0, 255, 0.0, 1.0);
+    var d = map(valueC, 0, 255, 1.0, 0.0);
+
+    linkC.style("opacity", c);
+    linkCSC.style("opacity", d);
+
+    valueC += fadeIncr;
+
+    if (c >= 1.0){
+      animateCSC = false;
+      valueC = 0;
+    }
+
+  }
+
+  //---CSE--
+  if (animateCSE == true) {
+
+    var e = map(valueE, 0, 255, 0.0, 1.0);
+    var f = map(valueE, 0, 255, 1.0, 0.0);
+
+    linkE.style("opacity", e);
+    linkCSE.style("opacity", f);
+
+        valueE += fadeIncr;
+
+    if (e >= 1.0){
+      animateCSE = false;
+      valueE = 0;
+    }
+
+
   }
 
   //-------------------------------------------------------------
@@ -301,21 +405,21 @@ function offLinkA() {
 
 function overlinkM() {
   animateM = true;
-  //temporary block until updated
-  // linkM.style('font-style', 'italic');
-  linkM.html("COMING SOON");
-
   mainOff = true;
   fadeMain = 0;
+  // linkM.style('font-style', 'italic');
+
 }
 
 function offlinkM() {
   animateM = false;
-  fadeCO = 0;
-  // linkM.style('font-style', 'normal');
-  linkM.html("MAP");
-
+  fadeM = 0;
   mainOff = false;
+  animateCSM = true;
+  // linkM.style('font-style', 'normal');
+
+
+
 }
 
 //---CU---
@@ -323,15 +427,15 @@ function offlinkM() {
 function overlinkC() {
   animateC = true;
   // linkC.style('font-style', 'italic');
-  linkC.html("COMING SOON");
   mainOff = true;
   fadeMain = 0;
+
 }
 
 function offlinkC() {
   animateC = false;
-  fadeCU = 0;
-    linkC.html("CALENDER");
+  fadeC = 0;
+  animateCSC = true;
   // linkC.style('font-style', 'normal');
   mainOff = false;
 }
@@ -373,7 +477,6 @@ function offLinkAr() {
 function overLinkE() {
   animateE = true;
   // linkE.style('font-style', 'italic');
-  linkE.html("COMING SOON");
   mainOff = true;
   fadeMain = 0;
 }
@@ -381,8 +484,8 @@ function overLinkE() {
 function offLinkE() {
   animateE = false;
   fadeE = 0;
+  animateCSE = true;
   // linkE.style('font-style', 'normal');
-    linkE.html("EBENTS");
   mainOff = false;
 }
 

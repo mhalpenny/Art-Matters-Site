@@ -59,7 +59,7 @@ function setup() {
   //     STYLING (SETUP)
   //-------------------------------------------------------------
 
-  frameRate(10);
+  frameRate(15);
   //retrieve div id
   bodyH = document.getElementById('gallery');
   //use id to get div height for canvas scrolling length
@@ -91,9 +91,9 @@ function setup() {
 
   linkC = createA('#', 'CALENDAR');
 
-  linkAr = createA('#', 'ARCHIVE');
+  linkAr = createA('http://artmattersfestival.org/archive/', 'ARCHIVE');
 
-  linkGI = createA('#', 'GET INVOLVED');
+  linkGI = createA('getInvolved.html', 'GET INVOLVED');
 
   linkE = createA('#', 'EVENTS');
 
@@ -101,10 +101,10 @@ function setup() {
 
   // linkAO = createA('pdf/AM_AntiO.pdf', 'ANTI-OPPRESSION STATEMENT');
 
-  // linkEN = createA('index.html', 'EN');
+  // linkEN = createA('#', 'EN');
   // linkEN.id('lang');
-  // linkFR = createA('indexFR.html', 'FR');
-  // linkFR.id('lang');
+  linkFR = createA('aPropos.html', 'FR');
+  linkFR.id('lang');
 
   home = createA('index.html', 'O');
   //debugging
@@ -195,7 +195,7 @@ function draw() {
 
   //---DIV BACKGROUND 1---
 
-  var myDiv = document.getElementById('about');
+  var myDiv = document.getElementById('one');
   var rectDiv = myDiv.getBoundingClientRect();
 
   rectMode(CENTER);
@@ -220,7 +220,7 @@ function draw() {
   var leftOffset = rectDiv.left - isAnimation;
   var leftToRight = leftOffset + top;
 
-  var myDiv = document.getElementById('funding');
+  var myDiv = document.getElementById('two');
   var rectDiv = myDiv.getBoundingClientRect();
 
   rectMode(CENTER);
@@ -257,7 +257,7 @@ function draw() {
   var rightOffset = rectDiv.right + isAnimation;
   var rightToLeft = rightOffset - (top - (canvasH / 4));
 
-  var myDiv = document.getElementById('office');
+  var myDiv = document.getElementById('three');
   var rectDiv = myDiv.getBoundingClientRect();
 
   rectMode(CENTER);
@@ -287,7 +287,7 @@ function draw() {
 
   //---DIV BACKGROUND 4---
 
-  var myDiv = document.getElementById('contact');
+  var myDiv = document.getElementById('four');
   var rectDiv = myDiv.getBoundingClientRect();
 
   //variables for 4nd square
@@ -352,7 +352,6 @@ function draw() {
   linkAr.position(linkMargin, linkBuffer + linkOffset * 7);
 
   // linkEN.position(windowWidth - 65, 15);
-  // linkFR.position(windowWidth - 35, 15);
 
   linkCSM.position(linkMargin, linkBuffer + linkOffset * 4);
   linkCSC.position(linkMargin, linkBuffer + linkOffset * 5);
@@ -505,10 +504,12 @@ function draw() {
     translate(linkMargin * 2.3, topNew);
     rotate(logoSpin);
     image(amLogo, 0, 0, 110, 110);
+    linkFR.position(linkMargin, linkBuffer + linkOffset * 8);
   } else {
     translate(linkMargin * 1.5, topNew);
     rotate(logoSpin);
     image(amLogo, 0, 0, 70, 70);
+    linkFR.position(linkMargin, linkBuffer + linkOffset * 8);
   }
   pop();
 

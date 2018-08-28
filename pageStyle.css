@@ -63,16 +63,24 @@ font-style: oblique;
 } */
 
 #lang{
-  float: right;
-  margin-right: 1%;
-  width: 30%;
-
+  position: fixed;
+  /* right: 5.2%; */
+  /* width: 30%; */
+  top: 38px;
   font-size: 12px;
   font-family: 'Didact Gothic', sans-serif;
-  font-weight: normal;
-  letter-spacing: 5px;
+  font-weight: bold;
+  letter-spacing: 3px;
   text-decoration: none;
   color: black;
+}
+
+#langBack{
+  position: fixed;
+  top: 22px;
+  right: 4%;
+  width:45px;
+  height:45px;
 }
 
 .icon{
@@ -94,6 +102,7 @@ font-style: oblique;
   margin-left: 0%;
 }
 
+
 #gallery{
   background-color: transparent;
   /* border: 1px solid black; */
@@ -106,6 +115,11 @@ font-style: oblique;
   color: blue;
   float: right;
 }
+
+#links{
+  text-align: center;
+}
+
 
 
 .boxTitleRed{
@@ -171,6 +185,60 @@ text-align: left;
   background-color: rgba(239, 196, 88,0.9);
   margin-bottom: 7%;
 }
+#links {
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 0%;
+}
+
+#links a{
+  font-size: 14px;
+  font-family: 'Quicksand', sans-serif;
+  line-height: 1;
+  letter-spacing: 2.3;
+  text-decoration: none;
+  color: black;
+  background-color: rgba(255, 255, 255, 0);
+  padding: 0%;
+    font-weight: normal;
+}
+
+#links a:hover{
+  font-size: 14px;
+  font-family: 'Quicksand', sans-serif;
+  letter-spacing: 1;
+    letter-spacing: 2.3;
+  font-style: oblique;
+  color: white;
+  background-color: rgba(255, 255, 255, 0);
+  padding: 0%;
+  cursor:crosshair;
+}
+
+#facebook{
+  font-size: 14px;
+  /* font-family: 'Open Sans', sans-serif; */
+  font-family: 'Quicksand', sans-serif;
+  line-height: 1.5;
+  letter-spacing: 2;
+  text-decoration: none;
+  color: black;
+  background-color: rgba(255, 255, 255, 0);
+  padding: 0%;
+  font-weight: normal;
+
+}
+#facebook:hover{
+  font-size: 14px;
+  /* font-family: 'Open Sans', sans-serif; */
+  font-family: 'Quicksand', sans-serif;
+  line-height: 1.5;
+  letter-spacing: 2;
+  text-decoration: none;
+  color: grey;
+  background-color: rgba(255, 255, 255, 0);
+  padding: 0%;
+  cursor:crosshair;
+}
 
 .boxBlue{
   width:75%;
@@ -180,15 +248,4 @@ text-align: left;
   padding: 3%;
   background-color: rgba(17, 66, 81, 0.9);
   margin-bottom: 7%;
-}
-
-#artists{
-  width:40%;
-  float:left;
-  overflow:hidden;
-  margin-left: 15%;
-  padding: 3%;
-  background-color: transparent;
-  border: 1px solid black;
-
 }

@@ -68,9 +68,9 @@ function setup() {
 
   linkC = createA('#', 'CALENDER');
 
-  linkAr = createA('#', 'ARCHIVE');
+  linkAr = createA('http://artmattersfestival.org/archive/', 'ARCHIVE');
 
-  linkGI = createA('#', 'GET INVOLVED');
+  linkGI = createA('getInvolved.html', 'GET INVOLVED');
 
   linkE = createA('#', 'EVENTS');
 
@@ -78,7 +78,7 @@ function setup() {
 
   // linkAO = createA('pdf/AM_AntiO.pdf', 'ANTI-OPPRESSION STATEMENT');
 
-  linkEN = createA('index.html', 'EN');
+  linkEN = createA('#', 'EN');
   linkEN.id('lang');
   linkFR = createA('indexFR.html', 'FR');
   linkFR.id('lang');
@@ -259,7 +259,7 @@ function draw() {
     // linkCSM.position(linkMargin, linkBuffer + linkOffset*4);
     fadeM += fadeIncr;
   }
-  
+
   //---C---
   if (animateC == true) {
     tint(255, fadeC);

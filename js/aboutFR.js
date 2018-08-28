@@ -59,7 +59,7 @@ function setup() {
   //     STYLING (SETUP)
   //-------------------------------------------------------------
 
-  frameRate(10);
+  frameRate(15);
   //retrieve div id
   bodyH = document.getElementById('gallery');
   //use id to get div height for canvas scrolling length
@@ -85,28 +85,28 @@ function setup() {
   //     LINKS (SETUP)
   //-------------------------------------------------------------
 
-  linkR = createA('resources.html', 'RESOURCES');
+  linkR = createA('#', 'RESSOURCES');
 
-  linkA = createA('#', 'ABOUT');
+  linkA = createA('#', 'À PROPOS');
 
-  linkC = createA('#', 'CALENDAR');
+  linkC = createA('#', 'CALENDRIER');
 
-  linkAr = createA('#', 'ARCHIVE');
+  linkAr = createA('http://artmattersfestival.org/archive/', 'ARCHIVE');
 
-  linkGI = createA('#', 'GET INVOLVED');
+  linkGI = createA('#', 'NOUS JOINDRE');
 
-  linkE = createA('#', 'EVENTS');
+  linkE = createA('#', 'ÉVÉNEMENTS');
 
-  linkM = createA('#', 'MAPS');
+  linkM = createA('#', 'CARTE');
 
   // linkAO = createA('pdf/AM_AntiO.pdf', 'ANTI-OPPRESSION STATEMENT');
 
-  // linkEN = createA('index.html', 'EN');
-  // linkEN.id('lang');
+  linkEN = createA('about.html', 'EN');
+  linkEN.id('lang');
   // linkFR = createA('indexFR.html', 'FR');
   // linkFR.id('lang');
 
-  home = createA('index.html', 'O');
+  home = createA('indexFR.html', 'O');
   //debugging
   // home.style('color', 'black');
   home.style('color', 'transparent');
@@ -116,15 +116,15 @@ function setup() {
   home.class('noselect');
 
 
-    linkCSM = createA('#', 'COMING SOON');
+    linkCSM = createA('#', 'AURA BIENTÔT');
     linkCSM.style('opacity', '0');
     linkCSM.style('z-index', '-1');
 
-    linkCSC = createA('#', 'COMING SOON');
+    linkCSC = createA('#', 'AURA BIENTÔT');
     linkCSC.style('opacity', '0');
     linkCSC.style('z-index', '-1');
 
-    linkCSE = createA('#', 'COMING SOON');
+    linkCSE = createA('#', 'AURA BIENTÔT');
     linkCSE.style('opacity', '0');
     linkCSE.style('z-index', '-1');
 
@@ -351,7 +351,8 @@ function draw() {
   // linkAO.position(linkMargin, linkBuffer + linkOffset*7);
   linkAr.position(linkMargin, linkBuffer + linkOffset * 7);
 
-  // linkEN.position(windowWidth - 65, 15);
+  linkEN.position(linkMargin, linkBuffer + linkOffset * 8);
+
   // linkFR.position(windowWidth - 35, 15);
 
   linkCSM.position(linkMargin, linkBuffer + linkOffset * 4);

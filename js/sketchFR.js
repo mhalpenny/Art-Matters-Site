@@ -63,13 +63,13 @@ function setup() {
 
   // optionally migrate to CSS for all links
 
-  linkR = createA('resources.html', 'RESSOURCES');
+  linkR = createA('#', 'RESSOURCES');
 
-  linkA = createA('about.html', 'À PROPOS');
+  linkA = createA('aPropos.html', 'À PROPOS');
 
   linkC = createA('#', 'CALENDRIER');
 
-  linkAr = createA('#', 'ARCHIVE');
+  linkAr = createA('http://artmattersfestival.org/archive/', 'ARCHIVE');
 
   linkGI = createA('#', 'NOUS JOINDRE');
 
@@ -81,7 +81,7 @@ function setup() {
 
   linkEN = createA('index.html', 'EN');
   linkEN.id('lang');
-  linkFR = createA('indexFR.html', 'FR');
+  linkFR = createA('#', 'FR');
   linkFR.id('lang');
 
   linkCSM = createA('#', 'COMING SOON');

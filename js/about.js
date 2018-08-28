@@ -199,16 +199,18 @@ function draw() {
   var rectDiv = myDiv.getBoundingClientRect();
 
   rectMode(CENTER);
-  fill(0, 0, 0, 150);
-  push();
   angleMode(DEGREES);
-  translate(rectDiv.right + top, rectDiv.top);
-  rotate(45);
-  rect(0, 0 + top, width, height);
-  pop();
+  fill(0, 0, 0, 150);
+  // push();
+  // angleMode(DEGREES);
+  // translate(rectDiv.right + top, rectDiv.top);
+  // rotate(45);
+  // rect(0, 0 + top, width, height);
+  // pop();
   push()
   translate(rectDiv.right, rectDiv.top);
   rotate(-135);
+  rect(0, 0 + top, width, height);
   backgroundPattern(width, height, width/2, height/2);
   pop();
 
@@ -222,19 +224,20 @@ function draw() {
   var rectDiv = myDiv.getBoundingClientRect();
 
   rectMode(CENTER);
-  fill(0, 0, 0, 150);
-  push();
   angleMode(DEGREES);
-
-  if (leftToRight < rectDiv.left) {
-    translate(leftToRight, rectDiv.top + top);
-  } else {
-    translate(rectDiv.left, rectDiv.top + top);
-  }
-
-  rotate(-45);
-  rect(0, 0, width, height);
-  pop();
+  fill(0, 0, 0, 150);
+  // push();
+  // angleMode(DEGREES);
+  //
+  // if (leftToRight < rectDiv.left) {
+  //   translate(leftToRight, rectDiv.top + top);
+  // } else {
+  //   translate(rectDiv.left, rectDiv.top + top);
+  // }
+  //
+  // rotate(-45);
+  // rect(0, 0, width, height);
+  // pop();
   push();
 
   if (leftToRight < rectDiv.left) {
@@ -244,6 +247,7 @@ function draw() {
   }
 
   rotate(135);
+  rect(0, 0, width, height);
   backgroundPattern(width, height, width/2, height/2);
   pop();
 
@@ -257,18 +261,19 @@ function draw() {
   var rectDiv = myDiv.getBoundingClientRect();
 
   rectMode(CENTER);
-  fill(0, 0, 0, 150);
-  push();
   angleMode(DEGREES);
-
-  if (rightToLeft > rectDiv.right) {
-    translate(rightToLeft, rectDiv.top + top);
-  } else {
-    translate(rectDiv.right, rectDiv.top + top);
-  }
-  rotate(45);
-  rect(0, 0, width, height);
-  pop();
+  fill(0, 0, 0, 150);
+  // push();
+  // angleMode(DEGREES);
+  //
+  // if (rightToLeft > rectDiv.right) {
+  //   translate(rightToLeft, rectDiv.top + top);
+  // } else {
+  //   translate(rectDiv.right, rectDiv.top + top);
+  // }
+  // rotate(45);
+  // rect(0, 0, width, height);
+  // pop();
   push()
   if (rightToLeft > rectDiv.right) {
     translate(rightToLeft, rectDiv.top + top);
@@ -276,6 +281,7 @@ function draw() {
     translate(rectDiv.right, rectDiv.top + top);
   }
   rotate(-135);
+  rect(0, 0, width, height);
   backgroundPattern(width, height, width/2, height/2);
   pop();
 
@@ -289,19 +295,20 @@ function draw() {
   var leftToRight = leftOffset + (top - (canvasH / 2.2));
 
   rectMode(CENTER);
-  fill(0, 0, 0, 150);
-  push();
   angleMode(DEGREES);
-
-  if (leftToRight < rectDiv.left) {
-    translate(leftToRight, rectDiv.top + top);
-  } else {
-    translate(rectDiv.left, rectDiv.top + top);
-  }
-
-  rotate(-45);
-  rect(0, 0, width, height);
-  pop();
+  fill(0, 0, 0, 150);
+  // push();
+  // angleMode(DEGREES);
+  //
+  // if (leftToRight < rectDiv.left) {
+  //   translate(leftToRight, rectDiv.top + top);
+  // } else {
+  //   translate(rectDiv.left, rectDiv.top + top);
+  // }
+  //
+  // rotate(-45);
+  // rect(0, 0, width, height);
+  // pop();
   push();
 
   if (leftToRight < rectDiv.left) {
@@ -311,6 +318,7 @@ function draw() {
   }
 
   rotate(135);
+  rect(0, 0, width, height);
   backgroundPattern(width, height, width/2, height/2);
   pop();
 

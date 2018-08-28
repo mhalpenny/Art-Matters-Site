@@ -7,13 +7,13 @@
 //     VARIABLES
 //-------------------------------------------------------------
 
-var animateR, animateA, animateM, animateGI, animateAr, animateE, animateC, mainOff, animateCSM, animateCSC, animateCSE = false;
-var fadeR, fadeA, fadeM, fadeE, fadeAr, fadeC, fadeGI, fadeMain;
+var animateR = false, animateA = false, animateM = false, animateGI = false, animateAr = false, animateE = false, animateC = false, mainOff = false, animateCSM = false, animateCSC = false, animateCSE = false;
+var fadeR = 0, fadeA = 0, fadeM = 0, fadeE = 0, fadeAr = 0, fadeC = 0, fadeGI = 0, fadeMain = 255;
 var linkOffset, linkBuffer;
 var layerR, layerA, layerM, layerE, layerAr, layerC, layerGI;
 var iconR, iconA, iconM, iconE, iconAr, iconC, iconGI;
 var fadeIncr = 35;
-var valueM, valueC, valueE = 0;
+var valueM = 0, valueC = 0, valueE = 0;
 // var cpuPause = false;
 
 
@@ -121,18 +121,18 @@ function setup() {
   linkAr.mouseOut(offLinkAr);
 
   //instantiate animations.
-  fadeA = 0;
-  fadeM = 0;
-  fadeR = 0;
-  fadeAr = 0;
-  fadeC = 0;
-  fadeE = 0;
-  fadeGI = 0;
-  fadeMain = 255;
-  valueM = 0;
-  valueE = 0;
-  valueC = 0;
-  mainOff = false;
+  // fadeA = 0;
+  // fadeM = 0;
+  // fadeR = 0;
+  // fadeAr = 0;
+  // fadeC = 0;
+  // fadeE = 0;
+  // fadeGI = 0;
+  // fadeMain = 255;
+  // valueM = 0;
+  // valueE = 0;
+  // valueC = 0;
+  // mainOff = false;
 
 }
 
@@ -159,7 +159,7 @@ function draw() {
     var linkMargin = 29;
   } else {
     //variable math
-    linkOffset = 75 - (windowHeight) * 0.01
+    linkOffset = 75 - (windowHeight) * 0.05
     linkBuffer = 80 - (windowHeight) * 0.015
     var linkMargin = 29;
   }
@@ -175,7 +175,7 @@ function draw() {
   linkAr.position(linkMargin, linkBuffer + linkOffset * 7);
 
   linkEN.position(windowWidth - 65, 15);
-  linkFR.position(windowWidth - 35, 15);
+  linkFR.position(windowWidth - 40, 15);
 
   linkCSM.position(linkMargin, linkBuffer + linkOffset * 4);
   linkCSC.position(linkMargin, linkBuffer + linkOffset * 5);
@@ -229,21 +229,6 @@ function draw() {
     fadeA += fadeIncr;
   }
 
-  //---M---
-  if (animateM == true) {
-    tint(255, fadeM);
-    image(layerM, windowWidth / 2, height / 2, windowWidth, windowHeight);
-    image(iconM, linkMargin, (linkBuffer + linkOffset * 4), 50, 50);
-    var m = map(fadeM, 0, 255, 0.0, 1.0);
-    var n = map(fadeM, 0, 255, 1.0, 0.0);
-
-    linkCSM.style("opacity", m);
-    linkM.style("opacity", n);
-
-    // linkCSM.position(linkMargin, linkBuffer + linkOffset*4);
-    fadeM += fadeIncr;
-  }
-
   //---GI---
   if (animateGI == true) {
     tint(255, fadeGI);
@@ -260,6 +245,21 @@ function draw() {
     fadeAr += fadeIncr;
   }
 
+  //---M---
+  if (animateM == true) {
+    tint(255, fadeM);
+    image(layerM, windowWidth / 2, height / 2, windowWidth, windowHeight);
+    image(iconM, linkMargin, (linkBuffer + linkOffset * 4), 50, 50);
+    var m = map(fadeM, 0, 255, 0.0, 1.0);
+    var n = map(fadeM, 0, 255, 1.0, 0.0);
+
+    linkCSM.style("opacity", m);
+    linkM.style("opacity", n);
+
+    // linkCSM.position(linkMargin, linkBuffer + linkOffset*4);
+    fadeM += fadeIncr;
+  }
+  
   //---C---
   if (animateC == true) {
     tint(255, fadeC);
@@ -355,7 +355,7 @@ function draw() {
   } else {
     imageMode(CENTER);
     tint(255, 255);
-    image(amLogo, 65, 50, 90, 90);
+    image(amLogo, 65, 50, 80, 80);
   }
 
 }
@@ -413,8 +413,6 @@ function offlinkM() {
   mainOff = false;
   animateCSM = true;
   // linkM.style('font-style', 'normal');
-
-
 
 }
 

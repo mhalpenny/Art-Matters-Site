@@ -75,6 +75,25 @@ font-style: oblique;
   color: black;
 }
 
+.icon{
+  width:50px;
+  height:50px;
+}
+
+#social{
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 0px;
+  padding-top: 3%;
+  padding-bottom: 3%;
+  padding-left: 3%;
+  width: 97%;
+}
+
+#social a:link, #social a:visited {
+  margin: 1.2em;
+  margin-left: 0%;
+}
+
 #gallery{
   background-color: transparent;
   /* border: 1px solid black; */
@@ -173,63 +192,3 @@ text-align: left;
   border: 1px solid black;
 
 }
-
-
-footer{
- position: relative;
-  background-color: black;
-  width:100%;
-  height:10%;
-  margin-bottom: -2%;
-}
-
-#smBar{
-  float: left;
-  margin-left: 45%;
-  height:10%;
-  padding: 5px;
-}
-
-.smIcon{
-  width: 45px;
-  height: 45px;
-  border: none;
-  cursor: crosshair;
-  -webkit-transition-duration: 0.4s; /* Safari */
-  transition-duration: 0.4s;
-background-color: transparent;
-}
-
-.smIcon:hover{
-  box-shadow: 0 12px 16px 0 rgba(255,255,255,0.24), 0 17px 50px 0 rgba(255,255,255,0.19);
-}
-
-
-#facebook{
-  background-image: url('assets/facebook.png');
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: contain;
-}
-#instagram{
-  background-image: url('assets/instagram.png');
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: contain;
-}
-#vimeo{
-  background-image: url('assets/vimeo.png');
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: contain;
-}
-
-/* @media only screen and (min-width: 1000px) {
-  p{
-    font-size: 12px;
-  }
-  a{
-    font-size: 18px;
-  }
-
-} */

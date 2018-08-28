@@ -47,6 +47,7 @@ font-style: oblique;
 
 @media only screen and (max-width: 650px) {
   a{
-    /* text-shadow: 1px 1px white; */
+    text-shadow: 1px 1px white;
+    font-size: 16px;
 }
 }

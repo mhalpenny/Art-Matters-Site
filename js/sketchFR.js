@@ -7,14 +7,15 @@
 //     VARIABLES
 //-------------------------------------------------------------
 
-var animateR, animateA, animateM, animateGI, animateAr, animateE, animateC, mainOff, animateCSM, animateCSC, animateCSE = false;
-var fadeR, fadeA, fadeM, fadeE, fadeAr, fadeC, fadeGI, fadeMain;
+var animateR = false, animateA = false, animateM = false, animateGI = false, animateAr = false, animateE = false, animateC = false, mainOff = false, animateCSM = false, animateCSC = false, animateCSE = false;
+var fadeR = 0, fadeA = 0, fadeM = 0, fadeE = 0, fadeAr = 0, fadeC = 0, fadeGI = 0, fadeMain = 255;
 var linkOffset, linkBuffer;
 var layerR, layerA, layerM, layerE, layerAr, layerC, layerGI;
 var iconR, iconA, iconM, iconE, iconAr, iconC, iconGI;
 var fadeIncr = 35;
-var valueM, valueC, valueE = 0;
+var valueM = 0, valueC = 0, valueE = 0;
 // var cpuPause = false;
+
 
 
 //-------------------------------------------------------------
@@ -121,18 +122,18 @@ function setup() {
   linkAr.mouseOut(offLinkAr);
 
   //instantiate animations.
-  fadeA = 0;
-  fadeM = 0;
-  fadeR = 0;
-  fadeAr = 0;
-  fadeC = 0;
-  fadeE = 0;
-  fadeGI = 0;
-  fadeMain = 255;
-  valueM = 0;
-  valueE = 0;
-  valueC = 0;
-  mainOff = false;
+  // fadeA = 0;
+  // fadeM = 0;
+  // fadeR = 0;
+  // fadeAr = 0;
+  // fadeC = 0;
+  // fadeE = 0;
+  // fadeGI = 0;
+  // fadeMain = 255;
+  // valueM = 0;
+  // valueE = 0;
+  // valueC = 0;
+  // mainOff = false;
 
 }
 
@@ -159,11 +160,13 @@ function draw() {
     var linkMargin = 29;
   } else {
     //variable math
-    linkOffset = 75 - (windowHeight) * 0.01
+    linkOffset = 75 - (windowHeight) * 0.05
     linkBuffer = 80 - (windowHeight) * 0.015
     var linkMargin = 29;
-  }
 
+  }
+  // fill(0);
+  // rect(windowWidth-70, 25, 100, 100);
   //positioning
   linkA.position(linkMargin, linkBuffer + linkOffset);
   linkR.position(linkMargin, linkBuffer + linkOffset * 2);
@@ -207,11 +210,6 @@ function draw() {
   //   cpuPause = true;
   // }
 
-  //debugging
-  // fill(0);
-  // textSize(14);
-  // text(fadeMain, 200, 20);
-  // text(fadeR, 250, 20);
 
   //---R---
   if (animateR == true) {

@@ -10,12 +10,12 @@
 var offset;
 var logoSpin = 0;
 var logoY = 50;
-var animateR = false, animateA = false, animateM = false, animateGI = false, animateAr = false, animateE = false, animateC = false, mainOff = false, animateCSM = false, animateCSC = false, animateCSE = false;
-var fadeR = 0, fadeA = 0, fadeM = 0, fadeE = 0, fadeAr = 0, fadeC = 0, fadeGI = 0, fadeMain = 255, fadeBack= 50;
+var animateR, animateA, animateCO, animateGI, animateAr, animateE, animateCU, mainOff = false;
+var fadeR, fadeA, fadeCO, fadeE, fadeAr, fadeCU, fadeGI, fadeBack;
 var linkOffset, linkBuffer;
 var fadeIncr = 35;
 var bColorVal = 0;
-var widthVal = 8;
+var widthVal = 10;
 var heightVal = 5;
 var flip = true;
 var spinX, spinY;
@@ -23,7 +23,6 @@ var bodyH, canvasH;
 var isAnimation = 400;
 var refresh = false;
 var refreshArray = [1];
-var valueM = 0, valueC = 0, valueE = 0;
 
 
 // var colorCounter = 0;
@@ -35,13 +34,13 @@ var valueM = 0, valueC = 0, valueE = 0;
 
 function preload() {
   //icons
-  iconA = loadImage('assets/rrIcon.png');
-  iconR = loadImage('assets/bIcon.png');
-  iconM = loadImage('assets/vIcon.png');
-  iconE = loadImage('assets/rIcon.png');
-  iconC = loadImage('assets/gIcon.png');
+  iconR = loadImage('assets/rrIcon.png');
+  iconA = loadImage('assets/bIcon.png');
+  iconE = loadImage('assets/vIcon.png');
+  iconGI = loadImage('assets/rIcon.png');
+  iconCO = loadImage('assets/gIcon.png');
   iconAr = loadImage('assets/oIcon.png');
-  iconGI = loadImage('assets/yIcon.png');
+  iconCU = loadImage('assets/yIcon.png');
   //logo
   amLogo = loadImage('assets/amlogo.png');
 
@@ -72,14 +71,14 @@ function setup() {
 
 
   //instantiate animations.
-  // fadeA = 0;
-  // fadeM = 0;
-  // fadeR = 0;
-  // fadeAr = 0;
-  // fadeC = 0;
-  // fadeE = 0;
-  // fadeGI = 0;
-  // fadeBack = 50;
+  fadeA = 0;
+  fadeCO = 0;
+  fadeR = 0;
+  fadeAr = 0;
+  fadeCU = 0;
+  fadeE = 0;
+  fadeGI = 0;
+  fadeBack = 50;
 
   //-------------------------------------------------------------
   //     LINKS (SETUP)
@@ -89,7 +88,7 @@ function setup() {
 
   linkA = createA('#', 'ABOUT');
 
-  linkC = createA('#', 'CALENDAR');
+  linkCU = createA('#', 'CONTACT US');
 
   linkAr = createA('#', 'ARCHIVE');
 
@@ -97,7 +96,7 @@ function setup() {
 
   linkE = createA('#', 'EVENTS');
 
-  linkM = createA('#', 'MAPS');
+  linkCO = createA('#', 'CALL-OUTS');
 
   // linkAO = createA('pdf/AM_AntiO.pdf', 'ANTI-OPPRESSION STATEMENT');
 
@@ -116,19 +115,6 @@ function setup() {
   home.class('noselect');
 
 
-    linkCSM = createA('#', 'COMING SOON');
-    linkCSM.style('opacity', '0');
-    linkCSM.style('z-index', '-1');
-
-    linkCSC = createA('#', 'COMING SOON');
-    linkCSC.style('opacity', '0');
-    linkCSC.style('z-index', '-1');
-
-    linkCSE = createA('#', 'COMING SOON');
-    linkCSE.style('opacity', '0');
-    linkCSE.style('z-index', '-1');
-
-
   //-------------------------------------------------------------
   //     LISTENERS (SETUP)
   //-------------------------------------------------------------
@@ -137,14 +123,14 @@ function setup() {
   linkR.mouseOut(offLinkR);
   linkA.mouseOver(overLinkA);
   linkA.mouseOut(offLinkA);
-  linkM.mouseOver(overlinkM);
-  linkM.mouseOut(offlinkM);
+  linkCO.mouseOver(overLinkCO);
+  linkCO.mouseOut(offLinkCO);
   linkGI.mouseOver(overLinkGI);
   linkGI.mouseOut(offLinkGI);
   linkE.mouseOver(overLinkE);
   linkE.mouseOut(offLinkE);
-  linkC.mouseOver(overlinkC);
-  linkC.mouseOut(offlinkC);
+  linkCU.mouseOver(overLinkCU);
+  linkCU.mouseOut(offLinkCU);
   linkAr.mouseOver(overLinkAr);
   linkAr.mouseOut(offLinkAr);
 
@@ -279,42 +265,6 @@ function draw() {
   backgroundPattern(width, height, width/2, height/2);
   pop();
 
-  //---DIV BACKGROUND 4---
-
-  var myDiv = document.getElementById('contact');
-  var rectDiv = myDiv.getBoundingClientRect();
-
-  //variables for 4nd square
-  var leftOffset = rectDiv.left - isAnimation;
-  var leftToRight = leftOffset + (top - (canvasH / 2.2));
-
-  rectMode(CENTER);
-  fill(0, 0, 0, 150);
-  push();
-  angleMode(DEGREES);
-
-  if (leftToRight < rectDiv.left) {
-    translate(leftToRight, rectDiv.top + top);
-  } else {
-    translate(rectDiv.left, rectDiv.top + top);
-  }
-
-  rotate(-45);
-  rect(0, 0, width, height);
-  pop();
-  push();
-
-  if (leftToRight < rectDiv.left) {
-    translate(leftToRight, rectDiv.top + top);
-  } else {
-    translate(rectDiv.left, rectDiv.top + top);
-  }
-
-  rotate(135);
-  backgroundPattern(width, height, width/2, height/2);
-  pop();
-
-
 
 
   //-------------------------------------------------------------
@@ -334,21 +284,17 @@ function draw() {
   }
 
   //positioning
-  linkA.position(linkMargin, linkBuffer + linkOffset);
-  linkR.position(linkMargin, linkBuffer + linkOffset * 2);
-  linkGI.position(linkMargin, linkBuffer + linkOffset * 3);
-  linkM.position(linkMargin, linkBuffer + linkOffset * 4);
-  linkC.position(linkMargin, linkBuffer + linkOffset * 5);
-  linkE.position(linkMargin, linkBuffer + linkOffset * 6);
+  linkR.position(linkMargin, linkBuffer + linkOffset);
+  linkA.position(linkMargin, linkBuffer + linkOffset * 2);
+  linkCU.position(linkMargin, linkBuffer + linkOffset * 3);
+  linkE.position(linkMargin, linkBuffer + linkOffset * 4);
+  linkGI.position(linkMargin, linkBuffer + linkOffset * 5);
+  linkCO.position(linkMargin, linkBuffer + linkOffset * 6);
   // linkAO.position(linkMargin, linkBuffer + linkOffset*7);
   linkAr.position(linkMargin, linkBuffer + linkOffset * 7);
 
   // linkEN.position(windowWidth - 65, 15);
   // linkFR.position(windowWidth - 35, 15);
-
-  linkCSM.position(linkMargin, linkBuffer + linkOffset * 4);
-  linkCSC.position(linkMargin, linkBuffer + linkOffset * 5);
-  linkCSE.position(linkMargin, linkBuffer + linkOffset * 6);
 
 
   //-------------------------------------------------------------
@@ -358,21 +304,28 @@ function draw() {
   //---R---
   if (animateR == true) {
     tint(255, fadeR);
-    image(iconR, linkMargin, (linkBuffer + linkOffset*2), 50, 50);
+    image(iconR, linkMargin, (linkBuffer + linkOffset), 50, 50);
     fadeR += fadeIncr;
   }
 
   //---A---
   if (animateA == true) {
     tint(255, fadeA);
-    image(iconA, linkMargin, (linkBuffer + linkOffset), 50, 50);
+    image(iconA, linkMargin, (linkBuffer + linkOffset * 2), 50, 50);
     fadeA += fadeIncr;
+  }
+
+  //---CO---
+  if (animateCO == true) {
+    tint(255, fadeCO);
+    image(iconCO, linkMargin, (linkBuffer + linkOffset * 6), 50, 50);
+    fadeCO += fadeIncr;
   }
 
   //---GI---
   if (animateGI == true) {
     tint(255, fadeGI);
-    image(iconGI, linkMargin, (linkBuffer + linkOffset * 3), 50, 50);
+    image(iconGI, linkMargin, (linkBuffer + linkOffset * 5), 50, 50);
     fadeGI += fadeIncr;
   }
 
@@ -383,102 +336,20 @@ function draw() {
     fadeAr += fadeIncr;
   }
 
-  //---M---
-  if (animateM == true) {
-    tint(255, fadeM);
-    image(iconM, linkMargin, (linkBuffer + linkOffset * 4), 50, 50);
-    var m = map(fadeM, 0, 255, 0.0, 1.0);
-    var n = map(fadeM, 0, 255, 1.0, 0.0);
-
-    linkCSM.style("opacity", m);
-    linkM.style("opacity", n);
-
-    // linkCSM.position(linkMargin, linkBuffer + linkOffset*4);
-    fadeM += fadeIncr;
-  }
-
-  //---C---
-  if (animateC == true) {
-    tint(255, fadeC);
-    image(iconC, linkMargin, (linkBuffer + linkOffset * 5), 50, 50);
-    var m = map(fadeC, 0, 255, 0.0, 1.0);
-    var n = map(fadeC, 0, 255, 1.0, 0.0);
-
-    linkCSC.style("opacity", m);
-    linkC.style("opacity", n);
-
-    fadeC += fadeIncr;
+  //---CU---
+  if (animateCU == true) {
+    tint(255, fadeCU);
+    image(iconCU, linkMargin, (linkBuffer + linkOffset * 3), 50, 50);
+    fadeCU += fadeIncr;
   }
 
   //---E---
   if (animateE == true) {
     tint(255, fadeE);
-    image(iconE, linkMargin, (linkBuffer + linkOffset * 6), 50, 50);
-    var m = map(fadeE, 0, 255, 0.0, 1.0);
-    var n = map(fadeE, 0, 255, 1.0, 0.0);
-
-    linkCSE.style("opacity", m);
-    linkE.style("opacity", n);
-
+    image(iconE, linkMargin, (linkBuffer + linkOffset * 4), 50, 50);
     fadeE += fadeIncr;
   }
 
-
-    //---CSM---
-    if (animateCSM == true) {
-
-
-      var a = map(valueM, 0, 255, 0.0, 1.0, true);
-      var b = map(valueM, 0, 255, 1.0, 0.0, true);
-
-      linkM.style("opacity", a);
-      linkCSM.style("opacity", b);
-
-      valueM += fadeIncr;
-
-      if (a >= 1.0) {
-        animateCSM = false;
-        valueM = 0;
-      }
-
-    }
-
-    //---CSC---
-    if (animateCSC == true) {
-
-
-      var c = map(valueC, 0, 255, 0.0, 1.0, true);
-      var d = map(valueC, 0, 255, 1.0, 0.0, true);
-
-      linkC.style("opacity", c);
-      linkCSC.style("opacity", d);
-
-      valueC += fadeIncr;
-
-      if (c >= 1.0) {
-        animateCSC = false;
-        valueC = 0;
-      }
-
-    }
-
-    //---CSE--
-    if (animateCSE == true) {
-
-      var e = map(valueE, 0, 255, 0.0, 1.0, true);
-      var f = map(valueE, 0, 255, 1.0, 0.0, true);
-
-      linkE.style("opacity", e);
-      linkCSE.style("opacity", f);
-
-      valueE += fadeIncr;
-
-      if (e >= 1.0) {
-        animateCSE = false;
-        valueE = 0;
-      }
-
-    }
   //-------------------------------------------------------------
   //     LOGO ANIMATION (DRAW)
   //-------------------------------------------------------------
@@ -549,6 +420,38 @@ function offLinkA() {
   mainOff = false;
 }
 
+//---CO---
+
+function overLinkCO() {
+  animateCO = true;
+  linkCO.style('font-style', 'italic');
+  mainOff = true;
+  fadeMain = 0;
+}
+
+function offLinkCO() {
+  animateCO = false;
+  fadeCO = 0;
+  linkCO.style('font-style', 'normal');
+  mainOff = false;
+}
+
+//---CU---
+
+function overLinkCU() {
+  animateCU = true;
+  linkCU.style('font-style', 'italic');
+  mainOff = true;
+  fadeMain = 0;
+}
+
+function offLinkCU() {
+  animateCU = false;
+  fadeCU = 0;
+  linkCU.style('font-style', 'normal');
+  mainOff = false;
+}
+
 //---GI---
 
 function overLinkGI() {
@@ -581,49 +484,11 @@ function offLinkAr() {
   mainOff = false;
 }
 
-//---M---
-
-function overlinkM() {
-  animateM = true;
-  mainOff = true;
-  fadeMain = 0;
-  // linkM.style('font-style', 'italic');
-
-}
-
-function offlinkM() {
-  animateM = false;
-  fadeM = 0;
-  mainOff = false;
-  animateCSM = true;
-  // linkM.style('font-style', 'normal');
-
-}
-
-//---C---
-
-function overlinkC() {
-  animateC = true;
-  // linkC.style('font-style', 'italic');
-  mainOff = true;
-  fadeMain = 0;
-
-}
-
-function offlinkC() {
-  animateC = false;
-  fadeC = 0;
-  animateCSC = true;
-  // linkC.style('font-style', 'normal');
-  mainOff = false;
-}
-
-
 //---E---
 
 function overLinkE() {
   animateE = true;
-  // linkE.style('font-style', 'italic');
+  linkE.style('font-style', 'italic');
   mainOff = true;
   fadeMain = 0;
 }
@@ -631,16 +496,16 @@ function overLinkE() {
 function offLinkE() {
   animateE = false;
   fadeE = 0;
-  animateCSE = true;
-  // linkE.style('font-style', 'normal');
+  linkE.style('font-style', 'normal');
   mainOff = false;
 }
+
 //-------------------------------------------------------------
 //     MOUSEWHEEL (FUNCTIONS)
 //-------------------------------------------------------------
 
 function mouseWheel(event) {
-  // print(event.delta);
+  print(event.delta);
   //smoothen delta
   // fadeBack = 255;
   //move the square according to the vertical scroll amount

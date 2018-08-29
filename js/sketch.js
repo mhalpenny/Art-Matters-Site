@@ -35,7 +35,7 @@ var valueM = 0,
   valueE = 0;
 var loading = true;
 var loadCount = 0;
-// var cpuPause = false;
+var cpuPause = false;
 
 
 //-------------------------------------------------------------
@@ -222,10 +222,12 @@ function draw() {
     // background(239, 251, 252, 50);
     // background(255, 251, 242, 50);
     // background(255, 234, 234, 50);
-    background(255, 50);
-    // if (cpuPause == false){
-    //   background(255, 50);
-    // }
+    // background(255, 50);
+    if (cpuPause == false){
+      background(255, 50);
+    }else{
+
+    }
 
     if (windowWidth > 650) {
       //variable math
@@ -272,21 +274,22 @@ function draw() {
       tint(255, fadeMain);
       image(layerMain, windowWidth / 2, height / 2, windowWidth, windowHeight);
       // fadeMain += fadeIncr;
+      if (fadeMain <= 540){
       fadeMain += fadeIncr;
     }
+    }
 
-    //pause animation if already at max
-    // if (fadeMain <= 20){
-    //   cpuPause = false;
-    // } else if (fadeMain == 500){
-    //   cpuPause = true;
-    // }
+    // pause animation if already at max
+    //but leave time for icons to fade
+    if (fadeMain <= 20){
+      cpuPause = false;
+    } else if (fadeMain >= 500){
+      cpuPause = true;
+    }
 
-    //debugging
-    // fill(0);
-    // textSize(14);
-    // text(fadeMain, 200, 20);
-    // text(fadeR, 250, 20);
+// console.log(cpuPause + " " + fadeMain);
+
+
 
     //---R---
     if (animateR == true) {

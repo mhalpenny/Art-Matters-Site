@@ -31,3 +31,11 @@ AM
 7) forms two submissions, anonymous & contact
 two master lists - 1) names and info (coordinators) 2) totally anonymous, just student number and keywords (color coded keywords - not me)
 8) large res screen compat
+
+RN
+1) update resources title, move GOVERNANCE
+2) form in gi
+3) french for reso and gi
+4) scroll wheel optimization
+5) mobile for pages (remove artifacts & mouseover drawing) (clickable icons) (cross device test)
+6)cpu optimization

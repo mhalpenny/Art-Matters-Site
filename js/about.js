@@ -106,7 +106,7 @@ function setup() {
   linkFR = createA('aPropos.html', 'FR');
   linkFR.id('lang');
 
-  home = createA('index.html', 'O');
+  home = createA('#', 'O');
   //debugging
   // home.style('color', 'black');
   home.style('color', 'transparent');
@@ -133,21 +133,21 @@ function setup() {
   //     LISTENERS (SETUP)
   //-------------------------------------------------------------
 
-  linkR.mouseOver(overLinkR);
-  linkR.mouseOut(offLinkR);
-  linkA.mouseOver(overLinkA);
-  linkA.mouseOut(offLinkA);
-  linkM.mouseOver(overlinkM);
-  linkM.mouseOut(offlinkM);
-  linkGI.mouseOver(overLinkGI);
-  linkGI.mouseOut(offLinkGI);
-  linkE.mouseOver(overLinkE);
-  linkE.mouseOut(offLinkE);
-  linkC.mouseOver(overlinkC);
-  linkC.mouseOut(offlinkC);
-  linkAr.mouseOver(overLinkAr);
-  linkAr.mouseOut(offLinkAr);
 
+    linkR.mouseOver(overLinkR);
+    linkR.mouseOut(offLinkR);
+    linkA.mouseOver(overLinkA);
+    linkA.mouseOut(offLinkA);
+    linkM.mouseOver(overlinkM);
+    linkM.mouseOut(offlinkM);
+    linkGI.mouseOver(overLinkGI);
+    linkGI.mouseOut(offLinkGI);
+    linkE.mouseOver(overLinkE);
+    linkE.mouseOut(offLinkE);
+    linkC.mouseOver(overlinkC);
+    linkC.mouseOut(offlinkC);
+    linkAr.mouseOver(overLinkAr);
+    linkAr.mouseOut(offLinkAr);
 
 
 }
@@ -172,6 +172,10 @@ function draw() {
   var top = window.pageYOffset;
   logoSpin = top/2;
 
+  //-------------------------------------------------------------
+  //    PSEUDO WHEEL (DRAW)
+  //-------------------------------------------------------------
+
   if (refresh == 0){
     refreshArray[0] = logoSpin;
   } else if (refresh == 1){
@@ -193,6 +197,7 @@ function draw() {
   var width = (windowWidth / 1.7);
   var height = (windowWidth / 3.2);
 
+if (windowWidth > 650){
   //---DIV BACKGROUND 1---
 
   var myDiv = document.getElementById('one');
@@ -201,12 +206,6 @@ function draw() {
   rectMode(CENTER);
   angleMode(DEGREES);
   fill(0, 0, 0, 150);
-  // push();
-  // angleMode(DEGREES);
-  // translate(rectDiv.right + top, rectDiv.top);
-  // rotate(45);
-  // rect(0, 0 + top, width, height);
-  // pop();
   push()
   translate(rectDiv.right, rectDiv.top);
   rotate(-135);
@@ -226,18 +225,6 @@ function draw() {
   rectMode(CENTER);
   angleMode(DEGREES);
   fill(0, 0, 0, 150);
-  // push();
-  // angleMode(DEGREES);
-  //
-  // if (leftToRight < rectDiv.left) {
-  //   translate(leftToRight, rectDiv.top + top);
-  // } else {
-  //   translate(rectDiv.left, rectDiv.top + top);
-  // }
-  //
-  // rotate(-45);
-  // rect(0, 0, width, height);
-  // pop();
   push();
 
   if (leftToRight < rectDiv.left) {
@@ -263,17 +250,6 @@ function draw() {
   rectMode(CENTER);
   angleMode(DEGREES);
   fill(0, 0, 0, 150);
-  // push();
-  // angleMode(DEGREES);
-  //
-  // if (rightToLeft > rectDiv.right) {
-  //   translate(rightToLeft, rectDiv.top + top);
-  // } else {
-  //   translate(rectDiv.right, rectDiv.top + top);
-  // }
-  // rotate(45);
-  // rect(0, 0, width, height);
-  // pop();
   push()
   if (rightToLeft > rectDiv.right) {
     translate(rightToLeft, rectDiv.top + top);
@@ -297,18 +273,6 @@ function draw() {
   rectMode(CENTER);
   angleMode(DEGREES);
   fill(0, 0, 0, 150);
-  // push();
-  // angleMode(DEGREES);
-  //
-  // if (leftToRight < rectDiv.left) {
-  //   translate(leftToRight, rectDiv.top + top);
-  // } else {
-  //   translate(rectDiv.left, rectDiv.top + top);
-  // }
-  //
-  // rotate(-45);
-  // rect(0, 0, width, height);
-  // pop();
   push();
 
   if (leftToRight < rectDiv.left) {
@@ -322,7 +286,7 @@ function draw() {
   backgroundPattern(width, height, width/2, height/2);
   pop();
 
-
+}
 
 
   //-------------------------------------------------------------
@@ -334,38 +298,102 @@ function draw() {
     linkOffset = 55;
     linkBuffer = top + 80;
     var linkMargin = 35;
+
+    // linkA.style('opacity', '1');
+    // linkR.style('opacity', '1');
+    // linkGI.style('opacity', '1');
+    // linkM.style('opacity', '1');
+    // linkC.style('opacity', '1');
+    // linkE.style('opacity', '1');
+    // linkAr.style('opacity', '1');
+    // linkFR.style('opacity', '1');
+
+    linkGI.html('GET INVOLVED');
+    linkGI.style('text-align', 'right');
+
+    //positioning
+    linkA.position(linkMargin, linkBuffer + linkOffset);
+    linkR.position(linkMargin, linkBuffer + linkOffset * 2);
+    linkGI.position(linkMargin, linkBuffer + linkOffset * 3);
+    linkM.position(linkMargin, linkBuffer + linkOffset * 4);
+    linkC.position(linkMargin, linkBuffer + linkOffset * 5);
+    linkE.position(linkMargin, linkBuffer + linkOffset * 6);
+    // linkAO.position(linkMargin, linkBuffer + linkOffset*7);
+    linkAr.position(linkMargin, linkBuffer + linkOffset * 7);
+
+    // linkEN.position(windowWidth - 65, 15);
+    linkFR.position(linkMargin, linkBuffer + linkOffset * 8);
+
+    linkCSM.position(linkMargin, linkBuffer + linkOffset * 4);
+    linkCSC.position(linkMargin, linkBuffer + linkOffset * 5);
+    linkCSE.position(linkMargin, linkBuffer + linkOffset * 6);
+
   } else {
     //variable math
-    linkOffset = 50;
-    linkBuffer = top + 80;
-    var linkMargin = 29;
+    linkOffset = 55;
+    linkBuffer = top + 75;
+    iconBuffer = top + 55;
+    var linkMargin = 10;
+    var iconMargin = 25;
+
+    // linkA.style('opacity', '0');
+    // linkR.style('opacity', '0');
+    // linkGI.style('opacity', '0');
+    // linkM.style('opacity', '0');
+    // linkC.style('opacity', '0');
+    // linkE.style('opacity', '0');
+    // linkAr.style('opacity', '0');
+    // linkFR.style('opacity', '0');
+
+    linkGI.html('GET <br> INVOLVED');
+    linkGI.style('text-align', 'left');
+
+    tint(255, 255);
+
+    image(iconR, iconMargin, (iconBuffer + linkOffset*2), 40, 40);
+    image(iconA, iconMargin, (iconBuffer + linkOffset), 40, 40);
+    image(iconGI, iconMargin, (iconBuffer + linkOffset * 3), 40, 40);
+    image(iconAr, iconMargin, (iconBuffer + linkOffset * 7), 40, 40);
+    image(iconM, iconMargin, (iconBuffer + linkOffset * 4), 40, 40);
+    image(iconC, iconMargin, (iconBuffer + linkOffset * 5), 40, 40);
+    image(iconE, iconMargin, (iconBuffer + linkOffset * 6), 40, 40);
+
+    //positioning
+    linkA.position(linkMargin, linkBuffer + linkOffset);
+    linkR.position(linkMargin, linkBuffer + linkOffset * 2);
+    linkGI.position(linkMargin, linkBuffer + linkOffset * 3);
+    linkM.position(linkMargin, linkBuffer + linkOffset * 4);
+    linkC.position(linkMargin, linkBuffer + linkOffset * 5);
+    linkE.position(linkMargin, linkBuffer + linkOffset * 6);
+    // linkAO.position(linkMargin, linkBuffer + linkOffset*7);
+    linkAr.position(linkMargin, linkBuffer + linkOffset * 7);
+
+    // linkEN.position(windowWidth - 65, 15);
+    linkFR.position(linkMargin, linkBuffer + linkOffset * 7.5);
+    //
+    // linkCSM.position(linkMargin, linkBuffer + linkOffset * 4);
+    // linkCSC.position(linkMargin, linkBuffer + linkOffset * 5);
+    // linkCSE.position(linkMargin, linkBuffer + linkOffset * 6);
+
+
   }
 
-  //positioning
-  linkA.position(linkMargin, linkBuffer + linkOffset);
-  linkR.position(linkMargin, linkBuffer + linkOffset * 2);
-  linkGI.position(linkMargin, linkBuffer + linkOffset * 3);
-  linkM.position(linkMargin, linkBuffer + linkOffset * 4);
-  linkC.position(linkMargin, linkBuffer + linkOffset * 5);
-  linkE.position(linkMargin, linkBuffer + linkOffset * 6);
-  // linkAO.position(linkMargin, linkBuffer + linkOffset*7);
-  linkAr.position(linkMargin, linkBuffer + linkOffset * 7);
 
-  // linkEN.position(windowWidth - 65, 15);
-
-  linkCSM.position(linkMargin, linkBuffer + linkOffset * 4);
-  linkCSC.position(linkMargin, linkBuffer + linkOffset * 5);
-  linkCSE.position(linkMargin, linkBuffer + linkOffset * 6);
 
 
   //-------------------------------------------------------------
   //     ICON ANIMATIONS (DRAW)
   //-------------------------------------------------------------
 
+if (windowWidth > 650){
   //---R---
   if (animateR == true) {
     tint(255, fadeR);
+    if (windowWidth > 650){
     image(iconR, linkMargin, (linkBuffer + linkOffset*2), 50, 50);
+  } else{
+
+  }
     fadeR += fadeIncr;
   }
 
@@ -486,6 +514,7 @@ function draw() {
       }
 
     }
+  }
   //-------------------------------------------------------------
   //     LOGO ANIMATION (DRAW)
   //-------------------------------------------------------------
@@ -496,24 +525,27 @@ function draw() {
   tint(255, 255);
   var wOffset = windowWidth / 800;
   var sizeOffset = windowWidth / 1000;
-  var topNew = top + 62;
+
   //draw pseudo link
   home.position(linkMargin + 13, topNew - 35);
   push();
   if (windowWidth > 650) {
+    var topNew = top + 70;
     translate(linkMargin * 2.3, topNew);
     rotate(logoSpin);
     image(amLogo, 0, 0, 110, 110);
-    linkFR.position(linkMargin, linkBuffer + linkOffset * 8);
+    // linkFR.position(linkMargin, linkBuffer + linkOffset * 8);
   } else {
-    translate(linkMargin * 1.5, topNew);
+    var topNew = top + 45;
+    translate(iconMargin+5, topNew);
     rotate(logoSpin);
     image(amLogo, 0, 0, 70, 70);
-    linkFR.position(linkMargin, linkBuffer + linkOffset * 8);
+    // linkFR.position(linkMargin, linkBuffer + linkOffset * 8);
   }
   pop();
 
-}
+
+} //---END---
 
 
 //-------------------------------------------------------------
@@ -644,20 +676,42 @@ function offLinkE() {
   // linkE.style('font-style', 'normal');
   mainOff = false;
 }
+
+
+
 //-------------------------------------------------------------
 //     MOUSEWHEEL (FUNCTIONS)
 //-------------------------------------------------------------
 
-function mouseWheel(event) {
+// function mouseWheel(event) {
   // print(event.delta);
-  //smoothen delta
+
   // fadeBack = 255;
-  //move the square according to the vertical scroll amount
+  // // move the square according to the vertical scroll amount
   // logoSpin += (event.delta);
 
   //uncomment to block page scrolling
   // return false;
-}
+// }
+
+//-------------------------------------------------------------
+//    TRACKPAD (FUNCTIONS)
+//-------------------------------------------------------------
+
+// window.onwheel = function (e) {
+//   e.preventDefault();
+//
+//   if (e.ctrlKey) {
+//     // Your zoom/scale factor
+//     scale -= e.deltaY * 0.01;
+//   } else {
+//     // Your trackpad X and Y positions
+//     posX -= e.deltaX * 2;
+//     posY -= e.deltaY * 2;
+//   }
+//
+//   render();
+// };
 
 //-------------------------------------------------------------
 //     RESIZE (FUNCTIONS)

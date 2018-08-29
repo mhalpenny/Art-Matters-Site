@@ -87,13 +87,13 @@ function setup() {
 
   linkR = createA('resources.html', 'RESOURCES');
 
-  linkA = createA('#', 'ABOUT');
+  linkA = createA('about.html', 'ABOUT');
 
   linkC = createA('#', 'CALENDAR');
 
-  linkAr = createA('#', 'ARCHIVE');
+  linkAr = createA('http://artmattersfestival.org/archive/', 'ARCHIVE');
 
-  linkGI = createA('#', 'GET INVOLVED');
+  linkGI = createA('getInvolved.html', 'GET INVOLVED');
 
   linkE = createA('#', 'EVENTS');
 
@@ -218,44 +218,7 @@ function draw() {
 
   //variables for 2nd square
   var leftOffset = rectDiv.left - isAnimation;
-  var leftToRight = leftOffset + top;
-
-  var myDiv = document.getElementById('two');
-  var rectDiv = myDiv.getBoundingClientRect();
-
-  rectMode(CENTER);
-  angleMode(DEGREES);
-  fill(0, 0, 0, 150);
-  // push();
-  // angleMode(DEGREES);
-  //
-  // if (leftToRight < rectDiv.left) {
-  //   translate(leftToRight, rectDiv.top + top);
-  // } else {
-  //   translate(rectDiv.left, rectDiv.top + top);
-  // }
-  //
-  // rotate(-45);
-  // rect(0, 0, width, height);
-  // pop();
-  push();
-
-  if (leftToRight < rectDiv.left) {
-    translate(leftToRight, rectDiv.top + top);
-  } else {
-    translate(rectDiv.left, rectDiv.top + top);
-  }
-
-  rotate(135);
-  rect(0, 0, width, height);
-  backgroundPattern(width, height, width/2, height/2);
-  pop();
-
-  //---DIV BACKGROUND 3---
-
-  //square 3 variables
-  var rightOffset = rectDiv.right + isAnimation;
-  var rightToLeft = rightOffset - (top - (canvasH / 4));
+  var leftToRight = leftOffset + (top*1.5);
 
   var myDiv = document.getElementById('three');
   var rectDiv = myDiv.getBoundingClientRect();
@@ -266,40 +229,6 @@ function draw() {
   // push();
   // angleMode(DEGREES);
   //
-  // if (rightToLeft > rectDiv.right) {
-  //   translate(rightToLeft, rectDiv.top + top);
-  // } else {
-  //   translate(rectDiv.right, rectDiv.top + top);
-  // }
-  // rotate(45);
-  // rect(0, 0, width, height);
-  // pop();
-  push()
-  if (rightToLeft > rectDiv.right) {
-    translate(rightToLeft, rectDiv.top + top);
-  } else {
-    translate(rectDiv.right, rectDiv.top + top);
-  }
-  rotate(-135);
-  rect(0, 0, width, height);
-  backgroundPattern(width, height, width/2, height/2);
-  pop();
-
-  //---DIV BACKGROUND 4---
-
-  var myDiv = document.getElementById('four');
-  var rectDiv = myDiv.getBoundingClientRect();
-
-  //variables for 4nd square
-  var leftOffset = rectDiv.left - isAnimation;
-  var leftToRight = leftOffset + (top - (canvasH / 2.2));
-
-  rectMode(CENTER);
-  angleMode(DEGREES);
-  fill(0, 0, 0, 150);
-  // push();
-  // angleMode(DEGREES);
-  //
   // if (leftToRight < rectDiv.left) {
   //   translate(leftToRight, rectDiv.top + top);
   // } else {
@@ -321,6 +250,77 @@ function draw() {
   rect(0, 0, width, height);
   backgroundPattern(width, height, width/2, height/2);
   pop();
+
+  // //---DIV BACKGROUND 3---
+  //
+  // //square 3 variables
+  // var rightOffset = rectDiv.right + isAnimation;
+  // var rightToLeft = rightOffset - (top - (canvasH / 4));
+  //
+  // var myDiv = document.getElementById('three');
+  // var rectDiv = myDiv.getBoundingClientRect();
+  //
+  // rectMode(CENTER);
+  // angleMode(DEGREES);
+  // fill(0, 0, 0, 150);
+  // // push();
+  // // angleMode(DEGREES);
+  // //
+  // // if (rightToLeft > rectDiv.right) {
+  // //   translate(rightToLeft, rectDiv.top + top);
+  // // } else {
+  // //   translate(rectDiv.right, rectDiv.top + top);
+  // // }
+  // // rotate(45);
+  // // rect(0, 0, width, height);
+  // // pop();
+  // push()
+  // if (rightToLeft > rectDiv.right) {
+  //   translate(rightToLeft, rectDiv.top + top);
+  // } else {
+  //   translate(rectDiv.right, rectDiv.top + top);
+  // }
+  // rotate(-135);
+  // rect(0, 0, width, height);
+  // backgroundPattern(width, height, width/2, height/2);
+  // pop();
+  //
+  // //---DIV BACKGROUND 4---
+  //
+  // var myDiv = document.getElementById('four');
+  // var rectDiv = myDiv.getBoundingClientRect();
+  //
+  // //variables for 4nd square
+  // var leftOffset = rectDiv.left - isAnimation;
+  // var leftToRight = leftOffset + (top - (canvasH / 2.2));
+  //
+  // rectMode(CENTER);
+  // angleMode(DEGREES);
+  // fill(0, 0, 0, 150);
+  // // push();
+  // // angleMode(DEGREES);
+  // //
+  // // if (leftToRight < rectDiv.left) {
+  // //   translate(leftToRight, rectDiv.top + top);
+  // // } else {
+  // //   translate(rectDiv.left, rectDiv.top + top);
+  // // }
+  // //
+  // // rotate(-45);
+  // // rect(0, 0, width, height);
+  // // pop();
+  // push();
+  //
+  // if (leftToRight < rectDiv.left) {
+  //   translate(leftToRight, rectDiv.top + top);
+  // } else {
+  //   translate(rectDiv.left, rectDiv.top + top);
+  // }
+  //
+  // rotate(135);
+  // rect(0, 0, width, height);
+  // backgroundPattern(width, height, width/2, height/2);
+  // pop();
 
 
 
@@ -697,8 +697,8 @@ function backgroundPattern(w, h, tw, th) {
       } else {
         rotate(-spinX * spinY);
       }
-      line(-5, -5, 5, 5);
-      line(5, -5, -5, 5);
+      rect(-5, -5, 5, 5);
+      rect(10, 5, 3, 3);
       pop();
       flip = !flip;
 

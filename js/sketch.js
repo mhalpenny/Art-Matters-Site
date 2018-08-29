@@ -183,36 +183,40 @@ function draw() {
   //     LOADING (DRAW)
   //-------------------------------------------------------------
 
-  if (loading == true) {
-    background(255);
-    canvas.style("z-index", "1");
-    loadCount++;
-    textSize(20);
-    // text('Loading...', 150, 65);
-    push();
-    translate(width / 2, height / 2);
-    angleMode(DEGREES);
-    rotate(loadCount * 10);
-    imageMode(CENTER);
-    image(amLogo, 0, 0, 400, 400);
-    pop();
-    if (loadCount >= 15 && loadCount <= 40) {
-      tint(255, 60);
-      push();
-      translate(width / 2, height / 2);
-      angleMode(DEGREES);
-      rotate(loadCount * 2);
-      imageMode(CENTER);
-      image(amLogo, 0, 0, 400, 400);
-      pop();
-      loadCount++;
+  // if (loading == true) {
+  //   background(255);
+  //   canvas.style("z-index", "1");
+  //   loadCount++;
+  //   textSize(20);
+  //   // text('Loading...', 150, 65);
+  //   push();
+  //   translate(width / 2, height / 2);
+  //   angleMode(DEGREES);
+  //   rotate(loadCount * 10);
+  //   imageMode(CENTER);
+  //   image(amLogo, 0, 0, 400, 400);
+  //   pop();
+  //   if (loadCount >= 15 && loadCount <= 40) {
+  //     tint(255, 60);
+  //     push();
+  //     translate(width / 2, height / 2);
+  //     angleMode(DEGREES);
+  //     rotate(loadCount * 2);
+  //     imageMode(CENTER);
+  //     image(amLogo, 0, 0, 400, 400);
+  //     pop();
+  //     loadCount++;
+  //
+  //   } else if (loadCount >= 40) {
+  //     canvas.style("z-index", "-1");
+  //     background(255);
+  //     loading = false;
+  //   }
+  // } else if (loading == false) {
 
-    } else if (loadCount >= 40) {
-      canvas.style("z-index", "-1");
-      background(255);
-      loading = false;
-    }
-  } else if (loading == false) {
+  //-------------------------------------------------------------
+  //    STYLING (DRAW)
+  //-------------------------------------------------------------
 
     noStroke();
     // background(239, 251, 252, 50);
@@ -431,7 +435,7 @@ function draw() {
 
   }
 
-} // end
+// } // end
 
 
 

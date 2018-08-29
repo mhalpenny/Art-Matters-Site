@@ -87,7 +87,7 @@ function setup() {
 
   linkR = createA('resources.html', 'RESOURCES');
 
-  linkA = createA('#', 'ABOUT');
+  linkA = createA('about.html', 'ABOUT');
 
   linkC = createA('#', 'CALENDAR');
 
@@ -682,8 +682,9 @@ function backgroundPattern(w, h, tw, th) {
 
   stroke(255);
   strokeWeight(1.0);
-  spinX = map(mouseX, 0, windowWidth, 0, 15);
-  spinY = mouseY / 100;
+  noFill();
+  spinX = map(mouseX, 0, windowWidth, 0, 10);
+  spinY = map(mouseY, 0, windowHeight, 0, 10);
 
   var widthInc = w / widthVal;
   var heightInc = h / heightVal;
@@ -692,14 +693,8 @@ function backgroundPattern(w, h, tw, th) {
     for (var j = 0; j < heightVal; j++) {
 
       push();
-      translate((30 + i * widthInc) - tw, (30 + j * heightInc) - th);
-      if (flip == true) {
-        rotate(spinX * spinY);
-      } else {
-        rotate(-spinX * spinY);
-      }
-      line(-5, -5, 5, 5);
-      line(5, -5, -5, 5);
+      translate((30 + i * widthInc) - (tw+spinX), (30 + j * heightInc) - (th+spinY));
+      ellipse(5, 5, 8, 8);
       pop();
       flip = !flip;
 

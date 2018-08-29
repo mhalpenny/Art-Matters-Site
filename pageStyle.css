@@ -36,10 +36,8 @@ p{
 
 a{
   font-size: 20px;
-  /* font-family: 'Didact Gothic', sans-serif; */
-  /* font-family: 'Cabin Sketch', cursive; */
-/* font-family: 'Londrina Shadow', cursive; */
-/* font-family: 'Dosis', sans-serif; */
+
+  /* font-family: 'Quicksand', sans-serif; */
  font-family: NAV;
   font-weight: bold;
   letter-spacing: 5px;
@@ -248,4 +246,44 @@ text-align: left;
   padding: 3%;
   background-color: rgba(17, 66, 81, 0.9);
   margin-bottom: 7%;
+}
+
+#navBox{
+  position: absolute;
+  width: 270px;
+  height:60%;
+  /* background-color: rgba(0, 0, 0, 0.5); */
+}
+
+@media only screen and (max-width: 650px) {
+  #gallery{
+    width:70%;
+    position: absolute;
+    right:5%;
+}
+.boxRed{
+  width:100%;
+  float: none;
+}
+.boxYellow{
+  width:100%;
+  float: none;
+}
+.boxBlue{
+  width:100%;
+  float: none;
+}
+a{
+  font-size: 7px;
+
+  font-family: 'Quicksand', sans-serif;
+ /* font-family: NAV; */
+  font-weight: bold;
+  letter-spacing: 2px;
+  text-decoration: none;
+  color: black;
+  text-align: right;
+  text-shadow: 1px 1px white;
+
+}
 }

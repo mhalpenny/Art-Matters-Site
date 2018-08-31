@@ -257,9 +257,9 @@ text-align: left;
 
 @media only screen and (max-width: 650px) {
   #gallery{
-    width:70%;
+    width:60%;
     position: absolute;
-    right:5%;
+    right:7%;
 }
 .boxRed{
   width:100%;
@@ -272,6 +272,15 @@ text-align: left;
 .boxBlue{
   width:100%;
   float: none;
+}
+.boxTitleRed{
+  font-size: 18px;
+}
+.boxTitleYellow{
+  font-size: 18px;
+}
+.boxTitleBlue{
+  font-size: 18px;
 }
 a{
   font-size: 7px;
@@ -286,4 +295,19 @@ a{
   text-shadow: 1px 1px white;
 
 }
+p{
+  font-size: 12px;
+}
+.icon{
+  width:40px;
+  height:40px;
+}
+
+
+#social a:link, #social a:visited {
+  margin: 2em;
+  margin-left: 0%;
+}
+
+
 }

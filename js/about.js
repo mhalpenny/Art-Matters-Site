@@ -331,10 +331,10 @@ if (windowWidth > 650){
   } else {
     //variable math
     linkOffset = 55;
-    linkBuffer = top + 75;
+    linkBuffer = top + 30;
     iconBuffer = top + 55;
-    var linkMargin = 10;
-    var iconMargin = 25;
+    var linkMargin = 35;
+    var iconMargin = 45;
 
     // linkA.style('opacity', '0');
     // linkR.style('opacity', '0');
@@ -344,9 +344,21 @@ if (windowWidth > 650){
     // linkE.style('opacity', '0');
     // linkAr.style('opacity', '0');
     // linkFR.style('opacity', '0');
-
-    linkGI.html('GET <br> INVOLVED');
+    linkA.html('<br> <br> <br> <br> <br> &nbsp &nbsp &nbsp ABOUT');
+    linkA.style('text-align', 'left');
+    linkR.html('<br> <br> <br> <br> <br> &nbsp &nbsp &nbsp RESOURCES');
+    linkR.style('text-align', 'left');
+    linkGI.html('<br> <br> <br> <br> <br> &nbsp &nbsp &nbsp GET <br> &nbsp &nbsp &nbsp INVOLVED');
     linkGI.style('text-align', 'left');
+    linkM.html('<br> <br> <br> <br> <br> &nbsp &nbsp &nbsp MAPS <BR> &nbsp &nbsp &nbsp (COMING SOON)');
+    linkM.style('text-align', 'left');
+    linkC.html('<br> <br> <br> <br> <br> &nbsp &nbsp &nbsp CALENDER <BR> &nbsp &nbsp &nbsp (COMING SOON)');
+    linkC.style('text-align', 'left');
+    linkE.html('<br> <br> <br> <br> <br> &nbsp &nbsp &nbsp EVENTS <BR> &nbsp &nbsp &nbsp (COMING SOON)');
+    linkE.style('text-align', 'left');
+    linkAr.html('<br> <br> <br> <br> <br> &nbsp &nbsp &nbsp ARCHIVE');
+    linkAr.style('text-align', 'left');
+
 
     tint(255, 255);
 
@@ -369,7 +381,7 @@ if (windowWidth > 650){
     linkAr.position(linkMargin, linkBuffer + linkOffset * 7);
 
     // linkEN.position(windowWidth - 65, 15);
-    linkFR.position(linkMargin, linkBuffer + linkOffset * 7.5);
+    linkFR.position(linkMargin, linkBuffer + linkOffset * 8.5);
     //
     // linkCSM.position(linkMargin, linkBuffer + linkOffset * 4);
     // linkCSC.position(linkMargin, linkBuffer + linkOffset * 5);

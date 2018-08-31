@@ -38,4 +38,4 @@ RN
 3) french for reso and gi
 4) scroll wheel optimization
 5) mobile for pages (remove artifacts & mouseover drawing) (clickable icons) (cross device test)
-6)cpu optimization
+6)cpu optimization (tint?)

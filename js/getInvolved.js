@@ -269,15 +269,6 @@ if (windowWidth > 650){
     linkBuffer = top + 80;
     var linkMargin = 35;
 
-    // linkA.style('opacity', '1');
-    // linkR.style('opacity', '1');
-    // linkGI.style('opacity', '1');
-    // linkM.style('opacity', '1');
-    // linkC.style('opacity', '1');
-    // linkE.style('opacity', '1');
-    // linkAr.style('opacity', '1');
-    // linkFR.style('opacity', '1');
-
     linkA.html('ABOUT');
     linkA.style('text-align', 'right');
     linkR.html('RESOURCES');
@@ -286,10 +277,13 @@ if (windowWidth > 650){
     linkGI.style('text-align', 'right');
     linkM.html('MAPS');
     linkM.style('text-align', 'right');
+    linkM.style('color', 'black');
     linkC.html('CALENDAR');
     linkC.style('text-align', 'right');
+        linkC.style('color', 'black');
     linkE.html('EVENTS');
     linkE.style('text-align', 'right');
+        linkE.style('color', 'black');
     linkAr.html('ARCHIVE');
     linkAr.style('text-align', 'right');
 
@@ -312,6 +306,7 @@ if (windowWidth > 650){
     linkCSE.position(linkMargin, linkBuffer + linkOffset * 6);
 
   } else {
+    //variable math
     linkOffset = 64;
     linkBuffer = top + 25;
     iconBuffer = top + 45;
@@ -322,16 +317,20 @@ if (windowWidth > 650){
     linkA.style('text-align', 'left');
     linkR.html('<br> <br> <br> <br> <br> RESOURCES');
     linkR.style('text-align', 'left');
-    linkGI.html('<br> <br> <br> <br> <br>  GET <br> INVOLVED');
+    linkGI.html('<br> <br> <br> <br>  GET <br> INVOLVED');
     linkGI.style('text-align', 'left');
-    linkM.html('<br> <br> <br> <br> <br> MAPS <BR>(COMING SOON)');
+    linkM.html('<br> <br> <br> <br> <br>  MAPS');
+      linkM.style('color', 'grey');
     linkM.style('text-align', 'left');
-    linkC.html('<br> <br> <br> <br> <br>CALENDAR <BR>  (COMING SOON)');
+    linkC.html('<br> <br> <br> <br> <br> CALENDAR ');
     linkC.style('text-align', 'left');
-    linkE.html('<br> <br> <br> <br> <br>  EVENTS <BR>  (COMING SOON)');
+    linkC.style('color', 'grey');
+    linkE.html('<br> <br> <br> <br> <br>  EVENTS ');
     linkE.style('text-align', 'left');
+    linkE.style('color', 'grey');
     linkAr.html('<br> <br> <br> <br> <br>  ARCHIVE');
     linkAr.style('text-align', 'left');
+
 
     tint(255, 255);
 
@@ -354,7 +353,7 @@ if (windowWidth > 650){
     linkAr.position(linkMargin, linkBuffer + linkOffset * 7);
 
     // linkEN.position(windowWidth - 65, 15);
-    linkFR.position(linkMargin, linkBuffer + linkOffset * 8.5);
+    linkFR.position(linkMargin, linkBuffer + linkOffset * 8.2);
     //
     // linkCSM.position(linkMargin, linkBuffer + linkOffset * 4);
     // linkCSC.position(linkMargin, linkBuffer + linkOffset * 5);

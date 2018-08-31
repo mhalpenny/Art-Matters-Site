@@ -207,13 +207,13 @@ if (windowWidth > 650){
   var myDiv = document.getElementById('one');
   var rectDiv = myDiv.getBoundingClientRect();
 
-  rectMode(CENTER);
+ ellipseMode(CENTER);
   angleMode(DEGREES);
   fill(0, 0, 0, 150);
   push()
   translate(rectDiv.right, rectDiv.top);
   rotate(-135);
-  rect(0, 0 + top, width, height);
+  ellipse(0, 0 + top, width, height);
   backgroundPattern(width, height, width/2, height/2);
   pop();
 
@@ -226,7 +226,7 @@ if (windowWidth > 650){
   var myDiv = document.getElementById('three');
   var rectDiv = myDiv.getBoundingClientRect();
 
-  rectMode(CENTER);
+  ellipseMode(CENTER);
   angleMode(DEGREES);
   fill(0, 0, 0, 150);
   push();
@@ -238,7 +238,7 @@ if (windowWidth > 650){
   }
 
   rotate(135);
-  rect(0, 0, width, height);
+  ellipse(0, 0, width, height);
   backgroundPattern(width, height, width/2, height/2);
   pop();
 }
@@ -714,6 +714,7 @@ function windowResized() {
 function backgroundPattern(w, h, tw, th) {
 
   stroke(255);
+  noFill();
   strokeWeight(1.0);
   spinX = map(mouseX, 0, windowWidth, 0, 15);
   spinY = mouseY / 100;

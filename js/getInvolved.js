@@ -203,6 +203,7 @@ function draw() {
   var height = (windowWidth / 3.2);
 
 if (windowWidth > 650){
+
   //---DIV BACKGROUND 2---
 
 
@@ -210,22 +211,20 @@ if (windowWidth > 650){
   var rectDiv = myDiv.getBoundingClientRect();
 
   //variables for 2nd square
-  var leftOffset = rectDiv.left - isAnimation;
+  var leftOffset = rectDiv.left + 200;
   var leftToRight = leftOffset + top;
+  var shift = 100;
+    var shift2 = 200;
 
   rectMode(CENTER);
   angleMode(DEGREES);
   fill(0, 0, 0, 150);
   push();
 
-  if (leftToRight < rectDiv.left) {
-    translate(leftToRight, rectDiv.top + top);
-  } else {
-    translate(rectDiv.left, rectDiv.top + top);
-  }
+    translate(leftOffset - top, rectDiv.top + top);
 
   rotate(135);
-  rect(0, 0, width, height);
+  triangle((width/2)+shift, (height/2), -(width/2)+shift, -(height/2), -(height/2)+shift2+80, (width/2)+shift);
   backgroundPattern(width, height, width/2, height/2);
   pop();
 
@@ -236,19 +235,25 @@ if (windowWidth > 650){
 
   //square 3 variables
   var rightOffset = rectDiv.right + isAnimation;
-  var rightToLeft = rightOffset - (top/2);
+  var rightToLeft = rightOffset - (top);
+
+  //variables for 2nd square
+  var leftOffset = rectDiv.left + 200;
+  var leftToRight = leftOffset + top;
+  var shift = 100;
+    var shift2 = 200;
 
   rectMode(CENTER);
   angleMode(DEGREES);
   fill(0, 0, 0, 150);
   push()
-  if (rightToLeft > rectDiv.right) {
+  if (rightToLeft > rectDiv.right-200) {
     translate(rightToLeft, rectDiv.top + top);
   } else {
-    translate(rectDiv.right, rectDiv.top + top);
+    translate(rectDiv.right-200, rectDiv.top + top);
   }
-  rotate(-135);
-  rect(0, 0, width, height);
+  rotate(-40);
+  triangle((width/2)+shift, (height/2), -(width/2)+shift, -(height/2), -(height/2)+shift2+80, (width/2)+shift);
   backgroundPattern(width, height, width/2, height/2);
   pop();
 

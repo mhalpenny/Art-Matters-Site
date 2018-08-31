@@ -52,7 +52,7 @@ function preload() {
   layerC = loadImage('assets/GreenLayer.png');
   layerAr = loadImage('assets/OrangeLayer.png');
   layerGI = loadImage('assets/YellowLayer.png');
-  layerMain = loadImage('assets/LayerAll80.png');
+  layerMain = loadImage('assets/LayerAll.png');
   //icons
   iconA = loadImage('assets/rrIcon.png');
   iconR = loadImage('assets/bIcon.png');

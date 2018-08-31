@@ -69,6 +69,7 @@ function preload() {
 //-------------------------------------------------------------
 //     SETUP
 //-------------------------------------------------------------
+//-------------------------------------------------------------
 
 function setup() {
 
@@ -81,7 +82,6 @@ function setup() {
   //     LINKS (SETUP)
   //-------------------------------------------------------------
 
-  // optionally migrate to CSS for all links
 
   linkR = createA('resources.html', 'RESOURCES');
 
@@ -97,35 +97,16 @@ function setup() {
 
   linkM = createA('#', 'MAP');
 
-  // linkAO = createA('pdf/AM_AntiO.pdf', 'ANTI-OPPRESSION STATEMENT');
-  //
-  // linkEN = createA('#', 'EN');
-  // linkEN.id('lang');
   linkFR = createA('indexFR.html', 'FR');
   linkFR.id('lang');
 
 
-  // linkCSM = createA('#', 'COMING SOON');
-  // linkCSM.style('opacity', '0');
-  // linkCSM.style('z-index', '-1');
-  //
-  // linkCSC = createA('#', 'COMING SOON');
-  // linkCSC.style('opacity', '0');
-  // linkCSC.style('z-index', '-1');
-  //
-  // linkCSE = createA('#', 'COMING SOON');
-  // linkCSE.style('opacity', '0');
-  // linkCSE.style('z-index', '-1');
-
-
 
   if (windowWidth > 650) {
-    //variable math
     linkOffset = 90 - (windowHeight) * 0.02
     linkBuffer = 80 - (windowHeight) * 0.015
     var linkMargin = 29;
   } else {
-    //variable math
     linkOffset = 75 - (windowHeight) * 0.05
     linkBuffer = 80 - (windowHeight) * 0.015
     var linkMargin = 29;
@@ -141,12 +122,8 @@ function setup() {
   // linkAO.position(linkMargin, linkBuffer + linkOffset*7);
   linkAr.position(linkMargin, linkBuffer + linkOffset * 7);
 
-  // linkEN.position(windowWidth - 65, 15);
   linkFR.position(windowWidth - 40, 25);
 
-  // linkCSM.position(linkMargin, linkBuffer + linkOffset * 4);
-  // linkCSC.position(linkMargin, linkBuffer + linkOffset * 5);
-  // linkCSE.position(linkMargin, linkBuffer + linkOffset * 6);
 
 
 
@@ -182,62 +159,22 @@ function setup() {
 function draw() {
 
   //-------------------------------------------------------------
-  //     LOADING (DRAW)
-  //-------------------------------------------------------------
-
-  // if (loading == true) {
-  //   background(255);
-  //   canvas.style("z-index", "1");
-  //   loadCount++;
-  //   textSize(20);
-  //   // text('Loading...', 150, 65);
-  //   push();
-  //   translate(width / 2, height / 2);
-  //   angleMode(DEGREES);
-  //   rotate(loadCount * 10);
-  //   imageMode(CENTER);
-  //   image(amLogo, 0, 0, 400, 400);
-  //   pop();
-  //   if (loadCount >= 15 && loadCount <= 40) {
-  //     tint(255, 60);
-  //     push();
-  //     translate(width / 2, height / 2);
-  //     angleMode(DEGREES);
-  //     rotate(loadCount * 2);
-  //     imageMode(CENTER);
-  //     image(amLogo, 0, 0, 400, 400);
-  //     pop();
-  //     loadCount++;
-  //
-  //   } else if (loadCount >= 40) {
-  //     canvas.style("z-index", "-1");
-  //     background(255);
-  //     loading = false;
-  //   }
-  // } else if (loading == false) {
-
-  //-------------------------------------------------------------
   //    STYLING (DRAW)
   //-------------------------------------------------------------
 
   noStroke();
-  // background(239, 251, 252, 50);
-  // background(255, 251, 242, 50);
-  // background(255, 234, 234, 50);
-  // background(255, 50);
   if (cpuPause == false) {
-    background(255, 50);
+    // background(255, 50);
+    background(248, 251, 252, 50);
   } else {
 
   }
 
   if (windowWidth > 650) {
-    //variable math
     linkOffset = 90 - (windowHeight) * 0.02
     linkBuffer = 80 - (windowHeight) * 0.015
     var linkMargin = 29;
   } else {
-    //variable math
     linkOffset = 75 - (windowHeight) * 0.05
     linkBuffer = 80 - (windowHeight) * 0.015
     var linkMargin = 29;
@@ -250,18 +187,9 @@ function draw() {
   linkM.position(linkMargin, linkBuffer + linkOffset * 4);
   linkC.position(linkMargin, linkBuffer + linkOffset * 5);
   linkE.position(linkMargin, linkBuffer + linkOffset * 6);
-  // linkAO.position(linkMargin, linkBuffer + linkOffset*7);
   linkAr.position(linkMargin, linkBuffer + linkOffset * 7);
 
-  // linkEN.position(windowWidth - 65, 15);
   linkFR.position(windowWidth - 60, 22);
-  //
-  // linkCSM.position(linkMargin, linkBuffer + linkOffset * 4);
-  // linkCSC.position(linkMargin, linkBuffer + linkOffset * 5);
-  // linkCSE.position(linkMargin, linkBuffer + linkOffset * 6);
-
-
-
 
 
 
@@ -273,7 +201,6 @@ function draw() {
   imageMode(CENTER);
 
   //---MAIN---
-  // if (mainOff == false && cpuPause == false){
   if (mainOff == false) {
     tint(255, fadeMain);
     image(layerMain, windowWidth / 2, height / 2, windowWidth, windowHeight);
@@ -302,7 +229,6 @@ function draw() {
   //---R---
   if (animateR == true) {
     tint(255, fadeR);
-    noTint();
     image(layerR, windowWidth / 2, height / 2, windowWidth, windowHeight);
     image(iconR, linkMargin, (linkBuffer + linkOffset * 2), 50, 50);
     noTint();
@@ -341,13 +267,6 @@ function draw() {
     tint(255, fadeM);
     image(layerM, windowWidth / 2, height / 2, windowWidth, windowHeight);
     image(iconM, linkMargin, (linkBuffer + linkOffset * 4), 50, 50);
-    // var m = map(fadeM, 0, 255, 0.0, 1.0);
-    // var n = map(fadeM, 0, 255, 1.0, 0.0);
-    //
-    // linkCSM.style("opacity", m);
-    // linkM.style("opacity", n);
-
-    // linkCSM.position(linkMargin, linkBuffer + linkOffset*4);
 
     linkM.html('COMING SOON');
     noTint();
@@ -359,14 +278,9 @@ function draw() {
     tint(255, fadeC);
     image(layerC, windowWidth / 2, height / 2, windowWidth, windowHeight);
     image(iconC, linkMargin, (linkBuffer + linkOffset * 5), 50, 50);
-    // var m = map(fadeC, 0, 255, 0.0, 1.0);
-    // var n = map(fadeC, 0, 255, 1.0, 0.0);
-    //
-    // linkCSC.style("opacity", m);
-    // linkC.style("opacity", n);
+
     noTint();
     linkC.html('COMING SOON');
-
     fadeC += fadeIncr;
   }
 
@@ -375,72 +289,12 @@ function draw() {
     tint(255, fadeE);
     image(layerE, windowWidth / 2, height / 2, windowWidth, windowHeight);
     image(iconE, linkMargin, (linkBuffer + linkOffset * 6), 50, 50);
-    // var m = map(fadeE, 0, 255, 0.0, 1.0);
-    // var n = map(fadeE, 0, 255, 1.0, 0.0);
-    //
-    // linkCSE.style("opacity", m);
-    // linkE.style("opacity", n);
+
     noTint();
     linkE.html('COMING SOON');
 
     fadeE += fadeIncr;
   }
-  //
-  // //---CSM---
-  // if (animateCSM == true) {
-  //
-  //
-  //   var a = map(valueM, 0, 255, 0.0, 1.0, true);
-  //   var b = map(valueM, 0, 255, 1.0, 0.0, true);
-  //
-  //   linkM.style("opacity", a);
-  //   linkCSM.style("opacity", b);
-  //
-  //   valueM += fadeIncr;
-  //
-  //   if (a >= 1.0) {
-  //     animateCSM = false;
-  //     valueM = 0;
-  //   }
-  //
-  // }
-  //
-  // //---CSC---
-  // if (animateCSC == true) {
-  //
-  //
-  //   var c = map(valueC, 0, 255, 0.0, 1.0, true);
-  //   var d = map(valueC, 0, 255, 1.0, 0.0, true);
-  //
-  //   linkC.style("opacity", c);
-  //   linkCSC.style("opacity", d);
-  //
-  //   valueC += fadeIncr;
-  //
-  //   if (c >= 1.0) {
-  //     animateCSC = false;
-  //     valueC = 0;
-  //   }
-  //
-  // }
-  //
-  // //---CSE--
-  // if (animateCSE == true) {
-  //
-  //   var e = map(valueE, 0, 255, 0.0, 1.0, true);
-  //   var f = map(valueE, 0, 255, 1.0, 0.0, true);
-  //
-  //   linkE.style("opacity", e);
-  //   linkCSE.style("opacity", f);
-  //
-  //   valueE += fadeIncr;
-  //
-  //   if (e >= 1.0) {
-  //     animateCSE = false;
-  //     valueE = 0;
-  //   }
-  //
-  // }
 
   //-------------------------------------------------------------
   //     LOGO ANIMATION (DRAW)
@@ -450,15 +304,17 @@ function draw() {
     imageMode(CENTER);
     tint(255, 255);
     image(amLogo, 73, 60, 110, 110);
+    noTint();
   } else {
     imageMode(CENTER);
     tint(255, 255);
     image(amLogo, 65, 50, 80, 80);
+    noTint();
   }
 
 }
 
-// } // end
+// } // end of draw
 
 
 
@@ -512,8 +368,7 @@ function offlinkM() {
   animateM = false;
   fadeM = 0;
   mainOff = false;
-  animateCSM = true;
-  // linkM.style('font-style', 'normal');
+
 
 }
 
@@ -530,7 +385,6 @@ function overlinkC() {
 function offlinkC() {
   animateC = false;
   fadeC = 0;
-  animateCSC = true;
   // linkC.style('font-style', 'normal');
   mainOff = false;
 }
@@ -579,7 +433,6 @@ function overLinkE() {
 function offLinkE() {
   animateE = false;
   fadeE = 0;
-  animateCSE = true;
   // linkE.style('font-style', 'normal');
   mainOff = false;
 }
@@ -594,5 +447,6 @@ function offLang() {
 
 function windowResized() {
   resizeCanvas(windowWidth, (windowHeight));
+  background(248, 251, 252, 50);
 
 }

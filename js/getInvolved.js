@@ -106,7 +106,7 @@ function setup() {
   linkFR = createA('aPropos.html', 'FR');
   linkFR.id('lang');
 
-  home = createA('#', 'O');
+  home = createA('index.html', 'O');
   //debugging
   // home.style('color', 'black');
   home.style('color', 'transparent');

@@ -297,7 +297,9 @@ a{
 }
 p{
   font-size: 12px;
+  line-height: 2;
 }
+
 .icon{
   width:40px;
   height:40px;

@@ -106,7 +106,7 @@ function setup() {
   linkFR = createA('aPropos.html', 'FR');
   linkFR.id('lang');
 
-  home = createA('#', 'O');
+  home = createA('index.html', 'O');
   //debugging
   // home.style('color', 'black');
   home.style('color', 'transparent');
@@ -243,14 +243,36 @@ if (windowWidth > 650){
   backgroundPattern(width, height, width/2, height/2);
   pop();
 
-  //---DIV BACKGROUND 3---
+  // //---DIV BACKGROUND 3---
+  //
+  // //square 3 variables
+  // var rightOffset = rectDiv.right + isAnimation;
+  // var rightToLeft = rightOffset - (top - (canvasH / 4));
+  //
+  // var myDiv = document.getElementById('three');
+  // var rectDiv = myDiv.getBoundingClientRect();
+  //
+  // rectMode(CENTER);
+  // angleMode(DEGREES);
+  // fill(0, 0, 0, 150);
+  // push()
+  // if (rightToLeft > rectDiv.right) {
+  //   translate(rightToLeft, rectDiv.top + top);
+  // } else {
+  //   translate(rectDiv.right, rectDiv.top + top);
+  // }
+  // rotate(-135);
+  // rect(0, 0, width, height);
+  // backgroundPattern(width, height, width/2, height/2);
+  // pop();
 
-  //square 3 variables
-  var rightOffset = rectDiv.right + isAnimation;
-  var rightToLeft = rightOffset - (top - (canvasH / 4));
+  //---DIV BACKGROUND 4---
 
-  var myDiv = document.getElementById('three');
+  var myDiv = document.getElementById('four');
   var rectDiv = myDiv.getBoundingClientRect();
+
+  var rightOffset = rectDiv.right + isAnimation;
+  var rightToLeft = rightOffset - (top - (canvasH / 3));
 
   rectMode(CENTER);
   angleMode(DEGREES);
@@ -262,31 +284,6 @@ if (windowWidth > 650){
     translate(rectDiv.right, rectDiv.top + top);
   }
   rotate(-135);
-  rect(0, 0, width, height);
-  backgroundPattern(width, height, width/2, height/2);
-  pop();
-
-  //---DIV BACKGROUND 4---
-
-  var myDiv = document.getElementById('four');
-  var rectDiv = myDiv.getBoundingClientRect();
-
-  //variables for 4nd square
-  var leftOffset = rectDiv.left - isAnimation;
-  var leftToRight = leftOffset + (top - (canvasH / 2.2));
-
-  rectMode(CENTER);
-  angleMode(DEGREES);
-  fill(0, 0, 0, 150);
-  push();
-
-  if (leftToRight < rectDiv.left) {
-    translate(leftToRight, rectDiv.top + top);
-  } else {
-    translate(rectDiv.left, rectDiv.top + top);
-  }
-
-  rotate(135);
   rect(0, 0, width, height);
   backgroundPattern(width, height, width/2, height/2);
   pop();

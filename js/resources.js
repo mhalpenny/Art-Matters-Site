@@ -24,6 +24,7 @@ var isAnimation = 400;
 var refresh = false;
 var refreshArray = [1];
 var valueM = 0, valueC = 0, valueE = 0;
+var nonLoop = false;
 
 
 // var colorCounter = 0;
@@ -240,6 +241,7 @@ if (windowWidth > 650){
     linkBuffer = top + 80;
     var linkMargin = 35;
 
+    if (nonLoop == false){
     linkA.html('ABOUT');
     linkA.style('text-align', 'right');
     linkR.html('RESOURCES');
@@ -257,6 +259,9 @@ if (windowWidth > 650){
         linkE.style('color', 'black');
     linkAr.html('ARCHIVE');
     linkAr.style('text-align', 'right');
+
+    nonLoop = true;
+  }
 
 
     //positioning
@@ -277,6 +282,8 @@ if (windowWidth > 650){
     var linkMargin = 30;
     var iconMargin = 45;
 
+    if (nonLoop == false){
+
     linkA.html('<br> <br> <br> <br> <br> ABOUT');
     linkA.style('text-align', 'left');
     linkR.html('<br> <br> <br> <br> <br> RESOURCES');
@@ -294,6 +301,9 @@ if (windowWidth > 650){
     linkE.style('color', 'grey');
     linkAr.html('<br> <br> <br> <br> <br>  ARCHIVE');
     linkAr.style('text-align', 'left');
+
+    nonLoop = true;
+  }
 
 
     tint(255, 255);
@@ -566,6 +576,7 @@ function windowResized() {
   resizeCanvas(windowWidth, (canvasH));
 
     background(248, 251, 252);
+    nonLoop = false;
 
 
 }

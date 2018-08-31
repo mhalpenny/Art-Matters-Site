@@ -165,8 +165,13 @@ function draw() {
   //    STYLING (DRAW)
   //-------------------------------------------------------------
 
-  background(255, fadeBack);
-  fadeBack = 50;
+  if (windowWidth > 650){
+    background(255, fadeBack);
+    fadeBack = 50;
+  } else{
+    background(255);
+  }
+
 
   //for all moving elements
   var top = window.pageYOffset;
@@ -308,8 +313,21 @@ if (windowWidth > 650){
     // linkAr.style('opacity', '1');
     // linkFR.style('opacity', '1');
 
+    linkA.html('ABOUT');
+    linkA.style('text-align', 'right');
+    linkR.html('RESOURCES');
+    linkR.style('text-align', 'right');
     linkGI.html('GET INVOLVED');
     linkGI.style('text-align', 'right');
+    linkM.html('MAPS');
+    linkM.style('text-align', 'right');
+    linkC.html('CALENDAR');
+    linkC.style('text-align', 'right');
+    linkE.html('EVENTS');
+    linkE.style('text-align', 'right');
+    linkAr.html('ARCHIVE');
+    linkAr.style('text-align', 'right');
+
 
     //positioning
     linkA.position(linkMargin, linkBuffer + linkOffset);
@@ -336,14 +354,6 @@ if (windowWidth > 650){
     var linkMargin = 35;
     var iconMargin = 45;
 
-    // linkA.style('opacity', '0');
-    // linkR.style('opacity', '0');
-    // linkGI.style('opacity', '0');
-    // linkM.style('opacity', '0');
-    // linkC.style('opacity', '0');
-    // linkE.style('opacity', '0');
-    // linkAr.style('opacity', '0');
-    // linkFR.style('opacity', '0');
     linkA.html('<br> <br> <br> <br> <br> &nbsp &nbsp &nbsp ABOUT');
     linkA.style('text-align', 'left');
     linkR.html('<br> <br> <br> <br> <br> &nbsp &nbsp &nbsp RESOURCES');
@@ -352,7 +362,7 @@ if (windowWidth > 650){
     linkGI.style('text-align', 'left');
     linkM.html('<br> <br> <br> <br> <br> &nbsp &nbsp &nbsp MAPS <BR> &nbsp &nbsp &nbsp (COMING SOON)');
     linkM.style('text-align', 'left');
-    linkC.html('<br> <br> <br> <br> <br> &nbsp &nbsp &nbsp CALENDER <BR> &nbsp &nbsp &nbsp (COMING SOON)');
+    linkC.html('<br> <br> <br> <br> <br> &nbsp &nbsp &nbsp CALENDAR <BR> &nbsp &nbsp &nbsp (COMING SOON)');
     linkC.style('text-align', 'left');
     linkE.html('<br> <br> <br> <br> <br> &nbsp &nbsp &nbsp EVENTS <BR> &nbsp &nbsp &nbsp (COMING SOON)');
     linkE.style('text-align', 'left');
@@ -549,9 +559,9 @@ if (windowWidth > 650){
     // linkFR.position(linkMargin, linkBuffer + linkOffset * 8);
   } else {
     var topNew = top + 45;
-    translate(iconMargin+5, topNew);
+    translate(iconMargin+15, topNew);
     rotate(logoSpin);
-    image(amLogo, 0, 0, 70, 70);
+    image(amLogo, 0, 0, 75, 75);
     // linkFR.position(linkMargin, linkBuffer + linkOffset * 8);
   }
   pop();

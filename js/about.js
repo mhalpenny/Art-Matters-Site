@@ -345,25 +345,25 @@ if (windowWidth > 650){
 
   } else {
     //variable math
-    linkOffset = 55;
-    linkBuffer = top + 30;
-    iconBuffer = top + 55;
-    var linkMargin = 35;
+    linkOffset = 64;
+    linkBuffer = top + 25;
+    iconBuffer = top + 45;
+    var linkMargin = 30;
     var iconMargin = 45;
 
-    linkA.html('<br> <br> <br> <br> <br> &nbsp &nbsp &nbsp ABOUT');
+    linkA.html('<br> <br> <br> <br> <br> ABOUT');
     linkA.style('text-align', 'left');
-    linkR.html('<br> <br> <br> <br> <br> &nbsp &nbsp &nbsp RESOURCES');
+    linkR.html('<br> <br> <br> <br> <br> RESOURCES');
     linkR.style('text-align', 'left');
-    linkGI.html('<br> <br> <br> <br> <br> &nbsp &nbsp &nbsp GET <br> &nbsp &nbsp &nbsp INVOLVED');
+    linkGI.html('<br> <br> <br> <br> <br>  GET <br> INVOLVED');
     linkGI.style('text-align', 'left');
-    linkM.html('<br> <br> <br> <br> <br> &nbsp &nbsp &nbsp MAPS <BR> &nbsp &nbsp &nbsp (COMING SOON)');
+    linkM.html('<br> <br> <br> <br> <br> MAPS <BR>(COMING SOON)');
     linkM.style('text-align', 'left');
-    linkC.html('<br> <br> <br> <br> <br> &nbsp &nbsp &nbsp CALENDAR <BR> &nbsp &nbsp &nbsp (COMING SOON)');
+    linkC.html('<br> <br> <br> <br> <br>CALENDAR <BR>  (COMING SOON)');
     linkC.style('text-align', 'left');
-    linkE.html('<br> <br> <br> <br> <br> &nbsp &nbsp &nbsp EVENTS <BR> &nbsp &nbsp &nbsp (COMING SOON)');
+    linkE.html('<br> <br> <br> <br> <br>  EVENTS <BR>  (COMING SOON)');
     linkE.style('text-align', 'left');
-    linkAr.html('<br> <br> <br> <br> <br> &nbsp &nbsp &nbsp ARCHIVE');
+    linkAr.html('<br> <br> <br> <br> <br>  ARCHIVE');
     linkAr.style('text-align', 'left');
 
 
@@ -388,7 +388,7 @@ if (windowWidth > 650){
     linkAr.position(linkMargin, linkBuffer + linkOffset * 7);
 
     // linkEN.position(windowWidth - 65, 15);
-    linkFR.position(linkMargin, linkBuffer + linkOffset * 8.5);
+    linkFR.position(linkMargin, linkBuffer + linkOffset * 8.2);
     //
     // linkCSM.position(linkMargin, linkBuffer + linkOffset * 4);
     // linkCSC.position(linkMargin, linkBuffer + linkOffset * 5);
@@ -556,9 +556,9 @@ if (windowWidth > 650){
     // linkFR.position(linkMargin, linkBuffer + linkOffset * 8);
   } else {
     var topNew = top + 45;
-    translate(iconMargin+15, topNew);
+    translate(iconMargin+5, topNew);
     rotate(logoSpin);
-    image(amLogo, 0, 0, 75, 75);
+    image(amLogo, 0, 0, 70, 70);
     // linkFR.position(linkMargin, linkBuffer + linkOffset * 8);
   }
   pop();

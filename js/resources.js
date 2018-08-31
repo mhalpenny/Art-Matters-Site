@@ -296,36 +296,26 @@ if (windowWidth > 650){
     linkCSE.position(linkMargin, linkBuffer + linkOffset * 6);
 
   } else {
-    //variable math
-    linkOffset = 55;
-    linkBuffer = top + 30;
-    iconBuffer = top + 55;
-    var linkMargin = 35;
+    linkOffset = 64;
+    linkBuffer = top + 25;
+    iconBuffer = top + 45;
+    var linkMargin = 30;
     var iconMargin = 45;
 
-    // linkA.style('opacity', '0');
-    // linkR.style('opacity', '0');
-    // linkGI.style('opacity', '0');
-    // linkM.style('opacity', '0');
-    // linkC.style('opacity', '0');
-    // linkE.style('opacity', '0');
-    // linkAr.style('opacity', '0');
-    // linkFR.style('opacity', '0');
-    linkA.html('<br> <br> <br> <br> <br> &nbsp &nbsp &nbsp ABOUT');
+    linkA.html('<br> <br> <br> <br> <br> ABOUT');
     linkA.style('text-align', 'left');
-    linkR.html('<br> <br> <br> <br> <br> &nbsp &nbsp &nbsp RESOURCES');
+    linkR.html('<br> <br> <br> <br> <br> RESOURCES');
     linkR.style('text-align', 'left');
-    linkGI.html('<br> <br> <br> <br> <br> &nbsp &nbsp &nbsp GET <br> &nbsp &nbsp &nbsp INVOLVED');
+    linkGI.html('<br> <br> <br> <br> <br>  GET <br> INVOLVED');
     linkGI.style('text-align', 'left');
-    linkM.html('<br> <br> <br> <br> <br> &nbsp &nbsp &nbsp MAPS <BR> &nbsp &nbsp &nbsp (COMING SOON)');
+    linkM.html('<br> <br> <br> <br> <br> MAPS <BR>(COMING SOON)');
     linkM.style('text-align', 'left');
-    linkC.html('<br> <br> <br> <br> <br> &nbsp &nbsp &nbsp CALENDAR <BR> &nbsp &nbsp &nbsp (COMING SOON)');
+    linkC.html('<br> <br> <br> <br> <br>CALENDAR <BR>  (COMING SOON)');
     linkC.style('text-align', 'left');
-    linkE.html('<br> <br> <br> <br> <br> &nbsp &nbsp &nbsp EVENTS <BR> &nbsp &nbsp &nbsp (COMING SOON)');
+    linkE.html('<br> <br> <br> <br> <br>  EVENTS <BR>  (COMING SOON)');
     linkE.style('text-align', 'left');
-    linkAr.html('<br> <br> <br> <br> <br> &nbsp &nbsp &nbsp ARCHIVE');
+    linkAr.html('<br> <br> <br> <br> <br>  ARCHIVE');
     linkAr.style('text-align', 'left');
-
 
     tint(255, 255);
 

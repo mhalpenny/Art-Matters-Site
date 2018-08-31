@@ -257,9 +257,9 @@ text-align: left;
 
 @media only screen and (max-width: 650px) {
   #gallery{
-    width:60%;
+    width:62%;
     position: absolute;
-    right:7%;
+    right:4%;
 }
 .boxRed{
   width:100%;

@@ -199,8 +199,8 @@ function draw() {
   //-------------------------------------------------------------
 
   //variable for all squares
-  var width = (windowWidth / 1.7);
-  var height = (windowWidth / 3.2);
+  var shift = (windowWidth / 10);
+  var shift2 = (windowWidth / 20);
 
 if (windowWidth > 650){
 
@@ -211,10 +211,8 @@ if (windowWidth > 650){
   var rectDiv = myDiv.getBoundingClientRect();
 
   //variables for 2nd square
-  var leftOffset = rectDiv.left + 200;
+  var leftOffset = rectDiv.left;
   var leftToRight = leftOffset + top;
-  var shift = 100;
-    var shift2 = 200;
 
   rectMode(CENTER);
   angleMode(DEGREES);
@@ -223,8 +221,8 @@ if (windowWidth > 650){
 
     translate(leftOffset - top, rectDiv.top + top);
 
-  rotate(135);
-  triangle((width/2)+shift, (height/2), -(width/2)+shift, -(height/2), -(height/2)+shift2+80, (width/2)+shift);
+  rotate(100);
+  triangle(-130, 230, 0, -330, 200, 230);
   backgroundPattern(width, height, width/2, height/2);
   pop();
 
@@ -252,8 +250,8 @@ if (windowWidth > 650){
   } else {
     translate(rectDiv.right-200, rectDiv.top + top);
   }
-  rotate(-40);
-  triangle((width/2)+shift, (height/2), -(width/2)+shift, -(height/2), -(height/2)+shift2+80, (width/2)+shift);
+  rotate(0);
+  triangle(-130, 230, 0, -330, 200, 230);
   backgroundPattern(width, height, width/2, height/2);
   pop();
 
@@ -314,28 +312,26 @@ if (windowWidth > 650){
     linkCSE.position(linkMargin, linkBuffer + linkOffset * 6);
 
   } else {
-    //variable math
-    linkOffset = 55;
-    linkBuffer = top + 30;
-    iconBuffer = top + 55;
-    var linkMargin = 35;
+    linkOffset = 64;
+    linkBuffer = top + 25;
+    iconBuffer = top + 45;
+    var linkMargin = 30;
     var iconMargin = 45;
 
-    linkA.html('<br> <br> <br> <br> <br> &nbsp &nbsp &nbsp ABOUT');
+    linkA.html('<br> <br> <br> <br> <br> ABOUT');
     linkA.style('text-align', 'left');
-    linkR.html('<br> <br> <br> <br> <br> &nbsp &nbsp &nbsp RESOURCES');
+    linkR.html('<br> <br> <br> <br> <br> RESOURCES');
     linkR.style('text-align', 'left');
-    linkGI.html('<br> <br> <br> <br> <br> &nbsp &nbsp &nbsp GET <br> &nbsp &nbsp &nbsp INVOLVED');
+    linkGI.html('<br> <br> <br> <br> <br>  GET <br> INVOLVED');
     linkGI.style('text-align', 'left');
-    linkM.html('<br> <br> <br> <br> <br> &nbsp &nbsp &nbsp MAPS <BR> &nbsp &nbsp &nbsp (COMING SOON)');
+    linkM.html('<br> <br> <br> <br> <br> MAPS <BR>(COMING SOON)');
     linkM.style('text-align', 'left');
-    linkC.html('<br> <br> <br> <br> <br> &nbsp &nbsp &nbsp CALENDAR <BR> &nbsp &nbsp &nbsp (COMING SOON)');
+    linkC.html('<br> <br> <br> <br> <br>CALENDAR <BR>  (COMING SOON)');
     linkC.style('text-align', 'left');
-    linkE.html('<br> <br> <br> <br> <br> &nbsp &nbsp &nbsp EVENTS <BR> &nbsp &nbsp &nbsp (COMING SOON)');
+    linkE.html('<br> <br> <br> <br> <br>  EVENTS <BR>  (COMING SOON)');
     linkE.style('text-align', 'left');
-    linkAr.html('<br> <br> <br> <br> <br> &nbsp &nbsp &nbsp ARCHIVE');
+    linkAr.html('<br> <br> <br> <br> <br>  ARCHIVE');
     linkAr.style('text-align', 'left');
-
 
     tint(255, 255);
 

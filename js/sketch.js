@@ -98,11 +98,12 @@ function setup() {
   linkM = createA('#', 'MAP');
 
   // linkAO = createA('pdf/AM_AntiO.pdf', 'ANTI-OPPRESSION STATEMENT');
-
-  linkEN = createA('#', 'EN');
-  linkEN.id('lang');
+  //
+  // linkEN = createA('#', 'EN');
+  // linkEN.id('lang');
   linkFR = createA('indexFR.html', 'FR');
   linkFR.id('lang');
+
 
   linkCSM = createA('#', 'COMING SOON');
   linkCSM.style('opacity', '0');
@@ -140,8 +141,8 @@ function setup() {
   // linkAO.position(linkMargin, linkBuffer + linkOffset*7);
   linkAr.position(linkMargin, linkBuffer + linkOffset * 7);
 
-  linkEN.position(windowWidth - 65, 15);
-  linkFR.position(windowWidth - 40, 15);
+  // linkEN.position(windowWidth - 65, 15);
+  linkFR.position(windowWidth - 40, 25);
 
   linkCSM.position(linkMargin, linkBuffer + linkOffset * 4);
   linkCSC.position(linkMargin, linkBuffer + linkOffset * 5);
@@ -168,6 +169,7 @@ function setup() {
   linkC.mouseOut(offlinkC);
   linkAr.mouseOver(overLinkAr);
   linkAr.mouseOut(offLinkAr);
+  linkFR.mouseOver(onLang).mouseOut(offLang);
 
 
 }
@@ -251,8 +253,8 @@ function draw() {
     // linkAO.position(linkMargin, linkBuffer + linkOffset*7);
     linkAr.position(linkMargin, linkBuffer + linkOffset * 7);
 
-    linkEN.position(windowWidth - 65, 15);
-    linkFR.position(windowWidth - 40, 15);
+    // linkEN.position(windowWidth - 65, 15);
+    linkFR.position(windowWidth - 60, 22);
 
     linkCSM.position(linkMargin, linkBuffer + linkOffset * 4);
     linkCSC.position(linkMargin, linkBuffer + linkOffset * 5);
@@ -429,7 +431,7 @@ function draw() {
     if (windowWidth > 650) {
       imageMode(CENTER);
       tint(255, 255);
-      image(amLogo, 80, 60, 125, 125);
+      image(amLogo, 73, 60, 110, 110);
     } else {
       imageMode(CENTER);
       tint(255, 255);
@@ -564,6 +566,13 @@ function offLinkE() {
   mainOff = false;
 }
 
+function onLang(){
+  linkFR.style('color', 'grey');
+}
+
+function offLang(){
+  linkFR.style('color', 'black');
+}
 
 function windowResized() {
   resizeCanvas(windowWidth, (windowHeight));

@@ -305,6 +305,10 @@ p{
   height:40px;
 }
 
+#lang{
+  font-weight: normal;
+}
+
 
 #social a:link, #social a:visited {
   margin: 2em;

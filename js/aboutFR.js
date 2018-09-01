@@ -24,6 +24,7 @@ var isAnimation = 400;
 var refresh = false;
 var refreshArray = [1];
 var valueM = 0, valueC = 0, valueE = 0;
+var nonLoop = false;
 
 
 // var colorCounter = 0;
@@ -71,21 +72,11 @@ function setup() {
   canvas.position(0, 0);
 
 
-  //instantiate animations.
-  // fadeA = 0;
-  // fadeM = 0;
-  // fadeR = 0;
-  // fadeAr = 0;
-  // fadeC = 0;
-  // fadeE = 0;
-  // fadeGI = 0;
-  // fadeBack = 50;
-
   //-------------------------------------------------------------
   //     LINKS (SETUP)
   //-------------------------------------------------------------
 
-  linkR = createA('#', 'RESSOURCES');
+  linkR = createA('ressources.html', 'RESSOURCES');
 
   linkA = createA('#', 'À PROPOS');
 
@@ -93,7 +84,7 @@ function setup() {
 
   linkAr = createA('http://artmattersfestival.org/archive/', 'ARCHIVE');
 
-  linkGI = createA('#', 'NOUS JOINDRE');
+  linkGI = createA('impliquezVous.html', 'IMPLIQUEZ-VOUS');
 
   linkE = createA('#', 'ÉVÉNEMENTS');
 
@@ -101,12 +92,12 @@ function setup() {
 
   // linkAO = createA('pdf/AM_AntiO.pdf', 'ANTI-OPPRESSION STATEMENT');
 
+  // linkEN = createA('#', 'EN');
+  // linkEN.id('lang');
   linkEN = createA('about.html', 'EN');
   linkEN.id('lang');
-  // linkFR = createA('indexFR.html', 'FR');
-  // linkFR.id('lang');
 
-  home = createA('indexFR.html', 'O');
+  home = createA('index.html', 'O');
   //debugging
   // home.style('color', 'black');
   home.style('color', 'transparent');
@@ -116,38 +107,25 @@ function setup() {
   home.class('noselect');
 
 
-    linkCSM = createA('#', 'AURA BIENTÔT');
-    linkCSM.style('opacity', '0');
-    linkCSM.style('z-index', '-1');
-
-    linkCSC = createA('#', 'AURA BIENTÔT');
-    linkCSC.style('opacity', '0');
-    linkCSC.style('z-index', '-1');
-
-    linkCSE = createA('#', 'AURA BIENTÔT');
-    linkCSE.style('opacity', '0');
-    linkCSE.style('z-index', '-1');
-
-
   //-------------------------------------------------------------
   //     LISTENERS (SETUP)
   //-------------------------------------------------------------
 
-  linkR.mouseOver(overLinkR);
-  linkR.mouseOut(offLinkR);
-  linkA.mouseOver(overLinkA);
-  linkA.mouseOut(offLinkA);
-  linkM.mouseOver(overlinkM);
-  linkM.mouseOut(offlinkM);
-  linkGI.mouseOver(overLinkGI);
-  linkGI.mouseOut(offLinkGI);
-  linkE.mouseOver(overLinkE);
-  linkE.mouseOut(offLinkE);
-  linkC.mouseOver(overlinkC);
-  linkC.mouseOut(offlinkC);
-  linkAr.mouseOver(overLinkAr);
-  linkAr.mouseOut(offLinkAr);
 
+    linkR.mouseOver(overLinkR);
+    linkR.mouseOut(offLinkR);
+    linkA.mouseOver(overLinkA);
+    linkA.mouseOut(offLinkA);
+    linkM.mouseOver(overlinkM);
+    linkM.mouseOut(offlinkM);
+    linkGI.mouseOver(overLinkGI);
+    linkGI.mouseOut(offLinkGI);
+    linkE.mouseOver(overLinkE);
+    linkE.mouseOut(offLinkE);
+    linkC.mouseOver(overlinkC);
+    linkC.mouseOut(offlinkC);
+    linkAr.mouseOver(overLinkAr);
+    linkAr.mouseOut(offLinkAr);
 
 
 }
@@ -165,12 +143,23 @@ function draw() {
   //    STYLING (DRAW)
   //-------------------------------------------------------------
 
-  background(255, fadeBack);
-  fadeBack = 50;
+  if (windowWidth > 650){
+    background(248, 251, 252, fadeBack);
+    // background(255, fadeBack);
+    fadeBack = 50;
+  } else{
+    // background(255);
+    background(248, 251, 252);
+  }
+
 
   //for all moving elements
   var top = window.pageYOffset;
   logoSpin = top/2;
+
+  //-------------------------------------------------------------
+  //    PSEUDO WHEEL (DRAW)
+  //-------------------------------------------------------------
 
   if (refresh == 0){
     refreshArray[0] = logoSpin;
@@ -179,7 +168,8 @@ function draw() {
   }
 
   if (refreshArray[0] != refreshArray[1]){
-    background(255);
+    background(248, 251, 252);
+    // background(255);
   }
   refresh = !refresh;
 
@@ -193,6 +183,7 @@ function draw() {
   var width = (windowWidth / 1.7);
   var height = (windowWidth / 3.2);
 
+if (windowWidth > 650){
   //---DIV BACKGROUND 1---
 
   var myDiv = document.getElementById('one');
@@ -201,12 +192,6 @@ function draw() {
   rectMode(CENTER);
   angleMode(DEGREES);
   fill(0, 0, 0, 150);
-  // push();
-  // angleMode(DEGREES);
-  // translate(rectDiv.right + top, rectDiv.top);
-  // rotate(45);
-  // rect(0, 0 + top, width, height);
-  // pop();
   push()
   translate(rectDiv.right, rectDiv.top);
   rotate(-135);
@@ -226,18 +211,6 @@ function draw() {
   rectMode(CENTER);
   angleMode(DEGREES);
   fill(0, 0, 0, 150);
-  // push();
-  // angleMode(DEGREES);
-  //
-  // if (leftToRight < rectDiv.left) {
-  //   translate(leftToRight, rectDiv.top + top);
-  // } else {
-  //   translate(rectDiv.left, rectDiv.top + top);
-  // }
-  //
-  // rotate(-45);
-  // rect(0, 0, width, height);
-  // pop();
   push();
 
   if (leftToRight < rectDiv.left) {
@@ -251,29 +224,40 @@ function draw() {
   backgroundPattern(width, height, width/2, height/2);
   pop();
 
-  //---DIV BACKGROUND 3---
-
-  //square 3 variables
-  var rightOffset = rectDiv.right + isAnimation;
-  var rightToLeft = rightOffset - (top - (canvasH / 4));
-
-  var myDiv = document.getElementById('three');
-  var rectDiv = myDiv.getBoundingClientRect();
-
-  rectMode(CENTER);
-  angleMode(DEGREES);
-  fill(0, 0, 0, 150);
-  // push();
-  // angleMode(DEGREES);
+  // //---DIV BACKGROUND 3---
   //
+  // //square 3 variables
+  // var rightOffset = rectDiv.right + isAnimation;
+  // var rightToLeft = rightOffset - (top - (canvasH / 4));
+  //
+  // var myDiv = document.getElementById('three');
+  // var rectDiv = myDiv.getBoundingClientRect();
+  //
+  // rectMode(CENTER);
+  // angleMode(DEGREES);
+  // fill(0, 0, 0, 150);
+  // push()
   // if (rightToLeft > rectDiv.right) {
   //   translate(rightToLeft, rectDiv.top + top);
   // } else {
   //   translate(rectDiv.right, rectDiv.top + top);
   // }
-  // rotate(45);
+  // rotate(-135);
   // rect(0, 0, width, height);
+  // backgroundPattern(width, height, width/2, height/2);
   // pop();
+
+  //---DIV BACKGROUND 4---
+
+  var myDiv = document.getElementById('four');
+  var rectDiv = myDiv.getBoundingClientRect();
+
+  var rightOffset = rectDiv.right + isAnimation;
+  var rightToLeft = rightOffset - (top - (canvasH / 3));
+
+  rectMode(CENTER);
+  angleMode(DEGREES);
+  fill(0, 0, 0, 150);
   push()
   if (rightToLeft > rectDiv.right) {
     translate(rightToLeft, rectDiv.top + top);
@@ -285,44 +269,7 @@ function draw() {
   backgroundPattern(width, height, width/2, height/2);
   pop();
 
-  //---DIV BACKGROUND 4---
-
-  var myDiv = document.getElementById('four');
-  var rectDiv = myDiv.getBoundingClientRect();
-
-  //variables for 4nd square
-  var leftOffset = rectDiv.left - isAnimation;
-  var leftToRight = leftOffset + (top - (canvasH / 2.2));
-
-  rectMode(CENTER);
-  angleMode(DEGREES);
-  fill(0, 0, 0, 150);
-  // push();
-  // angleMode(DEGREES);
-  //
-  // if (leftToRight < rectDiv.left) {
-  //   translate(leftToRight, rectDiv.top + top);
-  // } else {
-  //   translate(rectDiv.left, rectDiv.top + top);
-  // }
-  //
-  // rotate(-45);
-  // rect(0, 0, width, height);
-  // pop();
-  push();
-
-  if (leftToRight < rectDiv.left) {
-    translate(leftToRight, rectDiv.top + top);
-  } else {
-    translate(rectDiv.left, rectDiv.top + top);
-  }
-
-  rotate(135);
-  rect(0, 0, width, height);
-  backgroundPattern(width, height, width/2, height/2);
-  pop();
-
-
+}
 
 
   //-------------------------------------------------------------
@@ -334,40 +281,119 @@ function draw() {
     linkOffset = 55;
     linkBuffer = top + 80;
     var linkMargin = 35;
-  } else {
-    //variable math
-    linkOffset = 50;
-    linkBuffer = top + 80;
-    var linkMargin = 29;
+
+    if (nonLoop == false){
+
+    linkA.html('À PROPOS');
+    linkA.style('text-align', 'right');
+    linkR.html('RESSOURCES');
+    linkR.style('text-align', 'right');
+    linkGI.html('IMPLIQUEZ-VOUS');
+    linkGI.style('text-align', 'right');
+    linkM.html('CARTE');
+    linkM.style('text-align', 'right');
+    linkM.style('color', 'black');
+    linkC.html('CALENDRIER');
+    linkC.style('text-align', 'right');
+        linkC.style('color', 'black');
+    linkE.html('ÉVÉNEMENTS');
+    linkE.style('text-align', 'right');
+        linkE.style('color', 'black');
+    linkAr.html('ARCHIVE');
+    linkAr.style('text-align', 'right');
+
+    nonLoop = true;
   }
 
-  //positioning
-  linkA.position(linkMargin, linkBuffer + linkOffset);
-  linkR.position(linkMargin, linkBuffer + linkOffset * 2);
-  linkGI.position(linkMargin, linkBuffer + linkOffset * 3);
-  linkM.position(linkMargin, linkBuffer + linkOffset * 4);
-  linkC.position(linkMargin, linkBuffer + linkOffset * 5);
-  linkE.position(linkMargin, linkBuffer + linkOffset * 6);
-  // linkAO.position(linkMargin, linkBuffer + linkOffset*7);
-  linkAr.position(linkMargin, linkBuffer + linkOffset * 7);
 
-  linkEN.position(linkMargin, linkBuffer + linkOffset * 8);
+    //positioning
+    linkA.position(linkMargin, linkBuffer + linkOffset);
+    linkR.position(linkMargin, linkBuffer + linkOffset * 2);
+    linkGI.position(linkMargin, linkBuffer + linkOffset * 3);
+    linkM.position(linkMargin, linkBuffer + linkOffset * 4);
+    linkC.position(linkMargin, linkBuffer + linkOffset * 5);
+    linkE.position(linkMargin, linkBuffer + linkOffset * 6);
+    linkAr.position(linkMargin, linkBuffer + linkOffset * 7);
 
-  // linkFR.position(windowWidth - 35, 15);
+    linkEN.position(linkMargin, linkBuffer + linkOffset * 8);
 
-  linkCSM.position(linkMargin, linkBuffer + linkOffset * 4);
-  linkCSC.position(linkMargin, linkBuffer + linkOffset * 5);
-  linkCSE.position(linkMargin, linkBuffer + linkOffset * 6);
+  } else {
+    //variable math
+    linkOffset = 55;
+    linkBuffer = top + 25;
+    iconBuffer = top + 45;
+    var linkMargin = 30;
+    var iconMargin = 45;
+
+    if (nonLoop == false){
+
+    linkA.html('<br> <br> <br> <br> <br> À PROPOS');
+    linkA.style('text-align', 'left');
+    linkR.html('<br> <br> <br> <br> <br> RESSOURCES');
+    linkR.style('text-align', 'left');
+    linkGI.html('<br> <br> <br> <br>  IMPLIQUEZ-VOUS');
+    linkGI.style('text-align', 'left');
+    linkM.html('<br> <br> <br> <br> <br>  CARTE');
+    linkM.style('color', 'grey');
+    linkM.style('text-align', 'left');
+    linkC.html('<br> <br> <br> <br> <br> CALENDRIER ');
+    linkC.style('text-align', 'left');
+    linkC.style('color', 'grey');
+    linkE.html('<br> <br> <br> <br> <br>  ÉVÉNEMENTS ');
+    linkE.style('text-align', 'left');
+    linkE.style('color', 'grey');
+    linkAr.html('<br> <br> <br> <br> <br>  ARCHIVE');
+    linkAr.style('text-align', 'left');
+
+    nonLoop = true;
+  }
+
+
+    tint(255, 255);
+
+    image(iconR, iconMargin, (iconBuffer + linkOffset*2), 40, 40);
+    image(iconA, iconMargin, (iconBuffer + linkOffset), 40, 40);
+    image(iconGI, iconMargin, (iconBuffer + linkOffset * 3), 40, 40);
+    image(iconAr, iconMargin, (iconBuffer + linkOffset * 7), 40, 40);
+    image(iconM, iconMargin, (iconBuffer + linkOffset * 4), 40, 40);
+    image(iconC, iconMargin, (iconBuffer + linkOffset * 5), 40, 40);
+    image(iconE, iconMargin, (iconBuffer + linkOffset * 6), 40, 40);
+
+    noTint();
+
+    //positioning
+    linkA.position(linkMargin, linkBuffer + linkOffset);
+    linkR.position(linkMargin, linkBuffer + linkOffset * 2);
+    linkGI.position(linkMargin, linkBuffer + linkOffset * 3);
+    linkM.position(linkMargin, linkBuffer + linkOffset * 4);
+    linkC.position(linkMargin, linkBuffer + linkOffset * 5);
+    linkE.position(linkMargin, linkBuffer + linkOffset * 6);
+    linkAr.position(linkMargin, linkBuffer + linkOffset * 7);
+
+    linkEN.position(linkMargin, linkBuffer + linkOffset * 8.2);
+
+  }
+
+
 
 
   //-------------------------------------------------------------
   //     ICON ANIMATIONS (DRAW)
   //-------------------------------------------------------------
 
+if (windowWidth > 650){
+  linkM.html('CARTE');
+  linkC.html('CALENDRIER');
+  linkE.html('ÉVÉNEMENTS');
   //---R---
   if (animateR == true) {
     tint(255, fadeR);
+    if (windowWidth > 650){
     image(iconR, linkMargin, (linkBuffer + linkOffset*2), 50, 50);
+  } else{
+
+  }
+    noTint();
     fadeR += fadeIncr;
   }
 
@@ -375,6 +401,7 @@ function draw() {
   if (animateA == true) {
     tint(255, fadeA);
     image(iconA, linkMargin, (linkBuffer + linkOffset), 50, 50);
+      noTint();
     fadeA += fadeIncr;
   }
 
@@ -382,6 +409,7 @@ function draw() {
   if (animateGI == true) {
     tint(255, fadeGI);
     image(iconGI, linkMargin, (linkBuffer + linkOffset * 3), 50, 50);
+      noTint();
     fadeGI += fadeIncr;
   }
 
@@ -389,6 +417,7 @@ function draw() {
   if (animateAr == true) {
     tint(255, fadeAr);
     image(iconAr, linkMargin, (linkBuffer + linkOffset * 7), 50, 50);
+      noTint();
     fadeAr += fadeIncr;
   }
 
@@ -396,13 +425,8 @@ function draw() {
   if (animateM == true) {
     tint(255, fadeM);
     image(iconM, linkMargin, (linkBuffer + linkOffset * 4), 50, 50);
-    var m = map(fadeM, 0, 255, 0.0, 1.0);
-    var n = map(fadeM, 0, 255, 1.0, 0.0);
-
-    linkCSM.style("opacity", m);
-    linkM.style("opacity", n);
-
-    // linkCSM.position(linkMargin, linkBuffer + linkOffset*4);
+    noTint();
+      linkM.html('ARRIVE BIENTÔT');
     fadeM += fadeIncr;
   }
 
@@ -410,12 +434,8 @@ function draw() {
   if (animateC == true) {
     tint(255, fadeC);
     image(iconC, linkMargin, (linkBuffer + linkOffset * 5), 50, 50);
-    var m = map(fadeC, 0, 255, 0.0, 1.0);
-    var n = map(fadeC, 0, 255, 1.0, 0.0);
-
-    linkCSC.style("opacity", m);
-    linkC.style("opacity", n);
-
+    noTint();
+      linkC.html('ARRIVE BIENTÔT');
     fadeC += fadeIncr;
   }
 
@@ -423,71 +443,12 @@ function draw() {
   if (animateE == true) {
     tint(255, fadeE);
     image(iconE, linkMargin, (linkBuffer + linkOffset * 6), 50, 50);
-    var m = map(fadeE, 0, 255, 0.0, 1.0);
-    var n = map(fadeE, 0, 255, 1.0, 0.0);
-
-    linkCSE.style("opacity", m);
-    linkE.style("opacity", n);
-
+      noTint();
+    linkE.html('ARRIVE BIENTÔT');
     fadeE += fadeIncr;
   }
+}
 
-
-    //---CSM---
-    if (animateCSM == true) {
-
-
-      var a = map(valueM, 0, 255, 0.0, 1.0, true);
-      var b = map(valueM, 0, 255, 1.0, 0.0, true);
-
-      linkM.style("opacity", a);
-      linkCSM.style("opacity", b);
-
-      valueM += fadeIncr;
-
-      if (a >= 1.0) {
-        animateCSM = false;
-        valueM = 0;
-      }
-
-    }
-
-    //---CSC---
-    if (animateCSC == true) {
-
-
-      var c = map(valueC, 0, 255, 0.0, 1.0, true);
-      var d = map(valueC, 0, 255, 1.0, 0.0, true);
-
-      linkC.style("opacity", c);
-      linkCSC.style("opacity", d);
-
-      valueC += fadeIncr;
-
-      if (c >= 1.0) {
-        animateCSC = false;
-        valueC = 0;
-      }
-
-    }
-
-    //---CSE--
-    if (animateCSE == true) {
-
-      var e = map(valueE, 0, 255, 0.0, 1.0, true);
-      var f = map(valueE, 0, 255, 1.0, 0.0, true);
-
-      linkE.style("opacity", e);
-      linkCSE.style("opacity", f);
-
-      valueE += fadeIncr;
-
-      if (e >= 1.0) {
-        animateCSE = false;
-        valueE = 0;
-      }
-
-    }
   //-------------------------------------------------------------
   //     LOGO ANIMATION (DRAW)
   //-------------------------------------------------------------
@@ -498,22 +459,26 @@ function draw() {
   tint(255, 255);
   var wOffset = windowWidth / 800;
   var sizeOffset = windowWidth / 1000;
-  var topNew = top + 62;
+
   //draw pseudo link
   home.position(linkMargin + 13, topNew - 35);
   push();
   if (windowWidth > 650) {
+    var topNew = top + 70;
     translate(linkMargin * 2.3, topNew);
     rotate(logoSpin);
     image(amLogo, 0, 0, 110, 110);
   } else {
-    translate(linkMargin * 1.5, topNew);
+    var topNew = top + 45;
+    translate(iconMargin+5, topNew);
     rotate(logoSpin);
     image(amLogo, 0, 0, 70, 70);
   }
   pop();
+  noTint();
 
-}
+
+} //---END---
 
 
 //-------------------------------------------------------------
@@ -604,7 +569,6 @@ function offlinkM() {
   animateM = false;
   fadeM = 0;
   mainOff = false;
-  animateCSM = true;
   // linkM.style('font-style', 'normal');
 
 }
@@ -622,7 +586,6 @@ function overlinkC() {
 function offlinkC() {
   animateC = false;
   fadeC = 0;
-  animateCSC = true;
   // linkC.style('font-style', 'normal');
   mainOff = false;
 }
@@ -640,24 +603,10 @@ function overLinkE() {
 function offLinkE() {
   animateE = false;
   fadeE = 0;
-  animateCSE = true;
   // linkE.style('font-style', 'normal');
   mainOff = false;
 }
-//-------------------------------------------------------------
-//     MOUSEWHEEL (FUNCTIONS)
-//-------------------------------------------------------------
 
-function mouseWheel(event) {
-  // print(event.delta);
-  //smoothen delta
-  // fadeBack = 255;
-  //move the square according to the vertical scroll amount
-  // logoSpin += (event.delta);
-
-  //uncomment to block page scrolling
-  // return false;
-}
 
 //-------------------------------------------------------------
 //     RESIZE (FUNCTIONS)
@@ -671,6 +620,9 @@ function windowResized() {
 
   resizeCanvas(windowWidth, (canvasH));
 
+  background(248, 251, 252, fadeBack);
+  nonLoop = false;
+
 
 }
 
@@ -682,8 +634,9 @@ function backgroundPattern(w, h, tw, th) {
 
   stroke(255);
   strokeWeight(1.0);
-  spinX = map(mouseX, 0, windowWidth, 0, 15);
-  spinY = mouseY / 100;
+  spinX = map(mouseY, 0, windowHeight, 3, 9);
+  spinY = map(mouseX, windowWidth, 0, 3, 6);
+  spinY2 = map(mouseX, 0, windowWidth, 3, 6);
 
   var widthInc = w / widthVal;
   var heightInc = h / heightVal;
@@ -694,9 +647,9 @@ function backgroundPattern(w, h, tw, th) {
       push();
       translate((30 + i * widthInc) - tw, (30 + j * heightInc) - th);
       if (flip == true) {
-        rotate(spinX * spinY);
+        rotate(spinX * (spinY*spinY2));
       } else {
-        rotate(-spinX * spinY);
+          rotate(-spinX * (spinY*spinY2));
       }
       line(-5, -5, 5, 5);
       line(5, -5, -5, 5);

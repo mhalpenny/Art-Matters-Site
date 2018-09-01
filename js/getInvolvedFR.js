@@ -77,23 +77,23 @@ function setup() {
   //     LINKS (SETUP)
   //-------------------------------------------------------------
 
-  linkR = createA('resources.html', 'RESOURCES');
+  linkR = createA('ressources.html', 'RESSOURCES');
 
-  linkA = createA('about.html', 'ABOUT');
+  linkA = createA('aPropos.html', 'À PROPOS');
 
-  linkC = createA('#', 'CALENDAR');
+  linkC = createA('#', 'CALENDRIER');
 
   linkAr = createA('http://artmattersfestival.org/archive/', 'ARCHIVE');
 
-  linkGI = createA('#', 'GET INVOLVED');
+  linkGI = createA('#', 'IMPLIQUEZ-VOUS');
 
-  linkE = createA('#', 'EVENTS');
+  linkE = createA('#', 'ÉVÉNEMENTS');
 
-  linkM = createA('#', 'MAPS');
+  linkM = createA('#', 'CARTE');
 
 
-  linkFR = createA('impliquezVous.html', 'FR');
-  linkFR.id('lang');
+  linkEN = createA('getInvolved.html', 'EN');
+  linkEN.id('lang');
 
   home = createA('index.html', 'O');
   home.style('color', 'transparent');
@@ -243,19 +243,19 @@ triangle(-130*shift, 230*shift, 0, -330*shift, 200*shift, 230*shift);
 
     if (nonLoop == false){
 
-    linkA.html('ABOUT');
+    linkA.html('À PROPOS');
     linkA.style('text-align', 'right');
-    linkR.html('RESOURCES');
+    linkR.html('RESSOURCES');
     linkR.style('text-align', 'right');
-    linkGI.html('GET INVOLVED');
+    linkGI.html('IMPLIQUEZ-VOUS');
     linkGI.style('text-align', 'right');
-    linkM.html('MAPS');
+    linkM.html('CARTE');
     linkM.style('text-align', 'right');
     linkM.style('color', 'black');
-    linkC.html('CALENDAR');
+    linkC.html('CALENDRIER');
     linkC.style('text-align', 'right');
         linkC.style('color', 'black');
-    linkE.html('EVENTS');
+    linkE.html('ÉVÉNEMENTS');
     linkE.style('text-align', 'right');
         linkE.style('color', 'black');
     linkAr.html('ARCHIVE');
@@ -274,10 +274,11 @@ triangle(-130*shift, 230*shift, 0, -330*shift, 200*shift, 230*shift);
     linkE.position(linkMargin, linkBuffer + linkOffset * 6);
     linkAr.position(linkMargin, linkBuffer + linkOffset * 7);
 
-    linkFR.position(linkMargin, linkBuffer + linkOffset * 8);
+    linkEN.position(linkMargin, linkBuffer + linkOffset * 8);
 
   } else {
-    linkOffset = 64;
+    //variable math
+    linkOffset = 55;
     linkBuffer = top + 25;
     iconBuffer = top + 45;
     var linkMargin = 30;
@@ -285,19 +286,19 @@ triangle(-130*shift, 230*shift, 0, -330*shift, 200*shift, 230*shift);
 
     if (nonLoop == false){
 
-    linkA.html('<br> <br> <br> <br> <br> ABOUT');
+    linkA.html('<br> <br> <br> <br> <br> À PROPOS');
     linkA.style('text-align', 'left');
-    linkR.html('<br> <br> <br> <br> <br> RESOURCES');
+    linkR.html('<br> <br> <br> <br> <br> RESSOURCES');
     linkR.style('text-align', 'left');
-    linkGI.html('<br> <br> <br> <br>  GET <br> INVOLVED');
+    linkGI.html('<br> <br> <br> <br>  IMPLIQUEZ-VOUS');
     linkGI.style('text-align', 'left');
-    linkM.html('<br> <br> <br> <br> <br>  MAPS');
-      linkM.style('color', 'grey');
+    linkM.html('<br> <br> <br> <br> <br>  CARTE');
+    linkM.style('color', 'grey');
     linkM.style('text-align', 'left');
-    linkC.html('<br> <br> <br> <br> <br> CALENDAR ');
+    linkC.html('<br> <br> <br> <br> <br> CALENDRIER ');
     linkC.style('text-align', 'left');
     linkC.style('color', 'grey');
-    linkE.html('<br> <br> <br> <br> <br>  EVENTS ');
+    linkE.html('<br> <br> <br> <br> <br>  ÉVÉNEMENTS ');
     linkE.style('text-align', 'left');
     linkE.style('color', 'grey');
     linkAr.html('<br> <br> <br> <br> <br>  ARCHIVE');
@@ -328,7 +329,7 @@ triangle(-130*shift, 230*shift, 0, -330*shift, 200*shift, 230*shift);
     linkE.position(linkMargin, linkBuffer + linkOffset * 6);
     linkAr.position(linkMargin, linkBuffer + linkOffset * 7);
 
-    linkFR.position(linkMargin, linkBuffer + linkOffset * 8.2);
+    linkEN.position(linkMargin, linkBuffer + linkOffset * 8.2);
 
   }
 
@@ -341,9 +342,9 @@ triangle(-130*shift, 230*shift, 0, -330*shift, 200*shift, 230*shift);
 
 if (windowWidth > 650){
 
-  linkM.html('MAP');
-  linkC.html('CALENDAR');
-  linkE.html('EVENTS');
+  linkM.html('CARTE');
+  linkC.html('CALENDRIER');
+  linkE.html('ÉVÉNEMENTS');
 
   //---R---
   if (animateR == true) {
@@ -386,7 +387,7 @@ if (windowWidth > 650){
     tint(255, fadeM);
     image(iconM, linkMargin, (linkBuffer + linkOffset * 4), 50, 50);
     noTint();
-    linkM.html('COMING SOON');
+    linkM.html('ARRIVE BIENTÔT');
     fadeM += fadeIncr;
   }
 
@@ -395,7 +396,7 @@ if (windowWidth > 650){
     tint(255, fadeC);
     image(iconC, linkMargin, (linkBuffer + linkOffset * 5), 50, 50);
     noTint();
-    linkC.html('COMING SOON');
+    linkC.html('ARRIVE BIENTÔT');
     fadeC += fadeIncr;
   }
 
@@ -404,7 +405,7 @@ if (windowWidth > 650){
     tint(255, fadeE);
     image(iconE, linkMargin, (linkBuffer + linkOffset * 6), 50, 50);
     noTint();
-    linkE.html('COMING SOON');
+    linkE.html('ARRIVE BIENTÔT');
     fadeE += fadeIncr;
   }
 

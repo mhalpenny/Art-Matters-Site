@@ -15,8 +15,8 @@ var fadeR = 0, fadeA = 0, fadeM = 0, fadeE = 0, fadeAr = 0, fadeC = 0, fadeGI = 
 var linkOffset, linkBuffer;
 var fadeIncr = 35;
 var bColorVal = 0;
-var widthVal = 8;
-var heightVal = 8;
+var widthVal = 12;
+var heightVal = 12;
 var flip = true;
 var spinX, spinY;
 var bodyH, canvasH;
@@ -72,35 +72,50 @@ function setup() {
   canvas.position(0, 0);
 
 
+  //instantiate animations.
+  // fadeA = 0;
+  // fadeM = 0;
+  // fadeR = 0;
+  // fadeAr = 0;
+  // fadeC = 0;
+  // fadeE = 0;
+  // fadeGI = 0;
+  // fadeBack = 50;
 
   //-------------------------------------------------------------
   //     LINKS (SETUP)
   //-------------------------------------------------------------
 
-  linkR = createA('resources.html', 'RESOURCES');
+  linkR = createA('#', 'RESSOURCES');
 
-  linkA = createA('about.html', 'ABOUT');
+  linkA = createA('aPropos.html', 'À PROPOS');
 
-  linkC = createA('#', 'CALENDAR');
+  linkC = createA('#', 'CALENDRIER');
 
   linkAr = createA('http://artmattersfestival.org/archive/', 'ARCHIVE');
 
-  linkGI = createA('#', 'GET INVOLVED');
+  linkGI = createA('impliquezVous.html', 'IMPLIQUEZ-VOUS');
 
-  linkE = createA('#', 'EVENTS');
+  linkE = createA('#', 'ÉVÉNEMENTS');
 
-  linkM = createA('#', 'MAPS');
+  linkM = createA('#', 'CARTE');
 
+  // linkAO = createA('pdf/AM_AntiO.pdf', 'ANTI-OPPRESSION STATEMENT');
 
-  linkFR = createA('impliquezVous.html', 'FR');
-  linkFR.id('lang');
+  // linkEN = createA('#', 'EN');
+  // linkEN.id('lang');
+  linkEN = createA('resources.html', 'EN');
+  linkEN.id('lang');
 
   home = createA('index.html', 'O');
+  //debugging
+  // home.style('color', 'black');
   home.style('color', 'transparent');
   home.style('font-size', '72px');
   home.style('text-shadow', 'none');
 
   home.class('noselect');
+
 
 
   //-------------------------------------------------------------
@@ -139,13 +154,12 @@ function draw() {
   //    STYLING (DRAW)
   //-------------------------------------------------------------
 
-  if (windowWidth > 650){
-      background(248, 251, 252, fadeBack);
-    fadeBack = 50;
-  } else{
-      background(248, 251, 252);
-  }
-
+    if (windowWidth > 650){
+        background(248, 251, 252, fadeBack);
+      fadeBack = 50;
+    } else{
+        background(248, 251, 252);
+    }
 
   //for all moving elements
   var top = window.pageYOffset;
@@ -162,7 +176,7 @@ function draw() {
   }
 
   if (refreshArray[0] != refreshArray[1]){
-    background(248, 251, 252);
+      background(248, 251, 252);
   }
   refresh = !refresh;
 
@@ -173,63 +187,50 @@ function draw() {
   //-------------------------------------------------------------
 
   //variable for all squares
-  var shift = (windowWidth / 900);
-  var shift2 = (windowWidth / 1000);
+  var width = (windowWidth / 1.7);
+  var height = (windowWidth / 3.2);
 
 if (windowWidth > 650){
+  //---DIV BACKGROUND 1---
+
+  var myDiv = document.getElementById('one');
+  var rectDiv = myDiv.getBoundingClientRect();
+
+ ellipseMode(CENTER);
+  angleMode(DEGREES);
+  fill(0, 0, 0, 150);
+  push()
+  translate(rectDiv.right, rectDiv.top);
+  rotate(-135);
+  ellipse(0, 0 + top, width, height);
+  backgroundPattern(width, height*2, width/2, height);
+  pop();
 
   //---DIV BACKGROUND 2---
 
+  //variables for 2nd square
+  var leftOffset = rectDiv.left - isAnimation;
+  var leftToRight = leftOffset + (top*1.5);
 
-  var myDiv = document.getElementById('two');
+  var myDiv = document.getElementById('three');
   var rectDiv = myDiv.getBoundingClientRect();
 
-  //variables for 2nd square
-  var leftOffset = rectDiv.left;
-  var leftToRight = leftOffset + top;
-
-  rectMode(CENTER);
+  ellipseMode(CENTER);
   angleMode(DEGREES);
   fill(0, 0, 0, 150);
   push();
 
-    translate(leftOffset - top, rectDiv.top + top);
-
-  rotate(85);
-  triangle(-130*shift, 230*shift, 0, -330*shift, 200*shift, 230*shift);
-    backgroundPattern(-400*shift, -600*shift, -100*shift, -150*shift);
-  pop();
-
-  //---DIV BACKGROUND 3---
-
-  var myDiv = document.getElementById('five');
-  var rectDiv = myDiv.getBoundingClientRect();
-
-  //square 3 variables
-  var rightOffset = rectDiv.right + isAnimation;
-  var rightToLeft = rightOffset - (top);
-
-  //variables for 2nd square
-  var leftOffset = rectDiv.left + 200;
-  var leftToRight = leftOffset + top;
-
-  rectMode(CENTER);
-  angleMode(DEGREES);
-  fill(0, 0, 0, 150);
-  push()
-  if (rightToLeft > rectDiv.right-200) {
-    translate(rightToLeft, rectDiv.top + top);
+  if (leftToRight < rectDiv.left) {
+    translate(leftToRight, rectDiv.top + top);
   } else {
-    translate(rectDiv.right-200, rectDiv.top + top);
+    translate(rectDiv.left, rectDiv.top + top);
   }
-  rotate(-85);
-triangle(-130*shift, 230*shift, 0, -330*shift, 200*shift, 230*shift);
-    backgroundPattern(-400*shift, -600*shift, -100*shift, -150*shift);
+
+  rotate(135);
+  ellipse(0, 0, width, height);
+  backgroundPattern(width, height*2, width/2, height);
   pop();
-
-
 }
-
 
   //-------------------------------------------------------------
   //     NAV ANIMATION (DRAW)
@@ -243,19 +244,19 @@ triangle(-130*shift, 230*shift, 0, -330*shift, 200*shift, 230*shift);
 
     if (nonLoop == false){
 
-    linkA.html('ABOUT');
+    linkA.html('À PROPOS');
     linkA.style('text-align', 'right');
-    linkR.html('RESOURCES');
+    linkR.html('RESSOURCES');
     linkR.style('text-align', 'right');
-    linkGI.html('GET INVOLVED');
+    linkGI.html('IMPLIQUEZ-VOUS');
     linkGI.style('text-align', 'right');
-    linkM.html('MAPS');
+    linkM.html('CARTE');
     linkM.style('text-align', 'right');
     linkM.style('color', 'black');
-    linkC.html('CALENDAR');
+    linkC.html('CALENDRIER');
     linkC.style('text-align', 'right');
         linkC.style('color', 'black');
-    linkE.html('EVENTS');
+    linkE.html('ÉVÉNEMENTS');
     linkE.style('text-align', 'right');
         linkE.style('color', 'black');
     linkAr.html('ARCHIVE');
@@ -274,10 +275,11 @@ triangle(-130*shift, 230*shift, 0, -330*shift, 200*shift, 230*shift);
     linkE.position(linkMargin, linkBuffer + linkOffset * 6);
     linkAr.position(linkMargin, linkBuffer + linkOffset * 7);
 
-    linkFR.position(linkMargin, linkBuffer + linkOffset * 8);
+    linkEN.position(linkMargin, linkBuffer + linkOffset * 8);
 
   } else {
-    linkOffset = 64;
+    //variable math
+    linkOffset = 55;
     linkBuffer = top + 25;
     iconBuffer = top + 45;
     var linkMargin = 30;
@@ -285,19 +287,19 @@ triangle(-130*shift, 230*shift, 0, -330*shift, 200*shift, 230*shift);
 
     if (nonLoop == false){
 
-    linkA.html('<br> <br> <br> <br> <br> ABOUT');
+    linkA.html('<br> <br> <br> <br> <br> À PROPOS');
     linkA.style('text-align', 'left');
-    linkR.html('<br> <br> <br> <br> <br> RESOURCES');
+    linkR.html('<br> <br> <br> <br> <br> RESSOURCES');
     linkR.style('text-align', 'left');
-    linkGI.html('<br> <br> <br> <br>  GET <br> INVOLVED');
+    linkGI.html('<br> <br> <br> <br>  IMPLIQUEZ-VOUS');
     linkGI.style('text-align', 'left');
-    linkM.html('<br> <br> <br> <br> <br>  MAPS');
-      linkM.style('color', 'grey');
+    linkM.html('<br> <br> <br> <br> <br>  CARTE');
+    linkM.style('color', 'grey');
     linkM.style('text-align', 'left');
-    linkC.html('<br> <br> <br> <br> <br> CALENDAR ');
+    linkC.html('<br> <br> <br> <br> <br> CALENDRIER ');
     linkC.style('text-align', 'left');
     linkC.style('color', 'grey');
-    linkE.html('<br> <br> <br> <br> <br>  EVENTS ');
+    linkE.html('<br> <br> <br> <br> <br>  ÉVÉNEMENTS ');
     linkE.style('text-align', 'left');
     linkE.style('color', 'grey');
     linkAr.html('<br> <br> <br> <br> <br>  ARCHIVE');
@@ -308,7 +310,6 @@ triangle(-130*shift, 230*shift, 0, -330*shift, 200*shift, 230*shift);
 
 
     tint(255, 255);
-
     image(iconR, iconMargin, (iconBuffer + linkOffset*2), 40, 40);
     image(iconA, iconMargin, (iconBuffer + linkOffset), 40, 40);
     image(iconGI, iconMargin, (iconBuffer + linkOffset * 3), 40, 40);
@@ -316,7 +317,6 @@ triangle(-130*shift, 230*shift, 0, -330*shift, 200*shift, 230*shift);
     image(iconM, iconMargin, (iconBuffer + linkOffset * 4), 40, 40);
     image(iconC, iconMargin, (iconBuffer + linkOffset * 5), 40, 40);
     image(iconE, iconMargin, (iconBuffer + linkOffset * 6), 40, 40);
-
     noTint();
 
     //positioning
@@ -328,8 +328,7 @@ triangle(-130*shift, 230*shift, 0, -330*shift, 200*shift, 230*shift);
     linkE.position(linkMargin, linkBuffer + linkOffset * 6);
     linkAr.position(linkMargin, linkBuffer + linkOffset * 7);
 
-    linkFR.position(linkMargin, linkBuffer + linkOffset * 8.2);
-
+    linkEN.position(linkMargin, linkBuffer + linkOffset * 8.2);
   }
 
 
@@ -341,10 +340,9 @@ triangle(-130*shift, 230*shift, 0, -330*shift, 200*shift, 230*shift);
 
 if (windowWidth > 650){
 
-  linkM.html('MAP');
-  linkC.html('CALENDAR');
-  linkE.html('EVENTS');
-
+  linkM.html('CARTE');
+  linkC.html('CALENDRIER');
+  linkE.html('ÉVÉNEMENTS');
   //---R---
   if (animateR == true) {
     tint(255, fadeR);
@@ -353,7 +351,7 @@ if (windowWidth > 650){
   } else{
 
   }
-  noTint();
+      noTint();
     fadeR += fadeIncr;
   }
 
@@ -361,7 +359,7 @@ if (windowWidth > 650){
   if (animateA == true) {
     tint(255, fadeA);
     image(iconA, linkMargin, (linkBuffer + linkOffset), 50, 50);
-    noTint();
+        noTint();
     fadeA += fadeIncr;
   }
 
@@ -369,7 +367,7 @@ if (windowWidth > 650){
   if (animateGI == true) {
     tint(255, fadeGI);
     image(iconGI, linkMargin, (linkBuffer + linkOffset * 3), 50, 50);
-    noTint();
+        noTint();
     fadeGI += fadeIncr;
   }
 
@@ -377,7 +375,7 @@ if (windowWidth > 650){
   if (animateAr == true) {
     tint(255, fadeAr);
     image(iconAr, linkMargin, (linkBuffer + linkOffset * 7), 50, 50);
-    noTint();
+        noTint();
     fadeAr += fadeIncr;
   }
 
@@ -386,7 +384,7 @@ if (windowWidth > 650){
     tint(255, fadeM);
     image(iconM, linkMargin, (linkBuffer + linkOffset * 4), 50, 50);
     noTint();
-    linkM.html('COMING SOON');
+    linkM.html('ARRIVE BIENTÔT');
     fadeM += fadeIncr;
   }
 
@@ -395,7 +393,7 @@ if (windowWidth > 650){
     tint(255, fadeC);
     image(iconC, linkMargin, (linkBuffer + linkOffset * 5), 50, 50);
     noTint();
-    linkC.html('COMING SOON');
+    linkC.html('ARRIVE BIENTÔT');
     fadeC += fadeIncr;
   }
 
@@ -404,10 +402,9 @@ if (windowWidth > 650){
     tint(255, fadeE);
     image(iconE, linkMargin, (linkBuffer + linkOffset * 6), 50, 50);
     noTint();
-    linkE.html('COMING SOON');
+    linkE.html('ARRIVE BIENTÔT');
     fadeE += fadeIncr;
   }
-
   }
   //-------------------------------------------------------------
   //     LOGO ANIMATION (DRAW)
@@ -428,14 +425,16 @@ if (windowWidth > 650){
     translate(linkMargin * 2.3, topNew);
     rotate(logoSpin);
     image(amLogo, 0, 0, 110, 110);
+    // linkEN.position(linkMargin, linkBuffer + linkOffset * 8);
   } else {
     var topNew = top + 45;
     translate(iconMargin+15, topNew);
     rotate(logoSpin);
     image(amLogo, 0, 0, 75, 75);
+    // linkEN.position(linkMargin, linkBuffer + linkOffset * 8);
   }
-  noTint();
   pop();
+  noTint();
 
 
 } //---END---
@@ -567,7 +566,6 @@ function offLinkE() {
   mainOff = false;
 }
 
-
 //-------------------------------------------------------------
 //     RESIZE (FUNCTIONS)
 //-------------------------------------------------------------
@@ -580,8 +578,9 @@ function windowResized() {
 
   resizeCanvas(windowWidth, (canvasH));
 
-  background(248, 251, 252);
-  nonLoop = false;
+    background(248, 251, 252);
+    nonLoop = false;
+
 
 }
 
@@ -593,11 +592,12 @@ function backgroundPattern(w, h, tw, th) {
 
 
   stroke(255);
-  noFill();
   strokeWeight(1.0);
-  spinX = map(mouseY, 0, windowHeight, 6, 15);
-  spinY = map(mouseX, windowWidth, 0, 4, 8);
-  spinY2 = map(mouseX, 0, windowWidth, 4, 8);
+  noFill();
+  spinX = map(mouseY, 0, windowHeight, 3, 9);
+  spinY = map(mouseX, windowWidth, 0, 3, 5);
+  spinY2 = map(mouseX, 0, windowWidth, 3, 5);
+
 
   var widthInc = w / widthVal;
   var heightInc = h / heightVal;
@@ -606,14 +606,10 @@ function backgroundPattern(w, h, tw, th) {
     for (var j = 0; j < heightVal; j++) {
 
       push();
-      translate((30 + i * widthInc) - tw, (30 + j * heightInc) - th);
-      if (flip == true) {
-        rotate(spinX * (spinY*spinY2));
-      } else {
-        rotate(-spinX * (spinY*spinY2));
-      }
-      rect(-5, -5, 5, 5);
-      rect(10, 5, 3, 3);
+      rotate(spinX*(spinY*spinY2));
+      translate((30 + i * widthInc) - (tw), (30 + j * heightInc) - (th));
+      line(10, 60, 10, -60);
+      line(60, 10, -60, 10);
       pop();
       flip = !flip;
 

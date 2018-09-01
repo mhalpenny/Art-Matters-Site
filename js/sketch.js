@@ -93,7 +93,7 @@ function setup() {
 
   linkGI = createA('getInvolved.html', 'GET INVOLVED');
 
-  linkE = createA('#', 'EVENTS');
+  linkE = createA('events.html', 'EVENTS');
 
   linkM = createA('#', 'MAP');
 

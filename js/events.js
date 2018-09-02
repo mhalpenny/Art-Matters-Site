@@ -20,7 +20,7 @@ var heightVal = 5;
 var flip = true;
 var spinX, spinY;
 var bodyH, canvasH;
-var isAnimation = 400;
+var isAnimation = 100;
 var refresh = false;
 var refreshArray = [1];
 var valueM = 0, valueC = 0, valueE = 0;
@@ -45,6 +45,8 @@ function preload() {
   iconGI = loadImage('assets/yIcon.png');
   //logo
   amLogo = loadImage('assets/amlogo.png');
+  test = loadImage('assets/event1.png');
+  event2 = loadImage('assets/div.jpg');
 
 }
 
@@ -64,7 +66,7 @@ function setup() {
   //retrieve div id
   bodyH = document.getElementById('gallery');
   //use id to get div height for canvas scrolling length
-  canvasH = bodyH.scrollHeight + 50;
+  canvasH = bodyH.scrollHeight + 200;
   //create canvas at appropriate length for page
   canvas = createCanvas(windowWidth, canvasH);
   //basic canvas formatting
@@ -178,98 +180,102 @@ function draw() {
   //-------------------------------------------------------------
   //     INTERACTIVE SQUARES (DRAW)
   //-------------------------------------------------------------
-
+//
   //variable for all squares
   var width = (windowWidth / 1.7);
   var height = (windowWidth / 3.2);
 
 if (windowWidth > 650){
+
   //---DIV BACKGROUND 1---
-
-  var myDiv = document.getElementById('one');
-  var rectDiv = myDiv.getBoundingClientRect();
-
-  rectMode(CENTER);
-  angleMode(DEGREES);
-  fill(0, 0, 0, 150);
-  push()
-  translate(rectDiv.right, rectDiv.top);
-  rotate(-135);
-  rect(0, 0 + top, width, height);
-  backgroundPattern(width, height, width/2, height/2);
-  pop();
+  //
+  // var myDiv = document.getElementById('one');
+  // var rectDiv = myDiv.getBoundingClientRect();
+  //
+  // imageMode(CENTER);
+  // angleMode(DEGREES);
+  // push()
+  // translate(rectDiv.right, rectDiv.top);
+  // rotate(30);
+  // image(test, 0, 0, width, height);
+  // pop();
 
   //---DIV BACKGROUND 2---
 
   //variables for 2nd square
+
+  var myDiv = document.getElementById('one');
+  var rectDiv = myDiv.getBoundingClientRect();
+
   var leftOffset = rectDiv.left - isAnimation;
-  var leftToRight = leftOffset + top;
+  var leftToRight = leftOffset + (top*2);
+  var right = rectDiv.right;
+  var left = rectDiv.left;
+  var half = (right - left) / 2;
+  var posterTop = rectDiv.bottom + (height * 0.6);
+
+  imageMode(CENTER);
+  angleMode(DEGREES);
+  push();
+  // if (leftToRight < (rectDiv.left + half)) {
+    translate(leftToRight, posterTop + (top));
+  // } else {
+  //   translate(rectDiv.left + half, posterTop + top);
+  // }
+  rotate(0);
+  image(test, 0, 0, width, height);
+  pop();
+
+  //
+   //---DIV BACKGROUND 3---
 
   var myDiv = document.getElementById('two');
   var rectDiv = myDiv.getBoundingClientRect();
 
-  rectMode(CENTER);
-  angleMode(DEGREES);
-  fill(0, 0, 0, 150);
-  push();
-
-  if (leftToRight < rectDiv.left) {
-    translate(leftToRight, rectDiv.top + top);
-  } else {
-    translate(rectDiv.left, rectDiv.top + top);
-  }
-
-  rotate(135);
-  rect(0, 0, width, height);
-  backgroundPattern(width, height, width/2, height/2);
-  pop();
-
-  // //---DIV BACKGROUND 3---
-  //
-  // //square 3 variables
-  // var rightOffset = rectDiv.right + isAnimation;
-  // var rightToLeft = rightOffset - (top - (canvasH / 4));
-  //
-  // var myDiv = document.getElementById('three');
-  // var rectDiv = myDiv.getBoundingClientRect();
-  //
-  // rectMode(CENTER);
-  // angleMode(DEGREES);
-  // fill(0, 0, 0, 150);
-  // push()
-  // if (rightToLeft > rectDiv.right) {
-  //   translate(rightToLeft, rectDiv.top + top);
-  // } else {
-  //   translate(rectDiv.right, rectDiv.top + top);
-  // }
-  // rotate(-135);
-  // rect(0, 0, width, height);
-  // backgroundPattern(width, height, width/2, height/2);
-  // pop();
-
-  //---DIV BACKGROUND 4---
-
-  var myDiv = document.getElementById('four');
-  var rectDiv = myDiv.getBoundingClientRect();
-
+  //square 3 variables
   var rightOffset = rectDiv.right + isAnimation;
-  var rightToLeft = rightOffset - (top - (canvasH / 3));
+  var rightToLeft = rightOffset - (top/2.5);
 
-  rectMode(CENTER);
+  var right = rectDiv.right;
+  var left = rectDiv.left;
+  var half = (right - left) / 2;
+  var posterTop = rectDiv.bottom + (height * 0.6);
+
+  imageMode(CENTER);
   angleMode(DEGREES);
-  fill(0, 0, 0, 150);
-  push()
-  if (rightToLeft > rectDiv.right) {
-    translate(rightToLeft, rectDiv.top + top);
+  push();
+  if (rightToLeft > (rectDiv.right - half)) {
+    translate(rightToLeft, posterTop + (top));
   } else {
-    translate(rectDiv.right, rectDiv.top + top);
+    translate(rectDiv.right - half, posterTop + (top));
   }
-  rotate(-135);
-  rect(0, 0, width, height);
-  backgroundPattern(width, height, width/2, height/2);
+  rotate(0);
+  image(event2, 0, 0, width, height);
   pop();
 
-}
+//   //---DIV BACKGROUND 4---
+//
+//   var myDiv = document.getElementById('four');
+//   var rectDiv = myDiv.getBoundingClientRect();
+//
+//   var rightOffset = rectDiv.right + isAnimation;
+//   var rightToLeft = rightOffset - (top - (canvasH / 3));
+//
+//   rectMode(CENTER);
+//   angleMode(DEGREES);
+//   fill(0, 0, 0, 150);
+//   push()
+//   if (rightToLeft > rectDiv.right) {
+//     translate(rightToLeft, rectDiv.top + top);
+//   } else {
+//     translate(rectDiv.right, rectDiv.top + top);
+//   }
+//   rotate(-135);
+//   rect(0, 0, width, height);
+//   backgroundPattern(width, height, width/2, height/2);
+//   pop();
+//
+} // end of mobile query
 
 
   //-------------------------------------------------------------

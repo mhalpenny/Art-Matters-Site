@@ -190,7 +190,7 @@ function draw() {
   linkE.position(linkMargin, linkBuffer + linkOffset * 6);
   linkAr.position(linkMargin, linkBuffer + linkOffset * 7);
 
-  linkEN.position(windowWidth - 60, 22);
+  linkEN.position(windowWidth - 55, 40);
 
 
 

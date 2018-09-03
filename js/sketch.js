@@ -122,7 +122,7 @@ function setup() {
   // linkAO.position(linkMargin, linkBuffer + linkOffset*7);
   linkAr.position(linkMargin, linkBuffer + linkOffset * 7);
 
-  linkFR.position(windowWidth - 40, 25);
+  linkFR.position(windowWidth - 40, 50);
 
 
 
@@ -189,7 +189,7 @@ function draw() {
   linkE.position(linkMargin, linkBuffer + linkOffset * 6);
   linkAr.position(linkMargin, linkBuffer + linkOffset * 7);
 
-  linkFR.position(windowWidth - 60, 22);
+  linkFR.position(windowWidth - 55, 40);
 
 
 

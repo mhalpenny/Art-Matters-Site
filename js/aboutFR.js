@@ -86,7 +86,7 @@ function setup() {
 
   linkGI = createA('impliquezVous.html', 'IMPLIQUEZ-VOUS');
 
-  linkE = createA('#', 'ÉVÉNEMENTS');
+  linkE = createA('evenements.html', 'ÉVÉNEMENTS');
 
   linkM = createA('#', 'CARTE');
 
@@ -331,7 +331,7 @@ if (windowWidth > 650){
     linkA.style('text-align', 'left');
     linkR.html('<br> <br> <br> <br> <br> RESSOURCES');
     linkR.style('text-align', 'left');
-    linkGI.html('<br> <br> <br> <br>  IMPLIQUEZ-VOUS');
+    linkGI.html('<br> <br> <br> <br>  IMPLIQUEZ <br> -VOUS');
     linkGI.style('text-align', 'left');
     linkM.html('<br> <br> <br> <br> <br>  CARTE');
     linkM.style('color', 'grey');
@@ -341,7 +341,7 @@ if (windowWidth > 650){
     linkC.style('color', 'grey');
     linkE.html('<br> <br> <br> <br> <br>  ÉVÉNEMENTS ');
     linkE.style('text-align', 'left');
-    linkE.style('color', 'grey');
+    linkE.style('color', 'black');
     linkAr.html('<br> <br> <br> <br> <br>  ARCHIVE');
     linkAr.style('text-align', 'left');
 
@@ -384,7 +384,7 @@ if (windowWidth > 650){
 if (windowWidth > 650){
   linkM.html('CARTE');
   linkC.html('CALENDRIER');
-  linkE.html('ÉVÉNEMENTS');
+
   //---R---
   if (animateR == true) {
     tint(255, fadeR);
@@ -444,7 +444,6 @@ if (windowWidth > 650){
     tint(255, fadeE);
     image(iconE, linkMargin, (linkBuffer + linkOffset * 6), 50, 50);
       noTint();
-    linkE.html('ARRIVE BIENTÔT');
     fadeE += fadeIncr;
   }
 }
@@ -595,7 +594,7 @@ function offlinkC() {
 
 function overLinkE() {
   animateE = true;
-  // linkE.style('font-style', 'italic');
+  linkE.style('font-style', 'italic');
   mainOff = true;
   fadeMain = 0;
 }
@@ -603,7 +602,7 @@ function overLinkE() {
 function offLinkE() {
   animateE = false;
   fadeE = 0;
-  // linkE.style('font-style', 'normal');
+  linkE.style('font-style', 'normal');
   mainOff = false;
 }
 

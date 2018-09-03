@@ -86,7 +86,7 @@ function setup() {
 
   linkGI = createA('getInvolved.html', 'GET INVOLVED');
 
-  linkE = createA('#', 'EVENTS');
+  linkE = createA('events.html', 'EVENTS');
 
   linkM = createA('#', 'MAPS');
 
@@ -271,211 +271,209 @@ if (windowWidth > 650){
 
 }
 
+//-------------------------------------------------------------
+//     NAV ANIMATION (DRAW)
+//-------------------------------------------------------------
 
-  //-------------------------------------------------------------
-  //     NAV ANIMATION (DRAW)
-  //-------------------------------------------------------------
+if (windowWidth > 650) {
+  linkOffset = 55;
+  linkBuffer = top + 80;
+  var linkMargin = 35;
 
-  if (windowWidth > 650) {
-    //variable math
-    linkOffset = 55;
-    linkBuffer = top + 80;
-    var linkMargin = 35;
+  if (nonLoop == false){
 
-    if (nonLoop == false){
+  linkA.html('ABOUT');
+  linkA.style('text-align', 'right');
+  linkR.html('RESOURCES');
+  linkR.style('text-align', 'right');
+  linkGI.html('GET INVOLVED');
+  linkGI.style('text-align', 'right');
+  linkM.html('MAPS');
+  linkM.style('text-align', 'right');
+  linkM.style('color', 'black');
+  linkC.html('CALENDAR');
+  linkC.style('text-align', 'right');
+      linkC.style('color', 'black');
+  linkE.html('EVENTS');
+  linkE.style('text-align', 'right');
+      linkE.style('color', 'black');
+  linkAr.html('ARCHIVE');
+  linkAr.style('text-align', 'right');
 
-    linkA.html('ABOUT');
-    linkA.style('text-align', 'right');
-    linkR.html('RESOURCES');
-    linkR.style('text-align', 'right');
-    linkGI.html('GET INVOLVED');
-    linkGI.style('text-align', 'right');
-    linkM.html('MAPS');
-    linkM.style('text-align', 'right');
-    linkM.style('color', 'black');
-    linkC.html('CALENDAR');
-    linkC.style('text-align', 'right');
-        linkC.style('color', 'black');
-    linkE.html('EVENTS');
-    linkE.style('text-align', 'right');
-        linkE.style('color', 'black');
-    linkAr.html('ARCHIVE');
-    linkAr.style('text-align', 'right');
-
-    nonLoop = true;
-  }
-
-
-    //positioning
-    linkA.position(linkMargin, linkBuffer + linkOffset);
-    linkR.position(linkMargin, linkBuffer + linkOffset * 2);
-    linkGI.position(linkMargin, linkBuffer + linkOffset * 3);
-    linkM.position(linkMargin, linkBuffer + linkOffset * 4);
-    linkC.position(linkMargin, linkBuffer + linkOffset * 5);
-    linkE.position(linkMargin, linkBuffer + linkOffset * 6);
-    linkAr.position(linkMargin, linkBuffer + linkOffset * 7);
-
-    linkFR.position(linkMargin, linkBuffer + linkOffset * 8);
-
-  } else {
-    //variable math
-    linkOffset = 55;
-    linkBuffer = top + 25;
-    iconBuffer = top + 45;
-    var linkMargin = 30;
-    var iconMargin = 45;
-
-    if (nonLoop == false){
-
-    linkA.html('<br> <br> <br> <br> <br> ABOUT');
-    linkA.style('text-align', 'left');
-    linkR.html('<br> <br> <br> <br> <br> RESOURCES');
-    linkR.style('text-align', 'left');
-    linkGI.html('<br> <br> <br> <br>  GET <br> INVOLVED');
-    linkGI.style('text-align', 'left');
-    linkM.html('<br> <br> <br> <br> <br>  MAPS');
-    linkM.style('color', 'grey');
-    linkM.style('text-align', 'left');
-    linkC.html('<br> <br> <br> <br> <br> CALENDAR ');
-    linkC.style('text-align', 'left');
-    linkC.style('color', 'grey');
-    linkE.html('<br> <br> <br> <br> <br>  EVENTS ');
-    linkE.style('text-align', 'left');
-    linkE.style('color', 'grey');
-    linkAr.html('<br> <br> <br> <br> <br>  ARCHIVE');
-    linkAr.style('text-align', 'left');
-
-    nonLoop = true;
-  }
-
-
-    tint(255, 255);
-
-    image(iconR, iconMargin, (iconBuffer + linkOffset*2), 40, 40);
-    image(iconA, iconMargin, (iconBuffer + linkOffset), 40, 40);
-    image(iconGI, iconMargin, (iconBuffer + linkOffset * 3), 40, 40);
-    image(iconAr, iconMargin, (iconBuffer + linkOffset * 7), 40, 40);
-    image(iconM, iconMargin, (iconBuffer + linkOffset * 4), 40, 40);
-    image(iconC, iconMargin, (iconBuffer + linkOffset * 5), 40, 40);
-    image(iconE, iconMargin, (iconBuffer + linkOffset * 6), 40, 40);
-
-    noTint();
-
-    //positioning
-    linkA.position(linkMargin, linkBuffer + linkOffset);
-    linkR.position(linkMargin, linkBuffer + linkOffset * 2);
-    linkGI.position(linkMargin, linkBuffer + linkOffset * 3);
-    linkM.position(linkMargin, linkBuffer + linkOffset * 4);
-    linkC.position(linkMargin, linkBuffer + linkOffset * 5);
-    linkE.position(linkMargin, linkBuffer + linkOffset * 6);
-    linkAr.position(linkMargin, linkBuffer + linkOffset * 7);
-
-    linkFR.position(linkMargin, linkBuffer + linkOffset * 8.2);
-
-  }
-
-
-
-
-  //-------------------------------------------------------------
-  //     ICON ANIMATIONS (DRAW)
-  //-------------------------------------------------------------
-
-if (windowWidth > 650){
-    linkM.html('MAP');
-      linkC.html('CALENDAR');
-        linkE.html('EVENTS');
-  //---R---
-  if (animateR == true) {
-    tint(255, fadeR);
-    if (windowWidth > 650){
-    image(iconR, linkMargin, (linkBuffer + linkOffset*2), 50, 50);
-  } else{
-
-  }
-    noTint();
-    fadeR += fadeIncr;
-  }
-
-  //---A---
-  if (animateA == true) {
-    tint(255, fadeA);
-    image(iconA, linkMargin, (linkBuffer + linkOffset), 50, 50);
-      noTint();
-    fadeA += fadeIncr;
-  }
-
-  //---GI---
-  if (animateGI == true) {
-    tint(255, fadeGI);
-    image(iconGI, linkMargin, (linkBuffer + linkOffset * 3), 50, 50);
-      noTint();
-    fadeGI += fadeIncr;
-  }
-
-  //---Ar---
-  if (animateAr == true) {
-    tint(255, fadeAr);
-    image(iconAr, linkMargin, (linkBuffer + linkOffset * 7), 50, 50);
-      noTint();
-    fadeAr += fadeIncr;
-  }
-
-  //---M---
-  if (animateM == true) {
-    tint(255, fadeM);
-    image(iconM, linkMargin, (linkBuffer + linkOffset * 4), 50, 50);
-    noTint();
-      linkM.html('COMING SOON');
-    fadeM += fadeIncr;
-  }
-
-  //---C---
-  if (animateC == true) {
-    tint(255, fadeC);
-    image(iconC, linkMargin, (linkBuffer + linkOffset * 5), 50, 50);
-    noTint();
-      linkC.html('COMING SOON');
-    fadeC += fadeIncr;
-  }
-
-  //---E---
-  if (animateE == true) {
-    tint(255, fadeE);
-    image(iconE, linkMargin, (linkBuffer + linkOffset * 6), 50, 50);
-      noTint();
-    linkE.html('COMING SOON');
-    fadeE += fadeIncr;
-  }
+  nonLoop = true;
 }
 
-  //-------------------------------------------------------------
-  //     LOGO ANIMATION (DRAW)
-  //-------------------------------------------------------------
+
+  //positioning
+  linkA.position(linkMargin, linkBuffer + linkOffset);
+  linkR.position(linkMargin, linkBuffer + linkOffset * 2);
+  linkGI.position(linkMargin, linkBuffer + linkOffset * 3);
+  linkM.position(linkMargin, linkBuffer + linkOffset * 4);
+  linkC.position(linkMargin, linkBuffer + linkOffset * 5);
+  linkE.position(linkMargin, linkBuffer + linkOffset * 6);
+  linkAr.position(linkMargin, linkBuffer + linkOffset * 7);
+
+  linkFR.position(linkMargin, linkBuffer + linkOffset * 8);
+
+} else {
+  //variable math
+  linkOffset = 55;
+  linkBuffer = top + 25;
+  iconBuffer = top + 45;
+  var linkMargin = 30;
+  var iconMargin = 45;
+
+  if (nonLoop == false){
+
+  linkA.html('<br> <br> <br> <br> <br> ABOUT');
+  linkA.style('text-align', 'left');
+  linkR.html('<br> <br> <br> <br> <br> RESOURCES');
+  linkR.style('text-align', 'left');
+  linkGI.html('<br> <br> <br> <br>  GET <br> INVOLVED');
+  linkGI.style('text-align', 'left');
+  linkM.html('<br> <br> <br> <br> <br>  MAPS');
+  linkM.style('color', 'grey');
+  linkM.style('text-align', 'left');
+  linkC.html('<br> <br> <br> <br> <br> CALENDAR ');
+  linkC.style('text-align', 'left');
+  linkC.style('color', 'grey');
+  linkE.html('<br> <br> <br> <br> <br>  EVENTS ');
+  linkE.style('text-align', 'left');
+  linkE.style('color', 'black');
+  linkAr.html('<br> <br> <br> <br> <br>  ARCHIVE');
+  linkAr.style('text-align', 'left');
+
+  nonLoop = true;
+}
 
 
-  angleMode(DEGREES);
-  imageMode(CENTER);
   tint(255, 255);
-  var wOffset = windowWidth / 800;
-  var sizeOffset = windowWidth / 1000;
 
-  //draw pseudo link
-  home.position(linkMargin + 13, topNew - 35);
-  push();
-  if (windowWidth > 650) {
-    var topNew = top + 70;
-    translate(linkMargin * 2.3, topNew);
-    rotate(logoSpin);
-    image(amLogo, 0, 0, 110, 110);
-  } else {
-    var topNew = top + 45;
-    translate(iconMargin+5, topNew);
-    rotate(logoSpin);
-    image(amLogo, 0, 0, 70, 70);
-  }
-  pop();
+  image(iconR, iconMargin, (iconBuffer + linkOffset*2), 40, 40);
+  image(iconA, iconMargin, (iconBuffer + linkOffset), 40, 40);
+  image(iconGI, iconMargin, (iconBuffer + linkOffset * 3), 40, 40);
+  image(iconAr, iconMargin, (iconBuffer + linkOffset * 7), 40, 40);
+  image(iconM, iconMargin, (iconBuffer + linkOffset * 4), 40, 40);
+  image(iconC, iconMargin, (iconBuffer + linkOffset * 5), 40, 40);
+  image(iconE, iconMargin, (iconBuffer + linkOffset * 6), 40, 40);
+
   noTint();
+
+  //positioning
+  linkA.position(linkMargin, linkBuffer + linkOffset);
+  linkR.position(linkMargin, linkBuffer + linkOffset * 2);
+  linkGI.position(linkMargin, linkBuffer + linkOffset * 3);
+  linkM.position(linkMargin, linkBuffer + linkOffset * 4);
+  linkC.position(linkMargin, linkBuffer + linkOffset * 5);
+  linkE.position(linkMargin, linkBuffer + linkOffset * 6);
+  linkAr.position(linkMargin, linkBuffer + linkOffset * 7);
+
+  linkFR.position(linkMargin, linkBuffer + linkOffset * 8.2);
+
+}
+
+
+
+
+//-------------------------------------------------------------
+//     ICON ANIMATIONS (DRAW)
+//-------------------------------------------------------------
+
+if (windowWidth > 650){
+  linkM.html('MAP');
+    linkC.html('CALENDAR');
+
+//---R---
+if (animateR == true) {
+  tint(255, fadeR);
+  if (windowWidth > 650){
+  image(iconR, linkMargin, (linkBuffer + linkOffset*2), 50, 50);
+} else{
+
+}
+  noTint();
+  fadeR += fadeIncr;
+}
+
+//---A---
+if (animateA == true) {
+  tint(255, fadeA);
+  image(iconA, linkMargin, (linkBuffer + linkOffset), 50, 50);
+    noTint();
+  fadeA += fadeIncr;
+}
+
+//---GI---
+if (animateGI == true) {
+  tint(255, fadeGI);
+  image(iconGI, linkMargin, (linkBuffer + linkOffset * 3), 50, 50);
+    noTint();
+  fadeGI += fadeIncr;
+}
+
+//---Ar---
+if (animateAr == true) {
+  tint(255, fadeAr);
+  image(iconAr, linkMargin, (linkBuffer + linkOffset * 7), 50, 50);
+    noTint();
+  fadeAr += fadeIncr;
+}
+
+//---M---
+if (animateM == true) {
+  tint(255, fadeM);
+  image(iconM, linkMargin, (linkBuffer + linkOffset * 4), 50, 50);
+  noTint();
+    linkM.html('COMING SOON');
+  fadeM += fadeIncr;
+}
+
+//---C---
+if (animateC == true) {
+  tint(255, fadeC);
+  image(iconC, linkMargin, (linkBuffer + linkOffset * 5), 50, 50);
+  noTint();
+    linkC.html('COMING SOON');
+  fadeC += fadeIncr;
+}
+
+//---E---
+if (animateE == true) {
+  tint(255, fadeE);
+  image(iconE, linkMargin, (linkBuffer + linkOffset * 6), 50, 50);
+    noTint();
+
+  fadeE += fadeIncr;
+}
+}
+
+//-------------------------------------------------------------
+//     LOGO ANIMATION (DRAW)
+//-------------------------------------------------------------
+
+
+angleMode(DEGREES);
+imageMode(CENTER);
+tint(255, 255);
+var wOffset = windowWidth / 800;
+var sizeOffset = windowWidth / 1000;
+
+//draw pseudo link
+home.position(linkMargin + 13, topNew - 35);
+push();
+if (windowWidth > 650) {
+  var topNew = top + 70;
+  translate(linkMargin * 2.3, topNew);
+  rotate(logoSpin);
+  image(amLogo, 0, 0, 110, 110);
+} else {
+  var topNew = top + 45;
+  translate(iconMargin+5, topNew);
+  rotate(logoSpin);
+  image(amLogo, 0, 0, 70, 70);
+}
+pop();
+noTint();
 
 
 } //---END---
@@ -494,119 +492,118 @@ if (windowWidth > 650){
 //---R---
 
 function overLinkR() {
-  animateR = true;
-  linkR.style('font-style', 'italic');
-  mainOff = true;
-  fadeMain = 0;
+animateR = true;
+linkR.style('font-style', 'italic');
+mainOff = true;
+fadeMain = 0;
 }
 
 function offLinkR() {
-  animateR = false;
-  fadeR = 0;
-  linkR.style('font-style', 'normal');
-  mainOff = false;
+animateR = false;
+fadeR = 0;
+linkR.style('font-style', 'normal');
+mainOff = false;
 }
 
 //---A---
 
 function overLinkA() {
-  animateA = true;
-  linkA.style('font-style', 'italic');
-  mainOff = true;
-  fadeMain = 0;
+animateA = true;
+linkA.style('font-style', 'italic');
+mainOff = true;
+fadeMain = 0;
 }
 
 function offLinkA() {
-  animateA = false;
-  fadeA = 0;
-  linkA.style('font-style', 'normal');
-  mainOff = false;
+animateA = false;
+fadeA = 0;
+linkA.style('font-style', 'normal');
+mainOff = false;
 }
 
 //---GI---
 
 function overLinkGI() {
-  animateGI = true;
-  linkGI.style('font-style', 'italic');
-  mainOff = true;
-  fadeMain = 0;
+animateGI = true;
+linkGI.style('font-style', 'italic');
+mainOff = true;
+fadeMain = 0;
 }
 
 function offLinkGI() {
-  animateGI = false;
-  fadeGI = 0;
-  linkGI.style('font-style', 'normal');
-  mainOff = false;
+animateGI = false;
+fadeGI = 0;
+linkGI.style('font-style', 'normal');
+mainOff = false;
 }
 
 //---AO---
 
 function overLinkAr() {
-  animateAr = true;
-  linkAr.style('font-style', 'italic');
-  mainOff = true;
-  fadeMain = 0;
+animateAr = true;
+linkAr.style('font-style', 'italic');
+mainOff = true;
+fadeMain = 0;
 }
 
 function offLinkAr() {
-  animateAr = false;
-  fadeAr = 0;
-  linkAr.style('font-style', 'normal');
-  mainOff = false;
+animateAr = false;
+fadeAr = 0;
+linkAr.style('font-style', 'normal');
+mainOff = false;
 }
 
 //---M---
 
 function overlinkM() {
-  animateM = true;
-  mainOff = true;
-  fadeMain = 0;
-  // linkM.style('font-style', 'italic');
+animateM = true;
+mainOff = true;
+fadeMain = 0;
+// linkM.style('font-style', 'italic');
 
 }
 
 function offlinkM() {
-  animateM = false;
-  fadeM = 0;
-  mainOff = false;
-  // linkM.style('font-style', 'normal');
+animateM = false;
+fadeM = 0;
+mainOff = false;
+// linkM.style('font-style', 'normal');
 
 }
 
 //---C---
 
 function overlinkC() {
-  animateC = true;
-  // linkC.style('font-style', 'italic');
-  mainOff = true;
-  fadeMain = 0;
+animateC = true;
+// linkC.style('font-style', 'italic');
+mainOff = true;
+fadeMain = 0;
 
 }
 
 function offlinkC() {
-  animateC = false;
-  fadeC = 0;
-  // linkC.style('font-style', 'normal');
-  mainOff = false;
+animateC = false;
+fadeC = 0;
+// linkC.style('font-style', 'normal');
+mainOff = false;
 }
 
 
 //---E---
 
 function overLinkE() {
-  animateE = true;
-  // linkE.style('font-style', 'italic');
-  mainOff = true;
-  fadeMain = 0;
+animateE = true;
+linkE.style('font-style', 'italic');
+mainOff = true;
+fadeMain = 0;
 }
 
 function offLinkE() {
-  animateE = false;
-  fadeE = 0;
-  // linkE.style('font-style', 'normal');
-  mainOff = false;
+animateE = false;
+fadeE = 0;
+linkE.style('font-style', 'normal');
+mainOff = false;
 }
-
 
 //-------------------------------------------------------------
 //     RESIZE (FUNCTIONS)

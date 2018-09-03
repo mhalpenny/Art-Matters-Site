@@ -36,6 +36,7 @@ var valueM = 0,
 var loading = true;
 var loadCount = 0;
 var cpuPause = false;
+var mobileCount = 0;
 
 
 //-------------------------------------------------------------
@@ -210,7 +211,6 @@ function draw() {
     //reset links
     linkM.html('CARTE');
     linkC.html('CALENDRIER');
-    linkE.html('ÉVÉNEMENTS');
 
     if (fadeMain <= 540) {
       fadeMain += fadeIncr;
@@ -292,7 +292,6 @@ function draw() {
     image(iconE, linkMargin, (linkBuffer + linkOffset * 6), 50, 50);
 
     noTint();
-    linkE.html('ARRIVE BIENTÔT');
 
     fadeE += fadeIncr;
   }
@@ -313,6 +312,61 @@ function draw() {
     noTint();
   }
 
+
+    //-------------------------------------------------------------
+    //     MOBILE ANIMATION (DRAW)
+    //-------------------------------------------------------------
+
+    if (windowWidth < 650) {
+      if (mobileCount <= 30) {
+        mainOff = false;
+        mobileCount++;
+      } else if (mobileCount <= 60 && mobileCount > 30) {
+        mainOff = true;
+        fadeMain = 0;
+        animateA = true;
+        mobileCount++;
+      } else if (mobileCount <= 90 && mobileCount > 60) {
+        animateA = false;
+        fadeA = 0;
+        animateR = true;
+        mobileCount++;
+      } else if (mobileCount <= 120 && mobileCount > 90) {
+        animateR = false;
+        fadeR = 0;
+        animateGI = true;
+        mobileCount++;
+      } else if (mobileCount <= 150 && mobileCount > 120) {
+        animateGI = false;
+        fadeGI = 0;
+        animateM = true;
+        mobileCount++;
+      } else if (mobileCount <= 180 && mobileCount > 150) {
+        animateM = false;
+        fadeM = 0;
+        animateC = true;
+        linkM.html("MAPS");
+        mobileCount++;
+      }else if (mobileCount <= 210 && mobileCount > 180) {
+        animateC = false;
+        fadeC = 0;
+        animateE = true;
+        linkC.html("CALENDAR");
+        mobileCount++;
+      }else if (mobileCount <= 240 && mobileCount > 210) {
+        animateE = false;
+        fadeE = 0;
+        animateAr = true;
+        mobileCount++;
+      }else if (mobileCount <= 270 && mobileCount > 240) {
+        animateAr = false;
+        fadeAr = 0;
+        mainOff = false;
+        mobileCount++;
+      }else if (mobileCount > 270) {
+        mobileCount = 0;
+      }
+    }
 }
 
 // } // end of draw
@@ -426,7 +480,7 @@ function offLinkAr() {
 
 function overLinkE() {
   animateE = true;
-  // linkE.style('font-style', 'italic');
+  linkE.style('font-style', 'italic');
   mainOff = true;
   fadeMain = 0;
 }
@@ -434,7 +488,7 @@ function overLinkE() {
 function offLinkE() {
   animateE = false;
   fadeE = 0;
-  // linkE.style('font-style', 'normal');
+  linkE.style('font-style', 'normal');
   mainOff = false;
 }
 

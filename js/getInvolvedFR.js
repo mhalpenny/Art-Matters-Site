@@ -87,7 +87,7 @@ function setup() {
 
   linkGI = createA('#', 'IMPLIQUEZ-VOUS');
 
-  linkE = createA('#', 'ÉVÉNEMENTS');
+  linkE = createA('evenements.html', 'ÉVÉNEMENTS');
 
   linkM = createA('#', 'CARTE');
 
@@ -290,7 +290,7 @@ triangle(-130*shift, 230*shift, 0, -330*shift, 200*shift, 230*shift);
     linkA.style('text-align', 'left');
     linkR.html('<br> <br> <br> <br> <br> RESSOURCES');
     linkR.style('text-align', 'left');
-    linkGI.html('<br> <br> <br> <br>  IMPLIQUEZ-VOUS');
+    linkGI.html('<br> <br> <br> <br>  IMPLIQUEZ <br> -VOUS');
     linkGI.style('text-align', 'left');
     linkM.html('<br> <br> <br> <br> <br>  CARTE');
     linkM.style('color', 'grey');
@@ -300,7 +300,7 @@ triangle(-130*shift, 230*shift, 0, -330*shift, 200*shift, 230*shift);
     linkC.style('color', 'grey');
     linkE.html('<br> <br> <br> <br> <br>  ÉVÉNEMENTS ');
     linkE.style('text-align', 'left');
-    linkE.style('color', 'grey');
+    linkE.style('color', 'black');
     linkAr.html('<br> <br> <br> <br> <br>  ARCHIVE');
     linkAr.style('text-align', 'left');
 
@@ -341,10 +341,8 @@ triangle(-130*shift, 230*shift, 0, -330*shift, 200*shift, 230*shift);
   //-------------------------------------------------------------
 
 if (windowWidth > 650){
-
   linkM.html('CARTE');
   linkC.html('CALENDRIER');
-  linkE.html('ÉVÉNEMENTS');
 
   //---R---
   if (animateR == true) {
@@ -354,7 +352,7 @@ if (windowWidth > 650){
   } else{
 
   }
-  noTint();
+    noTint();
     fadeR += fadeIncr;
   }
 
@@ -362,7 +360,7 @@ if (windowWidth > 650){
   if (animateA == true) {
     tint(255, fadeA);
     image(iconA, linkMargin, (linkBuffer + linkOffset), 50, 50);
-    noTint();
+      noTint();
     fadeA += fadeIncr;
   }
 
@@ -370,7 +368,7 @@ if (windowWidth > 650){
   if (animateGI == true) {
     tint(255, fadeGI);
     image(iconGI, linkMargin, (linkBuffer + linkOffset * 3), 50, 50);
-    noTint();
+      noTint();
     fadeGI += fadeIncr;
   }
 
@@ -378,7 +376,7 @@ if (windowWidth > 650){
   if (animateAr == true) {
     tint(255, fadeAr);
     image(iconAr, linkMargin, (linkBuffer + linkOffset * 7), 50, 50);
-    noTint();
+      noTint();
     fadeAr += fadeIncr;
   }
 
@@ -387,7 +385,7 @@ if (windowWidth > 650){
     tint(255, fadeM);
     image(iconM, linkMargin, (linkBuffer + linkOffset * 4), 50, 50);
     noTint();
-    linkM.html('ARRIVE BIENTÔT');
+      linkM.html('ARRIVE BIENTÔT');
     fadeM += fadeIncr;
   }
 
@@ -396,7 +394,7 @@ if (windowWidth > 650){
     tint(255, fadeC);
     image(iconC, linkMargin, (linkBuffer + linkOffset * 5), 50, 50);
     noTint();
-    linkC.html('ARRIVE BIENTÔT');
+      linkC.html('ARRIVE BIENTÔT');
     fadeC += fadeIncr;
   }
 
@@ -404,12 +402,11 @@ if (windowWidth > 650){
   if (animateE == true) {
     tint(255, fadeE);
     image(iconE, linkMargin, (linkBuffer + linkOffset * 6), 50, 50);
-    noTint();
-    linkE.html('ARRIVE BIENTÔT');
+      noTint();
     fadeE += fadeIncr;
   }
+}
 
-  }
   //-------------------------------------------------------------
   //     LOGO ANIMATION (DRAW)
   //-------------------------------------------------------------
@@ -431,12 +428,12 @@ if (windowWidth > 650){
     image(amLogo, 0, 0, 110, 110);
   } else {
     var topNew = top + 45;
-    translate(iconMargin+15, topNew);
+    translate(iconMargin+5, topNew);
     rotate(logoSpin);
-    image(amLogo, 0, 0, 75, 75);
+    image(amLogo, 0, 0, 70, 70);
   }
-  noTint();
   pop();
+  noTint();
 
 
 } //---END---
@@ -556,7 +553,7 @@ function offlinkC() {
 
 function overLinkE() {
   animateE = true;
-  // linkE.style('font-style', 'italic');
+  linkE.style('font-style', 'italic');
   mainOff = true;
   fadeMain = 0;
 }
@@ -564,7 +561,7 @@ function overLinkE() {
 function offLinkE() {
   animateE = false;
   fadeE = 0;
-  // linkE.style('font-style', 'normal');
+  linkE.style('font-style', 'normal');
   mainOff = false;
 }
 

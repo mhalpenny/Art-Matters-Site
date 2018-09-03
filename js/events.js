@@ -45,8 +45,10 @@ function preload() {
   iconGI = loadImage('assets/yIcon.png');
   //logo
   amLogo = loadImage('assets/amlogo.png');
-  test = loadImage('assets/event1.png');
-  event2 = loadImage('assets/div.jpg');
+  event1 = loadImage('assets/event1.png');
+  event2 = loadImage('assets/grayLayer.png');
+  event3 = loadImage('assets/redLayer.png');
+  event4 = loadImage('assets/blueLayer.png');
 
 }
 
@@ -80,7 +82,7 @@ function setup() {
 
   linkR = createA('resources.html', 'RESOURCES');
 
-  linkA = createA('#', 'ABOUT');
+  linkA = createA('about.html', 'ABOUT');
 
   linkC = createA('#', 'CALENDAR');
 
@@ -187,26 +189,11 @@ function draw() {
 
 if (windowWidth > 650){
 
+
   //---DIV BACKGROUND 1---
-  //
-  // var myDiv = document.getElementById('one');
-  // var rectDiv = myDiv.getBoundingClientRect();
-  //
-  // imageMode(CENTER);
-  // angleMode(DEGREES);
-  // push()
-  // translate(rectDiv.right, rectDiv.top);
-  // rotate(30);
-  // image(test, 0, 0, width, height);
-  // pop();
-
-  //---DIV BACKGROUND 2---
-
-  //variables for 2nd square
 
   var myDiv = document.getElementById('one');
   var rectDiv = myDiv.getBoundingClientRect();
-
   var leftOffset = rectDiv.left - isAnimation;
   var leftToRight = leftOffset + (top*2);
   var right = rectDiv.right;
@@ -217,25 +204,18 @@ if (windowWidth > 650){
   imageMode(CENTER);
   angleMode(DEGREES);
   push();
-  // if (leftToRight < (rectDiv.left + half)) {
     translate(leftToRight, posterTop + (top));
-  // } else {
-  //   translate(rectDiv.left + half, posterTop + top);
-  // }
   rotate(0);
-  image(test, 0, 0, width, height);
+  image(event1, 0, 0, width, height);
   pop();
 
-  //
-   //---DIV BACKGROUND 3---
+
+   //---DIV BACKGROUND 2---
 
   var myDiv = document.getElementById('two');
   var rectDiv = myDiv.getBoundingClientRect();
-
-  //square 3 variables
   var rightOffset = rectDiv.right + isAnimation;
   var rightToLeft = rightOffset - (top/2.5);
-
   var right = rectDiv.right;
   var left = rectDiv.left;
   var half = (right - left) / 2;
@@ -244,38 +224,124 @@ if (windowWidth > 650){
   imageMode(CENTER);
   angleMode(DEGREES);
   push();
-  if (rightToLeft > (rectDiv.right - half)) {
     translate(rightToLeft, posterTop + (top));
-  } else {
-    translate(rectDiv.right - half, posterTop + (top));
-  }
   rotate(0);
   image(event2, 0, 0, width, height);
   pop();
 
-//   //---DIV BACKGROUND 4---
-//
-//   var myDiv = document.getElementById('four');
-//   var rectDiv = myDiv.getBoundingClientRect();
-//
-//   var rightOffset = rectDiv.right + isAnimation;
-//   var rightToLeft = rightOffset - (top - (canvasH / 3));
-//
-//   rectMode(CENTER);
-//   angleMode(DEGREES);
-//   fill(0, 0, 0, 150);
-//   push()
-//   if (rightToLeft > rectDiv.right) {
-//     translate(rightToLeft, rectDiv.top + top);
-//   } else {
-//     translate(rectDiv.right, rectDiv.top + top);
-//   }
-//   rotate(-135);
-//   rect(0, 0, width, height);
-//   backgroundPattern(width, height, width/2, height/2);
-//   pop();
-//
-} // end of mobile query
+  //---DIV BACKGROUND 3---
+
+  var myDiv = document.getElementById('three');
+  var rectDiv = myDiv.getBoundingClientRect();
+
+  var leftOffset = rectDiv.left - isAnimation;
+  var leftToRight = leftOffset + (top/5);
+  var right = rectDiv.right;
+  var left = rectDiv.left;
+  var half = (right - left) / 2;
+  var posterTop = rectDiv.bottom + (height * 0.6);
+
+  imageMode(CENTER);
+  angleMode(DEGREES);
+  push();
+    translate(leftToRight, posterTop + (top));
+  rotate(0);
+  image(event3, 0, 0, width, height);
+  pop();
+
+  //---DIV BACKGROUND 4---
+
+ var myDiv = document.getElementById('four');
+ var rectDiv = myDiv.getBoundingClientRect();
+ var rightOffset = rectDiv.right + isAnimation;
+ var rightToLeft = rightOffset - (top/7);
+ var right = rectDiv.right;
+ var left = rectDiv.left;
+ var half = (right - left) / 2;
+ var posterTop = rectDiv.bottom + (height * 0.6);
+
+ imageMode(CENTER);
+ angleMode(DEGREES);
+ push();
+ translate(rightToLeft, posterTop + (top));
+ rotate(0);
+ image(event4, 0, 0, width, height);
+ pop();
+
+} //end of full page
+ else{
+
+     //---DIV BACKGROUND 1---
+
+     var myDiv = document.getElementById('one');
+     var rectDiv = myDiv.getBoundingClientRect();
+     var right = rectDiv.right;
+     var left = rectDiv.left;
+     var half = (right - left) / 2;
+     var posterTop = rectDiv.bottom + (height * 0.6);
+
+     imageMode(CENTER);
+     angleMode(DEGREES);
+     push();
+     translate(rectDiv.left + half, posterTop + top);
+     rotate(0);
+     image(event1, 0, 0, width, height);
+     pop();
+
+
+      //---DIV BACKGROUND 2---
+
+     var myDiv = document.getElementById('two');
+     var rectDiv = myDiv.getBoundingClientRect();
+     var right = rectDiv.right;
+     var left = rectDiv.left;
+     var half = (right - left) / 2;
+     var posterTop = rectDiv.bottom + (height * 0.6);
+
+     imageMode(CENTER);
+     angleMode(DEGREES);
+     push();
+     translate(rectDiv.right - half, posterTop + (top));
+     rotate(0);
+     image(event2, 0, 0, width, height);
+     pop();
+
+     //---DIV BACKGROUND 3---
+
+     var myDiv = document.getElementById('three');
+     var rectDiv = myDiv.getBoundingClientRect();
+     var right = rectDiv.right;
+     var left = rectDiv.left;
+     var half = (right - left) / 2;
+     var posterTop = rectDiv.bottom + (height * 0.6);
+
+     imageMode(CENTER);
+     angleMode(DEGREES);
+     push();
+     translate(leftToRight, posterTop + (top));
+     translate(rectDiv.left + half, posterTop + top);
+     rotate(0);
+     image(event3, 0, 0, width, height);
+     pop();
+
+     //---DIV BACKGROUND 4---
+
+    var myDiv = document.getElementById('four');
+    var rectDiv = myDiv.getBoundingClientRect();
+    var right = rectDiv.right;
+    var left = rectDiv.left;
+    var half = (right - left) / 2;
+    var posterTop = rectDiv.bottom + (height * 0.6);
+
+    imageMode(CENTER);
+    angleMode(DEGREES);
+    push();
+    translate(rectDiv.right - half, posterTop + (top));
+    rotate(0);
+    image(event4, 0, 0, width, height);
+    pop();
+
+} //end of mobile animations
 
 
   //-------------------------------------------------------------
@@ -283,7 +349,6 @@ if (windowWidth > 650){
   //-------------------------------------------------------------
 
   if (windowWidth > 650) {
-    //variable math
     linkOffset = 55;
     linkBuffer = top + 80;
     var linkMargin = 35;
@@ -347,7 +412,7 @@ if (windowWidth > 650){
     linkC.style('color', 'grey');
     linkE.html('<br> <br> <br> <br> <br>  EVENTS ');
     linkE.style('text-align', 'left');
-    linkE.style('color', 'grey');
+    linkE.style('color', 'black');
     linkAr.html('<br> <br> <br> <br> <br>  ARCHIVE');
     linkAr.style('text-align', 'left');
 
@@ -390,7 +455,7 @@ if (windowWidth > 650){
 if (windowWidth > 650){
     linkM.html('MAP');
       linkC.html('CALENDAR');
-        linkE.html('EVENTS');
+
   //---R---
   if (animateR == true) {
     tint(255, fadeR);
@@ -450,7 +515,7 @@ if (windowWidth > 650){
     tint(255, fadeE);
     image(iconE, linkMargin, (linkBuffer + linkOffset * 6), 50, 50);
       noTint();
-    linkE.html('COMING SOON');
+
     fadeE += fadeIncr;
   }
 }
@@ -601,7 +666,7 @@ function offlinkC() {
 
 function overLinkE() {
   animateE = true;
-  // linkE.style('font-style', 'italic');
+  linkE.style('font-style', 'italic');
   mainOff = true;
   fadeMain = 0;
 }
@@ -609,7 +674,7 @@ function overLinkE() {
 function offLinkE() {
   animateE = false;
   fadeE = 0;
-  // linkE.style('font-style', 'normal');
+  linkE.style('font-style', 'normal');
   mainOff = false;
 }
 

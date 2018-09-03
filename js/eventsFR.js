@@ -45,8 +45,8 @@ function preload() {
   iconGI = loadImage('assets/yIcon.png');
   //logo
   amLogo = loadImage('assets/amlogo.png');
-  event1 = loadImage('assets/event1.png');
-  event2 = loadImage('assets/grayLayer.png');
+  event1 = loadImage('assets/event1.jpg');
+  event2 = loadImage('assets/event2.jpg');
   event3 = loadImage('assets/redLayer.png');
   event4 = loadImage('assets/blueLayer.png');
 
@@ -178,12 +178,13 @@ function draw() {
   //     INTERACTIVE SQUARES (DRAW)
   //-------------------------------------------------------------
 //
-  //variable for all squares
-  var width = (windowWidth / 1.7);
-  var height = (windowWidth / 3.2);
+
 
 if (windowWidth > 650){
 
+  //variable for all squares
+  var width = (windowWidth / 1.7);
+  var height = (windowWidth / 3.2);
 
   //---DIV BACKGROUND 1---
 
@@ -224,47 +225,49 @@ if (windowWidth > 650){
   image(event2, 0, 0, width, height);
   pop();
 
-  //---DIV BACKGROUND 3---
-
-  var myDiv = document.getElementById('three');
-  var rectDiv = myDiv.getBoundingClientRect();
-
-  var leftOffset = rectDiv.left - isAnimation;
-  var leftToRight = leftOffset + (top/5);
-  var right = rectDiv.right;
-  var left = rectDiv.left;
-  var half = (right - left) / 2;
-  var posterTop = rectDiv.bottom + (height * 0.6);
-
-  imageMode(CENTER);
-  angleMode(DEGREES);
-  push();
-    translate(leftToRight, posterTop + (top));
-  rotate(0);
-  image(event3, 0, 0, width, height);
-  pop();
-
-  //---DIV BACKGROUND 4---
-
- var myDiv = document.getElementById('four');
- var rectDiv = myDiv.getBoundingClientRect();
- var rightOffset = rectDiv.right + isAnimation;
- var rightToLeft = rightOffset - (top/7);
- var right = rectDiv.right;
- var left = rectDiv.left;
- var half = (right - left) / 2;
- var posterTop = rectDiv.bottom + (height * 0.6);
-
- imageMode(CENTER);
- angleMode(DEGREES);
- push();
- translate(rightToLeft, posterTop + (top));
- rotate(0);
- image(event4, 0, 0, width, height);
- pop();
+ //  //---DIV BACKGROUND 3---
+ //
+ //  var myDiv = document.getElementById('three');
+ //  var rectDiv = myDiv.getBoundingClientRect();
+ //
+ //  var leftOffset = rectDiv.left - isAnimation;
+ //  var leftToRight = leftOffset + (top/5);
+ //  var right = rectDiv.right;
+ //  var left = rectDiv.left;
+ //  var half = (right - left) / 2;
+ //  var posterTop = rectDiv.bottom + (height * 0.6);
+ //
+ //  imageMode(CENTER);
+ //  angleMode(DEGREES);
+ //  push();
+ //    translate(leftToRight, posterTop + (top));
+ //  rotate(0);
+ //  image(event3, 0, 0, width, height);
+ //  pop();
+ //
+ //  //---DIV BACKGROUND 4---
+ //
+ // var myDiv = document.getElementById('four');
+ // var rectDiv = myDiv.getBoundingClientRect();
+ // var rightOffset = rectDiv.right + isAnimation;
+ // var rightToLeft = rightOffset - (top/7);
+ // var right = rectDiv.right;
+ // var left = rectDiv.left;
+ // var half = (right - left) / 2;
+ // var posterTop = rectDiv.bottom + (height * 0.6);
+ //
+ // imageMode(CENTER);
+ // angleMode(DEGREES);
+ // push();
+ // translate(rightToLeft, posterTop + (top));
+ // rotate(0);
+ // image(event4, 0, 0, width, height);
+ // pop();
 
 } //end of full page
  else{
+
+   var height = (windowWidth / 2.5);
 
      //---DIV BACKGROUND 1---
 
@@ -272,6 +275,7 @@ if (windowWidth > 650){
      var rectDiv = myDiv.getBoundingClientRect();
      var right = rectDiv.right;
      var left = rectDiv.left;
+      var width = right-left;
      var half = (right - left) / 2;
      var posterTop = rectDiv.bottom + (height * 0.6);
 
@@ -290,6 +294,7 @@ if (windowWidth > 650){
      var rectDiv = myDiv.getBoundingClientRect();
      var right = rectDiv.right;
      var left = rectDiv.left;
+      var width = right-left;
      var half = (right - left) / 2;
      var posterTop = rectDiv.bottom + (height * 0.6);
 
@@ -301,40 +306,40 @@ if (windowWidth > 650){
      image(event2, 0, 0, width, height);
      pop();
 
-     //---DIV BACKGROUND 3---
-
-     var myDiv = document.getElementById('three');
-     var rectDiv = myDiv.getBoundingClientRect();
-     var right = rectDiv.right;
-     var left = rectDiv.left;
-     var half = (right - left) / 2;
-     var posterTop = rectDiv.bottom + (height * 0.6);
-
-     imageMode(CENTER);
-     angleMode(DEGREES);
-     push();
-     translate(leftToRight, posterTop + (top));
-     translate(rectDiv.left + half, posterTop + top);
-     rotate(0);
-     image(event3, 0, 0, width, height);
-     pop();
-
-     //---DIV BACKGROUND 4---
-
-    var myDiv = document.getElementById('four');
-    var rectDiv = myDiv.getBoundingClientRect();
-    var right = rectDiv.right;
-    var left = rectDiv.left;
-    var half = (right - left) / 2;
-    var posterTop = rectDiv.bottom + (height * 0.6);
-
-    imageMode(CENTER);
-    angleMode(DEGREES);
-    push();
-    translate(rectDiv.right - half, posterTop + (top));
-    rotate(0);
-    image(event4, 0, 0, width, height);
-    pop();
+    //  //---DIV BACKGROUND 3---
+    //
+    //  var myDiv = document.getElementById('three');
+    //  var rectDiv = myDiv.getBoundingClientRect();
+    //  var right = rectDiv.right;
+    //  var left = rectDiv.left;
+    //  var half = (right - left) / 2;
+    //  var posterTop = rectDiv.bottom + (height * 0.6);
+    //
+    //  imageMode(CENTER);
+    //  angleMode(DEGREES);
+    //  push();
+    //  translate(leftToRight, posterTop + (top));
+    //  translate(rectDiv.left + half, posterTop + top);
+    //  rotate(0);
+    //  image(event3, 0, 0, width, height);
+    //  pop();
+    //
+    //  //---DIV BACKGROUND 4---
+    //
+    // var myDiv = document.getElementById('four');
+    // var rectDiv = myDiv.getBoundingClientRect();
+    // var right = rectDiv.right;
+    // var left = rectDiv.left;
+    // var half = (right - left) / 2;
+    // var posterTop = rectDiv.bottom + (height * 0.6);
+    //
+    // imageMode(CENTER);
+    // angleMode(DEGREES);
+    // push();
+    // translate(rectDiv.right - half, posterTop + (top));
+    // rotate(0);
+    // image(event4, 0, 0, width, height);
+    // pop();
 
 } //end of mobile animations
 

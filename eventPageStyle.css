@@ -233,14 +233,17 @@ p a:hover{
 .boxRed{
   width:100%;
   float: none;
+  margin-bottom: 82%;
 }
 .boxYellow{
   width:100%;
   float: none;
+  margin-bottom: 82%;
 }
 .boxBlue{
   width:100%;
   float: none;
+  margin-bottom: 82%;
 }
 .boxTitleRed{
   font-size: 18px;

@@ -15,8 +15,8 @@ var fadeR = 0, fadeA = 0, fadeM = 0, fadeE = 0, fadeAr = 0, fadeC = 0, fadeGI = 
 var linkOffset, linkBuffer;
 var fadeIncr = 35;
 var bColorVal = 0;
-var widthVal = 8;
-var heightVal = 5;
+var widthVal = 14;
+var heightVal = 14;
 var flip = true;
 var spinX, spinY;
 var bodyH, canvasH;
@@ -45,10 +45,8 @@ function preload() {
   iconGI = loadImage('assets/yIcon.png');
   //logo
   amLogo = loadImage('assets/amlogo.png');
-  event1 = loadImage('assets/event1.jpg');
-  event2 = loadImage('assets/event2.jpg');
-  event3 = loadImage('assets/redLayer.png');
-  event4 = loadImage('assets/blueLayer.png');
+  // event1 = loadImage('assets/event1.jpg');
+  // event2 = loadImage('assets/event2.jpg');
 
 }
 
@@ -68,7 +66,7 @@ function setup() {
   //retrieve div id
   bodyH = document.getElementById('gallery');
   //use id to get div height for canvas scrolling length
-  canvasH = bodyH.scrollHeight + 200;
+  canvasH = bodyH.scrollHeight + 250;
   //create canvas at appropriate length for page
   canvas = createCanvas(windowWidth, canvasH);
   //basic canvas formatting
@@ -161,6 +159,7 @@ function draw() {
   var top = window.pageYOffset;
   logoSpin = top/2;
 
+
   //-------------------------------------------------------------
   //    PSEUDO WHEEL (DRAW)
   //-------------------------------------------------------------
@@ -184,171 +183,175 @@ function draw() {
   //-------------------------------------------------------------
 //
 
-if (windowWidth > 650){
-
-  //variable for all squares
-  var width = (windowWidth / 1.7);
-  var height = (windowWidth / 3.2);
-
-
-  //---DIV BACKGROUND 1---
-
-  var myDiv = document.getElementById('one');
-  var rectDiv = myDiv.getBoundingClientRect();
-  var leftOffset = rectDiv.left - isAnimation;
-  var leftToRight = leftOffset + (top*2);
-  var right = rectDiv.right;
-  var left = rectDiv.left;
-  var half = (right - left) / 2;
-  var posterTop = rectDiv.bottom + (height * 0.6);
-
-  imageMode(CENTER);
-  angleMode(DEGREES);
-  push();
-    translate(leftToRight, posterTop + (top));
-  rotate(0);
-  image(event1, 0, 0, width, height);
-  pop();
-
-
-   //---DIV BACKGROUND 2---
-
-  var myDiv = document.getElementById('two');
-  var rectDiv = myDiv.getBoundingClientRect();
-  var rightOffset = rectDiv.right + isAnimation;
-  var rightToLeft = rightOffset - (top/2.5);
-  var right = rectDiv.right;
-  var left = rectDiv.left;
-  var half = (right - left) / 2;
-  var posterTop = rectDiv.bottom + (height * 0.6);
-
-  imageMode(CENTER);
-  angleMode(DEGREES);
-  push();
-    translate(rightToLeft, posterTop + (top));
-  rotate(0);
-  image(event2, 0, 0, width, height);
-  pop();
-
- //  //---DIV BACKGROUND 3---
- //
- //  var myDiv = document.getElementById('three');
- //  var rectDiv = myDiv.getBoundingClientRect();
- //
- //  var leftOffset = rectDiv.left - isAnimation;
- //  var leftToRight = leftOffset + (top/5);
- //  var right = rectDiv.right;
- //  var left = rectDiv.left;
- //  var half = (right - left) / 2;
- //  var posterTop = rectDiv.bottom + (height * 0.6);
- //
- //  imageMode(CENTER);
- //  angleMode(DEGREES);
- //  push();
- //    translate(leftToRight, posterTop + (top));
- //  rotate(0);
- //  image(event3, 0, 0, width, height);
- //  pop();
- //
- //  //---DIV BACKGROUND 4---
- //
- // var myDiv = document.getElementById('four');
- // var rectDiv = myDiv.getBoundingClientRect();
- // var rightOffset = rectDiv.right + isAnimation;
- // var rightToLeft = rightOffset - (top/7);
- // var right = rectDiv.right;
- // var left = rectDiv.left;
- // var half = (right - left) / 2;
- // var posterTop = rectDiv.bottom + (height * 0.6);
- //
- // imageMode(CENTER);
- // angleMode(DEGREES);
- // push();
- // translate(rightToLeft, posterTop + (top));
- // rotate(0);
- // image(event4, 0, 0, width, height);
- // pop();
-
-} //end of full page
- else{
-
-   var height = (windowWidth / 2.5);
-
-     //---DIV BACKGROUND 1---
-
-     var myDiv = document.getElementById('one');
-     var rectDiv = myDiv.getBoundingClientRect();
-
-
-     var right = rectDiv.right;
-     var left = rectDiv.left;
-     var width = right-left;
-     var half = (right - left) / 2;
-     var posterTop = rectDiv.bottom + (height * 0.6);
-
-     imageMode(CENTER);
-     angleMode(DEGREES);
-     push();
-     translate(rectDiv.left + half, posterTop + top);
-     rotate(0);
-     image(event1, 0, 0, width, height);
-     pop();
-
-
-      //---DIV BACKGROUND 2---
-
-     var myDiv = document.getElementById('two');
-     var rectDiv = myDiv.getBoundingClientRect();
-     var right = rectDiv.right;
-     var left = rectDiv.left;
-     var width = right-left;
-     var half = (right - left) / 2;
-     var posterTop = rectDiv.bottom + (height * 0.6);
-
-     imageMode(CENTER);
-     angleMode(DEGREES);
-     push();
-     translate(rectDiv.right - half, posterTop + (top));
-     rotate(0);
-     image(event2, 0, 0, width, height);
-     pop();
-
-    //  //---DIV BACKGROUND 3---
-    //
-    //  var myDiv = document.getElementById('three');
-    //  var rectDiv = myDiv.getBoundingClientRect();
-    //  var right = rectDiv.right;
-    //  var left = rectDiv.left;
-    //  var half = (right - left) / 2;
-    //  var posterTop = rectDiv.bottom + (height * 0.6);
-    //
-    //  imageMode(CENTER);
-    //  angleMode(DEGREES);
-    //  push();
-    //  translate(leftToRight, posterTop + (top));
-    //  translate(rectDiv.left + half, posterTop + top);
-    //  rotate(0);
-    //  image(event3, 0, 0, width, height);
-    //  pop();
-    //
-    //  //---DIV BACKGROUND 4---
-    //
-    // var myDiv = document.getElementById('four');
-    // var rectDiv = myDiv.getBoundingClientRect();
-    // var right = rectDiv.right;
-    // var left = rectDiv.left;
-    // var half = (right - left) / 2;
-    // var posterTop = rectDiv.bottom + (height * 0.6);
-    //
-    // imageMode(CENTER);
-    // angleMode(DEGREES);
-    // push();
-    // translate(rectDiv.right - half, posterTop + (top));
-    // rotate(0);
-    // image(event4, 0, 0, width, height);
-    // pop();
-
-} //end of mobile animations
+    backgroundPattern();
+//
+// if (windowWidth > 650){
+//
+//
+//
+//   //variable for all squares
+//   var width = (windowWidth / 1.7);
+//   var height = (windowWidth / 3.2);
+//
+//
+//   //---DIV BACKGROUND 1---
+//
+//   var myDiv = document.getElementById('one');
+//   var rectDiv = myDiv.getBoundingClientRect();
+//   var leftOffset = rectDiv.left - isAnimation;
+//   var leftToRight = leftOffset + (top*2);
+//   var right = rectDiv.right;
+//   var left = rectDiv.left;
+//   var half = (right - left) / 2;
+//   var posterTop = rectDiv.bottom + (height * 0.6);
+//
+//   imageMode(CENTER);
+//   angleMode(DEGREES);
+//   push();
+//     translate(leftToRight, posterTop + (top));
+//   rotate(0);
+//   image(event1, 0, 0, width, height);
+//   pop();
+//
+//
+//    //---DIV BACKGROUND 2---
+//
+//   var myDiv = document.getElementById('two');
+//   var rectDiv = myDiv.getBoundingClientRect();
+//   var rightOffset = rectDiv.right + isAnimation;
+//   var rightToLeft = rightOffset - (top/2.5);
+//   var right = rectDiv.right;
+//   var left = rectDiv.left;
+//   var half = (right - left) / 2;
+//   var posterTop = rectDiv.bottom + (height * 0.6);
+//
+//   imageMode(CENTER);
+//   angleMode(DEGREES);
+//   push();
+//     translate(rightToLeft, posterTop + (top));
+//   rotate(0);
+//   image(event2, 0, 0, width, height);
+//   pop();
+//
+//  //  //---DIV BACKGROUND 3---
+//  //
+//  //  var myDiv = document.getElementById('three');
+//  //  var rectDiv = myDiv.getBoundingClientRect();
+//  //
+//  //  var leftOffset = rectDiv.left - isAnimation;
+//  //  var leftToRight = leftOffset + (top/5);
+//  //  var right = rectDiv.right;
+//  //  var left = rectDiv.left;
+//  //  var half = (right - left) / 2;
+//  //  var posterTop = rectDiv.bottom + (height * 0.6);
+//  //
+//  //  imageMode(CENTER);
+//  //  angleMode(DEGREES);
+//  //  push();
+//  //    translate(leftToRight, posterTop + (top));
+//  //  rotate(0);
+//  //  image(event3, 0, 0, width, height);
+//  //  pop();
+//  //
+//  //  //---DIV BACKGROUND 4---
+//  //
+//  // var myDiv = document.getElementById('four');
+//  // var rectDiv = myDiv.getBoundingClientRect();
+//  // var rightOffset = rectDiv.right + isAnimation;
+//  // var rightToLeft = rightOffset - (top/7);
+//  // var right = rectDiv.right;
+//  // var left = rectDiv.left;
+//  // var half = (right - left) / 2;
+//  // var posterTop = rectDiv.bottom + (height * 0.6);
+//  //
+//  // imageMode(CENTER);
+//  // angleMode(DEGREES);
+//  // push();
+//  // translate(rightToLeft, posterTop + (top));
+//  // rotate(0);
+//  // image(event4, 0, 0, width, height);
+//  // pop();
+//
+// } //end of full page
+//  else{
+//
+//    var height = (windowWidth / 2.5);
+//
+//      //---DIV BACKGROUND 1---
+//
+//      var myDiv = document.getElementById('one');
+//      var rectDiv = myDiv.getBoundingClientRect();
+//
+//
+//      var right = rectDiv.right;
+//      var left = rectDiv.left;
+//      var width = right-left;
+//      var half = (right - left) / 2;
+//      var posterTop = rectDiv.bottom + (height * 0.6);
+//
+//      imageMode(CENTER);
+//      angleMode(DEGREES);
+//      push();
+//      translate(rectDiv.left + half, posterTop + top);
+//      rotate(0);
+//      image(event1, 0, 0, width, height);
+//      pop();
+//
+//
+//       //---DIV BACKGROUND 2---
+//
+//      var myDiv = document.getElementById('two');
+//      var rectDiv = myDiv.getBoundingClientRect();
+//      var right = rectDiv.right;
+//      var left = rectDiv.left;
+//      var width = right-left;
+//      var half = (right - left) / 2;
+//      var posterTop = rectDiv.bottom + (height * 0.6);
+//
+//      imageMode(CENTER);
+//      angleMode(DEGREES);
+//      push();
+//      translate(rectDiv.right - half, posterTop + (top));
+//      rotate(0);
+//      image(event2, 0, 0, width, height);
+//      pop();
+//
+//     //  //---DIV BACKGROUND 3---
+//     //
+//     //  var myDiv = document.getElementById('three');
+//     //  var rectDiv = myDiv.getBoundingClientRect();
+//     //  var right = rectDiv.right;
+//     //  var left = rectDiv.left;
+//     //  var half = (right - left) / 2;
+//     //  var posterTop = rectDiv.bottom + (height * 0.6);
+//     //
+//     //  imageMode(CENTER);
+//     //  angleMode(DEGREES);
+//     //  push();
+//     //  translate(leftToRight, posterTop + (top));
+//     //  translate(rectDiv.left + half, posterTop + top);
+//     //  rotate(0);
+//     //  image(event3, 0, 0, width, height);
+//     //  pop();
+//     //
+//     //  //---DIV BACKGROUND 4---
+//     //
+//     // var myDiv = document.getElementById('four');
+//     // var rectDiv = myDiv.getBoundingClientRect();
+//     // var right = rectDiv.right;
+//     // var left = rectDiv.left;
+//     // var half = (right - left) / 2;
+//     // var posterTop = rectDiv.bottom + (height * 0.6);
+//     //
+//     // imageMode(CENTER);
+//     // angleMode(DEGREES);
+//     // push();
+//     // translate(rectDiv.right - half, posterTop + (top));
+//     // rotate(0);
+//     // image(event4, 0, 0, width, height);
+//     // pop();
+//
+// } //end of mobile animations
 
 
   //-------------------------------------------------------------
@@ -708,29 +711,30 @@ function windowResized() {
 //     BOX NIMATION (FUNCTIONS)
 //-------------------------------------------------------------
 
-function backgroundPattern(w, h, tw, th) {
+function backgroundPattern() {
 
-  stroke(255);
+  stroke(0);
+  noFill();
   strokeWeight(1.0);
   spinX = map(mouseY, 0, windowHeight, 3, 9);
-  spinY = map(mouseX, windowWidth, 0, 3, 6);
-  spinY2 = map(mouseX, 0, windowWidth, 3, 6);
+  spinY = map(mouseX, windowWidth, 0, 3, 15);
+  spinY2 = map(mouseX, 0, windowWidth, 3, 10);
 
-  var widthInc = w / widthVal;
-  var heightInc = h / heightVal;
+  var widthInc = windowWidth / widthVal;
+  var heightInc = canvasH / heightVal;
 
   for (var i = 0; i < widthVal; i++) {
     for (var j = 0; j < heightVal; j++) {
 
       push();
-      translate((30 + i * widthInc) - tw, (30 + j * heightInc) - th);
+      translate((30 + i * widthInc), (30 + j * heightInc));
       if (flip == true) {
         rotate(spinX * (spinY*spinY2));
       } else {
           rotate(-spinX * (spinY*spinY2));
       }
-      line(-5, -5, 5, 5);
-      line(5, -5, -5, 5);
+      triangle(30, 10, 32, 10, 31, 8);
+      // line(5, -5, -5, 5);
       pop();
       flip = !flip;
 

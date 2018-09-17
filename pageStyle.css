@@ -82,6 +82,7 @@ font-style: oblique;
   text-decoration: none;
   color: black;
     text-shadow: none;
+    cursor: crosshair;
 }
 
 #sLink:hover{
@@ -312,6 +313,9 @@ p{
 }
 
 #links a{
+  font-size: 12px;
+}
+#links a:hover{
   font-size: 12px;
 }
 

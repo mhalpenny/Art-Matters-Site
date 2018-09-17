@@ -73,6 +73,28 @@ font-style: oblique;
   color: black;
 }
 
+#sLink{
+  /* right: 5.2%; */
+  /* width: 30%; */
+  font-family: 'Didact Gothic', sans-serif;
+  font-weight: bold;
+    font-size: 14px;
+  text-decoration: none;
+  color: black;
+    text-shadow: none;
+}
+
+#sLink:hover{
+  /* right: 5.2%; */
+  /* width: 30%; */
+  font-family: 'Didact Gothic', sans-serif;
+    font-size: 14px;
+  font-weight: bold;
+  text-decoration: none;
+  color: grey;
+    text-shadow: none;
+}
+
 #langBack{
   position: fixed;
   top: 22px;
@@ -291,6 +313,28 @@ p{
 
 #links a{
   font-size: 12px;
+}
+
+#sLink{
+  /* right: 5.2%; */
+  /* width: 30%; */
+  font-family: 'Didact Gothic', sans-serif;
+  font-weight: bold;
+    font-size: 12px;
+  text-decoration: none;
+  color: black;
+    text-shadow: none;
+}
+
+#sLink:hover{
+  /* right: 5.2%; */
+  /* width: 30%; */
+  font-family: 'Didact Gothic', sans-serif;
+    font-size: 12px;
+  font-weight: bold;
+  text-decoration: none;
+  color: grey;
+    text-shadow: none;
 }
 
 

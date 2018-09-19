@@ -24,7 +24,7 @@ font-family: NAV;
 
 @font-face {
     font-family: NAV;
-    src: url("fonts/Lack-Line-Regular.otf") format("opentype");
+    src: url("EN/fonts/Lack-Line-Regular.otf") format("opentype");
 }
 
 /* should be seperate ideas but cascades to all in the language div, non harmful*/
@@ -46,5 +46,9 @@ font-family: NAV;
 }
 #lang{
   font-size: 12px;
+}
+@font-face {
+    font-family: NAV;
+    src: url("EN/fonts/Lack-Line-Regular.otf") format("opentype");
 }
 }

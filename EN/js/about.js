@@ -76,7 +76,7 @@ function setup() {
   //     LINKS (SETUP)
   //-------------------------------------------------------------
 
-  linkR = createA('resources.html', 'RESOURCES');
+  linkR = createA('resources', 'RESOURCES');
 
   linkA = createA('#', 'ABOUT');
 
@@ -84,9 +84,9 @@ function setup() {
 
   linkAr = createA('http://artmattersfestival.org/archive/', 'ARCHIVE');
 
-  linkGI = createA('getInvolved.html', 'GET INVOLVED');
+  linkGI = createA('getInvolved', 'GET INVOLVED');
 
-  linkE = createA('events.html', 'EVENTS');
+  linkE = createA('events', 'EVENTS');
 
   linkM = createA('#', 'MAPS');
 
@@ -94,10 +94,10 @@ function setup() {
 
   // linkEN = createA('#', 'EN');
   // linkEN.id('lang');
-  linkFR = createA('aPropos.html', 'FR');
+  linkFR = createA('../fr/aPropos', 'FR');
   linkFR.id('lang');
 
-  home = createA('index.html', 'O');
+  home = createA('home', 'O');
   //debugging
   // home.style('color', 'black');
   home.style('color', 'transparent');

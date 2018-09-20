@@ -77,9 +77,9 @@ function setup() {
   //     LINKS (SETUP)
   //-------------------------------------------------------------
 
-  linkR = createA('EN/resources', 'RESOURCES');
+  linkR = createA('resources', 'RESOURCES');
 
-  linkA = createA('EN/about', 'ABOUT');
+  linkA = createA('about', 'ABOUT');
 
   linkC = createA('#', 'CALENDAR');
 
@@ -87,15 +87,15 @@ function setup() {
 
   linkGI = createA('#', 'GET INVOLVED');
 
-  linkE = createA('EN/events', 'EVENTS');
+  linkE = createA('events', 'EVENTS');
 
   linkM = createA('#', 'MAPS');
 
 
-  linkFR = createA('FR/impliquezVous', 'FR');
+  linkFR = createA('../fr/impliquezVous', 'FR');
   linkFR.id('lang');
 
-  home = createA('index.html', 'O');
+  home = createA('home', 'O');
   home.style('color', 'transparent');
   home.style('font-size', '72px');
   home.style('text-shadow', 'none');

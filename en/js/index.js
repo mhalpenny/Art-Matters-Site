@@ -46,24 +46,24 @@ var mobileCount = 0;
 function preload() {
 
   //layers
-  layerA = loadImage('assets/RedLayer.png');
-  layerR = loadImage('assets/BlueLayer.png');
-  layerM = loadImage('assets/VioletLayer.png');
-  layerE = loadImage('assets/GrayLayer.png');
-  layerC = loadImage('assets/GreenLayer.png');
-  layerAr = loadImage('assets/OrangeLayer.png');
-  layerGI = loadImage('assets/YellowLayer.png');
-  layerMain = loadImage('assets/LayerAll.png');
+  layerA = loadImage('en/assets/RedLayer.png');
+  layerR = loadImage('en/assets/BlueLayer.png');
+  layerM = loadImage('en/assets/VioletLayer.png');
+  layerE = loadImage('en/assets/GrayLayer.png');
+  layerC = loadImage('en/assets/GreenLayer.png');
+  layerAr = loadImage('en/assets/OrangeLayer.png');
+  layerGI = loadImage('en/assets/YellowLayer.png');
+  layerMain = loadImage('en/assets/LayerAll.png');
   //icons
-  iconA = loadImage('assets/rrIcon.png');
-  iconR = loadImage('assets/bIcon.png');
-  iconM = loadImage('assets/vIcon.png');
-  iconE = loadImage('assets/rIcon.png');
-  iconC = loadImage('assets/gIcon.png');
-  iconAr = loadImage('assets/oIcon.png');
-  iconGI = loadImage('assets/yIcon.png');
+  iconA = loadImage('en/assets/rrIcon.png');
+  iconR = loadImage('en/assets/bIcon.png');
+  iconM = loadImage('en/assets/vIcon.png');
+  iconE = loadImage('en/assets/rIcon.png');
+  iconC = loadImage('en/assets/gIcon.png');
+  iconAr = loadImage('en/assets/oIcon.png');
+  iconGI = loadImage('en/assets/yIcon.png');
   //logo
-  amLogo = loadImage('assets/amlogo.png');
+  amLogo = loadImage('en/assets/amlogo.png');
 }
 
 //-------------------------------------------------------------
@@ -84,29 +84,27 @@ function setup() {
   //-------------------------------------------------------------
 
 
-  linkR = createA('ressources', 'RESSOURCES');
+  linkR = createA('en/resources', 'RESOURCES');
 
-  linkA = createA('aPropos', 'À PROPOS');
+  linkA = createA('en/about', 'ABOUT');
 
-  linkC = createA('#', 'CALENDRIER');
+  linkC = createA('#', 'CALENDER');
 
   linkAr = createA('http://artmattersfestival.org/archive/', 'ARCHIVE');
 
-  linkGI = createA('impliquezVous', 'IMPLIQUEZ-VOUS');
+  linkGI = createA('en/getInvolved', 'GET INVOLVED');
 
-  linkE = createA('#', 'ÉVÉNEMENTS');
+  linkE = createA('en/events', 'EVENTS');
 
-  linkM = createA('#', 'CARTE');
+  linkM = createA('#', 'MAP');
 
-
-  linkEN = createA('../en/home', 'EN');
-  linkEN.id('lang');
-  linkEN.style("font-size", '12px');
+  linkFR = createA('fr/accueil', 'FR');
+  linkFR.id('lang');
 
 
 
   if (windowWidth > 650) {
-    linkOffset = 90 - (windowHeight) * 0.02
+    linkOffset = 90 - (windowHeight) * 0.2
     linkBuffer = 80 - (windowHeight) * 0.015
     var linkMargin = 29;
   } else {
@@ -125,7 +123,7 @@ function setup() {
   // linkAO.position(linkMargin, linkBuffer + linkOffset*7);
   linkAr.position(linkMargin, linkBuffer + linkOffset * 7);
 
-  linkEN.position(windowWidth - 40, 25);
+  // linkFR.position(windowWidth - 40, 50);
 
 
 
@@ -149,7 +147,7 @@ function setup() {
   linkC.mouseOut(offlinkC);
   linkAr.mouseOver(overLinkAr);
   linkAr.mouseOut(offLinkAr);
-  linkEN.mouseOver(onLang).mouseOut(offLang);
+  linkFR.mouseOver(onLang).mouseOut(offLang);
 
 
 }
@@ -173,29 +171,30 @@ function draw() {
 
   }
 
+  if (windowWidth > 650) {
+    linkOffset = 90 - (windowHeight) * 0.01
+    linkBuffer = 65 - (windowHeight) * 0.005
+    var linkMargin = 29;
+  } else {
+    linkOffset = 75 - (windowHeight) * 0.05
+    linkBuffer = 80 - (windowHeight) * 0.015
+    var linkMargin = 29;
+  }
 
-    if (windowWidth > 650) {
-      linkOffset = 90 - (windowHeight) * 0.01
-      linkBuffer = 65 - (windowHeight) * 0.005
-      var linkMargin = 29;
-    } else {
-      linkOffset = 75 - (windowHeight) * 0.05
-      linkBuffer = 80 - (windowHeight) * 0.015
-      var linkMargin = 29;
-    }
+  //positioning
+  linkA.position(linkMargin, linkBuffer + linkOffset);
+  linkR.position(linkMargin, linkBuffer + linkOffset * 2);
+  linkGI.position(linkMargin, linkBuffer + linkOffset * 3);
+  linkM.position(linkMargin, linkBuffer + linkOffset * 4);
+  linkC.position(linkMargin, linkBuffer + linkOffset * 5);
+  linkE.position(linkMargin, linkBuffer + linkOffset * 6);
+  linkAr.position(linkMargin, linkBuffer + linkOffset * 7);
 
-    //positioning
-    linkA.position(linkMargin, linkBuffer + linkOffset);
-    linkR.position(linkMargin, linkBuffer + linkOffset * 2);
-    linkGI.position(linkMargin, linkBuffer + linkOffset * 3);
-    linkM.position(linkMargin, linkBuffer + linkOffset * 4);
-    linkC.position(linkMargin, linkBuffer + linkOffset * 5);
-    linkE.position(linkMargin, linkBuffer + linkOffset * 6);
-    linkAr.position(linkMargin, linkBuffer + linkOffset * 7);
+  var xPos = (60 + (windowWidth/50));
 
-    var xPos = (60 + (windowWidth/50));
+  linkFR.position(windowWidth - xPos, 30);
 
-    linkEN.position(windowWidth - xPos, 30);
+
 
   //-------------------------------------------------------------
   //     PNG ANIMATIONS (DRAW)
@@ -211,8 +210,8 @@ function draw() {
     noTint();
 
     //reset links
-    linkM.html('CARTE');
-    linkC.html('CALENDRIER');
+    linkM.html('MAPS');
+    linkC.html('CALENDAR');
 
     if (fadeMain <= 540) {
       fadeMain += fadeIncr;
@@ -271,7 +270,7 @@ function draw() {
     image(layerM, windowWidth / 2, height / 2, windowWidth, windowHeight);
     image(iconM, linkMargin, (linkBuffer + linkOffset * 4), 50, 50);
 
-    linkM.html('ARRIVE BIENTÔT');
+    linkM.html('COMING SOON');
     noTint();
     fadeM += fadeIncr;
   }
@@ -283,7 +282,7 @@ function draw() {
     image(iconC, linkMargin, (linkBuffer + linkOffset * 5), 50, 50);
 
     noTint();
-    linkC.html('ARRIVE BIENTÔT');
+    linkC.html('COMING SOON');
     fadeC += fadeIncr;
   }
 
@@ -314,65 +313,61 @@ function draw() {
     noTint();
   }
 
+  //-------------------------------------------------------------
+  //     MOBILE ANIMATION (DRAW)
+  //-------------------------------------------------------------
 
-    //-------------------------------------------------------------
-    //     MOBILE ANIMATION (DRAW)
-    //-------------------------------------------------------------
-
-    if (windowWidth < 650) {
-      if (mobileCount <= 30) {
-        mainOff = false;
-        mobileCount++;
-      } else if (mobileCount <= 60 && mobileCount > 30) {
-        mainOff = true;
-        fadeMain = 0;
-        animateA = true;
-        mobileCount++;
-      } else if (mobileCount <= 90 && mobileCount > 60) {
-        animateA = false;
-        fadeA = 0;
-        animateR = true;
-        mobileCount++;
-      } else if (mobileCount <= 120 && mobileCount > 90) {
-        animateR = false;
-        fadeR = 0;
-        animateGI = true;
-        mobileCount++;
-      } else if (mobileCount <= 150 && mobileCount > 120) {
-        animateGI = false;
-        fadeGI = 0;
-        animateM = true;
-        mobileCount++;
-      } else if (mobileCount <= 180 && mobileCount > 150) {
-        animateM = false;
-        fadeM = 0;
-        animateC = true;
-        linkM.html("MAPS");
-        mobileCount++;
-      }else if (mobileCount <= 210 && mobileCount > 180) {
-        animateC = false;
-        fadeC = 0;
-        animateE = true;
-        linkC.html("CALENDAR");
-        mobileCount++;
-      }else if (mobileCount <= 240 && mobileCount > 210) {
-        animateE = false;
-        fadeE = 0;
-        animateAr = true;
-        mobileCount++;
-      }else if (mobileCount <= 270 && mobileCount > 240) {
-        animateAr = false;
-        fadeAr = 0;
-        mainOff = false;
-        mobileCount++;
-      }else if (mobileCount > 270) {
-        mobileCount = 0;
-      }
+  if (windowWidth < 650) {
+    if (mobileCount <= 30) {
+      mainOff = false;
+      mobileCount++;
+    } else if (mobileCount <= 60 && mobileCount > 30) {
+      mainOff = true;
+      fadeMain = 0;
+      animateA = true;
+      mobileCount++;
+    } else if (mobileCount <= 90 && mobileCount > 60) {
+      animateA = false;
+      fadeA = 0;
+      animateR = true;
+      mobileCount++;
+    } else if (mobileCount <= 120 && mobileCount > 90) {
+      animateR = false;
+      fadeR = 0;
+      animateGI = true;
+      mobileCount++;
+    } else if (mobileCount <= 150 && mobileCount > 120) {
+      animateGI = false;
+      fadeGI = 0;
+      animateM = true;
+      mobileCount++;
+    } else if (mobileCount <= 180 && mobileCount > 150) {
+      animateM = false;
+      fadeM = 0;
+      animateC = true;
+      linkM.html("MAPS");
+      mobileCount++;
+    }else if (mobileCount <= 210 && mobileCount > 180) {
+      animateC = false;
+      fadeC = 0;
+      animateE = true;
+      linkC.html("CALENDAR");
+      mobileCount++;
+    }else if (mobileCount <= 240 && mobileCount > 210) {
+      animateE = false;
+      fadeE = 0;
+      animateAr = true;
+      mobileCount++;
+    }else if (mobileCount <= 270 && mobileCount > 240) {
+      animateAr = false;
+      fadeAr = 0;
+      mainOff = false;
+      mobileCount++;
+    }else if (mobileCount > 270) {
+      mobileCount = 0;
     }
-}
-
-// } // end of draw
-
+  }
+} // end of draw
 
 
 //-------------------------------------------------------------

@@ -46,24 +46,24 @@ var mobileCount = 0;
 function preload() {
 
   //layers
-  layerA = loadImage('EN/assets/RedLayer.png');
-  layerR = loadImage('EN/assets/BlueLayer.png');
-  layerM = loadImage('EN/assets/VioletLayer.png');
-  layerE = loadImage('EN/assets/GrayLayer.png');
-  layerC = loadImage('EN/assets/GreenLayer.png');
-  layerAr = loadImage('EN/assets/OrangeLayer.png');
-  layerGI = loadImage('EN/assets/YellowLayer.png');
-  layerMain = loadImage('EN/assets/LayerAll.png');
+  layerA = loadImage('assets/RedLayer.png');
+  layerR = loadImage('assets/BlueLayer.png');
+  layerM = loadImage('assets/VioletLayer.png');
+  layerE = loadImage('assets/GrayLayer.png');
+  layerC = loadImage('assets/GreenLayer.png');
+  layerAr = loadImage('assets/OrangeLayer.png');
+  layerGI = loadImage('assets/YellowLayer.png');
+  layerMain = loadImage('assets/LayerAll.png');
   //icons
-  iconA = loadImage('EN/assets/rrIcon.png');
-  iconR = loadImage('EN/assets/bIcon.png');
-  iconM = loadImage('EN/assets/vIcon.png');
-  iconE = loadImage('EN/assets/rIcon.png');
-  iconC = loadImage('EN/assets/gIcon.png');
-  iconAr = loadImage('EN/assets/oIcon.png');
-  iconGI = loadImage('EN/assets/yIcon.png');
+  iconA = loadImage('assets/rrIcon.png');
+  iconR = loadImage('assets/bIcon.png');
+  iconM = loadImage('assets/vIcon.png');
+  iconE = loadImage('assets/rIcon.png');
+  iconC = loadImage('assets/gIcon.png');
+  iconAr = loadImage('assets/oIcon.png');
+  iconGI = loadImage('assets/yIcon.png');
   //logo
-  amLogo = loadImage('EN/assets/amlogo.png');
+  amLogo = loadImage('assets/amlogo.png');
 }
 
 //-------------------------------------------------------------
@@ -84,27 +84,27 @@ function setup() {
   //-------------------------------------------------------------
 
 
-  linkR = createA('EN/resources', 'RESOURCES');
+  linkR = createA('resources', 'RESOURCES');
 
-  linkA = createA('EN/about', 'ABOUT');
+  linkA = createA('about', 'ABOUT');
 
   linkC = createA('#', 'CALENDER');
 
   linkAr = createA('http://artmattersfestival.org/archive/', 'ARCHIVE');
 
-  linkGI = createA('EN/getInvolved', 'GET INVOLVED');
+  linkGI = createA('getInvolved', 'GET INVOLVED');
 
-  linkE = createA('EN/events', 'EVENTS');
+  linkE = createA('events', 'EVENTS');
 
   linkM = createA('#', 'MAP');
 
-  linkFR = createA('FR/accueil', 'FR');
+  linkFR = createA('fr/accueil', 'FR');
   linkFR.id('lang');
 
 
 
   if (windowWidth > 650) {
-    linkOffset = 90 - (windowHeight) * 0.02
+    linkOffset = 90 - (windowHeight) * 0.2
     linkBuffer = 80 - (windowHeight) * 0.015
     var linkMargin = 29;
   } else {
@@ -172,8 +172,8 @@ function draw() {
   }
 
   if (windowWidth > 650) {
-    linkOffset = 90 - (windowHeight) * 0.005
-    linkBuffer = 65 - (windowHeight) * 0.015
+    linkOffset = 90 - (windowHeight) * 0.01
+    linkBuffer = 65 - (windowHeight) * 0.005
     var linkMargin = 29;
   } else {
     linkOffset = 75 - (windowHeight) * 0.05

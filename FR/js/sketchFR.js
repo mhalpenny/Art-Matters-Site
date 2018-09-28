@@ -94,7 +94,7 @@ function setup() {
 
   linkGI = createA('impliquezVous', 'IMPLIQUEZ-VOUS');
 
-  linkE = createA('#', 'ÉVÉNEMENTS');
+  linkE = createA('evenements', 'ÉVÉNEMENTS');
 
   linkM = createA('#', 'CARTE');
 

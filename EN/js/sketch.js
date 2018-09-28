@@ -98,7 +98,7 @@ function setup() {
 
   linkM = createA('#', 'MAP');
 
-  linkFR = createA('fr/accueil', 'FR');
+  linkFR = createA('../fr/accueil', 'FR');
   linkFR.id('lang');
 
 

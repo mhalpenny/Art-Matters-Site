@@ -2,9 +2,10 @@
 Post Call Outs
 
 
-1) Change animation fill to the background color.
-2) Update home page background.
-3) 
+- Changed home page
+
+1) Fix event location of nav bar
+
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 

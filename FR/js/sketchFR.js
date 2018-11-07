@@ -18,6 +18,7 @@ var animateR = false,
   animateCSM = false,
   animateCSC = false,
   animateCSE = false;
+  var logoSpin;
 var fadeR = 0,
   fadeA = 0,
   fadeM = 0,
@@ -185,13 +186,33 @@ var linkMargin = 35;
     var linkMargin = 29;
   }
 
+  //Buttons
+  fill(252, 19, 100, 50);
+  rect(linkMargin-10, (linkBuffer + linkOffset)-15, 115, 55, 20);
+    fill(17, 66, 81, 50);
+  rect(linkMargin-10, (linkBuffer + linkOffset*2)-15, 185, 55, 20);
+    fill(239, 196, 88, 50);
+  rect(linkMargin-10, (linkBuffer + linkOffset*3)-15, 225, 55, 20);
+  if (animateM == false){
+  fill(252, 19, 100, 50);
+  rect(linkMargin-10, (linkBuffer + linkOffset*4)-15, 100, 55, 20);
+}
+  if (animateC == false){
+    fill(17, 66, 81, 50);
+  rect(linkMargin-10, (linkBuffer + linkOffset*5)-15, 175, 55, 20);
+}
+    fill(239, 196, 88, 50);
+  rect(linkMargin-10, (linkBuffer + linkOffset*6)-15, 125, 55, 20);
+  fill(252, 19, 100, 50);
+  rect(linkMargin-10, (linkBuffer + linkOffset*7)-15, 145, 55, 20);
+
     //positioning
     linkA.position(linkMargin, linkBuffer + linkOffset);
     linkR.position(linkMargin, linkBuffer + linkOffset * 2);
     linkGI.position(linkMargin, linkBuffer + linkOffset * 3);
-    linkM.position(linkMargin, linkBuffer + linkOffset * 4);
+    linkE.position(linkMargin, linkBuffer + linkOffset * 4);
     linkC.position(linkMargin, linkBuffer + linkOffset * 5);
-    linkE.position(linkMargin, linkBuffer + linkOffset * 6);
+    linkM.position(linkMargin, linkBuffer + linkOffset * 6);
     linkAr.position(linkMargin, linkBuffer + linkOffset * 7);
 
     var xPos = (60 + (windowWidth/50));
@@ -272,7 +293,9 @@ var linkMargin = 35;
     image(layerM, windowWidth / 2, height / 2, windowWidth, windowHeight);
     image(iconM, linkMargin, (linkBuffer + linkOffset * 4), 50, 50);
 
-    linkM.html('ARRIVE BIENTÔT');
+    fill(252, 19, 100, 50);
+    rect(linkMargin-10, (linkBuffer + linkOffset*4)-15, 225, 55, 20);
+    linkM.html('COMING SOON');
     noTint();
     fadeM += fadeIncr;
   }
@@ -283,8 +306,10 @@ var linkMargin = 35;
     image(layerC, windowWidth / 2, height / 2, windowWidth, windowHeight);
     image(iconC, linkMargin, (linkBuffer + linkOffset * 5), 50, 50);
 
+    fill(17, 66, 81, 50);
+  rect(linkMargin-10, (linkBuffer + linkOffset*5)-15, 225, 55, 20);
     noTint();
-    linkC.html('ARRIVE BIENTÔT');
+    linkC.html('COMING SOON');
     fadeC += fadeIncr;
   }
 
@@ -303,18 +328,27 @@ var linkMargin = 35;
   //     LOGO ANIMATION (DRAW)
   //-------------------------------------------------------------
 
+
+  angleMode(DEGREES);
+  imageMode(CENTER);
+
+  logoSpin = ((mouseY/2) + (mouseX/5));
+  push();
   if (windowWidth > 650) {
-    imageMode(CENTER);
-    tint(255, 255);
-    image(amLogo, 73, 60, 110, 110);
     noTint();
-  } else {
-    imageMode(CENTER);
+    fill(248, 251, 252, 50);
+    translate(linkMargin * 2.3, 60);
+    rotate(logoSpin);
     tint(255, 255);
+    ellipse(0, 0, 120, 120);
+    image(amLogo, 0, 0, 110, 110);
+  } else {
+    tint(255, 255);
+    imageMode(CENTER);
     image(amLogo, 65, 50, 80, 80);
     noTint();
   }
-
+  pop();
 
     //-------------------------------------------------------------
     //     MOBILE ANIMATION (DRAW)

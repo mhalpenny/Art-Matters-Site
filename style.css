@@ -43,6 +43,7 @@ font-family: NAV;
   a{
     text-shadow: 1px 1px white;
     font-size: 12px;
+    color:black;
 }
 #lang{
   font-size: 12px;
@@ -51,4 +52,5 @@ font-family: NAV;
     font-family: NAV;
     src: url("EN/fonts/Lack-Line-Regular.otf") format("opentype");
 }
+
 }

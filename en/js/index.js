@@ -190,13 +190,13 @@ function draw() {
     var buttonFade = 50 + (fadeMain/3);
     //Buttons
     fill(252, 19, 100, buttonFade);
-    rect(linkMargin - 10, (linkBuffer + linkOffset) - 15, 115, 55, 20);
+    rect(linkMargin - 10, (linkBuffer + linkOffset) - 15, 117, 55, 20);
     fill(17, 66, 81, buttonFade);
-    rect(linkMargin - 10, (linkBuffer + linkOffset * 2) - 15, 185, 55, 20);
+    rect(linkMargin - 10, (linkBuffer + linkOffset * 2) - 15, 188, 55, 20);
     fill(239, 196, 88, buttonFade);
-    rect(linkMargin - 10, (linkBuffer + linkOffset * 3) - 15, 225, 55, 20);
+    rect(linkMargin - 10, (linkBuffer + linkOffset * 3) - 15, 232, 55, 20);
     fill(252, 19, 100, buttonFade);
-    rect(linkMargin - 10, (linkBuffer + linkOffset * 4) - 15, 125, 55, 20);
+    rect(linkMargin - 10, (linkBuffer + linkOffset * 4) - 15, 128, 55, 20);
     if (animateC == false) {
       fill(17, 66, 81, buttonFade);
       rect(linkMargin - 10, (linkBuffer + linkOffset * 5) - 15, 175, 55, 20);
@@ -223,116 +223,117 @@ function draw() {
   linkFR.position(windowWidth - xPos, 30);
 
 
-
-
   //-------------------------------------------------------------
-  //     PNG ANIMATIONS (DRAW)
+  //    PNG ANIMATION (DRAW)
   //-------------------------------------------------------------
 
-  //align with the cnter of the page
-  imageMode(CENTER);
+    //align with the cnter of the page
+    imageMode(CENTER);
 
-  //---MAIN---
-  if (mainOff == false) {
-    tint(255, fadeMain);
-    image(layerMain, windowWidth / 2, height / 2, windowWidth, windowHeight);
-    noTint();
+  var drawX = windowWidth/1.9;
+    var drawY = windowHeight/2;
 
-    //reset links
-    linkM.html('MAPS');
-    linkC.html('CALENDAR');
+    //---MAIN---
+    if (mainOff == false) {
+      tint(255, fadeMain);
+      image(layerMain, drawX, drawY, windowWidth, windowHeight);
+      noTint();
 
-    if (fadeMain <= 540) {
-      fadeMain += fadeIncr;
+      //reset links
+      linkM.html('MAPS');
+      linkC.html('CALENDAR');
+
+      if (fadeMain <= 540) {
+        fadeMain += fadeIncr;
+      }
     }
-  }
 
-  // pause animation if already at max
-  //but leave time for icons to fade
-  if (fadeMain <= 20) {
-    cpuPause = false;
-  } else if (fadeMain >= 500) {
-    cpuPause = true;
-  }
-
-
-
-  //---R---
-  if (animateR == true) {
-    tint(255, fadeR);
-    image(layerR, windowWidth / 2, height / 2, windowWidth, windowHeight);
-    image(iconR, linkMargin, (linkBuffer + linkOffset * 2), 50, 50);
-    noTint();
-    fadeR += fadeIncr;
-  }
-
-  //---A---
-  if (animateA == true) {
-    tint(255, fadeA);
-    image(layerA, windowWidth / 2, height / 2, windowWidth, windowHeight);
-    image(iconA, linkMargin, (linkBuffer + linkOffset), 50, 50);
-    noTint();
-    fadeA += fadeIncr;
-  }
-
-  //---GI---
-  if (animateGI == true) {
-    tint(255, fadeGI);
-    image(layerGI, windowWidth / 2, height / 2, windowWidth, windowHeight);
-    image(iconGI, linkMargin, (linkBuffer + linkOffset * 3), 50, 50);
-    noTint();
-    fadeGI += fadeIncr;
-  }
-
-  //---Ar---
-  if (animateAr == true) {
-    tint(255, fadeAr);
-    image(layerAr, windowWidth / 2, height / 2, windowWidth, windowHeight);
-    image(iconAr, linkMargin, (linkBuffer + linkOffset * 7), 50, 50);
-    noTint();
-    fadeAr += fadeIncr;
-  }
-
-  //---M---
-  if (animateM == true) {
-    tint(255, fadeM);
-    image(layerM, windowWidth / 2, height / 2, windowWidth, windowHeight);
-    image(iconM, linkMargin, (linkBuffer + linkOffset * 6), 50, 50);
-
-    if (windowWidth > 650) {
-      fill(239, 196, 88, 50);
-      rect(linkMargin - 10, (linkBuffer + linkOffset * 6) - 15, 225, 55, 20);
+    // pause animation if already at max
+    //but leave time for icons to fade
+    if (fadeMain <= 20) {
+      cpuPause = false;
+    } else if (fadeMain >= 500) {
+      cpuPause = true;
     }
-    linkM.html('COMING SOON');
-    noTint();
-    fadeM += fadeIncr;
-  }
 
-  //---C---
-  if (animateC == true) {
-    tint(255, fadeC);
-    image(layerC, windowWidth / 2, height / 2, windowWidth, windowHeight);
-    image(iconC, linkMargin, (linkBuffer + linkOffset * 5), 50, 50);
 
-    if (windowWidth > 650) {
-      fill(17, 66, 81, 50);
-      rect(linkMargin - 10, (linkBuffer + linkOffset * 5) - 15, 225, 55, 20);
+
+    //---R---
+    if (animateR == true) {
+      tint(255, fadeR);
+      image(layerR, drawX, drawY, windowWidth, windowHeight);
+      image(iconR, linkMargin, (linkBuffer + linkOffset * 2), 50, 50);
+      noTint();
+      fadeR += fadeIncr;
     }
-    noTint();
-    linkC.html('COMING SOON');
-    fadeC += fadeIncr;
-  }
 
-  //---E---
-  if (animateE == true) {
-    tint(255, fadeE);
-    image(layerE, windowWidth / 2, height / 2, windowWidth, windowHeight);
-    image(iconE, linkMargin, (linkBuffer + linkOffset * 4), 50, 50);
+    //---A---
+    if (animateA == true) {
+      tint(255, fadeA);
+      image(layerA, drawX, drawY, windowWidth, windowHeight);
+      image(iconA, linkMargin, (linkBuffer + linkOffset), 50, 50);
+      noTint();
+      fadeA += fadeIncr;
+    }
 
-    noTint();
+    //---GI---
+    if (animateGI == true) {
+      tint(255, fadeGI);
+      image(layerGI, drawX, drawY, windowWidth, windowHeight);
+      image(iconGI, linkMargin, (linkBuffer + linkOffset * 3), 50, 50);
+      noTint();
+      fadeGI += fadeIncr;
+    }
 
-    fadeE += fadeIncr;
-  }
+    //---Ar---
+    if (animateAr == true) {
+      tint(255, fadeAr);
+      image(layerAr, drawX, drawY, windowWidth, windowHeight);
+      image(iconAr, linkMargin, (linkBuffer + linkOffset * 7), 50, 50);
+      noTint();
+      fadeAr += fadeIncr;
+    }
+
+    //---M---
+    if (animateM == true) {
+      tint(255, fadeM);
+      image(layerM, drawX, drawY, windowWidth, windowHeight);
+      image(iconM, linkMargin, (linkBuffer + linkOffset * 6), 50, 50);
+
+      if (windowWidth > 650) {
+        fill(239, 196, 88, 50);
+        rect(linkMargin - 10, (linkBuffer + linkOffset * 6) - 15, 225, 55, 20);
+      }
+      linkM.html('COMING SOON');
+      noTint();
+      fadeM += fadeIncr;
+    }
+
+    //---C---
+    if (animateC == true) {
+      tint(255, fadeC);
+      image(layerC, drawX, drawY, windowWidth, windowHeight);
+      image(iconC, linkMargin, (linkBuffer + linkOffset * 5), 50, 50);
+
+      if (windowWidth > 650) {
+        fill(17, 66, 81, 50);
+        rect(linkMargin - 10, (linkBuffer + linkOffset * 5) - 15, 225, 55, 20);
+      }
+      noTint();
+      linkC.html('COMING SOON');
+      fadeC += fadeIncr;
+    }
+
+    //---E---
+    if (animateE == true) {
+      tint(255, fadeE);
+      image(layerE, drawX, drawY, windowWidth, windowHeight);
+      image(iconE, linkMargin, (linkBuffer + linkOffset * 4), 50, 50);
+
+      noTint();
+
+      fadeE += fadeIncr;
+    }
 
   //-------------------------------------------------------------
   //     LOGO ANIMATION (DRAW)

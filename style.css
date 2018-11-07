@@ -37,6 +37,7 @@ font-family: NAV;
   font-weight: bold;
   letter-spacing: 3px;
   text-decoration: none;
+  color: black;
 }
 
 @media only screen and (max-width: 650px) {

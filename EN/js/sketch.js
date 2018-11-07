@@ -39,6 +39,7 @@ var loading = true;
 var loadCount = 0;
 var cpuPause = false;
 var mobileCount = 0;
+var drawX, drawY;
 
 
 //-------------------------------------------------------------
@@ -48,24 +49,24 @@ var mobileCount = 0;
 function preload() {
 
   //layers
-  layerA = loadImage('en/assets/RedLayer.png');
-  layerR = loadImage('en/assets/BlueLayer.png');
-  layerM = loadImage('en/assets/VioletLayer.png');
-  layerE = loadImage('en/assets/GrayLayer.png');
-  layerC = loadImage('en/assets/GreenLayer.png');
-  layerAr = loadImage('en/assets/OrangeLayer.png');
-  layerGI = loadImage('en/assets/YellowLayer.png');
-  layerMain = loadImage('en/assets/LayerAll.png');
+  layerA = loadImage('assets/RedLayer.png');
+  layerR = loadImage('assets/BlueLayer.png');
+  layerM = loadImage('assets/VioletLayer.png');
+  layerE = loadImage('assets/GrayLayer.png');
+  layerC = loadImage('assets/GreenLayer.png');
+  layerAr = loadImage('assets/OrangeLayer.png');
+  layerGI = loadImage('assets/YellowLayer.png');
+  layerMain = loadImage('assets/LayerAll.png');
   //icons
-  iconA = loadImage('en/assets/rrIcon.png');
-  iconR = loadImage('en/assets/bIcon.png');
-  iconM = loadImage('en/assets/vIcon.png');
-  iconE = loadImage('en/assets/rIcon.png');
-  iconC = loadImage('en/assets/gIcon.png');
-  iconAr = loadImage('en/assets/oIcon.png');
-  iconGI = loadImage('en/assets/yIcon.png');
+  iconA = loadImage('assets/rrIcon.png');
+  iconR = loadImage('assets/bIcon.png');
+  iconM = loadImage('assets/vIcon.png');
+  iconE = loadImage('assets/rIcon.png');
+  iconC = loadImage('assets/gIcon.png');
+  iconAr = loadImage('assets/oIcon.png');
+  iconGI = loadImage('assets/yIcon.png');
   //logo
-  amLogo = loadImage('en/assets/amlogo.png');
+  amLogo = loadImage('assets/amlogo.png');
 }
 
 //-------------------------------------------------------------
@@ -86,17 +87,17 @@ function setup() {
   //-------------------------------------------------------------
 
 
-  linkR = createA('en/resources', 'RESOURCES');
+  linkR = createA('resources', 'RESOURCES');
 
-  linkA = createA('en/about', 'ABOUT');
+  linkA = createA('about', 'ABOUT');
 
   linkC = createA('#', 'CALENDER');
 
   linkAr = createA('http://artmattersfestival.org/archive/', 'ARCHIVE');
 
-  linkGI = createA('en/getInvolved', 'GET INVOLVED');
+  linkGI = createA('getInvolved', 'GET INVOLVED');
 
-  linkE = createA('en/events', 'EVENTS');
+  linkE = createA('events', 'EVENTS');
 
   linkM = createA('#', 'MAP');
 
@@ -190,13 +191,13 @@ function draw() {
     var buttonFade = 50 + (fadeMain/3);
     //Buttons
     fill(252, 19, 100, buttonFade);
-    rect(linkMargin - 10, (linkBuffer + linkOffset) - 15, 115, 55, 20);
+    rect(linkMargin - 10, (linkBuffer + linkOffset) - 15, 117, 55, 20);
     fill(17, 66, 81, buttonFade);
-    rect(linkMargin - 10, (linkBuffer + linkOffset * 2) - 15, 185, 55, 20);
+    rect(linkMargin - 10, (linkBuffer + linkOffset * 2) - 15, 188, 55, 20);
     fill(239, 196, 88, buttonFade);
-    rect(linkMargin - 10, (linkBuffer + linkOffset * 3) - 15, 225, 55, 20);
+    rect(linkMargin - 10, (linkBuffer + linkOffset * 3) - 15, 232, 55, 20);
     fill(252, 19, 100, buttonFade);
-    rect(linkMargin - 10, (linkBuffer + linkOffset * 4) - 15, 125, 55, 20);
+    rect(linkMargin - 10, (linkBuffer + linkOffset * 4) - 15, 128, 55, 20);
     if (animateC == false) {
       fill(17, 66, 81, buttonFade);
       rect(linkMargin - 10, (linkBuffer + linkOffset * 5) - 15, 175, 55, 20);
@@ -232,10 +233,13 @@ function draw() {
   //align with the cnter of the page
   imageMode(CENTER);
 
+  drawX = windowWidth/1.9;
+  drawY = windowHeight/2;
+
   //---MAIN---
   if (mainOff == false) {
     tint(255, fadeMain);
-    image(layerMain, windowWidth / 2, height / 2, windowWidth, windowHeight);
+    image(layerMain, drawX, drawY, windowWidth, windowHeight);
     noTint();
 
     //reset links
@@ -260,7 +264,7 @@ function draw() {
   //---R---
   if (animateR == true) {
     tint(255, fadeR);
-    image(layerR, windowWidth / 2, height / 2, windowWidth, windowHeight);
+    image(layerR, drawX, drawY, windowWidth, windowHeight);
     image(iconR, linkMargin, (linkBuffer + linkOffset * 2), 50, 50);
     noTint();
     fadeR += fadeIncr;
@@ -269,7 +273,7 @@ function draw() {
   //---A---
   if (animateA == true) {
     tint(255, fadeA);
-    image(layerA, windowWidth / 2, height / 2, windowWidth, windowHeight);
+    image(layerA, drawX, drawY, windowWidth, windowHeight);
     image(iconA, linkMargin, (linkBuffer + linkOffset), 50, 50);
     noTint();
     fadeA += fadeIncr;
@@ -278,7 +282,7 @@ function draw() {
   //---GI---
   if (animateGI == true) {
     tint(255, fadeGI);
-    image(layerGI, windowWidth / 2, height / 2, windowWidth, windowHeight);
+    image(layerGI, drawX, drawY, windowWidth, windowHeight);
     image(iconGI, linkMargin, (linkBuffer + linkOffset * 3), 50, 50);
     noTint();
     fadeGI += fadeIncr;
@@ -287,7 +291,7 @@ function draw() {
   //---Ar---
   if (animateAr == true) {
     tint(255, fadeAr);
-    image(layerAr, windowWidth / 2, height / 2, windowWidth, windowHeight);
+    image(layerAr, drawX, drawY, windowWidth, windowHeight);
     image(iconAr, linkMargin, (linkBuffer + linkOffset * 7), 50, 50);
     noTint();
     fadeAr += fadeIncr;
@@ -296,7 +300,7 @@ function draw() {
   //---M---
   if (animateM == true) {
     tint(255, fadeM);
-    image(layerM, windowWidth / 2, height / 2, windowWidth, windowHeight);
+    image(layerM, drawX, drawY, windowWidth, windowHeight);
     image(iconM, linkMargin, (linkBuffer + linkOffset * 6), 50, 50);
 
     if (windowWidth > 650) {
@@ -311,7 +315,7 @@ function draw() {
   //---C---
   if (animateC == true) {
     tint(255, fadeC);
-    image(layerC, windowWidth / 2, height / 2, windowWidth, windowHeight);
+    image(layerC, drawX, drawY, windowWidth, windowHeight);
     image(iconC, linkMargin, (linkBuffer + linkOffset * 5), 50, 50);
 
     if (windowWidth > 650) {
@@ -326,7 +330,7 @@ function draw() {
   //---E---
   if (animateE == true) {
     tint(255, fadeE);
-    image(layerE, windowWidth / 2, height / 2, windowWidth, windowHeight);
+    image(layerE, drawX, drawY, windowWidth, windowHeight);
     image(iconE, linkMargin, (linkBuffer + linkOffset * 4), 50, 50);
 
     noTint();
@@ -334,21 +338,6 @@ function draw() {
     fadeE += fadeIncr;
   }
 
-  //-------------------------------------------------------------
-  //     LOGO ANIMATION (DRAW)
-  //-------------------------------------------------------------
-
-  // if (windowWidth > 650) {
-  //   imageMode(CENTER);
-  //   tint(255, 255);
-  //   image(amLogo, 73, 60, 110, 110);
-  //   noTint();
-  // } else {
-  //   imageMode(CENTER);
-  //   tint(255, 255);
-  //   image(amLogo, 65, 50, 80, 80);
-  //   noTint();
-  // }
 
   //-------------------------------------------------------------
   //     LOGO ANIMATION (DRAW)

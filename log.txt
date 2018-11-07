@@ -1,3 +1,15 @@
+
+Post Call Outs
+
+
+1) Change animation fill to the background color.
+2) Update home page background.
+3) 
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+
 TO UPDATE
 
 1) Base files for subpage

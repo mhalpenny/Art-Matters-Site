@@ -105,15 +105,16 @@ function setup() {
 
 
 
-  if (windowWidth > 650) {
-    linkOffset = 90 - (windowHeight) * 0.02
-    linkBuffer = 80 - (windowHeight) * 0.015
-    var linkMargin = 29;
-  } else {
-    linkOffset = 75 - (windowHeight) * 0.05
-    linkBuffer = 80 - (windowHeight) * 0.015
-    var linkMargin = 29;
-  }
+  //Nav formatting
+    if (windowWidth > 650) {
+      linkOffset = 55 + (windowHeight) * 0.01
+      linkBuffer = 75 - (windowHeight) * 0.005
+      var linkMargin = 29;
+    } else {
+      linkOffset = 75 - (windowHeight) * 0.05
+      linkBuffer = 80 - (windowHeight) * 0.015
+      var linkMargin = 29;
+    }
 
   //positioning
   linkA.position(linkMargin, linkBuffer + linkOffset);
@@ -173,16 +174,16 @@ function draw() {
 
   }
 
-
-    if (windowWidth > 650) {
-      linkOffset = 90 - (windowHeight) * 0.01
-      linkBuffer = 65 - (windowHeight) * 0.005
-      var linkMargin = 29;
-    } else {
-      linkOffset = 75 - (windowHeight) * 0.05
-      linkBuffer = 80 - (windowHeight) * 0.015
-      var linkMargin = 29;
-    }
+//Nav formatting
+  if (windowWidth > 650) {
+    linkOffset = 55 + (windowHeight) * 0.01
+    linkBuffer = 75 - (windowHeight) * 0.005
+    var linkMargin = 29;
+  } else {
+    linkOffset = 75 - (windowHeight) * 0.05
+    linkBuffer = 80 - (windowHeight) * 0.015
+    var linkMargin = 29;
+  }
 
     //positioning
     linkA.position(linkMargin, linkBuffer + linkOffset);

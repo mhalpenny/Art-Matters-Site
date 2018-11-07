@@ -15,8 +15,8 @@ var fadeR = 0, fadeA = 0, fadeM = 0, fadeE = 0, fadeAr = 0, fadeC = 0, fadeGI = 
 var linkOffset, linkBuffer;
 var fadeIncr = 35;
 var bColorVal = 0;
-var widthVal = 14;
-var heightVal = 14;
+var widthVal = 3;
+var heightVal = 10;
 var flip = true;
 var spinX, spinY;
 var bodyH, canvasH;
@@ -67,8 +67,10 @@ function setup() {
   bodyH = document.getElementById('gallery');
   //use id to get div height for canvas scrolling length
   canvasH = bodyH.scrollHeight + 250;
+
+  var canvasW = windowWidth/4;
   //create canvas at appropriate length for page
-  canvas = createCanvas(windowWidth, canvasH);
+  canvas = createCanvas(canvasW, canvasH);
   //basic canvas formatting
   canvas.style("z-index", "-1");
   canvas.position(0, 0);
@@ -176,7 +178,7 @@ function draw() {
   //     INTERACTIVE SQUARES (DRAW)
   //-------------------------------------------------------------
 //
-  backgroundPattern();
+  // backgroundPattern();
 
 
 
@@ -523,8 +525,9 @@ function windowResized() {
   var bodyH = document.getElementById('gallery');
   //use id to get div height for canvas scrolling length
   var canvasH = bodyH.scrollHeight + 50;
+  var canvasW = windowWidth/4
 
-  resizeCanvas(windowWidth, (canvasH));
+  resizeCanvas(canvasW, (canvasH));
 
   background(248, 251, 252, fadeBack);
   nonLoop = false;

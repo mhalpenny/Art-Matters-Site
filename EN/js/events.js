@@ -15,8 +15,8 @@ var fadeR = 0, fadeA = 0, fadeM = 0, fadeE = 0, fadeAr = 0, fadeC = 0, fadeGI = 
 var linkOffset, linkBuffer;
 var fadeIncr = 35;
 var bColorVal = 0;
-var widthVal = 14;
-var heightVal = 14;
+var widthVal = 3;
+var heightVal = 10;
 var flip = true;
 var spinX, spinY;
 var bodyH, canvasH;
@@ -66,9 +66,11 @@ function setup() {
   //retrieve div id
   bodyH = document.getElementById('gallery');
   //use id to get div height for canvas scrolling length
-  canvasH = bodyH.scrollHeight + 250;
+  canvasH = bodyH.scrollHeight - 250;
+  //relieve overload on pixel size with reduced width
+  canvasW = windowWidth/4;
   //create canvas at appropriate length for page
-  canvas = createCanvas(windowWidth, canvasH);
+  canvas = createCanvas(canvasW, canvasH);
   //basic canvas formatting
   canvas.style("z-index", "-1");
   canvas.position(0, 0);
@@ -183,175 +185,8 @@ function draw() {
   //-------------------------------------------------------------
 //
 
-    backgroundPattern();
-//
-// if (windowWidth > 650){
-//
-//
-//
-//   //variable for all squares
-//   var width = (windowWidth / 1.7);
-//   var height = (windowWidth / 3.2);
-//
-//
-//   //---DIV BACKGROUND 1---
-//
-//   var myDiv = document.getElementById('one');
-//   var rectDiv = myDiv.getBoundingClientRect();
-//   var leftOffset = rectDiv.left - isAnimation;
-//   var leftToRight = leftOffset + (top*2);
-//   var right = rectDiv.right;
-//   var left = rectDiv.left;
-//   var half = (right - left) / 2;
-//   var posterTop = rectDiv.bottom + (height * 0.6);
-//
-//   imageMode(CENTER);
-//   angleMode(DEGREES);
-//   push();
-//     translate(leftToRight, posterTop + (top));
-//   rotate(0);
-//   image(event1, 0, 0, width, height);
-//   pop();
-//
-//
-//    //---DIV BACKGROUND 2---
-//
-//   var myDiv = document.getElementById('two');
-//   var rectDiv = myDiv.getBoundingClientRect();
-//   var rightOffset = rectDiv.right + isAnimation;
-//   var rightToLeft = rightOffset - (top/2.5);
-//   var right = rectDiv.right;
-//   var left = rectDiv.left;
-//   var half = (right - left) / 2;
-//   var posterTop = rectDiv.bottom + (height * 0.6);
-//
-//   imageMode(CENTER);
-//   angleMode(DEGREES);
-//   push();
-//     translate(rightToLeft, posterTop + (top));
-//   rotate(0);
-//   image(event2, 0, 0, width, height);
-//   pop();
-//
-//  //  //---DIV BACKGROUND 3---
-//  //
-//  //  var myDiv = document.getElementById('three');
-//  //  var rectDiv = myDiv.getBoundingClientRect();
-//  //
-//  //  var leftOffset = rectDiv.left - isAnimation;
-//  //  var leftToRight = leftOffset + (top/5);
-//  //  var right = rectDiv.right;
-//  //  var left = rectDiv.left;
-//  //  var half = (right - left) / 2;
-//  //  var posterTop = rectDiv.bottom + (height * 0.6);
-//  //
-//  //  imageMode(CENTER);
-//  //  angleMode(DEGREES);
-//  //  push();
-//  //    translate(leftToRight, posterTop + (top));
-//  //  rotate(0);
-//  //  image(event3, 0, 0, width, height);
-//  //  pop();
-//  //
-//  //  //---DIV BACKGROUND 4---
-//  //
-//  // var myDiv = document.getElementById('four');
-//  // var rectDiv = myDiv.getBoundingClientRect();
-//  // var rightOffset = rectDiv.right + isAnimation;
-//  // var rightToLeft = rightOffset - (top/7);
-//  // var right = rectDiv.right;
-//  // var left = rectDiv.left;
-//  // var half = (right - left) / 2;
-//  // var posterTop = rectDiv.bottom + (height * 0.6);
-//  //
-//  // imageMode(CENTER);
-//  // angleMode(DEGREES);
-//  // push();
-//  // translate(rightToLeft, posterTop + (top));
-//  // rotate(0);
-//  // image(event4, 0, 0, width, height);
-//  // pop();
-//
-// } //end of full page
-//  else{
-//
-//    var height = (windowWidth / 2.5);
-//
-//      //---DIV BACKGROUND 1---
-//
-//      var myDiv = document.getElementById('one');
-//      var rectDiv = myDiv.getBoundingClientRect();
-//
-//
-//      var right = rectDiv.right;
-//      var left = rectDiv.left;
-//      var width = right-left;
-//      var half = (right - left) / 2;
-//      var posterTop = rectDiv.bottom + (height * 0.6);
-//
-//      imageMode(CENTER);
-//      angleMode(DEGREES);
-//      push();
-//      translate(rectDiv.left + half, posterTop + top);
-//      rotate(0);
-//      image(event1, 0, 0, width, height);
-//      pop();
-//
-//
-//       //---DIV BACKGROUND 2---
-//
-//      var myDiv = document.getElementById('two');
-//      var rectDiv = myDiv.getBoundingClientRect();
-//      var right = rectDiv.right;
-//      var left = rectDiv.left;
-//      var width = right-left;
-//      var half = (right - left) / 2;
-//      var posterTop = rectDiv.bottom + (height * 0.6);
-//
-//      imageMode(CENTER);
-//      angleMode(DEGREES);
-//      push();
-//      translate(rectDiv.right - half, posterTop + (top));
-//      rotate(0);
-//      image(event2, 0, 0, width, height);
-//      pop();
-//
-//     //  //---DIV BACKGROUND 3---
-//     //
-//     //  var myDiv = document.getElementById('three');
-//     //  var rectDiv = myDiv.getBoundingClientRect();
-//     //  var right = rectDiv.right;
-//     //  var left = rectDiv.left;
-//     //  var half = (right - left) / 2;
-//     //  var posterTop = rectDiv.bottom + (height * 0.6);
-//     //
-//     //  imageMode(CENTER);
-//     //  angleMode(DEGREES);
-//     //  push();
-//     //  translate(leftToRight, posterTop + (top));
-//     //  translate(rectDiv.left + half, posterTop + top);
-//     //  rotate(0);
-//     //  image(event3, 0, 0, width, height);
-//     //  pop();
-//     //
-//     //  //---DIV BACKGROUND 4---
-//     //
-//     // var myDiv = document.getElementById('four');
-//     // var rectDiv = myDiv.getBoundingClientRect();
-//     // var right = rectDiv.right;
-//     // var left = rectDiv.left;
-//     // var half = (right - left) / 2;
-//     // var posterTop = rectDiv.bottom + (height * 0.6);
-//     //
-//     // imageMode(CENTER);
-//     // angleMode(DEGREES);
-//     // push();
-//     // translate(rectDiv.right - half, posterTop + (top));
-//     // rotate(0);
-//     // image(event4, 0, 0, width, height);
-//     // pop();
-//
-// } //end of mobile animations
+    // backgroundPattern();
+
 
 
   //-------------------------------------------------------------
@@ -698,8 +533,9 @@ function windowResized() {
   var bodyH = document.getElementById('gallery');
   //use id to get div height for canvas scrolling length
   var canvasH = bodyH.scrollHeight + 50;
+  var canvasW = windowWidth/4;
 
-  resizeCanvas(windowWidth, (canvasH));
+  resizeCanvas(canvasW, (canvasH));
 
   background(248, 251, 252, fadeBack);
   nonLoop = false;

@@ -191,23 +191,23 @@ function draw() {
     var buttonFade = 50 + (fadeMain/3);
     //Buttons
     fill(252, 19, 100, buttonFade);
-    rect(linkMargin - 10, (linkBuffer + linkOffset) - 15, 117, 55, 20);
+    rect(linkMargin - 10, (linkBuffer + linkOffset) - 15, 120, 55, 20);
     fill(17, 66, 81, buttonFade);
     rect(linkMargin - 10, (linkBuffer + linkOffset * 2) - 15, 188, 55, 20);
     fill(239, 196, 88, buttonFade);
     rect(linkMargin - 10, (linkBuffer + linkOffset * 3) - 15, 232, 55, 20);
     fill(252, 19, 100, buttonFade);
-    rect(linkMargin - 10, (linkBuffer + linkOffset * 4) - 15, 128, 55, 20);
+    rect(linkMargin - 10, (linkBuffer + linkOffset * 4) - 15, 132, 55, 20);
     if (animateC == false) {
       fill(17, 66, 81, buttonFade);
-      rect(linkMargin - 10, (linkBuffer + linkOffset * 5) - 15, 175, 55, 20);
+      rect(linkMargin - 10, (linkBuffer + linkOffset * 5) - 15, 178, 55, 20);
     }
     if (animateM == false) {
       fill(239, 196, 88, buttonFade);
-      rect(linkMargin - 10, (linkBuffer + linkOffset * 6) - 15, 95, 55, 20);
+      rect(linkMargin - 10, (linkBuffer + linkOffset * 6) - 15, 100, 55, 20);
     }
     fill(252, 19, 100, buttonFade);
-    rect(linkMargin - 10, (linkBuffer + linkOffset * 7) - 15, 145, 55, 20);
+    rect(linkMargin - 10, (linkBuffer + linkOffset * 7) - 15, 150, 55, 20);
   }
 
   //positioning

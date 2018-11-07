@@ -590,7 +590,7 @@ function windowResized() {
 function backgroundPattern(w, h, tw, th) {
 
 
-  stroke(255);
+  stroke(248, 251, 252);
   strokeWeight(1.0);
   noFill();
   spinX = map(mouseY, 0, windowHeight, 3, 9);

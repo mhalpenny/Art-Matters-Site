@@ -109,7 +109,7 @@ function setup() {
     if (windowWidth > 650) {
       linkOffset = 55 + (windowHeight) * 0.01
       linkBuffer = 75 - (windowHeight) * 0.005
-      var linkMargin = 29;
+    var linkMargin = 35;
     } else {
       linkOffset = 75 - (windowHeight) * 0.05
       linkBuffer = 80 - (windowHeight) * 0.015
@@ -178,7 +178,7 @@ function draw() {
   if (windowWidth > 650) {
     linkOffset = 55 + (windowHeight) * 0.01
     linkBuffer = 75 - (windowHeight) * 0.005
-    var linkMargin = 29;
+var linkMargin = 35;
   } else {
     linkOffset = 75 - (windowHeight) * 0.05
     linkBuffer = 80 - (windowHeight) * 0.015

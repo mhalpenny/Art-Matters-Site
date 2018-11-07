@@ -29,6 +29,8 @@ var fadeR = 0,
 var linkOffset, linkBuffer;
 var layerR, layerA, layerM, layerE, layerAr, layerC, layerGI;
 var iconR, iconA, iconM, iconE, iconAr, iconC, iconGI;
+var logoSpin;
+var csW, csW2, rW, rW2;
 var fadeIncr = 35;
 var valueM = 0,
   valueC = 0,
@@ -108,7 +110,7 @@ function setup() {
   if (windowWidth > 650) {
     linkOffset = 55 + (windowHeight) * 0.01
     linkBuffer = 75 - (windowHeight) * 0.005
-    var linkMargin = 29;
+  var linkMargin = 35;
   } else {
     linkOffset = 75 - (windowHeight) * 0.05
     linkBuffer = 80 - (windowHeight) * 0.015
@@ -177,12 +179,32 @@ function draw() {
     if (windowWidth > 650) {
       linkOffset = 55 + (windowHeight) * 0.01
       linkBuffer = 75 - (windowHeight) * 0.005
-      var linkMargin = 29;
+      var linkMargin = 35;
     } else {
       linkOffset = 75 - (windowHeight) * 0.05
       linkBuffer = 80 - (windowHeight) * 0.015
       var linkMargin = 29;
     }
+
+    //Buttons
+    fill(252, 19, 100, 50);
+    rect(linkMargin-10, (linkBuffer + linkOffset)-15, 115, 55, 20);
+      fill(17, 66, 81, 50);
+    rect(linkMargin-10, (linkBuffer + linkOffset*2)-15, 185, 55, 20);
+      fill(239, 196, 88, 50);
+    rect(linkMargin-10, (linkBuffer + linkOffset*3)-15, 225, 55, 20);
+    if (animateM == false){
+    fill(252, 19, 100, 50);
+    rect(linkMargin-10, (linkBuffer + linkOffset*4)-15, 100, 55, 20);
+  }
+    if (animateC == false){
+      fill(17, 66, 81, 50);
+    rect(linkMargin-10, (linkBuffer + linkOffset*5)-15, 175, 55, 20);
+  }
+      fill(239, 196, 88, 50);
+    rect(linkMargin-10, (linkBuffer + linkOffset*6)-15, 125, 55, 20);
+    fill(252, 19, 100, 50);
+    rect(linkMargin-10, (linkBuffer + linkOffset*7)-15, 145, 55, 20);
 
   //positioning
   linkA.position(linkMargin, linkBuffer + linkOffset);
@@ -196,6 +218,7 @@ function draw() {
   var xPos = (60 + (windowWidth/50));
 
   linkFR.position(windowWidth - xPos, 30);
+
 
 
 
@@ -273,6 +296,8 @@ function draw() {
     image(layerM, windowWidth / 2, height / 2, windowWidth, windowHeight);
     image(iconM, linkMargin, (linkBuffer + linkOffset * 4), 50, 50);
 
+    fill(252, 19, 100, 50);
+    rect(linkMargin-10, (linkBuffer + linkOffset*4)-15, 225, 55, 20);
     linkM.html('COMING SOON');
     noTint();
     fadeM += fadeIncr;
@@ -284,6 +309,8 @@ function draw() {
     image(layerC, windowWidth / 2, height / 2, windowWidth, windowHeight);
     image(iconC, linkMargin, (linkBuffer + linkOffset * 5), 50, 50);
 
+    fill(17, 66, 81, 50);
+  rect(linkMargin-10, (linkBuffer + linkOffset*5)-15, 225, 55, 20);
     noTint();
     linkC.html('COMING SOON');
     fadeC += fadeIncr;
@@ -304,17 +331,43 @@ function draw() {
   //     LOGO ANIMATION (DRAW)
   //-------------------------------------------------------------
 
+  // if (windowWidth > 650) {
+  //   imageMode(CENTER);
+  //   tint(255, 255);
+  //   image(amLogo, 73, 60, 110, 110);
+  //   noTint();
+  // } else {
+  //   imageMode(CENTER);
+  //   tint(255, 255);
+  //   image(amLogo, 65, 50, 80, 80);
+  //   noTint();
+  // }
+
+  //-------------------------------------------------------------
+  //     LOGO ANIMATION (DRAW)
+  //-------------------------------------------------------------
+
+
+  angleMode(DEGREES);
+  imageMode(CENTER);
+
+  logoSpin = ((mouseY/2) + (mouseX/5));
+  push();
   if (windowWidth > 650) {
-    imageMode(CENTER);
-    tint(255, 255);
-    image(amLogo, 73, 60, 110, 110);
     noTint();
-  } else {
-    imageMode(CENTER);
+    fill(248, 251, 252, 50);
+    translate(linkMargin * 2.3, 60);
+    rotate(logoSpin);
     tint(255, 255);
+    ellipse(0, 0, 120, 120);
+    image(amLogo, 0, 0, 110, 110);
+  } else {
+    tint(255, 255);
+    imageMode(CENTER);
     image(amLogo, 65, 50, 80, 80);
     noTint();
   }
+  pop();
 
   //-------------------------------------------------------------
   //     MOBILE ANIMATION (DRAW)

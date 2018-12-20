@@ -1,0 +1,57 @@
+*{
+  margin: 0;
+  padding:0;
+}
+
+p{
+  color: black;
+  letter-spacing: 5;
+}
+
+
+a{
+  font-size: 20px;
+  /* font-family: 'Didact Gothic', sans-serif; */
+  /* font-family: 'Cabin Sketch', cursive; */
+/* font-family: 'Londrina Shadow', cursive; */
+font-family: NAV;
+  font-weight: bold;
+  letter-spacing: 5px;
+  text-decoration: none;
+  color: white;
+}
+
+
+@font-face {
+    font-family: NAV;
+    src: url("en/fonts/Lack-Line-Regular.otf") format("opentype");
+}
+
+/* should be seperate ideas but cascades to all in the language div, non harmful*/
+
+#lang{
+  /* position: absolute; */
+  /* width: 30%; */
+  font-size: 14px;
+  font-family: 'Didact Gothic', sans-serif;
+  font-weight: bold;
+  letter-spacing: 3px;
+  text-decoration: none;
+  color: black;
+}
+
+@media only screen and (max-width: 650px) {
+  a{
+    text-shadow: 1px 1px white;
+    font-size: 12px;
+    color:black;
+}
+#lang{
+  font-size: 12px;
+}
+@font-face {
+    font-family: NAV;
+    src: url("EN/fonts/Lack-Line-Regular.otf") format("opentype");
+}
+
+}

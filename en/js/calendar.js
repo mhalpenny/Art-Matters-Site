@@ -10,8 +10,8 @@
 var offset;
 var logoSpin = 0;
 var logoY = 50;
-var animateR = false, animateA = false, animateM = false, animateGI = false, animateAr = false, animateE = false, animateC = false, mainOff = false, animateCSM = false, animateCSC = false, animateCSE = false;
-var fadeR = 0, fadeA = 0, fadeM = 0, fadeE = 0, fadeAr = 0, fadeC = 0, fadeGI = 0, fadeMain = 255, fadeBack= 50;
+var animateR = false, animateA = false, animateM = false, animateGI = false, animateEx = false, animateAr = false, animateE = false, animateC = false, mainOff = false, animateCSM = false, animateCSC = false, animateCSE = false;
+var fadeR = 0, fadeA = 0, fadeM = 0, fadeE = 0, fadeAr = 0, fadeC = 0, fadeGI = 0, fadeEx, fadeMain = 255, fadeBack= 50;
 var linkOffset, linkBuffer;
 var fadeIncr = 35;
 var bColorVal = 0;
@@ -45,6 +45,7 @@ function preload() {
   iconC = loadImage('assets/gIcon.png');
   iconAr = loadImage('assets/oIcon.png');
   iconGI = loadImage('assets/yIcon.png');
+  iconEx = loadImage('assets/gyIcon.png');
   //logo
   amLogo = loadImage('assets/amlogo.png');
   //Calendar
@@ -101,6 +102,8 @@ function setup() {
 
   linkE = createA('events', 'EVENTS');
 
+  linkEx = createA('exhibitions', 'EXHIBITS');
+
   linkM = createA('#', 'MAPS');
 
   // linkAO = createA('pdf/AM_AntiO.pdf', 'ANTI-OPPRESSION STATEMENT');
@@ -136,6 +139,8 @@ function setup() {
     linkGI.mouseOut(offLinkGI);
     linkE.mouseOver(overLinkE);
     linkE.mouseOut(offLinkE);
+    linkEx.mouseOver(overLinkEx);
+    linkEx.mouseOut(offLinkEx);
     linkC.mouseOver(overlinkC);
     linkC.mouseOut(offlinkC);
     linkAr.mouseOver(overLinkAr);
@@ -223,12 +228,13 @@ if (windowWidth > 650) {
   linkA.position(linkMargin, linkBuffer + linkOffset);
   linkR.position(linkMargin, linkBuffer + linkOffset * 2);
   linkGI.position(linkMargin, linkBuffer + linkOffset * 3);
-  linkM.position(linkMargin, linkBuffer + linkOffset * 4);
-  linkC.position(linkMargin, linkBuffer + linkOffset * 5);
-  linkE.position(linkMargin, linkBuffer + linkOffset * 6);
-  linkAr.position(linkMargin, linkBuffer + linkOffset * 7);
+  linkE.position(linkMargin, linkBuffer + linkOffset * 4);
+  linkM.position(linkMargin, linkBuffer + linkOffset * 5);
+  linkC.position(linkMargin, linkBuffer + linkOffset * 6);
+  linkEx.position(linkMargin, linkBuffer + linkOffset * 7);
+  linkAr.position(linkMargin, linkBuffer + linkOffset * 8);
 
-  linkFR.position(linkMargin, linkBuffer + linkOffset * 8);
+  linkFR.position(linkMargin, linkBuffer + linkOffset * 9);
 
 } else {
   //variable math
@@ -247,11 +253,11 @@ if (windowWidth > 650) {
   linkGI.html('<br> <br> <br> <br>  GET <br> INVOLVED');
   linkGI.style('text-align', 'left');
   linkM.html('<br> <br> <br> <br> <br>  MAPS');
-  linkM.style('color', 'grey');
+  linkM.style('color', 'black');
   linkM.style('text-align', 'left');
   linkC.html('<br> <br> <br> <br> <br> CALENDAR ');
   linkC.style('text-align', 'left');
-  linkC.style('color', 'grey');
+  linkC.style('color', 'black');
   linkE.html('<br> <br> <br> <br> <br>  EVENTS ');
   linkE.style('text-align', 'left');
   linkE.style('color', 'black');
@@ -267,10 +273,11 @@ if (windowWidth > 650) {
   image(iconR, iconMargin, (iconBuffer + linkOffset*2), 40, 40);
   image(iconA, iconMargin, (iconBuffer + linkOffset), 40, 40);
   image(iconGI, iconMargin, (iconBuffer + linkOffset * 3), 40, 40);
-  image(iconAr, iconMargin, (iconBuffer + linkOffset * 7), 40, 40);
-  image(iconM, iconMargin, (iconBuffer + linkOffset * 4), 40, 40);
-  image(iconC, iconMargin, (iconBuffer + linkOffset * 5), 40, 40);
-  image(iconE, iconMargin, (iconBuffer + linkOffset * 6), 40, 40);
+  image(iconAr, iconMargin, (iconBuffer + linkOffset * 8), 40, 40);
+  image(iconM, iconMargin, (iconBuffer + linkOffset * 5), 40, 40);
+  image(iconC, iconMargin, (iconBuffer + linkOffset * 6), 40, 40);
+  image(iconE, iconMargin, (iconBuffer + linkOffset * 4), 40, 40);
+    image(iconEx, iconMargin, (iconBuffer + linkOffset * 7), 40, 40);
 
   noTint();
 
@@ -278,12 +285,13 @@ if (windowWidth > 650) {
   linkA.position(linkMargin, linkBuffer + linkOffset);
   linkR.position(linkMargin, linkBuffer + linkOffset * 2);
   linkGI.position(linkMargin, linkBuffer + linkOffset * 3);
-  linkM.position(linkMargin, linkBuffer + linkOffset * 4);
-  linkC.position(linkMargin, linkBuffer + linkOffset * 5);
-  linkE.position(linkMargin, linkBuffer + linkOffset * 6);
-  linkAr.position(linkMargin, linkBuffer + linkOffset * 7);
+  linkM.position(linkMargin, linkBuffer + linkOffset * 5);
+  linkC.position(linkMargin, linkBuffer + linkOffset * 6);
+  linkE.position(linkMargin, linkBuffer + linkOffset * 4);
+  linkEx.position(linkMargin, linkBuffer + linkOffset * 7.8);
+  linkAr.position(linkMargin, linkBuffer + linkOffset * 8);
 
-  linkFR.position(linkMargin, linkBuffer + linkOffset * 8.2);
+  linkFR.position(linkMargin, linkBuffer + linkOffset * 9.4);
 
 }
 
@@ -304,6 +312,9 @@ imageMode(CORNER);
 image(calendar, calOffX, 55, calWidth, calHeight);
 imageMode(CENTER);
 
+var eventBox = document.getElementById("eventBox");
+eventBox.style.display = "none";
+
 
 //Add interactivity
 noFill();
@@ -316,7 +327,11 @@ ellipse(calX(ex1), calY(ey1), calSize, calSize);
 
 if (calX(ex1) < mouseX && mouseX < (calX(ex1)+calSize) && calY(ey1) < mouseY && mouseY < (calY(ey1) + calSize)){
   console.log("works");
+  eventBox.style.display = "block";
 }
+
+
+
 //ellipse 2
 
 //-------------------------------------------------------------
@@ -358,7 +373,7 @@ if (animateGI == true) {
 //---Ar---
 if (animateAr == true) {
   tint(255, fadeAr);
-  image(iconAr, linkMargin, (linkBuffer + linkOffset * 7), 50, 50);
+  image(iconAr, linkMargin, (linkBuffer + linkOffset * 8), 50, 50);
     noTint();
   fadeAr += fadeIncr;
 }
@@ -366,28 +381,35 @@ if (animateAr == true) {
 //---M---
 if (animateM == true) {
   tint(255, fadeM);
-  image(iconM, linkMargin, (linkBuffer + linkOffset * 4), 50, 50);
+  image(iconM, linkMargin, (linkBuffer + linkOffset * 5), 50, 50);
   noTint();
-    linkM.html('COMING SOON');
   fadeM += fadeIncr;
 }
 
 //---C---
 if (animateC == true) {
   tint(255, fadeC);
-  image(iconC, linkMargin, (linkBuffer + linkOffset * 5), 50, 50);
+  image(iconC, linkMargin, (linkBuffer + linkOffset * 6), 50, 50);
   noTint();
-    linkC.html('COMING SOON');
   fadeC += fadeIncr;
 }
 
 //---E---
 if (animateE == true) {
   tint(255, fadeE);
-  image(iconE, linkMargin, (linkBuffer + linkOffset * 6), 50, 50);
+  image(iconE, linkMargin, (linkBuffer + linkOffset * 4), 50, 50);
     noTint();
 
   fadeE += fadeIncr;
+}
+
+//---Ex---
+if (animateEx == true) {
+  tint(255, fadeEx);
+  image(iconEx, linkMargin, (linkBuffer + linkOffset * 7), 50, 50);
+    noTint();
+
+  fadeEx += fadeIncr;
 }
 }
 
@@ -503,7 +525,7 @@ function overlinkM() {
 animateM = true;
 mainOff = true;
 fadeMain = 0;
-// linkM.style('font-style', 'italic');
+linkM.style('font-style', 'italic');
 
 }
 
@@ -511,7 +533,7 @@ function offlinkM() {
 animateM = false;
 fadeM = 0;
 mainOff = false;
-// linkM.style('font-style', 'normal');
+linkM.style('font-style', 'normal');
 
 }
 
@@ -519,7 +541,7 @@ mainOff = false;
 
 function overlinkC() {
 animateC = true;
-// linkC.style('font-style', 'italic');
+linkC.style('font-style', 'italic');
 mainOff = true;
 fadeMain = 0;
 
@@ -528,7 +550,7 @@ fadeMain = 0;
 function offlinkC() {
 animateC = false;
 fadeC = 0;
-// linkC.style('font-style', 'normal');
+linkC.style('font-style', 'normal');
 mainOff = false;
 }
 
@@ -546,6 +568,22 @@ function offLinkE() {
 animateE = false;
 fadeE = 0;
 linkE.style('font-style', 'normal');
+mainOff = false;
+}
+
+//---Ex---
+
+function overLinkEx() {
+animateEx = true;
+linkEx.style('font-style', 'italic');
+mainOff = true;
+fadeMain = 0;
+}
+
+function offLinkEx() {
+animateEx = false;
+fadeEx = 0;
+linkEx.style('font-style', 'normal');
 mainOff = false;
 }
 

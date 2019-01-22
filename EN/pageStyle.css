@@ -372,16 +372,15 @@ text-align: left;
   position: absolute;
   float:left;
   width: 60%;
-  height: 50%;
-  background-color: pink;
+  height: 500px;
+  background-color: transparent;
 }
 
 .exP{
   width: 80%;
-
-
-  margin-top: 45%;
+  margin-top: 530px;
 }
+
 
 /*   MEDIA QUERIES   */
 

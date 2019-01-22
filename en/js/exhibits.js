@@ -26,7 +26,8 @@ var refreshArray = [1];
 var valueM = 0, valueC = 0, valueE = 0;
 var nonLoop = false;
 var widthX, heightY;
-var calWidth, calHeight, calOffX, calOffY, calSize;
+let div1, div2, rect1, rect2;
+
 
 
 // var colorCounter = 0;
@@ -48,8 +49,11 @@ function preload() {
   iconEx = loadImage('assets/gyIcon.png');
   //logo
   amLogo = loadImage('assets/amlogo.png');
-  //Calendar
-   calendar = loadImage('assets/calendar.png');
+  //exhibits
+   wybm1 = loadImage('assets/wybm1.jpg');
+    wybm2 = loadImage('assets/wybm2.jpeg');
+     wybm3 = loadImage('assets/wybm3.jpg');
+      wybm4 = loadImage('assets/wybm4.jpg');
 }
 
 //-------------------------------------------------------------
@@ -296,39 +300,31 @@ if (windowWidth > 650) {
 }
 
 //-------------------------------------------------------------
-//     CALENDAR (DRAW)
+//     INTERACTION (DRAW)
 //-------------------------------------------------------------
-
-//declare variable for calendar "div"
-calWidth = windowWidth*0.7;
-calHeight = windowHeight*0.8;
-calOffX = 55*6;
-calOffY = 55;
-calSize = 70;
+imageMode(CORNER);
+div1 = document.getElementById('box1');
+rect1 = div1.getBoundingClientRect();
 
 
-// rect(calOffX, 55, calWidth, calHeight);
-// imageMode(CORNER);
-// image(calendar, calOffX, 55, calWidth, calHeight);
-// imageMode(CENTER);
+if (mouseY > rect1.top && mouseY < rect1.bottom && mouseX < rect1.right && mouseX > rect1.left){
 
-
-//Add interactivity
-noFill();
-noStroke();
-//ellipse one
-var ex1 = 75;
-var ey1 = 30;
-ellipseMode(CORNER);
-ellipse(calX(ex1), calY(ey1), calSize, calSize);
-
-if (calX(ex1) < mouseX && mouseX < (calX(ex1)+calSize) && calY(ey1) < mouseY && mouseY < (calY(ey1) + calSize)){
-  console.log("works");
+  if (mouseX < (rect1.right / 2) && mouseY > (rect1.bottom/2)){
+      // console.log(rect1.left, rect1.top, (rect1.right-rect1.left), (rect1.bottom-rect1.top));
+    image(wybm1, rect1.left, rect1.top+top, (rect1.right-rect1.left), (rect1.bottom-rect1.top));
+  } else if (mouseX > (rect1.right/2) && mouseY > (rect1.bottom/2)){
+    image(wybm2, rect1.left, rect1.top+top, (rect1.right-rect1.left), (rect1.bottom-rect1.top));
+  } else if (mouseX < (rect1.right/2) && mouseY < (rect1.bottom/2)){
+    image(wybm3, rect1.left, rect1.top+top, (rect1.right-rect1.left), (rect1.bottom-rect1.top));
+  } else if (mouseX > (rect1.right/2) && mouseY < (rect1.bottom/2)){
+    image(wybm4, rect1.left, rect1.top+top, (rect1.right-rect1.left), (rect1.bottom-rect1.top));
+  }
+} else{
+  fill(255, 192, 203);
+  noStroke();
+  rect(rect1.left, rect1.top+top, (rect1.right-rect1.left), (rect1.bottom-rect1.top));
 }
 
-
-
-//ellipse 2
 
 //-------------------------------------------------------------
 //     ICON ANIMATIONS (DRAW)

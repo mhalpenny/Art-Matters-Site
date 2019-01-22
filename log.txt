@@ -1,3 +1,41 @@
+WINTER
+
+
+1) Calendar
+
+    Interactive box
+    Background Gabor
+    Animations Gabor
+    Info box
+
+2) Map
+
+    Interactive box
+    Background Gabor
+    Animations Gabor
+    Info box
+
+
+3) Exhibitions
+
+
+    Interactive Boxes per exhibit
+    Photos inside box with titles
+    Info below
+    Scrollable
+
+
+4) Home page
+
+    Redo interactivity
+    eyes, mushroom, arrows
+
+
+
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 
 Post Call Outs
 

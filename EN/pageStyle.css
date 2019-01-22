@@ -310,6 +310,81 @@ text-align: left;
   z-index: 1000;
 }
 
+
+/*   EXHIBITIONS   */
+
+
+.exTitleA{
+  font-size: 24px;
+
+  /* font-family: 'Quicksand', sans-serif; */
+ font-family: NAV;
+  font-weight: bolder;
+  letter-spacing: 3px;
+  text-decoration: none;
+  color: black;
+  text-align: left;
+  /* text-shadow: 1px 1px white; */
+}
+
+.exTitleB{
+  font-size: 24px;
+
+  /* font-family: 'Quicksand', sans-serif; */
+ font-family: NAV;
+  font-weight: bolder;
+  letter-spacing: 3px;
+  text-decoration: none;
+  color: black;
+  text-align: left;
+  margin-top: 5%;
+  /* text-shadow: 1px 1px white; */
+}
+
+.exTitleC{
+  font-size: 24px;
+
+  /* font-family: 'Quicksand', sans-serif; */
+ font-family: NAV;
+  font-weight: bolder;
+  letter-spacing: 3px;
+  text-decoration: none;
+  color: black;
+  text-align: left;
+  margin-top: 5%;
+  /* text-shadow: 1px 1px white; */
+}
+
+.exSubTitle{
+  font-size: 16px;
+
+  /* font-family: 'Quicksand', sans-serif; */
+ font-family: Quicksand;
+  font-weight: bolder;
+  letter-spacing: 3px;
+  text-decoration: none;
+  color: black;
+  text-align: left;
+  /* text-shadow: 1px 1px white; */
+}
+
+.rBox{
+  position: absolute;
+  float:left;
+  width: 60%;
+  height: 50%;
+  background-color: pink;
+}
+
+.exP{
+  width: 80%;
+
+
+  margin-top: 45%;
+}
+
+/*   MEDIA QUERIES   */
+
 @media only screen and (max-width: 650px) {
   #gallery{
     width:62%;

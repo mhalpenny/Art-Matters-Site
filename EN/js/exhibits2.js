@@ -77,30 +77,30 @@ function preload() {
   int4 = loadImage('assets/int4.png');
   int5 = loadImage('assets/int5.png');
   int6 = loadImage('assets/int6.png');
-  sidn1 = loadImage('assets/sidn1.png');
-  sidn2 = loadImage('assets/sidn2.png');
-  sidn3 = loadImage('assets/sidn3.png');
-  sidn4 = loadImage('assets/sidn4.png');
-  sidn5 = loadImage('assets/sidn5.png');
-  sidn6 = loadImage('assets/sidn6.png');
-  vl1 = loadImage('assets/vl1.png');
-  vl2 = loadImage('assets/vl2.png');
-  vl3 = loadImage('assets/vl3.png');
-  vl4 = loadImage('assets/vl4.png');
-  vl5 = loadImage('assets/vl5.png');
-  vl6 = loadImage('assets/vl6.png');
-  por1 = loadImage('assets/por1.png');
-  por2 = loadImage('assets/por2.png');
-  por3 = loadImage('assets/por3.png');
-  por4 = loadImage('assets/por4.png');
-  por5 = loadImage('assets/por5.png');
-  por6 = loadImage('assets/por6.png');
-  dream1 = loadImage('assets/dream1.png');
-  dream2 = loadImage('assets/dream2.png');
-  dream3 = loadImage('assets/dream3.png');
-  dream4 = loadImage('assets/dream4.png');
-  dream5 = loadImage('assets/dream5.png');
-  dream6 = loadImage('assets/dream6.png');
+  isod1 = loadImage('assets/isod1.png');
+  isod2 = loadImage('assets/isod2.png');
+  isod3 = loadImage('assets/isod3.png');
+  isod4 = loadImage('assets/isod4.png');
+  isod5 = loadImage('assets/isod5.png');
+  isod6 = loadImage('assets/isod6.png');
+  soes1 = loadImage('assets/soes1.png');
+  soes2 = loadImage('assets/soes2.png');
+  soes3 = loadImage('assets/soes3.png');
+  soes4 = loadImage('assets/soes4.png');
+  soes5 = loadImage('assets/soes5.png');
+  soes6 = loadImage('assets/soes6.png');
+  lwmd1 = loadImage('assets/lwmd1.jpg');
+  lwmd2 = loadImage('assets/lwmd2.png');
+  lwmd3 = loadImage('assets/lwmd3.png');
+  lwmd4 = loadImage('assets/lwmd4.png');
+  lwmd5 = loadImage('assets/lwmd5.png');
+  lwmd6 = loadImage('assets/lwmd6.png');
+  mal1 = loadImage('assets/mal1.png');
+  mal2 = loadImage('assets/mal2.png');
+  mal3 = loadImage('assets/mal3.png');
+  mal4 = loadImage('assets/mal4.png');
+  mal5 = loadImage('assets/mal5.png');
+  mal6 = loadImage('assets/mal6.png');
 
 
 }
@@ -379,21 +379,21 @@ function draw() {
 
     if (mouseX < (rect2.left + (rectW/3)) && mouseY > ((rect2.bottom+top)-(rectH/2))) {
 
-      image(sidn1, rect2.left, rect2.top + top, (rect2.right - rect2.left), (rect2.bottom - rect2.top));
+      image(isod1, rect2.left, rect2.top + top, (rect2.right - rect2.left), (rect2.bottom - rect2.top));
     } else if (mouseX > (rect2.left + (rectW/3)) && mouseX < (rect2.left + (rectW/3)*2) && mouseY > ((rect2.bottom+top)-(rectH/2))) {
-      image(sidn2, rect2.left, rect2.top + top, (rect2.right - rect2.left), (rect2.bottom - rect2.top));
+      image(isod2, rect2.left, rect2.top + top, (rect2.right - rect2.left), (rect2.bottom - rect2.top));
 
     } else if (mouseX > (rect2.left + (rectW/3)*2) && mouseY > ((rect2.bottom+top)-(rectH/2))) {
-      image(sidn3, rect2.left, rect2.top + top, (rect2.right - rect2.left), (rect2.bottom - rect2.top));
+      image(isod3, rect2.left, rect2.top + top, (rect2.right - rect2.left), (rect2.bottom - rect2.top));
 
     } else if (mouseX < (rect2.left + (rectW/3)) && mouseY < ((rect2.bottom+top)-(rectH/2))) {
-      image(sidn4, rect2.left, rect2.top + top, (rect2.right - rect2.left), (rect2.bottom - rect2.top));
+      image(isod4, rect2.left, rect2.top + top, (rect2.right - rect2.left), (rect2.bottom - rect2.top));
 
     } else if (mouseX > (rect2.left + (rectW/3)) && mouseX < (rect2.left + (rectW/3)*2)  && mouseY < ((rect2.bottom+top)-(rectH/2))) {
-      image(sidn5, rect2.left, rect2.top + top, (rect2.right - rect2.left), (rect2.bottom - rect2.top));
+      image(isod5, rect2.left, rect2.top + top, (rect2.right - rect2.left), (rect2.bottom - rect2.top));
 
     } else if (mouseX > (rect2.left + (rectW/3)*2) && mouseY < ((rect2.bottom+top)-(rectH/2))){
-      image(sidn6, rect2.left, rect2.top + top, (rect2.right - rect2.left), (rect2.bottom - rect2.top));
+      image(isod6, rect2.left, rect2.top + top, (rect2.right - rect2.left), (rect2.bottom - rect2.top));
 
     }
   } else {
@@ -411,21 +411,21 @@ function draw() {
 
     if (mouseX < (rect3.left + (rectW/3)) && mouseY > ((rect3.bottom+top)-(rectH/2))) {
 
-      image(vl1, rect3.left, rect3.top + top, (rect3.right - rect3.left), (rect3.bottom - rect3.top));
+      image(soes1, rect3.left, rect3.top + top, (rect3.right - rect3.left), (rect3.bottom - rect3.top));
     } else if (mouseX > (rect3.left + (rectW/3)) && mouseX < (rect3.left + (rectW/3)*2) && mouseY > ((rect3.bottom+top)-(rectH/2))) {
-      image(vl2, rect3.left, rect3.top + top, (rect3.right - rect3.left), (rect3.bottom - rect3.top));
+      image(soes2, rect3.left, rect3.top + top, (rect3.right - rect3.left), (rect3.bottom - rect3.top));
 
     } else if (mouseX > (rect3.left + (rectW/3)*2) && mouseY > ((rect3.bottom+top)-(rectH/2))) {
-      image(vl3, rect3.left, rect3.top + top, (rect3.right - rect3.left), (rect3.bottom - rect3.top));
+      image(soes3, rect3.left, rect3.top + top, (rect3.right - rect3.left), (rect3.bottom - rect3.top));
 
     } else if (mouseX < (rect3.left + (rectW/3)) && mouseY < ((rect3.bottom+top)-(rectH/2))) {
-      image(vl4, rect3.left, rect3.top + top, (rect3.right - rect3.left), (rect3.bottom - rect3.top));
+      image(soes4, rect3.left, rect3.top + top, (rect3.right - rect3.left), (rect3.bottom - rect3.top));
 
     } else if (mouseX > (rect3.left + (rectW/3)) && mouseX < (rect3.left + (rectW/3)*2)  && mouseY < ((rect3.bottom+top)-(rectH/2))) {
-      image(vl5, rect3.left, rect3.top + top, (rect3.right - rect3.left), (rect3.bottom - rect3.top));
+      image(soes5, rect3.left, rect3.top + top, (rect3.right - rect3.left), (rect3.bottom - rect3.top));
 
     } else if (mouseX > (rect3.left + (rectW/3)*2) && mouseY < ((rect3.bottom+top)-(rectH/2))){
-      image(vl6, rect3.left, rect3.top + top, (rect3.right - rect3.left), (rect3.bottom - rect3.top));
+      image(soes6, rect3.left, rect3.top + top, (rect3.right - rect3.left), (rect3.bottom - rect3.top));
 
     }
   } else {
@@ -444,21 +444,21 @@ function draw() {
 
       if (mouseX < (rect4.left + (rectW/3)) && mouseY > ((rect4.bottom+top)-(rectH/2))) {
 
-        image(por1, rect4.left, rect4.top + top, (rect4.right - rect4.left), (rect4.bottom - rect4.top));
+        image(lwmd1, rect4.left, rect4.top + top, (rect4.right - rect4.left), (rect4.bottom - rect4.top));
       } else if (mouseX > (rect4.left + (rectW/3)) && mouseX < (rect4.left + (rectW/3)*2) && mouseY > ((rect4.bottom+top)-(rectH/2))) {
-        image(por2, rect4.left, rect4.top + top, (rect4.right - rect4.left), (rect4.bottom - rect4.top));
+        image(lwmd2, rect4.left, rect4.top + top, (rect4.right - rect4.left), (rect4.bottom - rect4.top));
 
       } else if (mouseX > (rect4.left + (rectW/3)*2) && mouseY > ((rect4.bottom+top)-(rectH/2))) {
-        image(por3, rect4.left, rect4.top + top, (rect4.right - rect4.left), (rect4.bottom - rect4.top));
+        image(lwmd3, rect4.left, rect4.top + top, (rect4.right - rect4.left), (rect4.bottom - rect4.top));
 
       } else if (mouseX < (rect4.left + (rectW/3)) && mouseY < ((rect4.bottom+top)-(rectH/2))) {
-        image(por4, rect4.left, rect4.top + top, (rect4.right - rect4.left), (rect4.bottom - rect4.top));
+        image(lwmd4, rect4.left, rect4.top + top, (rect4.right - rect4.left), (rect4.bottom - rect4.top));
 
       } else if (mouseX > (rect4.left + (rectW/3)) && mouseX < (rect4.left + (rectW/3)*2)  && mouseY < ((rect4.bottom+top)-(rectH/2))) {
-        image(por5, rect4.left, rect4.top + top, (rect4.right - rect4.left), (rect4.bottom - rect4.top));
+        image(lwmd5, rect4.left, rect4.top + top, (rect4.right - rect4.left), (rect4.bottom - rect4.top));
 
       } else if (mouseX > (rect4.left + (rectW/3)*2) && mouseY < ((rect4.bottom+top)-(rectH/2))){
-        image(por6, rect4.left, rect4.top + top, (rect4.right - rect4.left), (rect4.bottom - rect4.top));
+        image(lwmd6, rect4.left, rect4.top + top, (rect4.right - rect4.left), (rect4.bottom - rect4.top));
 
       }
     } else {
@@ -476,21 +476,21 @@ function draw() {
 
       if (mouseX < (rect5.left + (rectW/3)) && mouseY > ((rect5.bottom+top)-(rectH/2))) {
 
-        image(dream1, rect5.left, rect5.top + top, (rect5.right - rect5.left), (rect5.bottom - rect5.top));
+        image(mal1, rect5.left, rect5.top + top, (rect5.right - rect5.left), (rect5.bottom - rect5.top));
       } else if (mouseX > (rect5.left + (rectW/3)) && mouseX < (rect5.left + (rectW/3)*2) && mouseY > ((rect5.bottom+top)-(rectH/2))) {
-        image(dream2, rect5.left, rect5.top + top, (rect5.right - rect5.left), (rect5.bottom - rect5.top));
+        image(mal2, rect5.left, rect5.top + top, (rect5.right - rect5.left), (rect5.bottom - rect5.top));
 
       } else if (mouseX > (rect5.left + (rectW/3)*2) && mouseY > ((rect5.bottom+top)-(rectH/2))) {
-        image(dream3, rect5.left, rect5.top + top, (rect5.right - rect5.left), (rect5.bottom - rect5.top));
+        image(mal3, rect5.left, rect5.top + top, (rect5.right - rect5.left), (rect5.bottom - rect5.top));
 
       } else if (mouseX < (rect5.left + (rectW/3)) && mouseY < ((rect5.bottom+top)-(rectH/2))) {
-        image(dream4, rect5.left, rect5.top + top, (rect5.right - rect5.left), (rect5.bottom - rect5.top));
+        image(mal4, rect5.left, rect5.top + top, (rect5.right - rect5.left), (rect5.bottom - rect5.top));
 
       } else if (mouseX > (rect5.left + (rectW/3)) && mouseX < (rect5.left + (rectW/3)*2)  && mouseY < ((rect5.bottom+top)-(rectH/2))) {
-        image(dream5, rect5.left, rect5.top + top, (rect5.right - rect5.left), (rect5.bottom - rect5.top));
+        image(mal5, rect5.left, rect5.top + top, (rect5.right - rect5.left), (rect5.bottom - rect5.top));
 
       } else if (mouseX > (rect5.left + (rectW/3)*2) && mouseY < ((rect5.bottom+top)-(rectH/2))){
-        image(dream6, rect5.left, rect5.top + top, (rect5.right - rect5.left), (rect5.bottom - rect5.top));
+        image(mal6, rect5.left, rect5.top + top, (rect5.right - rect5.left), (rect5.bottom - rect5.top));
 
       }
     } else {

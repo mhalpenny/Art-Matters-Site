@@ -14,6 +14,7 @@ var animateR = false,
   animateAr = false,
   animateE = false,
   animateC = false,
+  animateEx = false,
   mainOff = false,
   animateCSM = false,
   animateCSC = false,
@@ -25,10 +26,11 @@ var fadeR = 0,
   fadeAr = 0,
   fadeC = 0,
   fadeGI = 0,
+  fadeEx = 0,
   fadeMain = 255;
 var linkOffset, linkBuffer;
-var layerR, layerA, layerM, layerE, layerAr, layerC, layerGI;
-var iconR, iconA, iconM, iconE, iconAr, iconC, iconGI;
+var layerR, layerA, layerM, layerE, layerAr, layerC, layerGI, layerEx;
+var iconR, iconA, iconM, iconE, iconAr, iconC, iconGI, iconEx;
 var logoSpin;
 var csW, csW2, rW, rW2;
 var fadeIncr = 35;
@@ -65,6 +67,7 @@ function preload() {
   iconC = loadImage('assets/gIcon.png');
   iconAr = loadImage('assets/oIcon.png');
   iconGI = loadImage('assets/yIcon.png');
+  iconEx = loadImage('assets/gyIcon.png');
   //logo
   amLogo = loadImage('assets/amlogo.png');
 }
@@ -91,7 +94,7 @@ function setup() {
 
   linkA = createA('about', 'ABOUT');
 
-  linkC = createA('#', 'CALENDER');
+  linkC = createA('calendar', 'CALENDER');
 
   linkAr = createA('http://artmattersfestival.org/archive/', 'ARCHIVE');
 
@@ -99,7 +102,9 @@ function setup() {
 
   linkE = createA('events', 'EVENTS');
 
-  linkM = createA('#', 'MAP');
+  linkM = createA('map', 'MAP');
+
+  linkEx = createA('exhibitions', 'EXHIBITIONS');
 
   linkFR = createA('fr/accueil', 'FR');
   linkFR.id('lang');
@@ -148,6 +153,8 @@ function setup() {
   linkGI.mouseOut(offLinkGI);
   linkE.mouseOver(overLinkE);
   linkE.mouseOut(offLinkE);
+  linkEx.mouseOver(overLinkEx);
+  linkEx.mouseOut(offLinkEx);
   linkC.mouseOver(overlinkC);
   linkC.mouseOut(offlinkC);
   linkAr.mouseOver(overLinkAr);
@@ -187,37 +194,38 @@ function draw() {
     var linkMargin = 29;
   }
 
-  if (windowWidth > 650) {
-    var buttonFade = 50 + (fadeMain/3);
-    //Buttons
-    fill(252, 19, 100, buttonFade);
-    rect(linkMargin - 10, (linkBuffer + linkOffset) - 15, 120, 55, 20);
-    fill(17, 66, 81, buttonFade);
-    rect(linkMargin - 10, (linkBuffer + linkOffset * 2) - 15, 188, 55, 20);
-    fill(239, 196, 88, buttonFade);
-    rect(linkMargin - 10, (linkBuffer + linkOffset * 3) - 15, 232, 55, 20);
-    fill(252, 19, 100, buttonFade);
-    rect(linkMargin - 10, (linkBuffer + linkOffset * 4) - 15, 132, 55, 20);
-    if (animateC == false) {
-      fill(17, 66, 81, buttonFade);
-      rect(linkMargin - 10, (linkBuffer + linkOffset * 5) - 15, 178, 55, 20);
-    }
-    if (animateM == false) {
-      fill(239, 196, 88, buttonFade);
-      rect(linkMargin - 10, (linkBuffer + linkOffset * 6) - 15, 100, 55, 20);
-    }
-    fill(252, 19, 100, buttonFade);
-    rect(linkMargin - 10, (linkBuffer + linkOffset * 7) - 15, 150, 55, 20);
-  }
+  // if (windowWidth > 650) {
+  //   var buttonFade = 50 + (fadeMain/3);
+  //   //Buttons
+  //   fill(252, 19, 100, buttonFade);
+  //   rect(linkMargin - 10, (linkBuffer + linkOffset) - 15, 120, 55, 20);
+  //   fill(17, 66, 81, buttonFade);
+  //   rect(linkMargin - 10, (linkBuffer + linkOffset * 2) - 15, 188, 55, 20);
+  //   fill(239, 196, 88, buttonFade);
+  //   rect(linkMargin - 10, (linkBuffer + linkOffset * 3) - 15, 232, 55, 20);
+  //   fill(252, 19, 100, buttonFade);
+  //   rect(linkMargin - 10, (linkBuffer + linkOffset * 4) - 15, 132, 55, 20);
+  //   if (animateC == false) {
+  //     fill(17, 66, 81, buttonFade);
+  //     rect(linkMargin - 10, (linkBuffer + linkOffset * 5) - 15, 178, 55, 20);
+  //   }
+  //   if (animateM == false) {
+  //     fill(239, 196, 88, buttonFade);
+  //     rect(linkMargin - 10, (linkBuffer + linkOffset * 6) - 15, 100, 55, 20);
+  //   }
+  //   fill(252, 19, 100, buttonFade);
+  //   rect(linkMargin - 10, (linkBuffer + linkOffset * 7) - 15, 150, 55, 20);
+  // }
 
   //positioning
   linkA.position(linkMargin, linkBuffer + linkOffset);
   linkR.position(linkMargin, linkBuffer + linkOffset * 2);
   linkGI.position(linkMargin, linkBuffer + linkOffset * 3);
   linkE.position(linkMargin, linkBuffer + linkOffset * 4);
-  linkC.position(linkMargin, linkBuffer + linkOffset * 5);
-  linkM.position(linkMargin, linkBuffer + linkOffset * 6);
-  linkAr.position(linkMargin, linkBuffer + linkOffset * 7);
+  linkM.position(linkMargin, linkBuffer + linkOffset * 5);
+  linkC.position(linkMargin, linkBuffer + linkOffset * 6);
+  linkEx.position(linkMargin, linkBuffer + linkOffset * 7);
+  linkAr.position(linkMargin, linkBuffer + linkOffset * 8);
 
   var xPos = (60 + (windowWidth / 50));
 
@@ -292,7 +300,7 @@ function draw() {
   if (animateAr == true) {
     tint(255, fadeAr);
     image(layerAr, drawX, drawY, windowWidth, windowHeight);
-    image(iconAr, linkMargin, (linkBuffer + linkOffset * 7), 50, 50);
+    image(iconAr, linkMargin, (linkBuffer + linkOffset * 8), 50, 50);
     noTint();
     fadeAr += fadeIncr;
   }
@@ -301,13 +309,13 @@ function draw() {
   if (animateM == true) {
     tint(255, fadeM);
     image(layerM, drawX, drawY, windowWidth, windowHeight);
-    image(iconM, linkMargin, (linkBuffer + linkOffset * 6), 50, 50);
+    image(iconM, linkMargin, (linkBuffer + linkOffset * 5), 50, 50);
 
-    if (windowWidth > 650) {
-      fill(239, 196, 88, 50);
-      rect(linkMargin - 10, (linkBuffer + linkOffset * 6) - 15, 225, 55, 20);
-    }
-    linkM.html('COMING SOON');
+    // if (windowWidth > 650) {
+    //   fill(239, 196, 88, 50);
+    //   rect(linkMargin - 10, (linkBuffer + linkOffset * 6) - 15, 225, 55, 20);
+    // }
+    // linkM.html('COMING SOON');
     noTint();
     fadeM += fadeIncr;
   }
@@ -316,14 +324,14 @@ function draw() {
   if (animateC == true) {
     tint(255, fadeC);
     image(layerC, drawX, drawY, windowWidth, windowHeight);
-    image(iconC, linkMargin, (linkBuffer + linkOffset * 5), 50, 50);
+    image(iconC, linkMargin, (linkBuffer + linkOffset * 6), 50, 50);
 
-    if (windowWidth > 650) {
-      fill(17, 66, 81, 50);
-      rect(linkMargin - 10, (linkBuffer + linkOffset * 5) - 15, 225, 55, 20);
-    }
-    noTint();
-    linkC.html('COMING SOON');
+    // if (windowWidth > 650) {
+    //   fill(17, 66, 81, 50);
+    //   rect(linkMargin - 10, (linkBuffer + linkOffset * 5) - 15, 225, 55, 20);
+    // }
+    // noTint();
+    // linkC.html('COMING SOON');
     fadeC += fadeIncr;
   }
 
@@ -336,6 +344,17 @@ function draw() {
     noTint();
 
     fadeE += fadeIncr;
+  }
+
+  //---E---
+  if (animateEx == true) {
+    tint(255, fadeEx);
+    // image(layerE, drawX, drawY, windowWidth, windowHeight);
+    image(iconEx, linkMargin, (linkBuffer + linkOffset * 7), 50, 50);
+
+    noTint();
+
+    fadeEx += fadeIncr;
   }
 
 
@@ -464,7 +483,7 @@ function overlinkM() {
   animateM = true;
   mainOff = true;
   fadeMain = 0;
-  // linkM.style('font-style', 'italic');
+  linkM.style('font-style', 'italic');
 
 }
 
@@ -472,6 +491,7 @@ function offlinkM() {
   animateM = false;
   fadeM = 0;
   mainOff = false;
+    linkM.style('font-style', 'normal');
 
 
 }
@@ -480,7 +500,7 @@ function offlinkM() {
 
 function overlinkC() {
   animateC = true;
-  // linkC.style('font-style', 'italic');
+  linkC.style('font-style', 'italic');
   mainOff = true;
   fadeMain = 0;
 
@@ -489,7 +509,7 @@ function overlinkC() {
 function offlinkC() {
   animateC = false;
   fadeC = 0;
-  // linkC.style('font-style', 'normal');
+  linkC.style('font-style', 'normal');
   mainOff = false;
 }
 
@@ -538,6 +558,20 @@ function offLinkE() {
   animateE = false;
   fadeE = 0;
   linkE.style('font-style', 'normal');
+  mainOff = false;
+}
+
+function overLinkEx() {
+  animateEx = true;
+  linkEx.style('font-style', 'italic');
+  mainOff = true;
+  fadeMain = 0;
+}
+
+function offLinkEx() {
+  animateEx = false;
+  fadeE = 0;
+  linkEx.style('font-style', 'normal');
   mainOff = false;
 }
 

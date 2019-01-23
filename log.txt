@@ -18,17 +18,16 @@ WINTER
 
 3) Exhibitions
 
-
-    Interactive Boxes per exhibit
-    Photos inside box with titles
-    Info below
-    Scrollable
-
+  change second page to alternative color (expanding palette by 2)
+  change html to exhibitions
+  update icon
 
 4) Home page
 
     Redo interactivity
     eyes, mushroom, arrows
+    Calendar icon
+    1 pink, 1 alt icon
 
 
 

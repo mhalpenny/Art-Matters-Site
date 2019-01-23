@@ -354,23 +354,23 @@ function draw() {
   imageMode(CORNER);
   div1 = document.getElementById('box1');
   rect1 = div1.getBoundingClientRect();
- rectW = rect1.right - rect1.left;
- rectH = rect1.bottom - rect1.top;
+  rectW = rect1.right - rect1.left;
+  rectH = rect1.bottom - rect1.top;
 
   if (mouseY > (rect1.top + top) && mouseY < (rect1.bottom + top) && mouseX < rect1.right && mouseX > rect1.left) {
 
-    if (mouseX < (rect1.left + (rectW/3)) && mouseY > ((rect1.bottom + top) / 2)) {
+    if (mouseX < (rect1.left + (rectW / 3)) && mouseY > ((rect1.bottom + top) / 2)) {
       // console.log(rect1.left, rect1.top, (rect1.right-rect1.left), (rect1.bottom-rect1.top));
       image(wybm1, rect1.left, rect1.top + top, (rect1.right - rect1.left), (rect1.bottom - rect1.top));
-    } else if (mouseX > (rect1.left + (rectW/3)) && mouseX < (rect1.left + (rectW/3)*2) && mouseY > ((rect1.bottom + top) / 2)) {
+    } else if (mouseX > (rect1.left + (rectW / 3)) && mouseX < (rect1.left + (rectW / 3) * 2) && mouseY > ((rect1.bottom + top) / 2)) {
       image(wybm2, rect1.left, rect1.top + top, (rect1.right - rect1.left), (rect1.bottom - rect1.top));
-    } else if (mouseX > (rect1.left + (rectW/3)*2) && mouseY > ((rect1.bottom + top) / 2)) {
+    } else if (mouseX > (rect1.left + (rectW / 3) * 2) && mouseY > ((rect1.bottom + top) / 2)) {
       image(wybm3, rect1.left, rect1.top + top, (rect1.right - rect1.left), (rect1.bottom - rect1.top));
-    } else if (mouseX < (rect1.left + (rectW/3)) && mouseY < ((rect1.bottom + top) / 2)) {
+    } else if (mouseX < (rect1.left + (rectW / 3)) && mouseY < ((rect1.bottom + top) / 2)) {
       image(wybm4, rect1.left, rect1.top + top, (rect1.right - rect1.left), (rect1.bottom - rect1.top));
-    } else if (mouseX > (rect1.left + (rectW/3)) && mouseX < (rect1.left + (rectW/3)*2)  && mouseY < ((rect1.bottom + top) / 2)) {
+    } else if (mouseX > (rect1.left + (rectW / 3)) && mouseX < (rect1.left + (rectW / 3) * 2) && mouseY < ((rect1.bottom + top) / 2)) {
       image(wybm5, rect1.left, rect1.top + top, (rect1.right - rect1.left), (rect1.bottom - rect1.top));
-    } else if (mouseX > (rect1.left + (rectW/3)*2) && mouseY < ((rect1.bottom + top) / 2)) {
+    } else if (mouseX > (rect1.left + (rectW / 3) * 2) && mouseY < ((rect1.bottom + top) / 2)) {
       image(wybm6, rect1.left, rect1.top + top, (rect1.right - rect1.left), (rect1.bottom - rect1.top));
     }
   } else {
@@ -386,22 +386,22 @@ function draw() {
 
   if (mouseY > (rect2.top + top) && mouseY < (rect2.bottom + top) && mouseX < rect2.right && mouseX > rect2.left) {
 
-    if (mouseX < (rect2.left + (rectW/3)) && mouseY > ((rect2.bottom+top)-(rectH/2))) {
+    if (mouseX < (rect2.left + (rectW / 3)) && mouseY > ((rect2.bottom + top) - (rectH / 2))) {
 
       image(sidn1, rect2.left, rect2.top + top, (rect2.right - rect2.left), (rect2.bottom - rect2.top));
-    } else if (mouseX > (rect2.left + (rectW/3)) && mouseX < (rect2.left + (rectW/3)*2) && mouseY > ((rect2.bottom+top)-(rectH/2))) {
+    } else if (mouseX > (rect2.left + (rectW / 3)) && mouseX < (rect2.left + (rectW / 3) * 2) && mouseY > ((rect2.bottom + top) - (rectH / 2))) {
       image(sidn2, rect2.left, rect2.top + top, (rect2.right - rect2.left), (rect2.bottom - rect2.top));
 
-    } else if (mouseX > (rect2.left + (rectW/3)*2) && mouseY > ((rect2.bottom+top)-(rectH/2))) {
+    } else if (mouseX > (rect2.left + (rectW / 3) * 2) && mouseY > ((rect2.bottom + top) - (rectH / 2))) {
       image(sidn3, rect2.left, rect2.top + top, (rect2.right - rect2.left), (rect2.bottom - rect2.top));
 
-    } else if (mouseX < (rect2.left + (rectW/3)) && mouseY < ((rect2.bottom+top)-(rectH/2))) {
+    } else if (mouseX < (rect2.left + (rectW / 3)) && mouseY < ((rect2.bottom + top) - (rectH / 2))) {
       image(sidn4, rect2.left, rect2.top + top, (rect2.right - rect2.left), (rect2.bottom - rect2.top));
 
-    } else if (mouseX > (rect2.left + (rectW/3)) && mouseX < (rect2.left + (rectW/3)*2)  && mouseY < ((rect2.bottom+top)-(rectH/2))) {
+    } else if (mouseX > (rect2.left + (rectW / 3)) && mouseX < (rect2.left + (rectW / 3) * 2) && mouseY < ((rect2.bottom + top) - (rectH / 2))) {
       image(sidn5, rect2.left, rect2.top + top, (rect2.right - rect2.left), (rect2.bottom - rect2.top));
 
-    } else if (mouseX > (rect2.left + (rectW/3)*2) && mouseY < ((rect2.bottom+top)-(rectH/2))){
+    } else if (mouseX > (rect2.left + (rectW / 3) * 2) && mouseY < ((rect2.bottom + top) - (rectH / 2))) {
       image(sidn6, rect2.left, rect2.top + top, (rect2.right - rect2.left), (rect2.bottom - rect2.top));
 
     }
@@ -418,22 +418,22 @@ function draw() {
 
   if (mouseY > (rect3.top + top) && mouseY < (rect3.bottom + top) && mouseX < rect3.right && mouseX > rect3.left) {
 
-    if (mouseX < (rect3.left + (rectW/3)) && mouseY > ((rect3.bottom+top)-(rectH/2))) {
+    if (mouseX < (rect3.left + (rectW / 3)) && mouseY > ((rect3.bottom + top) - (rectH / 2))) {
 
       image(vl1, rect3.left, rect3.top + top, (rect3.right - rect3.left), (rect3.bottom - rect3.top));
-    } else if (mouseX > (rect3.left + (rectW/3)) && mouseX < (rect3.left + (rectW/3)*2) && mouseY > ((rect3.bottom+top)-(rectH/2))) {
+    } else if (mouseX > (rect3.left + (rectW / 3)) && mouseX < (rect3.left + (rectW / 3) * 2) && mouseY > ((rect3.bottom + top) - (rectH / 2))) {
       image(vl2, rect3.left, rect3.top + top, (rect3.right - rect3.left), (rect3.bottom - rect3.top));
 
-    } else if (mouseX > (rect3.left + (rectW/3)*2) && mouseY > ((rect3.bottom+top)-(rectH/2))) {
+    } else if (mouseX > (rect3.left + (rectW / 3) * 2) && mouseY > ((rect3.bottom + top) - (rectH / 2))) {
       image(vl3, rect3.left, rect3.top + top, (rect3.right - rect3.left), (rect3.bottom - rect3.top));
 
-    } else if (mouseX < (rect3.left + (rectW/3)) && mouseY < ((rect3.bottom+top)-(rectH/2))) {
+    } else if (mouseX < (rect3.left + (rectW / 3)) && mouseY < ((rect3.bottom + top) - (rectH / 2))) {
       image(vl4, rect3.left, rect3.top + top, (rect3.right - rect3.left), (rect3.bottom - rect3.top));
 
-    } else if (mouseX > (rect3.left + (rectW/3)) && mouseX < (rect3.left + (rectW/3)*2)  && mouseY < ((rect3.bottom+top)-(rectH/2))) {
+    } else if (mouseX > (rect3.left + (rectW / 3)) && mouseX < (rect3.left + (rectW / 3) * 2) && mouseY < ((rect3.bottom + top) - (rectH / 2))) {
       image(vl5, rect3.left, rect3.top + top, (rect3.right - rect3.left), (rect3.bottom - rect3.top));
 
-    } else if (mouseX > (rect3.left + (rectW/3)*2) && mouseY < ((rect3.bottom+top)-(rectH/2))){
+    } else if (mouseX > (rect3.left + (rectW / 3) * 2) && mouseY < ((rect3.bottom + top) - (rectH / 2))) {
       image(vl6, rect3.left, rect3.top + top, (rect3.right - rect3.left), (rect3.bottom - rect3.top));
 
     }
@@ -444,69 +444,69 @@ function draw() {
   }
 
 
-    div4 = document.getElementById('box4');
-    rect4 = div4.getBoundingClientRect();
-    rectW = rect4.right - rect4.left;
-    rectH = rect4.bottom - rect4.top;
+  div4 = document.getElementById('box4');
+  rect4 = div4.getBoundingClientRect();
+  rectW = rect4.right - rect4.left;
+  rectH = rect4.bottom - rect4.top;
 
-    if (mouseY > (rect4.top + top) && mouseY < (rect4.bottom + top) && mouseX < rect4.right && mouseX > rect4.left) {
+  if (mouseY > (rect4.top + top) && mouseY < (rect4.bottom + top) && mouseX < rect4.right && mouseX > rect4.left) {
 
-      if (mouseX < (rect4.left + (rectW/3)) && mouseY > ((rect4.bottom+top)-(rectH/2))) {
+    if (mouseX < (rect4.left + (rectW / 3)) && mouseY > ((rect4.bottom + top) - (rectH / 2))) {
 
-        image(por1, rect4.left, rect4.top + top, (rect4.right - rect4.left), (rect4.bottom - rect4.top));
-      } else if (mouseX > (rect4.left + (rectW/3)) && mouseX < (rect4.left + (rectW/3)*2) && mouseY > ((rect4.bottom+top)-(rectH/2))) {
-        image(por2, rect4.left, rect4.top + top, (rect4.right - rect4.left), (rect4.bottom - rect4.top));
+      image(por1, rect4.left, rect4.top + top, (rect4.right - rect4.left), (rect4.bottom - rect4.top));
+    } else if (mouseX > (rect4.left + (rectW / 3)) && mouseX < (rect4.left + (rectW / 3) * 2) && mouseY > ((rect4.bottom + top) - (rectH / 2))) {
+      image(por2, rect4.left, rect4.top + top, (rect4.right - rect4.left), (rect4.bottom - rect4.top));
 
-      } else if (mouseX > (rect4.left + (rectW/3)*2) && mouseY > ((rect4.bottom+top)-(rectH/2))) {
-        image(por3, rect4.left, rect4.top + top, (rect4.right - rect4.left), (rect4.bottom - rect4.top));
+    } else if (mouseX > (rect4.left + (rectW / 3) * 2) && mouseY > ((rect4.bottom + top) - (rectH / 2))) {
+      image(por3, rect4.left, rect4.top + top, (rect4.right - rect4.left), (rect4.bottom - rect4.top));
 
-      } else if (mouseX < (rect4.left + (rectW/3)) && mouseY < ((rect4.bottom+top)-(rectH/2))) {
-        image(por4, rect4.left, rect4.top + top, (rect4.right - rect4.left), (rect4.bottom - rect4.top));
+    } else if (mouseX < (rect4.left + (rectW / 3)) && mouseY < ((rect4.bottom + top) - (rectH / 2))) {
+      image(por4, rect4.left, rect4.top + top, (rect4.right - rect4.left), (rect4.bottom - rect4.top));
 
-      } else if (mouseX > (rect4.left + (rectW/3)) && mouseX < (rect4.left + (rectW/3)*2)  && mouseY < ((rect4.bottom+top)-(rectH/2))) {
-        image(por5, rect4.left, rect4.top + top, (rect4.right - rect4.left), (rect4.bottom - rect4.top));
+    } else if (mouseX > (rect4.left + (rectW / 3)) && mouseX < (rect4.left + (rectW / 3) * 2) && mouseY < ((rect4.bottom + top) - (rectH / 2))) {
+      image(por5, rect4.left, rect4.top + top, (rect4.right - rect4.left), (rect4.bottom - rect4.top));
 
-      } else if (mouseX > (rect4.left + (rectW/3)*2) && mouseY < ((rect4.bottom+top)-(rectH/2))){
-        image(por6, rect4.left, rect4.top + top, (rect4.right - rect4.left), (rect4.bottom - rect4.top));
+    } else if (mouseX > (rect4.left + (rectW / 3) * 2) && mouseY < ((rect4.bottom + top) - (rectH / 2))) {
+      image(por6, rect4.left, rect4.top + top, (rect4.right - rect4.left), (rect4.bottom - rect4.top));
 
-      }
-    } else {
-      fill(255, 192, 203);
-      noStroke();
-      rect(rect4.left, rect4.top + top, (rect4.right - rect4.left), (rect4.bottom - rect4.top));
     }
+  } else {
+    fill(255, 192, 203);
+    noStroke();
+    rect(rect4.left, rect4.top + top, (rect4.right - rect4.left), (rect4.bottom - rect4.top));
+  }
 
-    div5 = document.getElementById('box5');
-    rect5 = div5.getBoundingClientRect();
-    rectW = rect5.right - rect5.left;
-    rectH = rect5.bottom - rect5.top;
+  div5 = document.getElementById('box5');
+  rect5 = div5.getBoundingClientRect();
+  rectW = rect5.right - rect5.left;
+  rectH = rect5.bottom - rect5.top;
 
-    if (mouseY > (rect5.top + top) && mouseY < (rect5.bottom + top) && mouseX < rect5.right && mouseX > rect5.left) {
+  if (mouseY > (rect5.top + top) && mouseY < (rect5.bottom + top) && mouseX < rect5.right && mouseX > rect5.left) {
 
-      if (mouseX < (rect5.left + (rectW/3)) && mouseY > ((rect5.bottom+top)-(rectH/2))) {
+    if (mouseX < (rect5.left + (rectW / 3)) && mouseY > ((rect5.bottom + top) - (rectH / 2))) {
 
-        image(dream1, rect5.left, rect5.top + top, (rect5.right - rect5.left), (rect5.bottom - rect5.top));
-      } else if (mouseX > (rect5.left + (rectW/3)) && mouseX < (rect5.left + (rectW/3)*2) && mouseY > ((rect5.bottom+top)-(rectH/2))) {
-        image(dream2, rect5.left, rect5.top + top, (rect5.right - rect5.left), (rect5.bottom - rect5.top));
+      image(dream1, rect5.left, rect5.top + top, (rect5.right - rect5.left), (rect5.bottom - rect5.top));
+    } else if (mouseX > (rect5.left + (rectW / 3)) && mouseX < (rect5.left + (rectW / 3) * 2) && mouseY > ((rect5.bottom + top) - (rectH / 2))) {
+      image(dream2, rect5.left, rect5.top + top, (rect5.right - rect5.left), (rect5.bottom - rect5.top));
 
-      } else if (mouseX > (rect5.left + (rectW/3)*2) && mouseY > ((rect5.bottom+top)-(rectH/2))) {
-        image(dream3, rect5.left, rect5.top + top, (rect5.right - rect5.left), (rect5.bottom - rect5.top));
+    } else if (mouseX > (rect5.left + (rectW / 3) * 2) && mouseY > ((rect5.bottom + top) - (rectH / 2))) {
+      image(dream3, rect5.left, rect5.top + top, (rect5.right - rect5.left), (rect5.bottom - rect5.top));
 
-      } else if (mouseX < (rect5.left + (rectW/3)) && mouseY < ((rect5.bottom+top)-(rectH/2))) {
-        image(dream4, rect5.left, rect5.top + top, (rect5.right - rect5.left), (rect5.bottom - rect5.top));
+    } else if (mouseX < (rect5.left + (rectW / 3)) && mouseY < ((rect5.bottom + top) - (rectH / 2))) {
+      image(dream4, rect5.left, rect5.top + top, (rect5.right - rect5.left), (rect5.bottom - rect5.top));
 
-      } else if (mouseX > (rect5.left + (rectW/3)) && mouseX < (rect5.left + (rectW/3)*2)  && mouseY < ((rect5.bottom+top)-(rectH/2))) {
-        image(dream5, rect5.left, rect5.top + top, (rect5.right - rect5.left), (rect5.bottom - rect5.top));
+    } else if (mouseX > (rect5.left + (rectW / 3)) && mouseX < (rect5.left + (rectW / 3) * 2) && mouseY < ((rect5.bottom + top) - (rectH / 2))) {
+      image(dream5, rect5.left, rect5.top + top, (rect5.right - rect5.left), (rect5.bottom - rect5.top));
 
-      } else if (mouseX > (rect5.left + (rectW/3)*2) && mouseY < ((rect5.bottom+top)-(rectH/2))){
-        image(dream6, rect5.left, rect5.top + top, (rect5.right - rect5.left), (rect5.bottom - rect5.top));
+    } else if (mouseX > (rect5.left + (rectW / 3) * 2) && mouseY < ((rect5.bottom + top) - (rectH / 2))) {
+      image(dream6, rect5.left, rect5.top + top, (rect5.right - rect5.left), (rect5.bottom - rect5.top));
 
-      }
-    } else {
-      fill(255, 192, 203);
-      noStroke();
-      rect(rect5.left, rect5.top + top, (rect5.right - rect5.left), (rect5.bottom - rect5.top));
     }
+  } else {
+    fill(255, 192, 203);
+    noStroke();
+    rect(rect5.left, rect5.top + top, (rect5.right - rect5.left), (rect5.bottom - rect5.top));
+  }
 
 
 

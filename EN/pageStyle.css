@@ -381,6 +381,44 @@ text-align: left;
   margin-top: 530px;
 }
 
+#pageLinkContainer{
+ width:86%;
+ margin-left: 0;
+ background-color: transparent;
+}
+
+#pageLinkSpacer{
+ margin-left: 45%;
+background-color: transparent;
+}
+
+#pageLink{
+  font-size: 18px;
+  /* font-family: 'Open Sans', sans-serif; */
+  font-family: 'Quicksand', sans-serif;
+  line-height: 1.5;
+  letter-spacing: 1.5;
+  text-decoration: none;
+  color: black;
+  padding:5%;
+   background-color: transparent;
+}
+
+#pageLink:hover{
+  color: pink;
+}
+
+#pageLinkVoid{
+  font-size: 18px;
+  /* font-family: 'Open Sans', sans-serif; */
+  font-family: 'Quicksand', sans-serif;
+  line-height: 1.5;
+  letter-spacing: 1.5;
+  text-decoration: none;
+  color: black;
+  padding:5%;
+   background-color: transparent;
+}
 
 /*   MEDIA QUERIES   */
 

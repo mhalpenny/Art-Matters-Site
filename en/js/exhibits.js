@@ -307,22 +307,64 @@ div1 = document.getElementById('box1');
 rect1 = div1.getBoundingClientRect();
 
 
-if (mouseY > rect1.top && mouseY < rect1.bottom && mouseX < rect1.right && mouseX > rect1.left){
+if (mouseY > (rect1.top+top) && mouseY < (rect1.bottom+top) && mouseX < rect1.right && mouseX > rect1.left){
 
-  if (mouseX < (rect1.right / 2) && mouseY > (rect1.bottom/2)){
+  if (mouseX < (rect1.right / 2) && mouseY > ((rect1.bottom+top)/2)){
       // console.log(rect1.left, rect1.top, (rect1.right-rect1.left), (rect1.bottom-rect1.top));
     image(wybm1, rect1.left, rect1.top+top, (rect1.right-rect1.left), (rect1.bottom-rect1.top));
-  } else if (mouseX > (rect1.right/2) && mouseY > (rect1.bottom/2)){
+  } else if (mouseX > (rect1.right/2) && mouseY > ((rect1.bottom+top)/2)){
     image(wybm2, rect1.left, rect1.top+top, (rect1.right-rect1.left), (rect1.bottom-rect1.top));
-  } else if (mouseX < (rect1.right/2) && mouseY < (rect1.bottom/2)){
+  } else if (mouseX < (rect1.right/2) && mouseY < ((rect1.bottom+top)/2)){
     image(wybm3, rect1.left, rect1.top+top, (rect1.right-rect1.left), (rect1.bottom-rect1.top));
-  } else if (mouseX > (rect1.right/2) && mouseY < (rect1.bottom/2)){
+  } else if (mouseX > (rect1.right/2) && mouseY < ((rect1.bottom+top)/2)){
     image(wybm4, rect1.left, rect1.top+top, (rect1.right-rect1.left), (rect1.bottom-rect1.top));
   }
 } else{
   fill(255, 192, 203);
   noStroke();
   rect(rect1.left, rect1.top+top, (rect1.right-rect1.left), (rect1.bottom-rect1.top));
+}
+
+div2 = document.getElementById('box2');
+rect2 = div2.getBoundingClientRect();
+
+if (mouseY > (rect2.top+top) && mouseY < (rect2.bottom+top) && mouseX < rect2.right && mouseX > rect2.left){
+
+  if (mouseX < (rect2.right / 2) && mouseY > ((rect2.bottom+top)/2)){
+      // console.log(rect2.left, rect2.top, (rect2.right-rect2.left), (rect2.bottom-rect2.top));
+    image(wybm1, rect2.left, rect2.top+top, (rect2.right-rect2.left), (rect2.bottom-rect2.top));
+  } else if (mouseX > (rect2.right/2) && mouseY > ((rect2.bottom+top)/2)){
+    image(wybm2, rect2.left, rect2.top+top, (rect2.right-rect2.left), (rect2.bottom-rect2.top));
+  } else if (mouseX < (rect2.right/2) && mouseY < ((rect2.bottom+top)/2)){
+    image(wybm3, rect2.left, rect2.top+top, (rect2.right-rect2.left), (rect2.bottom-rect2.top));
+  } else if (mouseX > (rect2.right/2) && mouseY < ((rect2.bottom+top)/2)){
+    image(wybm4, rect2.left, rect2.top+top, (rect2.right-rect2.left), (rect2.bottom-rect2.top));
+  }
+} else{
+  fill(255, 192, 203);
+  noStroke();
+  rect(rect2.left, rect2.top+top, (rect2.right-rect2.left), (rect2.bottom-rect2.top));
+}
+
+div3 = document.getElementById('box3');
+rect3 = div3.getBoundingClientRect();
+
+if (mouseY > (rect3.top+top) && mouseY < (rect3.bottom+top) && mouseX < rect3.right && mouseX > rect3.left){
+
+  if (mouseX < (rect3.right / 2) && mouseY > ((rect3.bottom+top)/2)){
+      // console.log(rect3.left, rect3.top, (rect3.right-rect3.left), (rect3.bottom-rect3.top));
+    image(wybm1, rect3.left, rect3.top+top, (rect3.right-rect3.left), (rect3.bottom-rect3.top));
+  } else if (mouseX > (rect3.right/2) && mouseY > ((rect3.bottom+top)/2)){
+    image(wybm2, rect3.left, rect3.top+top, (rect3.right-rect3.left), (rect3.bottom-rect3.top));
+  } else if (mouseX < (rect3.right/2) && mouseY < ((rect3.bottom+top)/2)){
+    image(wybm3, rect3.left, rect3.top+top, (rect3.right-rect3.left), (rect3.bottom-rect3.top));
+  } else if (mouseX > (rect3.right/2) && mouseY < ((rect3.bottom+top)/2)){
+    image(wybm4, rect3.left, rect3.top+top, (rect3.right-rect3.left), (rect3.bottom-rect3.top));
+  }
+} else{
+  fill(255, 192, 203);
+  noStroke();
+  rect(rect3.left, rect3.top+top, (rect3.right-rect3.left), (rect3.bottom-rect3.top));
 }
 
 

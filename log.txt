@@ -25,9 +25,10 @@ WINTER
 4) Home page
 
     Redo interactivity
-    eyes, mushroom, arrows
+    eye, mushroom rockets, txt in bubble, bg color
     Calendar icon
     1 pink, 1 alt icon
+
 
 
 

@@ -7,7 +7,7 @@
 //     VARIABLES
 //-------------------------------------------------------------
 
-var animateR = false,
+let animateR = false,
   animateA = false,
   animateM = false,
   animateGI = false,
@@ -19,7 +19,7 @@ var animateR = false,
   animateCSM = false,
   animateCSC = false,
   animateCSE = false;
-var fadeR = 0,
+let fadeR = 0,
   fadeA = 0,
   fadeM = 0,
   fadeE = 0,
@@ -28,21 +28,21 @@ var fadeR = 0,
   fadeGI = 0,
   fadeEx = 0,
   fadeMain = 255;
-var linkOffset, linkBuffer;
-var layerR, layerA, layerM, layerE, layerAr, layerC, layerGI, layerEx;
-var iconR, iconA, iconM, iconE, iconAr, iconC, iconGI, iconEx;
-var logoSpin;
-var csW, csW2, rW, rW2;
-var fadeIncr = 35;
-var valueM = 0,
+let linkOffset, linkBuffer;
+let layerR, layerA, layerM, layerE, layerAr, layerC, layerGI, layerEx;
+let iconR, iconA, iconM, iconE, iconAr, iconC, iconGI, iconEx;
+let logoSpin;
+let csW, csW2, rW, rW2;
+let fadeIncr = 35;
+let valueM = 0,
   valueC = 0,
   valueE = 0;
-var loading = true;
-var loadCount = 0;
-var cpuPause = false;
-var mobileCount = 0;
-var drawX, drawY;
-
+let loading = true;
+let loadCount = 0;
+let cpuPause = false;
+let mobileCount = 0;
+let drawX, drawY, drawW, drawH, el, elBound;
+let newWidth;
 
 //-------------------------------------------------------------
 //     PRELOAD
@@ -81,6 +81,7 @@ function preload() {
 function setup() {
 
   frameRate(15);
+  // newWidth = windowWidth - (windowWidth*0.2);
   canvas = createCanvas(windowWidth, windowHeight);
   canvas.style("z-index", "-1");
   canvas.position(0, 0);
@@ -239,20 +240,21 @@ function draw() {
   //-------------------------------------------------------------
 
   //align with the cnter of the page
-  imageMode(CENTER);
+  imageMode(CORNER);
 
-  drawX = windowWidth/1.9;
-  drawY = windowHeight/2;
+  el = document.getElementById('animContainer');
+  elBound = el.getBoundingClientRect();
+  drawX = elBound.left;
+  drawY = elBound.top;
+  drawW = elBound.right-elBound.left;
+  drawH = elBound.bottom-elBound.top;
 
   //---MAIN---
   if (mainOff == false) {
     tint(255, fadeMain);
-    image(layerMain, drawX, drawY, windowWidth, windowHeight);
+    image(layerMain, drawX, drawY, drawW, drawH);
     noTint();
 
-    //reset links
-    linkM.html('MAPS');
-    linkC.html('CALENDAR');
 
     if (fadeMain <= 540) {
       fadeMain += fadeIncr;
@@ -272,7 +274,7 @@ function draw() {
   //---R---
   if (animateR == true) {
     tint(255, fadeR);
-    image(layerR, drawX, drawY, windowWidth, windowHeight);
+    image(layerR, drawX, drawY, drawW, drawH);
     image(iconR, linkMargin, (linkBuffer + linkOffset * 2), 50, 50);
     noTint();
     fadeR += fadeIncr;
@@ -281,7 +283,7 @@ function draw() {
   //---A---
   if (animateA == true) {
     tint(255, fadeA);
-    image(layerA, drawX, drawY, windowWidth, windowHeight);
+    image(layerA, drawX, drawY, drawW, drawH);
     image(iconA, linkMargin, (linkBuffer + linkOffset), 50, 50);
     noTint();
     fadeA += fadeIncr;
@@ -290,7 +292,7 @@ function draw() {
   //---GI---
   if (animateGI == true) {
     tint(255, fadeGI);
-    image(layerGI, drawX, drawY, windowWidth, windowHeight);
+    image(layerGI, drawX, drawY, drawW, drawH);
     image(iconGI, linkMargin, (linkBuffer + linkOffset * 3), 50, 50);
     noTint();
     fadeGI += fadeIncr;
@@ -299,7 +301,7 @@ function draw() {
   //---Ar---
   if (animateAr == true) {
     tint(255, fadeAr);
-    image(layerAr, drawX, drawY, windowWidth, windowHeight);
+    image(layerAr, drawX, drawY, drawW, drawH);
     image(iconAr, linkMargin, (linkBuffer + linkOffset * 8), 50, 50);
     noTint();
     fadeAr += fadeIncr;
@@ -308,10 +310,10 @@ function draw() {
   //---M---
   if (animateM == true) {
     tint(255, fadeM);
-    image(layerM, drawX, drawY, windowWidth, windowHeight);
+    image(layerM, drawX, drawY, drawW, drawH);
     image(iconM, linkMargin, (linkBuffer + linkOffset * 5), 50, 50);
 
-    // if (windowWidth > 650) {
+    // if (drawW > 650) {
     //   fill(239, 196, 88, 50);
     //   rect(linkMargin - 10, (linkBuffer + linkOffset * 6) - 15, 225, 55, 20);
     // }
@@ -323,10 +325,10 @@ function draw() {
   //---C---
   if (animateC == true) {
     tint(255, fadeC);
-    image(layerC, drawX, drawY, windowWidth, windowHeight);
+    image(layerC, drawX, drawY, drawW, drawH);
     image(iconC, linkMargin, (linkBuffer + linkOffset * 6), 50, 50);
 
-    // if (windowWidth > 650) {
+    // if (drawW > 650) {
     //   fill(17, 66, 81, 50);
     //   rect(linkMargin - 10, (linkBuffer + linkOffset * 5) - 15, 225, 55, 20);
     // }
@@ -338,7 +340,7 @@ function draw() {
   //---E---
   if (animateE == true) {
     tint(255, fadeE);
-    image(layerE, drawX, drawY, windowWidth, windowHeight);
+    image(layerE, drawX, drawY, drawW, drawH);
     image(iconE, linkMargin, (linkBuffer + linkOffset * 4), 50, 50);
 
     noTint();
@@ -349,7 +351,7 @@ function draw() {
   //---E---
   if (animateEx == true) {
     tint(255, fadeEx);
-    // image(layerE, drawX, drawY, windowWidth, windowHeight);
+    // image(layerE, drawX, drawY, drawW, drawH);
     image(iconEx, linkMargin, (linkBuffer + linkOffset * 7), 50, 50);
 
     noTint();
@@ -584,7 +586,7 @@ function offLang() {
 }
 
 function windowResized() {
-  resizeCanvas(windowWidth, (windowHeight));
+  resizeCanvas(newWidth, (windowHeight));
   background(248, 251, 252, 50);
 
 }

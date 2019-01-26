@@ -29,7 +29,7 @@ let fadeR = 0,
   fadeEx = 0,
   fadeMain = 255;
 let linkOffset, linkBuffer, linkMargin;
-let layerR, layerA, layerM, layerE, layerAr, layerC, layerGI, layerEx;
+let layerR, layerA, layerM, layerE, layerAr, layerC, layerGI, layerEx, layerEye;
 let iconR, iconA, iconM, iconE, iconAr, iconC, iconGI, iconEx;
 let logoSpin;
 let csW, csW2, rW, rW2;
@@ -42,7 +42,10 @@ let loadCount = 0;
 let cpuPause = false;
 let mobileCount = 0;
 let drawX, drawY, drawW, drawH, el, elBound;
-let newWidth;
+let newWidth, trail, trailY;
+let right = true;
+let font,
+  fontsize = 32;
 
 //-------------------------------------------------------------
 //     PRELOAD
@@ -58,7 +61,7 @@ function preload() {
   layerC = loadImage('assets/box/greenLayer.png');
   layerAr = loadImage('assets/box/orangeLayer.png');
   layerGI = loadImage('assets/box/yellowLayer.png');
-  layerMain = loadImage('assets/LayerAllBox.png');
+  layerMain = loadImage('assets/layerAllBox.png');
   //icons
   iconA = loadImage('assets/rrIcon.png');
   iconR = loadImage('assets/bIcon.png');
@@ -70,6 +73,8 @@ function preload() {
   iconEx = loadImage('assets/gyIcon.png');
   //logo
   amLogo = loadImage('assets/amlogo.png');
+  //fonts
+  font = loadFont('fonts/Lack-Regular.otf');
 }
 
 //-------------------------------------------------------------
@@ -85,6 +90,10 @@ function setup() {
   canvas = createCanvas(windowWidth, windowHeight);
   canvas.style("z-index", "-1");
   canvas.position(0, 0);
+
+  textFont(font);
+  textSize(fontsize);
+  textAlign(CENTER, CENTER);
 
   //-------------------------------------------------------------
   //     LINKS (SETUP)
@@ -196,8 +205,14 @@ function draw() {
   //-------------------------------------------------------------
 
   noStroke();
+  // background(248, 251, 252, 50);
+
+  // trail = map(mouseY, 0, windowWidth, 50, 0);
+  // trailY = map(mouseX, 0, windowHeight, 1, 6);
+  trailY = 1;
+  // background(248, 251, 252, trail);
+
   if (cpuPause == false) {
-    // background(255, 50);
     background(248, 251, 252, 50);
   } else {
 
@@ -212,10 +227,32 @@ function draw() {
   //align with the cnter of the page
   imageMode(CORNER);
 
+  // if (drawX < 180 && right == false){
+  //   right = true;
+  // } else if (drawX > 500 && right == true){
+  //   right = false;
+  // }
+  //
+  // if (right == true){
+  //   drawX += trailY;
+  // } else{
+  //   drawX -= trailY;
+  // }
+
+  // drawX += map(mouseX, 0, windowWidth, -1, 1);
+
+
+
   //---MAIN---
   if (mainOff == false) {
     tint(255, fadeMain);
     image(layerMain, drawX, drawY, drawW, drawH);
+    fill(255);
+    if(mouseX < (windowWidth/2)){
+    text("hi, hello.", drawX+230, drawY+140);
+  }else{
+    text("welcome", drawX+230, drawY+140);
+  }
     noTint();
 
 

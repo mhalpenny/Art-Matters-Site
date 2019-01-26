@@ -7,10 +7,10 @@
 //     VARIABLES
 //-------------------------------------------------------------
 
-var offset;
-var logoSpin = 0;
-var logoY = 50;
-var animateR = false,
+let offset;
+let logoSpin = 0;
+let logoY = 50;
+let animateR = false,
   animateA = false,
   animateM = false,
   animateGI = false,
@@ -22,7 +22,7 @@ var animateR = false,
   animateCSM = false,
   animateCSC = false,
   animateCSE = false;
-var fadeR = 0,
+let fadeR = 0,
   fadeA = 0,
   fadeM = 0,
   fadeE = 0,
@@ -31,23 +31,24 @@ var fadeR = 0,
   fadeGI = 0,
   fadeEx, fadeMain = 255,
   fadeBack = 50;
-var linkOffset, linkBuffer;
-var fadeIncr = 35;
-var bColorVal = 0;
-var widthVal = 12;
-var heightVal = 12;
-var flip = true;
-var spinX, spinY;
-var bodyH, canvasH;
-var isAnimation = 400;
-var refresh = false;
-var refreshArray = [1];
-var valueM = 0,
+let linkOffset, linkBuffer, linkMargin, iconMargin;
+let fadeIncr = 35;
+let bColorVal = 0;
+let widthVal = 12;
+let heightVal = 12;
+let flip = true;
+let spinX, spinY;
+let bodyH, canvasH;
+let isAnimation = 400;
+let refresh = false;
+let refreshArray = [1];
+let valueM = 0,
   valueC = 0,
   valueE = 0;
-var nonLoop = false;
-var widthX, heightY;
+let nonLoop = false;
+let widthX, heightY;
 let div1, div2, rect1, rect2, div3, rect3, rectW, rectH;
+let img1, img2, img3, img4, img5, img6;
 
 
 
@@ -70,39 +71,6 @@ function preload() {
   iconEx = loadImage('assets/gyIcon.png');
   //logo
   amLogo = loadImage('assets/amlogo.png');
-  //exhibits
-  int1 = loadImage('assets/int1.png');
-  int2 = loadImage('assets/int2.png');
-  int3 = loadImage('assets/int3.png');
-  int4 = loadImage('assets/int4.png');
-  int5 = loadImage('assets/int5.png');
-  int6 = loadImage('assets/int6.png');
-  isod1 = loadImage('assets/isod1.png');
-  isod2 = loadImage('assets/isod2.png');
-  isod3 = loadImage('assets/isod3.png');
-  isod4 = loadImage('assets/isod4.png');
-  isod5 = loadImage('assets/isod5.png');
-  isod6 = loadImage('assets/isod6.png');
-  soes1 = loadImage('assets/soes1.png');
-  soes2 = loadImage('assets/soes2.png');
-  soes3 = loadImage('assets/soes3.png');
-  soes4 = loadImage('assets/soes4.png');
-  soes5 = loadImage('assets/soes5.png');
-  soes6 = loadImage('assets/soes6.png');
-  lwmd1 = loadImage('assets/lwmd1.jpg');
-  lwmd2 = loadImage('assets/lwmd2.png');
-  lwmd3 = loadImage('assets/lwmd3.png');
-  lwmd4 = loadImage('assets/lwmd4.png');
-  lwmd5 = loadImage('assets/lwmd5.png');
-  lwmd6 = loadImage('assets/lwmd6.png');
-  mal1 = loadImage('assets/mal1.png');
-  mal2 = loadImage('assets/mal2.png');
-  mal3 = loadImage('assets/mal3.png');
-  mal4 = loadImage('assets/mal4.png');
-  mal5 = loadImage('assets/mal5.png');
-  mal6 = loadImage('assets/mal6.png');
-
-
 }
 
 //-------------------------------------------------------------
@@ -123,7 +91,7 @@ function setup() {
   //use id to get div height for canvas scrolling length
   canvasH = bodyH.scrollHeight + 50;
   //create canvas at appropriate length for page
-  canvas = createCanvas(windowWidth, canvasH);
+  canvas = createCanvas(300, canvasH);
   //basic canvas formatting
   canvas.style("z-index", "-1");
   canvas.position(0, 0);
@@ -242,7 +210,7 @@ function draw() {
   if (windowWidth > 650) {
     linkOffset = 55;
     linkBuffer = top + 80;
-    var linkMargin = 35;
+    linkMargin = 35;
 
     if (nonLoop == false) {
 
@@ -285,8 +253,8 @@ function draw() {
     linkOffset = 55;
     linkBuffer = top + 25;
     iconBuffer = top + 45;
-    var linkMargin = 30;
-    var iconMargin = 45;
+    inkMargin = 30;
+    iconMargin = 45;
 
     if (nonLoop == false) {
 
@@ -313,6 +281,7 @@ function draw() {
 
 
     tint(255, 255);
+    // imageMode(CORNER);
 
     image(iconR, iconMargin, (iconBuffer + linkOffset * 2), 40, 40);
     image(iconA, iconMargin, (iconBuffer + linkOffset), 40, 40);
@@ -342,64 +311,157 @@ function draw() {
   //-------------------------------------------------------------
   //     INTERACTION (DRAW)
   //-------------------------------------------------------------
-  imageMode(CORNER);
+
+  //box calculations
   div1 = document.getElementById('box1');
   rect1 = div1.getBoundingClientRect();
- rectW = rect1.right - rect1.left;
- rectH = rect1.bottom - rect1.top;
+  rectW = rect1.right - rect1.left;
+  rectH = rect1.bottom - rect1.top;
+  //image calculations
+  img1 = $('#box1').find('.img1');
+  img2 = $('#box1').find('.img2');
+  img3 = $('#box1').find('.img3');
+  img4 = $('#box1').find('.img4');
+  img5 = $('#box1').find('.img5');
+  img6 = $('#box1').find('.img6');
 
   if (mouseY > (rect1.top + top) && mouseY < (rect1.bottom + top) && mouseX < rect1.right && mouseX > rect1.left) {
 
-    if (mouseX < (rect1.left + (rectW/3)) && mouseY > ((rect1.bottom + top) / 2)) {
-      // console.log(rect1.left, rect1.top, (rect1.right-rect1.left), (rect1.bottom-rect1.top));
-      image(int1, rect1.left, rect1.top + top, (rect1.right - rect1.left), (rect1.bottom - rect1.top));
-    } else if (mouseX > (rect1.left + (rectW/3)) && mouseX < (rect1.left + (rectW/3)*2) && mouseY > ((rect1.bottom + top) / 2)) {
-      image(int2, rect1.left, rect1.top + top, (rect1.right - rect1.left), (rect1.bottom - rect1.top));
-    } else if (mouseX > (rect1.left + (rectW/3)*2) && mouseY > ((rect1.bottom + top) / 2)) {
-      image(int3, rect1.left, rect1.top + top, (rect1.right - rect1.left), (rect1.bottom - rect1.top));
-    } else if (mouseX < (rect1.left + (rectW/3)) && mouseY < ((rect1.bottom + top) / 2)) {
-      image(int4, rect1.left, rect1.top + top, (rect1.right - rect1.left), (rect1.bottom - rect1.top));
-    } else if (mouseX > (rect1.left + (rectW/3)) && mouseX < (rect1.left + (rectW/3)*2)  && mouseY < ((rect1.bottom + top) / 2)) {
-      image(int5, rect1.left, rect1.top + top, (rect1.right - rect1.left), (rect1.bottom - rect1.top));
-    } else if (mouseX > (rect1.left + (rectW/3)*2) && mouseY < ((rect1.bottom + top) / 2)) {
-      image(int6, rect1.left, rect1.top + top, (rect1.right - rect1.left), (rect1.bottom - rect1.top));
+    if (mouseX < (rect1.left + (rectW / 3)) && mouseY > ((rect1.bottom + top) - (rectH / 2))) {
+      img1.show();
+      img2.hide();
+      img3.hide();
+      img4.hide();
+      img5.hide();
+      img6.hide();
+
+    } else if (mouseX > (rect1.left + (rectW / 3)) && mouseX < (rect1.left + (rectW / 3) * 2) && mouseY > ((rect1.bottom + top) - (rectH / 2))) {
+      img1.hide();
+      img2.show();
+      img3.hide();
+      img4.hide();
+      img5.hide();
+      img6.hide();
+
+    } else if (mouseX > (rect1.left + (rectW / 3) * 2) && mouseY > ((rect1.bottom + top) - (rectH / 2))) {
+      img1.hide();
+      img2.hide();
+      img3.show();
+      img4.hide();
+      img5.hide();
+      img6.hide();
+
+    } else if (mouseX < (rect1.left + (rectW / 3)) && mouseY < ((rect1.bottom + top) - (rectH / 2))) {
+      img1.hide();
+      img2.hide();
+      img3.hide();
+      img4.show();
+      img5.hide();
+      img6.hide();
+
+    } else if (mouseX > (rect1.left + (rectW / 3)) && mouseX < (rect1.left + (rectW / 3) * 2) && mouseY < ((rect1.bottom + top) - (rectH / 2))) {
+      img1.hide();
+      img2.hide();
+      img3.hide();
+      img4.hide();
+      img5.show();
+      img6.hide();
+
+    } else if (mouseX > (rect1.left + (rectW / 3) * 2) && mouseY < ((rect1.bottom + top) - (rectH / 2))) {
+      img1.hide();
+      img2.hide();
+      img3.hide();
+      img4.hide();
+      img5.hide();
+      img6.show();
+
     }
   } else {
     fill(255, 192, 203);
     noStroke();
     rect(rect1.left, rect1.top + top, (rect1.right - rect1.left), (rect1.bottom - rect1.top));
+    img1.hide();
+    img2.hide();
+    img3.hide();
+    img4.hide();
+    img5.hide();
+    img6.hide();
   }
 
+  //container variables
   div2 = document.getElementById('box2');
   rect2 = div2.getBoundingClientRect();
   rectW = rect2.right - rect2.left;
   rectH = rect2.bottom - rect2.top;
+  //image variables
+  img1 = $('#box2').find('.img1');
+  img2 = $('#box2').find('.img2');
+  img3 = $('#box2').find('.img3');
+  img4 = $('#box2').find('.img4');
+  img5 = $('#box2').find('.img5');
+  img6 = $('#box2').find('.img6');
 
   if (mouseY > (rect2.top + top) && mouseY < (rect2.bottom + top) && mouseX < rect2.right && mouseX > rect2.left) {
 
-    if (mouseX < (rect2.left + (rectW/3)) && mouseY > ((rect2.bottom+top)-(rectH/2))) {
+    if (mouseX < (rect2.left + (rectW / 3)) && mouseY > ((rect2.bottom + top) - (rectH / 2))) {
 
-      image(isod1, rect2.left, rect2.top + top, (rect2.right - rect2.left), (rect2.bottom - rect2.top));
-    } else if (mouseX > (rect2.left + (rectW/3)) && mouseX < (rect2.left + (rectW/3)*2) && mouseY > ((rect2.bottom+top)-(rectH/2))) {
-      image(isod2, rect2.left, rect2.top + top, (rect2.right - rect2.left), (rect2.bottom - rect2.top));
+      img1.show();
+      img2.hide();
+      img3.hide();
+      img4.hide();
+      img5.hide();
+      img6.hide();
+    } else if (mouseX > (rect2.left + (rectW / 3)) && mouseX < (rect2.left + (rectW / 3) * 2) && mouseY > ((rect2.bottom + top) - (rectH / 2))) {
+      img1.hide();
+      img2.show();
+      img3.hide();
+      img4.hide();
+      img5.hide();
+      img6.hide();
 
-    } else if (mouseX > (rect2.left + (rectW/3)*2) && mouseY > ((rect2.bottom+top)-(rectH/2))) {
-      image(isod3, rect2.left, rect2.top + top, (rect2.right - rect2.left), (rect2.bottom - rect2.top));
+    } else if (mouseX > (rect2.left + (rectW / 3) * 2) && mouseY > ((rect2.bottom + top) - (rectH / 2))) {
+      img1.hide();
+      img2.hide();
+      img3.show();
+      img4.hide();
+      img5.hide();
+      img6.hide();
 
-    } else if (mouseX < (rect2.left + (rectW/3)) && mouseY < ((rect2.bottom+top)-(rectH/2))) {
-      image(isod4, rect2.left, rect2.top + top, (rect2.right - rect2.left), (rect2.bottom - rect2.top));
+    } else if (mouseX < (rect2.left + (rectW / 3)) && mouseY < ((rect2.bottom + top) - (rectH / 2))) {
+      img1.hide();
+      img2.hide();
+      img3.hide();
+      img4.show();
+      img5.hide();
+      img6.hide();
 
-    } else if (mouseX > (rect2.left + (rectW/3)) && mouseX < (rect2.left + (rectW/3)*2)  && mouseY < ((rect2.bottom+top)-(rectH/2))) {
-      image(isod5, rect2.left, rect2.top + top, (rect2.right - rect2.left), (rect2.bottom - rect2.top));
+    } else if (mouseX > (rect2.left + (rectW / 3)) && mouseX < (rect2.left + (rectW / 3) * 2) && mouseY < ((rect2.bottom + top) - (rectH / 2))) {
+      img1.hide();
+      img2.hide();
+      img3.hide();
+      img4.hide();
+      img5.show();
+      img6.hide();
 
-    } else if (mouseX > (rect2.left + (rectW/3)*2) && mouseY < ((rect2.bottom+top)-(rectH/2))){
-      image(isod6, rect2.left, rect2.top + top, (rect2.right - rect2.left), (rect2.bottom - rect2.top));
+    } else if (mouseX > (rect2.left + (rectW / 3) * 2) && mouseY < ((rect2.bottom + top) - (rectH / 2))) {
+      img1.hide();
+      img2.hide();
+      img3.hide();
+      img4.hide();
+      img5.hide();
+      img6.show();
 
     }
   } else {
     fill(255, 192, 203);
     noStroke();
     rect(rect2.left, rect2.top + top, (rect2.right - rect2.left), (rect2.bottom - rect2.top));
+    img1.hide();
+    img2.hide();
+    img3.hide();
+    img4.hide();
+    img5.hide();
+    img6.hide();
   }
 
   div3 = document.getElementById('box3');
@@ -407,98 +469,228 @@ function draw() {
   rectW = rect3.right - rect3.left;
   rectH = rect3.bottom - rect3.top;
 
+  //image variables
+  img1 = $('#box3').find('.img1');
+  img2 = $('#box3').find('.img2');
+  img3 = $('#box3').find('.img3');
+  img4 = $('#box3').find('.img4');
+  img5 = $('#box3').find('.img5');
+  img6 = $('#box3').find('.img6');
+
   if (mouseY > (rect3.top + top) && mouseY < (rect3.bottom + top) && mouseX < rect3.right && mouseX > rect3.left) {
 
-    if (mouseX < (rect3.left + (rectW/3)) && mouseY > ((rect3.bottom+top)-(rectH/2))) {
+    if (mouseX < (rect3.left + (rectW / 3)) && mouseY > ((rect3.bottom + top) - (rectH / 2))) {
+      img1.show();
+      img2.hide();
+      img3.hide();
+      img4.hide();
+      img5.hide();
+      img6.hide();
 
-      image(soes1, rect3.left, rect3.top + top, (rect3.right - rect3.left), (rect3.bottom - rect3.top));
-    } else if (mouseX > (rect3.left + (rectW/3)) && mouseX < (rect3.left + (rectW/3)*2) && mouseY > ((rect3.bottom+top)-(rectH/2))) {
-      image(soes2, rect3.left, rect3.top + top, (rect3.right - rect3.left), (rect3.bottom - rect3.top));
+    } else if (mouseX > (rect3.left + (rectW / 3)) && mouseX < (rect3.left + (rectW / 3) * 2) && mouseY > ((rect3.bottom + top) - (rectH / 2))) {
+      img1.hide();
+      img2.show();
+      img3.hide();
+      img4.hide();
+      img5.hide();
+      img6.hide();
 
-    } else if (mouseX > (rect3.left + (rectW/3)*2) && mouseY > ((rect3.bottom+top)-(rectH/2))) {
-      image(soes3, rect3.left, rect3.top + top, (rect3.right - rect3.left), (rect3.bottom - rect3.top));
+    } else if (mouseX > (rect3.left + (rectW / 3) * 2) && mouseY > ((rect3.bottom + top) - (rectH / 2))) {
+      img1.hide();
+      img2.hide();
+      img3.show();
+      img4.hide();
+      img5.hide();
+      img6.hide();
 
-    } else if (mouseX < (rect3.left + (rectW/3)) && mouseY < ((rect3.bottom+top)-(rectH/2))) {
-      image(soes4, rect3.left, rect3.top + top, (rect3.right - rect3.left), (rect3.bottom - rect3.top));
+    } else if (mouseX < (rect3.left + (rectW / 3)) && mouseY < ((rect3.bottom + top) - (rectH / 2))) {
+      img1.hide();
+      img2.hide();
+      img3.hide();
+      img4.show();
+      img5.hide();
+      img6.hide();
 
-    } else if (mouseX > (rect3.left + (rectW/3)) && mouseX < (rect3.left + (rectW/3)*2)  && mouseY < ((rect3.bottom+top)-(rectH/2))) {
-      image(soes5, rect3.left, rect3.top + top, (rect3.right - rect3.left), (rect3.bottom - rect3.top));
+    } else if (mouseX > (rect3.left + (rectW / 3)) && mouseX < (rect3.left + (rectW / 3) * 2) && mouseY < ((rect3.bottom + top) - (rectH / 2))) {
+      img1.hide();
+      img2.hide();
+      img3.hide();
+      img4.hide();
+      img5.show();
+      img6.hide();
 
-    } else if (mouseX > (rect3.left + (rectW/3)*2) && mouseY < ((rect3.bottom+top)-(rectH/2))){
-      image(soes6, rect3.left, rect3.top + top, (rect3.right - rect3.left), (rect3.bottom - rect3.top));
+    } else if (mouseX > (rect3.left + (rectW / 3) * 2) && mouseY < ((rect3.bottom + top) - (rectH / 2))) {
+      img1.hide();
+      img2.hide();
+      img3.hide();
+      img4.hide();
+      img5.hide();
+      img6.show();
 
     }
   } else {
     fill(255, 192, 203);
     noStroke();
     rect(rect3.left, rect3.top + top, (rect3.right - rect3.left), (rect3.bottom - rect3.top));
+    img1.hide();
+    img2.hide();
+    img3.hide();
+    img4.hide();
+    img5.hide();
+    img6.hide();
   }
 
 
-    div4 = document.getElementById('box4');
-    rect4 = div4.getBoundingClientRect();
-    rectW = rect4.right - rect4.left;
-    rectH = rect4.bottom - rect4.top;
+  div4 = document.getElementById('box4');
+  rect4 = div4.getBoundingClientRect();
+  rectW = rect4.right - rect4.left;
+  rectH = rect4.bottom - rect4.top;
 
-    if (mouseY > (rect4.top + top) && mouseY < (rect4.bottom + top) && mouseX < rect4.right && mouseX > rect4.left) {
+  //image variables
+  img1 = $('#box4').find('.img1');
+  img2 = $('#box4').find('.img2');
+  img3 = $('#box4').find('.img3');
+  img4 = $('#box4').find('.img4');
+  img5 = $('#box4').find('.img5');
+  img6 = $('#box4').find('.img6');
 
-      if (mouseX < (rect4.left + (rectW/3)) && mouseY > ((rect4.bottom+top)-(rectH/2))) {
+  if (mouseY > (rect4.top + top) && mouseY < (rect4.bottom + top) && mouseX < rect4.right && mouseX > rect4.left) {
 
-        image(lwmd1, rect4.left, rect4.top + top, (rect4.right - rect4.left), (rect4.bottom - rect4.top));
-      } else if (mouseX > (rect4.left + (rectW/3)) && mouseX < (rect4.left + (rectW/3)*2) && mouseY > ((rect4.bottom+top)-(rectH/2))) {
-        image(lwmd2, rect4.left, rect4.top + top, (rect4.right - rect4.left), (rect4.bottom - rect4.top));
+    if (mouseX < (rect4.left + (rectW / 3)) && mouseY > ((rect4.bottom + top) - (rectH / 2))) {
 
-      } else if (mouseX > (rect4.left + (rectW/3)*2) && mouseY > ((rect4.bottom+top)-(rectH/2))) {
-        image(lwmd3, rect4.left, rect4.top + top, (rect4.right - rect4.left), (rect4.bottom - rect4.top));
+      img1.show();
+      img2.hide();
+      img3.hide();
+      img4.hide();
+      img5.hide();
+      img6.hide();
+    } else if (mouseX > (rect4.left + (rectW / 3)) && mouseX < (rect4.left + (rectW / 3) * 2) && mouseY > ((rect4.bottom + top) - (rectH / 2))) {
+      img1.hide();
+      img2.show();
+      img3.hide();
+      img4.hide();
+      img5.hide();
+      img6.hide();
 
-      } else if (mouseX < (rect4.left + (rectW/3)) && mouseY < ((rect4.bottom+top)-(rectH/2))) {
-        image(lwmd4, rect4.left, rect4.top + top, (rect4.right - rect4.left), (rect4.bottom - rect4.top));
+    } else if (mouseX > (rect4.left + (rectW / 3) * 2) && mouseY > ((rect4.bottom + top) - (rectH / 2))) {
+      img1.hide();
+      img2.hide();
+      img3.show();
+      img4.hide();
+      img5.hide();
+      img6.hide();
 
-      } else if (mouseX > (rect4.left + (rectW/3)) && mouseX < (rect4.left + (rectW/3)*2)  && mouseY < ((rect4.bottom+top)-(rectH/2))) {
-        image(lwmd5, rect4.left, rect4.top + top, (rect4.right - rect4.left), (rect4.bottom - rect4.top));
+    } else if (mouseX < (rect4.left + (rectW / 3)) && mouseY < ((rect4.bottom + top) - (rectH / 2))) {
+      img1.hide();
+      img2.hide();
+      img3.hide();
+      img4.show();
+      img5.hide();
+      img6.hide();
 
-      } else if (mouseX > (rect4.left + (rectW/3)*2) && mouseY < ((rect4.bottom+top)-(rectH/2))){
-        image(lwmd6, rect4.left, rect4.top + top, (rect4.right - rect4.left), (rect4.bottom - rect4.top));
+    } else if (mouseX > (rect4.left + (rectW / 3)) && mouseX < (rect4.left + (rectW / 3) * 2) && mouseY < ((rect4.bottom + top) - (rectH / 2))) {
+      img1.hide();
+      img2.hide();
+      img3.hide();
+      img4.hide();
+      img5.show();
+      img6.hide();
 
-      }
-    } else {
-      fill(255, 192, 203);
-      noStroke();
-      rect(rect4.left, rect4.top + top, (rect4.right - rect4.left), (rect4.bottom - rect4.top));
+    } else if (mouseX > (rect4.left + (rectW / 3) * 2) && mouseY < ((rect4.bottom + top) - (rectH / 2))) {
+      img1.hide();
+      img2.hide();
+      img3.hide();
+      img4.hide();
+      img5.hide();
+      img6.show();
+
     }
+  } else {
+    fill(255, 192, 203);
+    noStroke();
+    rect(rect4.left, rect4.top + top, (rect4.right - rect4.left), (rect4.bottom - rect4.top));
+    img1.hide();
+    img2.hide();
+    img3.hide();
+    img4.hide();
+    img5.hide();
+    img6.hide();
+  }
 
-    div5 = document.getElementById('box5');
-    rect5 = div5.getBoundingClientRect();
-    rectW = rect5.right - rect5.left;
-    rectH = rect5.bottom - rect5.top;
+  div5 = document.getElementById('box5');
+  rect5 = div5.getBoundingClientRect();
+  rectW = rect5.right - rect5.left;
+  rectH = rect5.bottom - rect5.top;
+  //image variables
+  img1 = $('#box5').find('.img1');
+  img2 = $('#box5').find('.img2');
+  img3 = $('#box5').find('.img3');
+  img4 = $('#box5').find('.img4');
+  img5 = $('#box5').find('.img5');
+  img6 = $('#box5').find('.img6');
 
-    if (mouseY > (rect5.top + top) && mouseY < (rect5.bottom + top) && mouseX < rect5.right && mouseX > rect5.left) {
+  if (mouseY > (rect5.top + top) && mouseY < (rect5.bottom + top) && mouseX < rect5.right && mouseX > rect5.left) {
 
-      if (mouseX < (rect5.left + (rectW/3)) && mouseY > ((rect5.bottom+top)-(rectH/2))) {
+    if (mouseX < (rect5.left + (rectW / 3)) && mouseY > ((rect5.bottom + top) - (rectH / 2))) {
 
-        image(mal1, rect5.left, rect5.top + top, (rect5.right - rect5.left), (rect5.bottom - rect5.top));
-      } else if (mouseX > (rect5.left + (rectW/3)) && mouseX < (rect5.left + (rectW/3)*2) && mouseY > ((rect5.bottom+top)-(rectH/2))) {
-        image(mal2, rect5.left, rect5.top + top, (rect5.right - rect5.left), (rect5.bottom - rect5.top));
+      img1.show();
+      img2.hide();
+      img3.hide();
+      img4.hide();
+      img5.hide();
+      img6.hide();
+    } else if (mouseX > (rect5.left + (rectW / 3)) && mouseX < (rect5.left + (rectW / 3) * 2) && mouseY > ((rect5.bottom + top) - (rectH / 2))) {
+      img1.hide();
+      img2.show();
+      img3.hide();
+      img4.hide();
+      img5.hide();
+      img6.hide();
 
-      } else if (mouseX > (rect5.left + (rectW/3)*2) && mouseY > ((rect5.bottom+top)-(rectH/2))) {
-        image(mal3, rect5.left, rect5.top + top, (rect5.right - rect5.left), (rect5.bottom - rect5.top));
+    } else if (mouseX > (rect5.left + (rectW / 3) * 2) && mouseY > ((rect5.bottom + top) - (rectH / 2))) {
+      img1.hide();
+      img2.hide();
+      img3.show();
+      img4.hide();
+      img5.hide();
+      img6.hide();
 
-      } else if (mouseX < (rect5.left + (rectW/3)) && mouseY < ((rect5.bottom+top)-(rectH/2))) {
-        image(mal4, rect5.left, rect5.top + top, (rect5.right - rect5.left), (rect5.bottom - rect5.top));
+    } else if (mouseX < (rect5.left + (rectW / 3)) && mouseY < ((rect5.bottom + top) - (rectH / 2))) {
+      img1.hide();
+      img2.hide();
+      img3.hide();
+      img4.show();
+      img5.hide();
+      img6.hide();
 
-      } else if (mouseX > (rect5.left + (rectW/3)) && mouseX < (rect5.left + (rectW/3)*2)  && mouseY < ((rect5.bottom+top)-(rectH/2))) {
-        image(mal5, rect5.left, rect5.top + top, (rect5.right - rect5.left), (rect5.bottom - rect5.top));
+    } else if (mouseX > (rect5.left + (rectW / 3)) && mouseX < (rect5.left + (rectW / 3) * 2) && mouseY < ((rect5.bottom + top) - (rectH / 2))) {
+      img1.hide();
+      img2.hide();
+      img3.hide();
+      img4.hide();
+      img5.show();
+      img6.hide();
 
-      } else if (mouseX > (rect5.left + (rectW/3)*2) && mouseY < ((rect5.bottom+top)-(rectH/2))){
-        image(mal6, rect5.left, rect5.top + top, (rect5.right - rect5.left), (rect5.bottom - rect5.top));
+    } else if (mouseX > (rect5.left + (rectW / 3) * 2) && mouseY < ((rect5.bottom + top) - (rectH / 2))) {
+      img1.hide();
+      img2.hide();
+      img3.hide();
+      img4.hide();
+      img5.hide();
+      img6.show();
 
-      }
-    } else {
-      fill(255, 192, 203);
-      noStroke();
-      rect(rect5.left, rect5.top + top, (rect5.right - rect5.left), (rect5.bottom - rect5.top));
     }
-
+  } else {
+    fill(255, 192, 203);
+    noStroke();
+    rect(rect5.left, rect5.top + top, (rect5.right - rect5.left), (rect5.bottom - rect5.top));
+    img1.hide();
+    img2.hide();
+    img3.hide();
+    img4.hide();
+    img5.hide();
+    img6.hide();
+  }
 
 
   //-------------------------------------------------------------
@@ -769,19 +961,5 @@ function windowResized() {
   background(248, 251, 252);
   nonLoop = false;
 
-
-}
-
-//calculates position in calendar based on percentage arguement
-function calX(a) {
-  var calc = calOffX + (calWidth * (a / 100));
-  return calc;
-
-}
-
-//calculates position in calendar based on percentage arguement
-function calY(a) {
-  var calc = calOffY + (calHeight * (a / 100));
-  return calc;
 
 }

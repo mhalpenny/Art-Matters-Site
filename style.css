@@ -51,8 +51,15 @@ font-family: NAV;
   height: 100%;
   width: 64%;
   position:absolute;
-  margin-left: 20%;
+  margin-left: 18%;
   /* background-color: purple; */
+}
+
+.test{
+  position: absolute;
+  right: 0;
+  top:0;
+  display: block;
 }
 
 @media only screen and (max-width: 650px) {
@@ -67,6 +74,15 @@ font-family: NAV;
 @font-face {
     font-family: NAV;
     src: url("EN/fonts/Lack-Line-Regular.otf") format("opentype");
+}
+
+#animContainer{
+  height: 70%;
+  width: 100%;
+  position:absolute;
+  margin-left: 0%;
+  margin-top: 25%;
+  /* background-color: purple; */
 }
 
 }

@@ -114,7 +114,7 @@ function setup() {
 
   linkE = createA('events', 'EVENTS');
 
-  linkEx = createA('exhibitions', 'EXHIBITS');
+  linkEx = createA('exhibitions', 'EXHIBITIONS');
 
   linkM = createA('#', 'MAPS');
 

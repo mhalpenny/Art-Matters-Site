@@ -29,7 +29,11 @@ WINTER
     Calendar icon
     1 pink, 1 alt icon
 
+5) Rollout
 
+    fix nav/icons on all pages
+    mobile exhibitions
+    
 
 
 

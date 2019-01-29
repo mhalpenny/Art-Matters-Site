@@ -42,10 +42,12 @@ let loadCount = 0;
 let cpuPause = false;
 let mobileCount = 0;
 let drawX, drawY, drawW, drawH, el, elBound;
+let textW1, textW2, textH1, textH2;
 let newWidth, trail, trailY;
 let right = true;
 let font,
-  fontsize = 32;
+  fontsize1, fontsize2;
+  let testFadeA, testFadeB;
 
 //-------------------------------------------------------------
 //     PRELOAD
@@ -74,7 +76,7 @@ function preload() {
   //logo
   amLogo = loadImage('assets/amlogo.png');
   //fonts
-  font = loadFont('fonts/Lack-Regular.otf');
+  font = loadFont('fonts/Quicksand-Medium.ttf');
 }
 
 //-------------------------------------------------------------
@@ -92,7 +94,7 @@ function setup() {
   canvas.position(0, 0);
 
   textFont(font);
-  textSize(fontsize);
+  textSize(28);
   textAlign(CENTER, CENTER);
 
   //-------------------------------------------------------------
@@ -104,7 +106,7 @@ function setup() {
 
   linkA = createA('about', 'ABOUT');
 
-  linkC = createA('calendar', 'CALENDER');
+  linkC = createA('calendar', 'CALENDAR');
 
   linkAr = createA('http://artmattersfestival.org/archive/', 'ARCHIVE');
 
@@ -145,9 +147,7 @@ function setup() {
   linkC.position(linkMargin, linkBuffer + linkOffset * 6);
   linkEx.position(linkMargin, linkBuffer + linkOffset * 7);
   linkAr.position(linkMargin, linkBuffer + linkOffset * 8);
-
-  var xPos = (60 + (windowWidth / 50));
-  linkFR.position(windowWidth - xPos, 30);
+  linkFR.position(linkMargin, linkBuffer + linkOffset * 9);
 
 
   //-------------------------------------------------------------
@@ -163,6 +163,11 @@ function setup() {
   drawY = elBound.top;
   drawW = elBound.right-elBound.left;
   drawH = elBound.bottom-elBound.top;
+
+  textW1 = drawX + (windowWidth*0.18);
+  textH1 = drawY + (windowHeight*0.15);
+  textW2 = drawX + (windowWidth*0.395);
+  textH2 = drawY + (windowHeight*0.09);
 
 
 
@@ -207,16 +212,35 @@ function draw() {
   noStroke();
   // background(248, 251, 252, 50);
 
-  // trail = map(mouseY, 0, windowWidth, 50, 0);
-  // trailY = map(mouseX, 0, windowHeight, 1, 6);
-  trailY = 1;
-  // background(248, 251, 252, trail);
-
   if (cpuPause == false) {
     background(248, 251, 252, 50);
   } else {
 
   }
+
+
+  //-------------------------------------------------------------
+  //     TEXT BAR (DRAW)
+  //-------------------------------------------------------------
+// 
+//   fill(0);
+//   // rect(elBound.right + 85, 0, 45, windowHeight);
+//   textSize(24);
+//   var textSpace = 24;
+//   push();
+//   for(var i=0; i < 800; i++){
+//   rotate(HALF_PI);
+//   translate(elBound.right + 105, i);
+//   // fill(255);
+//   text("h", 0, 0);
+//   text("e", 0, textSpace);
+//   text("l", 0, textSpace*2);
+//   text("l", 0, textSpace*3);
+//   text("o", 0, textSpace*4);
+// }
+//   pop();
+
+
 
 
 
@@ -227,32 +251,13 @@ function draw() {
   //align with the cnter of the page
   imageMode(CORNER);
 
-  // if (drawX < 180 && right == false){
-  //   right = true;
-  // } else if (drawX > 500 && right == true){
-  //   right = false;
-  // }
-  //
-  // if (right == true){
-  //   drawX += trailY;
-  // } else{
-  //   drawX -= trailY;
-  // }
-
-  // drawX += map(mouseX, 0, windowWidth, -1, 1);
-
 
 
   //---MAIN---
   if (mainOff == false) {
     tint(255, fadeMain);
     image(layerMain, drawX, drawY, drawW, drawH);
-    fill(255);
-    if(mouseX < (windowWidth/2)){
-    text("hi, hello.", drawX+230, drawY+140);
-  }else{
-    text("welcome", drawX+230, drawY+140);
-  }
+    fill(17, 66, 81);
     noTint();
 
 
@@ -366,13 +371,9 @@ function draw() {
   imageMode(CENTER);
 
   if (windowWidth > 650) {
-    tint(255, 255);
     image(amLogo,linkMargin * 2.3, 60, 110, 110);
-    noTint();
   } else {
-    tint(255, 255);
     image(amLogo, 65, 50, 80, 80);
-    noTint();
   }
 
 
@@ -402,29 +403,34 @@ function draw() {
     } else if (mobileCount <= 150 && mobileCount > 120) {
       animateGI = false;
       fadeGI = 0;
-      animateM = true;
+      animateE = true;
       mobileCount++;
     } else if (mobileCount <= 180 && mobileCount > 150) {
+      animateE = false;
+      fadeE = 0;
+      animateM = true;
+      mobileCount++;
+    } else if (mobileCount <= 210 && mobileCount > 180) {
       animateM = false;
       fadeM = 0;
       animateC = true;
       mobileCount++;
-    } else if (mobileCount <= 210 && mobileCount > 180) {
+    } else if (mobileCount <= 240 && mobileCount > 210) {
       animateC = false;
       fadeC = 0;
-      animateE = true;
-      mobileCount++;
-    } else if (mobileCount <= 240 && mobileCount > 210) {
-      animateE = false;
-      fadeE = 0;
-      animateAr = true;
+      animateEx = true;
       mobileCount++;
     } else if (mobileCount <= 270 && mobileCount > 240) {
+      animateEx = false;
+      fadeEx = 0;
+      animateAr = true;
+      mobileCount++;
+    } else if (mobileCount <= 300 && mobileCount > 270) {
       animateAr = false;
       fadeAr = 0;
       mainOff = false;
       mobileCount++;
-    } else if (mobileCount > 270) {
+    }else if (mobileCount > 300) {
       mobileCount = 0;
     }
   }
@@ -458,6 +464,8 @@ function overLinkA() {
   linkA.style('font-style', 'italic');
   mainOff = true;
   fadeMain = 0;
+
+  // $('#test1').fadeIn();
 }
 
 function offLinkA() {
@@ -465,6 +473,8 @@ function offLinkA() {
   fadeA = 0;
   linkA.style('font-style', 'normal');
   mainOff = false;
+
+  // $('#test1').fadeOut();
 }
 
 //---CO---
@@ -606,6 +616,11 @@ function windowResized() {
   drawY = elBound.top;
   drawW = elBound.right-elBound.left;
   drawH = elBound.bottom-elBound.top;
+
+  textW1 = drawX + (windowWidth*0.16);
+  textH1 = drawY + (windowHeight*0.15);
+  textW2 = drawX + (windowWidth*0.39);
+  textH2 = drawY + (windowHeight*0.09);
 
   background(248, 251, 252);
   background(248, 251, 252, 50);

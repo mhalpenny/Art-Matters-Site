@@ -29,7 +29,8 @@ let fadeR = 0,
   fadeAr = 0,
   fadeC = 0,
   fadeGI = 0,
-  fadeEx, fadeMain = 255,
+  fadeEx = 0,
+  fadeMain = 255,
   fadeBack = 50;
 let linkOffset, linkBuffer, linkMargin, iconMargin;
 let fadeIncr = 35;
@@ -114,7 +115,7 @@ function setup() {
 
   linkE = createA('events', 'EVENTS');
 
-  linkEx = createA('exhibitions', 'EXHIBITS');
+  linkEx = createA('exhibitions', 'EXHIBITIONS');
 
   linkM = createA('#', 'MAPS');
 
@@ -203,6 +204,392 @@ function draw() {
   }
   refresh = !refresh;
 
+
+    //-------------------------------------------------------------
+    //     INTERACTION (DRAW)
+    //-------------------------------------------------------------
+
+    //box calculations
+    div1 = document.getElementById('box1');
+    rect1 = div1.getBoundingClientRect();
+    rectW = rect1.right - rect1.left;
+    rectH = rect1.bottom - rect1.top;
+    //image calculations
+    img1 = $('#box1').find('.img1');
+    img2 = $('#box1').find('.img2');
+    img3 = $('#box1').find('.img3');
+    img4 = $('#box1').find('.img4');
+    img5 = $('#box1').find('.img5');
+    img6 = $('#box1').find('.img6');
+
+    if (mouseY > (rect1.top + top) && mouseY < (rect1.bottom + top) && mouseX < rect1.right && mouseX > rect1.left) {
+
+      if (mouseX < (rect1.left + (rectW / 3)) && mouseY > ((rect1.bottom + top) - (rectH / 2))) {
+        img1.show();
+        img2.hide();
+        img3.hide();
+        img4.hide();
+        img5.hide();
+        img6.hide();
+
+      } else if (mouseX > (rect1.left + (rectW / 3)) && mouseX < (rect1.left + (rectW / 3) * 2) && mouseY > ((rect1.bottom + top) - (rectH / 2))) {
+        img1.hide();
+        img2.show();
+        img3.hide();
+        img4.hide();
+        img5.hide();
+        img6.hide();
+
+      } else if (mouseX > (rect1.left + (rectW / 3) * 2) && mouseY > ((rect1.bottom + top) - (rectH / 2))) {
+        img1.hide();
+        img2.hide();
+        img3.show();
+        img4.hide();
+        img5.hide();
+        img6.hide();
+
+      } else if (mouseX < (rect1.left + (rectW / 3)) && mouseY < ((rect1.bottom + top) - (rectH / 2))) {
+        img1.hide();
+        img2.hide();
+        img3.hide();
+        img4.show();
+        img5.hide();
+        img6.hide();
+
+      } else if (mouseX > (rect1.left + (rectW / 3)) && mouseX < (rect1.left + (rectW / 3) * 2) && mouseY < ((rect1.bottom + top) - (rectH / 2))) {
+        img1.hide();
+        img2.hide();
+        img3.hide();
+        img4.hide();
+        img5.show();
+        img6.hide();
+
+      } else if (mouseX > (rect1.left + (rectW / 3) * 2) && mouseY < ((rect1.bottom + top) - (rectH / 2))) {
+        img1.hide();
+        img2.hide();
+        img3.hide();
+        img4.hide();
+        img5.hide();
+        img6.show();
+
+      }
+    } else {
+      fill(255, 192, 203);
+      noStroke();
+      rect(rect1.left, rect1.top + top, (rect1.right - rect1.left), (rect1.bottom - rect1.top));
+      img1.hide();
+      img2.hide();
+      img3.hide();
+      img4.hide();
+      img5.hide();
+      img6.hide();
+    }
+
+    //container variables
+    div2 = document.getElementById('box2');
+    rect2 = div2.getBoundingClientRect();
+    rectW = rect2.right - rect2.left;
+    rectH = rect2.bottom - rect2.top;
+    //image variables
+    img1 = $('#box2').find('.img1');
+    img2 = $('#box2').find('.img2');
+    img3 = $('#box2').find('.img3');
+    img4 = $('#box2').find('.img4');
+    img5 = $('#box2').find('.img5');
+    img6 = $('#box2').find('.img6');
+
+    if (mouseY > (rect2.top + top) && mouseY < (rect2.bottom + top) && mouseX < rect2.right && mouseX > rect2.left) {
+
+      if (mouseX < (rect2.left + (rectW / 3)) && mouseY > ((rect2.bottom + top) - (rectH / 2))) {
+
+        img1.show();
+        img2.hide();
+        img3.hide();
+        img4.hide();
+        img5.hide();
+        img6.hide();
+      } else if (mouseX > (rect2.left + (rectW / 3)) && mouseX < (rect2.left + (rectW / 3) * 2) && mouseY > ((rect2.bottom + top) - (rectH / 2))) {
+        img1.hide();
+        img2.show();
+        img3.hide();
+        img4.hide();
+        img5.hide();
+        img6.hide();
+
+      } else if (mouseX > (rect2.left + (rectW / 3) * 2) && mouseY > ((rect2.bottom + top) - (rectH / 2))) {
+        img1.hide();
+        img2.hide();
+        img3.show();
+        img4.hide();
+        img5.hide();
+        img6.hide();
+
+      } else if (mouseX < (rect2.left + (rectW / 3)) && mouseY < ((rect2.bottom + top) - (rectH / 2))) {
+        img1.hide();
+        img2.hide();
+        img3.hide();
+        img4.show();
+        img5.hide();
+        img6.hide();
+
+      } else if (mouseX > (rect2.left + (rectW / 3)) && mouseX < (rect2.left + (rectW / 3) * 2) && mouseY < ((rect2.bottom + top) - (rectH / 2))) {
+        img1.hide();
+        img2.hide();
+        img3.hide();
+        img4.hide();
+        img5.show();
+        img6.hide();
+
+      } else if (mouseX > (rect2.left + (rectW / 3) * 2) && mouseY < ((rect2.bottom + top) - (rectH / 2))) {
+        img1.hide();
+        img2.hide();
+        img3.hide();
+        img4.hide();
+        img5.hide();
+        img6.show();
+
+      }
+    } else {
+      fill(255, 192, 203);
+      noStroke();
+      rect(rect2.left, rect2.top + top, (rect2.right - rect2.left), (rect2.bottom - rect2.top));
+      img1.hide();
+      img2.hide();
+      img3.hide();
+      img4.hide();
+      img5.hide();
+      img6.hide();
+    }
+
+    div3 = document.getElementById('box3');
+    rect3 = div3.getBoundingClientRect();
+    rectW = rect3.right - rect3.left;
+    rectH = rect3.bottom - rect3.top;
+
+    //image variables
+    img1 = $('#box3').find('.img1');
+    img2 = $('#box3').find('.img2');
+    img3 = $('#box3').find('.img3');
+    img4 = $('#box3').find('.img4');
+    img5 = $('#box3').find('.img5');
+    img6 = $('#box3').find('.img6');
+
+    if (mouseY > (rect3.top + top) && mouseY < (rect3.bottom + top) && mouseX < rect3.right && mouseX > rect3.left) {
+
+      if (mouseX < (rect3.left + (rectW / 3)) && mouseY > ((rect3.bottom + top) - (rectH / 2))) {
+        img1.show();
+        img2.hide();
+        img3.hide();
+        img4.hide();
+        img5.hide();
+        img6.hide();
+
+      } else if (mouseX > (rect3.left + (rectW / 3)) && mouseX < (rect3.left + (rectW / 3) * 2) && mouseY > ((rect3.bottom + top) - (rectH / 2))) {
+        img1.hide();
+        img2.show();
+        img3.hide();
+        img4.hide();
+        img5.hide();
+        img6.hide();
+
+      } else if (mouseX > (rect3.left + (rectW / 3) * 2) && mouseY > ((rect3.bottom + top) - (rectH / 2))) {
+        img1.hide();
+        img2.hide();
+        img3.show();
+        img4.hide();
+        img5.hide();
+        img6.hide();
+
+      } else if (mouseX < (rect3.left + (rectW / 3)) && mouseY < ((rect3.bottom + top) - (rectH / 2))) {
+        img1.hide();
+        img2.hide();
+        img3.hide();
+        img4.show();
+        img5.hide();
+        img6.hide();
+
+      } else if (mouseX > (rect3.left + (rectW / 3)) && mouseX < (rect3.left + (rectW / 3) * 2) && mouseY < ((rect3.bottom + top) - (rectH / 2))) {
+        img1.hide();
+        img2.hide();
+        img3.hide();
+        img4.hide();
+        img5.show();
+        img6.hide();
+
+      } else if (mouseX > (rect3.left + (rectW / 3) * 2) && mouseY < ((rect3.bottom + top) - (rectH / 2))) {
+        img1.hide();
+        img2.hide();
+        img3.hide();
+        img4.hide();
+        img5.hide();
+        img6.show();
+
+      }
+    } else {
+      fill(255, 192, 203);
+      noStroke();
+      rect(rect3.left, rect3.top + top, (rect3.right - rect3.left), (rect3.bottom - rect3.top));
+      img1.hide();
+      img2.hide();
+      img3.hide();
+      img4.hide();
+      img5.hide();
+      img6.hide();
+    }
+
+
+    div4 = document.getElementById('box4');
+    rect4 = div4.getBoundingClientRect();
+    rectW = rect4.right - rect4.left;
+    rectH = rect4.bottom - rect4.top;
+
+    //image variables
+    img1 = $('#box4').find('.img1');
+    img2 = $('#box4').find('.img2');
+    img3 = $('#box4').find('.img3');
+    img4 = $('#box4').find('.img4');
+    img5 = $('#box4').find('.img5');
+    img6 = $('#box4').find('.img6');
+
+    if (mouseY > (rect4.top + top) && mouseY < (rect4.bottom + top) && mouseX < rect4.right && mouseX > rect4.left) {
+
+      if (mouseX < (rect4.left + (rectW / 3)) && mouseY > ((rect4.bottom + top) - (rectH / 2))) {
+
+        img1.show();
+        img2.hide();
+        img3.hide();
+        img4.hide();
+        img5.hide();
+        img6.hide();
+      } else if (mouseX > (rect4.left + (rectW / 3)) && mouseX < (rect4.left + (rectW / 3) * 2) && mouseY > ((rect4.bottom + top) - (rectH / 2))) {
+        img1.hide();
+        img2.show();
+        img3.hide();
+        img4.hide();
+        img5.hide();
+        img6.hide();
+
+      } else if (mouseX > (rect4.left + (rectW / 3) * 2) && mouseY > ((rect4.bottom + top) - (rectH / 2))) {
+        img1.hide();
+        img2.hide();
+        img3.show();
+        img4.hide();
+        img5.hide();
+        img6.hide();
+
+      } else if (mouseX < (rect4.left + (rectW / 3)) && mouseY < ((rect4.bottom + top) - (rectH / 2))) {
+        img1.hide();
+        img2.hide();
+        img3.hide();
+        img4.show();
+        img5.hide();
+        img6.hide();
+
+      } else if (mouseX > (rect4.left + (rectW / 3)) && mouseX < (rect4.left + (rectW / 3) * 2) && mouseY < ((rect4.bottom + top) - (rectH / 2))) {
+        img1.hide();
+        img2.hide();
+        img3.hide();
+        img4.hide();
+        img5.show();
+        img6.hide();
+
+      } else if (mouseX > (rect4.left + (rectW / 3) * 2) && mouseY < ((rect4.bottom + top) - (rectH / 2))) {
+        img1.hide();
+        img2.hide();
+        img3.hide();
+        img4.hide();
+        img5.hide();
+        img6.show();
+
+      }
+    } else {
+      fill(255, 192, 203);
+      noStroke();
+      rect(rect4.left, rect4.top + top, (rect4.right - rect4.left), (rect4.bottom - rect4.top));
+      img1.hide();
+      img2.hide();
+      img3.hide();
+      img4.hide();
+      img5.hide();
+      img6.hide();
+    }
+
+    div5 = document.getElementById('box5');
+    rect5 = div5.getBoundingClientRect();
+    rectW = rect5.right - rect5.left;
+    rectH = rect5.bottom - rect5.top;
+    //image variables
+    img1 = $('#box5').find('.img1');
+    img2 = $('#box5').find('.img2');
+    img3 = $('#box5').find('.img3');
+    img4 = $('#box5').find('.img4');
+    img5 = $('#box5').find('.img5');
+    img6 = $('#box5').find('.img6');
+
+    if (mouseY > (rect5.top + top) && mouseY < (rect5.bottom + top) && mouseX < rect5.right && mouseX > rect5.left) {
+
+      if (mouseX < (rect5.left + (rectW / 3)) && mouseY > ((rect5.bottom + top) - (rectH / 2))) {
+
+        img1.show();
+        img2.hide();
+        img3.hide();
+        img4.hide();
+        img5.hide();
+        img6.hide();
+      } else if (mouseX > (rect5.left + (rectW / 3)) && mouseX < (rect5.left + (rectW / 3) * 2) && mouseY > ((rect5.bottom + top) - (rectH / 2))) {
+        img1.hide();
+        img2.show();
+        img3.hide();
+        img4.hide();
+        img5.hide();
+        img6.hide();
+
+      } else if (mouseX > (rect5.left + (rectW / 3) * 2) && mouseY > ((rect5.bottom + top) - (rectH / 2))) {
+        img1.hide();
+        img2.hide();
+        img3.show();
+        img4.hide();
+        img5.hide();
+        img6.hide();
+
+      } else if (mouseX < (rect5.left + (rectW / 3)) && mouseY < ((rect5.bottom + top) - (rectH / 2))) {
+        img1.hide();
+        img2.hide();
+        img3.hide();
+        img4.show();
+        img5.hide();
+        img6.hide();
+
+      } else if (mouseX > (rect5.left + (rectW / 3)) && mouseX < (rect5.left + (rectW / 3) * 2) && mouseY < ((rect5.bottom + top) - (rectH / 2))) {
+        img1.hide();
+        img2.hide();
+        img3.hide();
+        img4.hide();
+        img5.show();
+        img6.hide();
+
+      } else if (mouseX > (rect5.left + (rectW / 3) * 2) && mouseY < ((rect5.bottom + top) - (rectH / 2))) {
+        img1.hide();
+        img2.hide();
+        img3.hide();
+        img4.hide();
+        img5.hide();
+        img6.show();
+
+      }
+    } else {
+      fill(255, 192, 203);
+      noStroke();
+      rect(rect5.left, rect5.top + top, (rect5.right - rect5.left), (rect5.bottom - rect5.top));
+      img1.hide();
+      img2.hide();
+      img3.hide();
+      img4.hide();
+      img5.hide();
+      img6.hide();
+    }
+
+
   //-------------------------------------------------------------
   //     NAV ANIMATION (DRAW)
   //-------------------------------------------------------------
@@ -281,7 +668,8 @@ function draw() {
 
 
     tint(255, 255);
-    // imageMode(CORNER);
+
+    imageMode(CENTER);
 
     image(iconR, iconMargin, (iconBuffer + linkOffset * 2), 40, 40);
     image(iconA, iconMargin, (iconBuffer + linkOffset), 40, 40);
@@ -309,397 +697,10 @@ function draw() {
   }
 
   //-------------------------------------------------------------
-  //     INTERACTION (DRAW)
-  //-------------------------------------------------------------
-
-  //box calculations
-  div1 = document.getElementById('box1');
-  rect1 = div1.getBoundingClientRect();
-  rectW = rect1.right - rect1.left;
-  rectH = rect1.bottom - rect1.top;
-  //image calculations
-  img1 = $('#box1').find('.img1');
-  img2 = $('#box1').find('.img2');
-  img3 = $('#box1').find('.img3');
-  img4 = $('#box1').find('.img4');
-  img5 = $('#box1').find('.img5');
-  img6 = $('#box1').find('.img6');
-
-  if (mouseY > (rect1.top + top) && mouseY < (rect1.bottom + top) && mouseX < rect1.right && mouseX > rect1.left) {
-
-    if (mouseX < (rect1.left + (rectW / 3)) && mouseY > ((rect1.bottom + top) - (rectH / 2))) {
-      img1.show();
-      img2.hide();
-      img3.hide();
-      img4.hide();
-      img5.hide();
-      img6.hide();
-
-    } else if (mouseX > (rect1.left + (rectW / 3)) && mouseX < (rect1.left + (rectW / 3) * 2) && mouseY > ((rect1.bottom + top) - (rectH / 2))) {
-      img1.hide();
-      img2.show();
-      img3.hide();
-      img4.hide();
-      img5.hide();
-      img6.hide();
-
-    } else if (mouseX > (rect1.left + (rectW / 3) * 2) && mouseY > ((rect1.bottom + top) - (rectH / 2))) {
-      img1.hide();
-      img2.hide();
-      img3.show();
-      img4.hide();
-      img5.hide();
-      img6.hide();
-
-    } else if (mouseX < (rect1.left + (rectW / 3)) && mouseY < ((rect1.bottom + top) - (rectH / 2))) {
-      img1.hide();
-      img2.hide();
-      img3.hide();
-      img4.show();
-      img5.hide();
-      img6.hide();
-
-    } else if (mouseX > (rect1.left + (rectW / 3)) && mouseX < (rect1.left + (rectW / 3) * 2) && mouseY < ((rect1.bottom + top) - (rectH / 2))) {
-      img1.hide();
-      img2.hide();
-      img3.hide();
-      img4.hide();
-      img5.show();
-      img6.hide();
-
-    } else if (mouseX > (rect1.left + (rectW / 3) * 2) && mouseY < ((rect1.bottom + top) - (rectH / 2))) {
-      img1.hide();
-      img2.hide();
-      img3.hide();
-      img4.hide();
-      img5.hide();
-      img6.show();
-
-    }
-  } else {
-    fill(255, 192, 203);
-    noStroke();
-    rect(rect1.left, rect1.top + top, (rect1.right - rect1.left), (rect1.bottom - rect1.top));
-    img1.hide();
-    img2.hide();
-    img3.hide();
-    img4.hide();
-    img5.hide();
-    img6.hide();
-  }
-
-  //container variables
-  div2 = document.getElementById('box2');
-  rect2 = div2.getBoundingClientRect();
-  rectW = rect2.right - rect2.left;
-  rectH = rect2.bottom - rect2.top;
-  //image variables
-  img1 = $('#box2').find('.img1');
-  img2 = $('#box2').find('.img2');
-  img3 = $('#box2').find('.img3');
-  img4 = $('#box2').find('.img4');
-  img5 = $('#box2').find('.img5');
-  img6 = $('#box2').find('.img6');
-
-  if (mouseY > (rect2.top + top) && mouseY < (rect2.bottom + top) && mouseX < rect2.right && mouseX > rect2.left) {
-
-    if (mouseX < (rect2.left + (rectW / 3)) && mouseY > ((rect2.bottom + top) - (rectH / 2))) {
-
-      img1.show();
-      img2.hide();
-      img3.hide();
-      img4.hide();
-      img5.hide();
-      img6.hide();
-    } else if (mouseX > (rect2.left + (rectW / 3)) && mouseX < (rect2.left + (rectW / 3) * 2) && mouseY > ((rect2.bottom + top) - (rectH / 2))) {
-      img1.hide();
-      img2.show();
-      img3.hide();
-      img4.hide();
-      img5.hide();
-      img6.hide();
-
-    } else if (mouseX > (rect2.left + (rectW / 3) * 2) && mouseY > ((rect2.bottom + top) - (rectH / 2))) {
-      img1.hide();
-      img2.hide();
-      img3.show();
-      img4.hide();
-      img5.hide();
-      img6.hide();
-
-    } else if (mouseX < (rect2.left + (rectW / 3)) && mouseY < ((rect2.bottom + top) - (rectH / 2))) {
-      img1.hide();
-      img2.hide();
-      img3.hide();
-      img4.show();
-      img5.hide();
-      img6.hide();
-
-    } else if (mouseX > (rect2.left + (rectW / 3)) && mouseX < (rect2.left + (rectW / 3) * 2) && mouseY < ((rect2.bottom + top) - (rectH / 2))) {
-      img1.hide();
-      img2.hide();
-      img3.hide();
-      img4.hide();
-      img5.show();
-      img6.hide();
-
-    } else if (mouseX > (rect2.left + (rectW / 3) * 2) && mouseY < ((rect2.bottom + top) - (rectH / 2))) {
-      img1.hide();
-      img2.hide();
-      img3.hide();
-      img4.hide();
-      img5.hide();
-      img6.show();
-
-    }
-  } else {
-    fill(255, 192, 203);
-    noStroke();
-    rect(rect2.left, rect2.top + top, (rect2.right - rect2.left), (rect2.bottom - rect2.top));
-    img1.hide();
-    img2.hide();
-    img3.hide();
-    img4.hide();
-    img5.hide();
-    img6.hide();
-  }
-
-  div3 = document.getElementById('box3');
-  rect3 = div3.getBoundingClientRect();
-  rectW = rect3.right - rect3.left;
-  rectH = rect3.bottom - rect3.top;
-
-  //image variables
-  img1 = $('#box3').find('.img1');
-  img2 = $('#box3').find('.img2');
-  img3 = $('#box3').find('.img3');
-  img4 = $('#box3').find('.img4');
-  img5 = $('#box3').find('.img5');
-  img6 = $('#box3').find('.img6');
-
-  if (mouseY > (rect3.top + top) && mouseY < (rect3.bottom + top) && mouseX < rect3.right && mouseX > rect3.left) {
-
-    if (mouseX < (rect3.left + (rectW / 3)) && mouseY > ((rect3.bottom + top) - (rectH / 2))) {
-      img1.show();
-      img2.hide();
-      img3.hide();
-      img4.hide();
-      img5.hide();
-      img6.hide();
-
-    } else if (mouseX > (rect3.left + (rectW / 3)) && mouseX < (rect3.left + (rectW / 3) * 2) && mouseY > ((rect3.bottom + top) - (rectH / 2))) {
-      img1.hide();
-      img2.show();
-      img3.hide();
-      img4.hide();
-      img5.hide();
-      img6.hide();
-
-    } else if (mouseX > (rect3.left + (rectW / 3) * 2) && mouseY > ((rect3.bottom + top) - (rectH / 2))) {
-      img1.hide();
-      img2.hide();
-      img3.show();
-      img4.hide();
-      img5.hide();
-      img6.hide();
-
-    } else if (mouseX < (rect3.left + (rectW / 3)) && mouseY < ((rect3.bottom + top) - (rectH / 2))) {
-      img1.hide();
-      img2.hide();
-      img3.hide();
-      img4.show();
-      img5.hide();
-      img6.hide();
-
-    } else if (mouseX > (rect3.left + (rectW / 3)) && mouseX < (rect3.left + (rectW / 3) * 2) && mouseY < ((rect3.bottom + top) - (rectH / 2))) {
-      img1.hide();
-      img2.hide();
-      img3.hide();
-      img4.hide();
-      img5.show();
-      img6.hide();
-
-    } else if (mouseX > (rect3.left + (rectW / 3) * 2) && mouseY < ((rect3.bottom + top) - (rectH / 2))) {
-      img1.hide();
-      img2.hide();
-      img3.hide();
-      img4.hide();
-      img5.hide();
-      img6.show();
-
-    }
-  } else {
-    fill(255, 192, 203);
-    noStroke();
-    rect(rect3.left, rect3.top + top, (rect3.right - rect3.left), (rect3.bottom - rect3.top));
-    img1.hide();
-    img2.hide();
-    img3.hide();
-    img4.hide();
-    img5.hide();
-    img6.hide();
-  }
-
-
-  div4 = document.getElementById('box4');
-  rect4 = div4.getBoundingClientRect();
-  rectW = rect4.right - rect4.left;
-  rectH = rect4.bottom - rect4.top;
-
-  //image variables
-  img1 = $('#box4').find('.img1');
-  img2 = $('#box4').find('.img2');
-  img3 = $('#box4').find('.img3');
-  img4 = $('#box4').find('.img4');
-  img5 = $('#box4').find('.img5');
-  img6 = $('#box4').find('.img6');
-
-  if (mouseY > (rect4.top + top) && mouseY < (rect4.bottom + top) && mouseX < rect4.right && mouseX > rect4.left) {
-
-    if (mouseX < (rect4.left + (rectW / 3)) && mouseY > ((rect4.bottom + top) - (rectH / 2))) {
-
-      img1.show();
-      img2.hide();
-      img3.hide();
-      img4.hide();
-      img5.hide();
-      img6.hide();
-    } else if (mouseX > (rect4.left + (rectW / 3)) && mouseX < (rect4.left + (rectW / 3) * 2) && mouseY > ((rect4.bottom + top) - (rectH / 2))) {
-      img1.hide();
-      img2.show();
-      img3.hide();
-      img4.hide();
-      img5.hide();
-      img6.hide();
-
-    } else if (mouseX > (rect4.left + (rectW / 3) * 2) && mouseY > ((rect4.bottom + top) - (rectH / 2))) {
-      img1.hide();
-      img2.hide();
-      img3.show();
-      img4.hide();
-      img5.hide();
-      img6.hide();
-
-    } else if (mouseX < (rect4.left + (rectW / 3)) && mouseY < ((rect4.bottom + top) - (rectH / 2))) {
-      img1.hide();
-      img2.hide();
-      img3.hide();
-      img4.show();
-      img5.hide();
-      img6.hide();
-
-    } else if (mouseX > (rect4.left + (rectW / 3)) && mouseX < (rect4.left + (rectW / 3) * 2) && mouseY < ((rect4.bottom + top) - (rectH / 2))) {
-      img1.hide();
-      img2.hide();
-      img3.hide();
-      img4.hide();
-      img5.show();
-      img6.hide();
-
-    } else if (mouseX > (rect4.left + (rectW / 3) * 2) && mouseY < ((rect4.bottom + top) - (rectH / 2))) {
-      img1.hide();
-      img2.hide();
-      img3.hide();
-      img4.hide();
-      img5.hide();
-      img6.show();
-
-    }
-  } else {
-    fill(255, 192, 203);
-    noStroke();
-    rect(rect4.left, rect4.top + top, (rect4.right - rect4.left), (rect4.bottom - rect4.top));
-    img1.hide();
-    img2.hide();
-    img3.hide();
-    img4.hide();
-    img5.hide();
-    img6.hide();
-  }
-
-  div5 = document.getElementById('box5');
-  rect5 = div5.getBoundingClientRect();
-  rectW = rect5.right - rect5.left;
-  rectH = rect5.bottom - rect5.top;
-  //image variables
-  img1 = $('#box5').find('.img1');
-  img2 = $('#box5').find('.img2');
-  img3 = $('#box5').find('.img3');
-  img4 = $('#box5').find('.img4');
-  img5 = $('#box5').find('.img5');
-  img6 = $('#box5').find('.img6');
-
-  if (mouseY > (rect5.top + top) && mouseY < (rect5.bottom + top) && mouseX < rect5.right && mouseX > rect5.left) {
-
-    if (mouseX < (rect5.left + (rectW / 3)) && mouseY > ((rect5.bottom + top) - (rectH / 2))) {
-
-      img1.show();
-      img2.hide();
-      img3.hide();
-      img4.hide();
-      img5.hide();
-      img6.hide();
-    } else if (mouseX > (rect5.left + (rectW / 3)) && mouseX < (rect5.left + (rectW / 3) * 2) && mouseY > ((rect5.bottom + top) - (rectH / 2))) {
-      img1.hide();
-      img2.show();
-      img3.hide();
-      img4.hide();
-      img5.hide();
-      img6.hide();
-
-    } else if (mouseX > (rect5.left + (rectW / 3) * 2) && mouseY > ((rect5.bottom + top) - (rectH / 2))) {
-      img1.hide();
-      img2.hide();
-      img3.show();
-      img4.hide();
-      img5.hide();
-      img6.hide();
-
-    } else if (mouseX < (rect5.left + (rectW / 3)) && mouseY < ((rect5.bottom + top) - (rectH / 2))) {
-      img1.hide();
-      img2.hide();
-      img3.hide();
-      img4.show();
-      img5.hide();
-      img6.hide();
-
-    } else if (mouseX > (rect5.left + (rectW / 3)) && mouseX < (rect5.left + (rectW / 3) * 2) && mouseY < ((rect5.bottom + top) - (rectH / 2))) {
-      img1.hide();
-      img2.hide();
-      img3.hide();
-      img4.hide();
-      img5.show();
-      img6.hide();
-
-    } else if (mouseX > (rect5.left + (rectW / 3) * 2) && mouseY < ((rect5.bottom + top) - (rectH / 2))) {
-      img1.hide();
-      img2.hide();
-      img3.hide();
-      img4.hide();
-      img5.hide();
-      img6.show();
-
-    }
-  } else {
-    fill(255, 192, 203);
-    noStroke();
-    rect(rect5.left, rect5.top + top, (rect5.right - rect5.left), (rect5.bottom - rect5.top));
-    img1.hide();
-    img2.hide();
-    img3.hide();
-    img4.hide();
-    img5.hide();
-    img6.hide();
-  }
-
-
-  //-------------------------------------------------------------
   //     ICON ANIMATIONS (DRAW)
   //-------------------------------------------------------------
 
   if (windowWidth > 650) {
-    linkM.html('MAP');
-    linkC.html('CALENDAR');
 
     //---R---
     if (animateR == true) {

@@ -110,6 +110,15 @@ a{
   float: right;
 }
 
+#imgContainer{
+  height: 88%;
+  width: 75%;
+  position:absolute;
+  margin-left: 22%;
+  margin-top: 3%;
+  /* background-color: rgba(0, 0, 0, 0.3); */
+}
+
 @font-face {
     font-family: NAV;
     src: url("fonts/Lack-Line-Regular.otf") format("opentype");

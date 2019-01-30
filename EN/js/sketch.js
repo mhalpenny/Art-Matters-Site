@@ -7,7 +7,7 @@
 //     VARIABLES
 //-------------------------------------------------------------
 
-let animateR = false,
+var animateR = false,
   animateA = false,
   animateM = false,
   animateGI = false,
@@ -222,7 +222,7 @@ function draw() {
   //-------------------------------------------------------------
   //     TEXT BAR (DRAW)
   //-------------------------------------------------------------
-// 
+//
 //   fill(0);
 //   // rect(elBound.right + 85, 0, 45, windowHeight);
 //   textSize(24);

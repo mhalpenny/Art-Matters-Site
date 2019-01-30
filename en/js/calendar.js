@@ -194,6 +194,45 @@ function draw() {
   }
   refresh = !refresh;
 
+  //-------------------------------------------------------------
+//     CALENDAR (DRAW)
+//-------------------------------------------------------------
+
+//declare variable for calendar "div"
+calWidth = windowWidth*0.7;
+calHeight = windowHeight*0.8;
+calOffX = 55*6;
+calOffY = 55;
+calSize = 70;
+
+
+rect(calOffX, 55, calWidth, calHeight);
+imageMode(CORNER);
+image(calendar, calOffX, 55, calWidth, calHeight);
+imageMode(CENTER);
+
+var eventBox = document.getElementById("eventBox");
+eventBox.style.display = "none";
+
+
+//Add interactivity
+noFill();
+noStroke();
+//ellipse one
+var ex1 = 75;
+var ey1 = 30;
+ellipseMode(CORNER);
+ellipse(calX(ex1), calY(ey1), calSize, calSize);
+
+if (calX(ex1) < mouseX && mouseX < (calX(ex1)+calSize) && calY(ey1) < mouseY && mouseY < (calY(ey1) + calSize)){
+  console.log("works");
+  eventBox.style.display = "block";
+}
+
+
+
+//ellipse 2
+
 //-------------------------------------------------------------
 //     NAV ANIMATION (DRAW)
 //-------------------------------------------------------------

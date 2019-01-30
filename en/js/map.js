@@ -7,26 +7,29 @@
 //     VARIABLES
 //-------------------------------------------------------------
 
-var offset;
-var logoSpin = 0;
-var logoY = 50;
-var animateEx, animateR = false, animateA = false, animateM = false, animateGI = false, animateEx = false, animateAr = false, animateE = false, animateC = false, mainOff = false, animateCSM = false, animateCSC = false, animateCSE = false;
-var fadeEx = 0, fadeR = 0, fadeA = 0, fadeM = 0, fadeE = 0, fadeAr = 0, fadeC = 0, fadeGI = 0, fadeEx, fadeMain = 255, fadeBack= 50;
-var linkOffset, linkBuffer, linkMargin, iconMargin;
-var fadeIncr = 35;
-var bColorVal = 0;
-var widthVal = 12;
-var heightVal = 12;
-var flip = true;
-var spinX, spinY;
-var bodyH, canvasH;
-var isAnimation = 400;
-var refresh = false;
-var refreshArray = [1];
-var valueM = 0, valueC = 0, valueE = 0;
-var nonLoop = false;
-var widthX, heightY;
-var calWidth, calHeight, calOffX, calOffY, calSize;
+let offset;
+let logoSpin = 0;
+let logoY = 50;
+let animateR = false, animateA = false, animateM = false, animateGI = false, animateEx = false, animateAr = false, animateE = false, animateC = false, mainOff = false, animateCSM = false, animateCSC = false, animateCSE = false;
+let fadeEx = 0, fadeR = 0, fadeA = 0, fadeM = 0, fadeE = 0, fadeAr = 0, fadeC = 0, fadeGI = 0, fadeMain = 255, fadeBack= 50;
+let linkOffset, linkBuffer, linkMargin, iconMargin;
+let fadeIncr = 35;
+let bColorVal = 0;
+let widthVal = 12;
+let heightVal = 12;
+let flip = true;
+let spinX, spinY;
+let bodyH, canvasH;
+let isAnimation = 400;
+let refresh = false;
+let refreshArray = [1];
+let valueM = 0, valueC = 0, valueE = 0;
+let nonLoop = false;
+let widthX, heightY;
+let drawX, drawY, drawW, drawH, el, elBound;
+let textW1, textW2, textH1, textH2;
+let calWidth, calHeight, calOffX, calOffY, calSize;
+let font, fontsize;
 
 
 // var colorCounter = 0;
@@ -50,7 +53,9 @@ function preload() {
   //logo
   amLogo = loadImage('assets/amlogo.png');
   //Calendar
-   calendar = loadImage('assets/calendar.png');
+   map = loadImage('assets/map.png');
+   //fonts
+   font = loadFont('fonts/Lack-Regular.otf');
 }
 
 //-------------------------------------------------------------
@@ -77,15 +82,25 @@ function setup() {
   canvas.position(0, 0);
 
 
-  //instantiate animations.
-  // fadeA = 0;
-  // fadeM = 0;
-  // fadeR = 0;
-  // fadeAr = 0;
-  // fadeC = 0;
-  // fadeE = 0;
-  // fadeGI = 0;
-  // fadeBack = 50;
+  textFont(font);
+  textSize(20);
+  textAlign(LEFT, CENTER);
+
+  //-------------------------------------------------------------
+  //     LAYERS FORMATTING (SETUP)
+  //-------------------------------------------------------------
+
+  //align with the cnter of the page
+  imageMode(CORNER);
+
+  el = document.getElementById('imgContainer');
+  elBound = el.getBoundingClientRect();
+  drawX = elBound.left;
+  drawY = elBound.top;
+  drawW = elBound.right-elBound.left;
+  drawH = elBound.bottom-elBound.top;
+
+  ellipseMode(CORNER);
 
   //-------------------------------------------------------------
   //     LINKS (SETUP)
@@ -95,7 +110,7 @@ function setup() {
 
   linkA = createA('about', 'ABOUT');
 
-  linkC = createA('#', 'CALENDAR');
+  linkC = createA('calendar', 'CALENDAR');
 
   linkAr = createA('http://artmattersfestival.org/archive/', 'ARCHIVE');
 
@@ -105,7 +120,7 @@ function setup() {
 
   linkEx = createA('exhibitions', 'EXHIBITIONS');
 
-  linkM = createA('map', 'MAP');
+  linkM = createA('#', 'MAP');
 
   // linkAO = createA('pdf/AM_AntiO.pdf', 'ANTI-OPPRESSION STATEMENT');
 
@@ -193,6 +208,205 @@ function draw() {
       background(248, 251, 252);
   }
   refresh = !refresh;
+
+
+  //-------------------------------------------------------------
+  //     MAP (DRAW)
+  //-------------------------------------------------------------
+
+
+  imageMode(CORNER);
+  fill(248, 251, 252);
+  noStroke();
+  rect(drawX, drawY, drawW+100, drawH+100);
+  image(map, drawX, drawY, drawW, drawH);
+  imageMode(CENTER);
+
+  // var eventBox = document.getElementById("eventBox");
+  // eventBox.style.display = "none";
+
+
+  //Add interactivity
+
+  //ellipse one
+  var ex1 = 76.4;
+  var ey1 = 67.2;
+
+  if ((calX(ex1) < mouseX && mouseX < (calX(ex1)+50) && calY(ey1) < mouseY && mouseY < (calY(ey1) + 50)) || mouseY < calY(15) && mouseY > calY(8) && mouseX > drawX && mouseX < drawX + 200){
+    noFill();
+    stroke(0);
+    ellipse(calX(ex1), calY(ey1), 50, 50);
+    noStroke();
+    fill(0);
+    textSize(20);
+    text("WOULD YOU BURY ME", calX(ex1), calY(ey1)+70);
+    textSize(16);
+    text("March 2nd", calX(ex1), calY(ey1)+90);
+  }
+
+  //ellipse two
+  var ex2 = 37.8;
+  var ey2 = 87.5;
+
+  noFill();
+  stroke(0);
+  ellipse(calX(ex2), calY(ey2), 50, 50);
+
+  if ((calX(ex2) < mouseX && mouseX < (calX(ex2)+50) && calY(ey2) < mouseY && mouseY < (calY(ey2) + 50)) || mouseY < calY(15) && mouseY > calY(8) && mouseX > drawX && mouseX < drawX + 200){
+
+    noStroke();
+    fill(0);
+    textSize(20);
+    text("WOULD YOU BURY ME", calX(ex2), calY(ey2)+70);
+    textSize(16);
+    text("March 2nd", calX(ex2), calY(ey2)+90);
+  }
+
+  //ellipse three
+  var ex3 = 69.5;
+  var ey3 = 55.2;
+
+  noFill();
+  stroke(0);
+  ellipse(calX(ex3), calY(ey3), 50, 50);
+
+  if ((calX(ex3) < mouseX && mouseX < (calX(ex3)+50) && calY(ey3) < mouseY && mouseY < (calY(ey3) + 50)) || mouseY < calY(15) && mouseY > calY(8) && mouseX > drawX && mouseX < drawX + 200){
+
+    noStroke();
+    fill(0);
+    textSize(20);
+    text("WOULD YOU BURY ME", calX(ex3), calY(ey3)+70);
+    textSize(16);
+    text("March 2nd", calX(ex3), calY(ey3)+90);
+  }
+
+  //ellipse four
+  var ex4 = 45.55;
+  var ey4 = 33.58;
+
+  noFill();
+  stroke(0);
+  ellipse(calX(ex4), calY(ey4), 50, 50);
+
+  if ((calX(ex4) < mouseX && mouseX < (calX(ex4)+50) && calY(ey4) < mouseY && mouseY < (calY(ey4) + 50)) || mouseY < calY(15) && mouseY > calY(8) && mouseX > drawX && mouseX < drawX + 200){
+
+    noStroke();
+    fill(0);
+    textSize(20);
+    text("WOULD YOU BURY ME", calX(ex4), calY(ey4)+70);
+    textSize(16);
+    text("March 2nd", calX(ex4), calY(ey4)+90);
+  }
+
+  //ellipse five
+  var ex5 = 42.8;
+  var ey5 = 30.58;
+
+  noFill();
+  stroke(0);
+  ellipse(calX(ex5), calY(ey5), 50, 50);
+
+  if ((calX(ex5) < mouseX && mouseX < (calX(ex5)+50) && calY(ey5) < mouseY && mouseY < (calY(ey5) + 50)) || mouseY < calY(15) && mouseY > calY(8) && mouseX > drawX && mouseX < drawX + 200){
+
+    noStroke();
+    fill(0);
+    textSize(20);
+    text("WOULD YOU BURY ME", calX(ex5), calY(ey5)+70);
+    textSize(16);
+    text("March 2nd", calX(ex5), calY(ey5)+90);
+  }
+
+  //ellipse six
+  var ex6 = 41.8;
+  var ey6 = 22.58;
+
+  noFill();
+  stroke(0);
+  ellipse(calX(ex6), calY(ey6), 50, 50);
+
+  if ((calX(ex6) < mouseX && mouseX < (calX(ex6)+50) && calY(ey6) < mouseY && mouseY < (calY(ey6) + 50)) || mouseY < calY(15) && mouseY > calY(8) && mouseX > drawX && mouseX < drawX + 200){
+
+    noStroke();
+    fill(0);
+    textSize(20);
+    text("WOULD YOU BURY ME", calX(ex6), calY(ey6)+70);
+    textSize(16);
+    text("March 2nd", calX(ex6), calY(ey6)+90);
+  }
+
+  //ellipse seven
+  var ex7 = 64.6;
+  var ey7 = 32;
+
+  noFill();
+  stroke(0);
+  ellipse(calX(ex7), calY(ey7), 50, 50);
+
+  if ((calX(ex7) < mouseX && mouseX < (calX(ex7)+50) && calY(ey7) < mouseY && mouseY < (calY(ey7) + 50)) || mouseY < calY(15) && mouseY > calY(8) && mouseX > drawX && mouseX < drawX + 200){
+
+    noStroke();
+    fill(0);
+    textSize(20);
+    text("WOULD YOU BURY ME", calX(ex7), calY(ey7)+70);
+    textSize(16);
+    text("March 2nd", calX(ex7), calY(ey7)+90);
+  }
+
+  //ellipse eight
+  var ex8 = 64.95;
+  var ey8 = 70.9;
+
+  noFill();
+  stroke(0);
+  ellipse(calX(ex8), calY(ey8), 50, 50);
+
+  if ((calX(ex8) < mouseX && mouseX < (calX(ex8)+50) && calY(ey8) < mouseY && mouseY < (calY(ey8) + 50)) || mouseY < calY(15) && mouseY > calY(8) && mouseX > drawX && mouseX < drawX + 200){
+
+    noStroke();
+    fill(0);
+    textSize(20);
+    text("WOULD YOU BURY ME", calX(ex8), calY(ey8)+70);
+    textSize(16);
+    text("March 2nd", calX(ex8), calY(ey8)+90);
+  }
+
+  //ellipse nine
+  var ex9 = 60.95;
+  var ey9 = 38.58;
+
+  noFill();
+  stroke(0);
+  ellipse(calX(ex9), calY(ey9), 50, 50);
+
+  if ((calX(ex9) < mouseX && mouseX < (calX(ex9)+50) && calY(ey9) < mouseY && mouseY < (calY(ey9) + 50)) || mouseY < calY(15) && mouseY > calY(8) && mouseX > drawX && mouseX < drawX + 200){
+
+    noStroke();
+    fill(0);
+    textSize(20);
+    text("WOULD YOU BURY ME", calX(ex9), calY(ey9)+70);
+    textSize(16);
+    text("March 2nd", calX(ex9), calY(ey9)+90);
+  }
+
+  //ellipse ten
+  var ex10 = 87.85;
+  var ey10 = 1.58;
+
+  noFill();
+  stroke(0);
+  ellipse(calX(ex10), calY(ey10), 50, 50);
+
+  if ((calX(ex10) < mouseX && mouseX < (calX(ex10)+50) && calY(ey10) < mouseY && mouseY < (calY(ey10) + 50)) || mouseY < calY(15) && mouseY > calY(8) && mouseX > drawX && mouseX < drawX + 200){
+
+    noStroke();
+    fill(0);
+    textSize(20);
+    text("WOULD YOU BURY ME", calX(ex10), calY(ey10)+70);
+    textSize(16);
+    text("March 2nd", calX(ex10), calY(ey10)+90);
+  }
+
+
 
 //-------------------------------------------------------------
 //     NAV ANIMATION (DRAW)
@@ -563,6 +777,13 @@ function windowResized() {
 
   resizeCanvas(windowWidth, windowHeight);
 
+  el = document.getElementById('imgContainer');
+  elBound = el.getBoundingClientRect();
+  drawX = elBound.left;
+  drawY = elBound.top;
+  drawW = elBound.right-elBound.left;
+  drawH = elBound.bottom-elBound.top;
+
     background(248, 251, 252);
     nonLoop = false;
 
@@ -571,14 +792,14 @@ function windowResized() {
 
 //calculates position in calendar based on percentage arguement
 function calX(a){
-  var calc = calOffX + (calWidth*(a/100));
+  var calc = drawX + (drawW*(a/100));
   return calc;
 
 }
 
 //calculates position in calendar based on percentage arguement
 function calY(a){
-  var calc = calOffY + (calHeight*(a/100));
+  var calc = drawY + (drawH*(a/100));
   return calc;
 
 }

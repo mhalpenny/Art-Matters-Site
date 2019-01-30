@@ -222,11 +222,16 @@ function draw() {
   image(map, drawX, drawY, drawW, drawH);
   imageMode(CENTER);
 
-  // var eventBox = document.getElementById("eventBox");
-  // eventBox.style.display = "none";
-
-
-  //Add interactivity
+  $('#1').show();
+  $('#2').show();
+  $('#3').show();
+  $('#4').show();
+  $('#5').show();
+  $('#6').show();
+  $('#7').show();
+  $('#8').show();
+  $('#9').show();
+  $('#10').show();
 
   //ellipse one
   var ex1 = 76.4;
@@ -242,168 +247,295 @@ function draw() {
     text("WOULD YOU BURY ME", calX(ex1), calY(ey1)+70);
     textSize(16);
     text("March 2nd", calX(ex1), calY(ey1)+90);
+
+    //hide other dates
+    // $('#1').hide();
+    $('#2').hide();
+    $('#3').hide();
+    $('#4').hide();
+    $('#5').hide();
+    $('#6').hide();
+    $('#7').hide();
+    $('#8').hide();
+    $('#9').hide();
+    $('#10').hide();
   }
 
   //ellipse two
   var ex2 = 37.8;
   var ey2 = 87.5;
 
-  noFill();
-  stroke(0);
-  ellipse(calX(ex2), calY(ey2), 50, 50);
 
-  if ((calX(ex2) < mouseX && mouseX < (calX(ex2)+50) && calY(ey2) < mouseY && mouseY < (calY(ey2) + 50)) || mouseY < calY(15) && mouseY > calY(8) && mouseX > drawX && mouseX < drawX + 200){
-
+  if ((calX(ex2) < mouseX && mouseX < (calX(ex2)+50) && calY(ey2) < mouseY && mouseY < (calY(ey2) + 50)) || mouseY < calY(26) && mouseY > calY(17) && mouseX > drawX && mouseX < drawX + 200){
+    noFill();
+    stroke(0);
+    ellipse(calX(ex2), calY(ey2), 50, 50);
     noStroke();
     fill(0);
     textSize(20);
-    text("WOULD YOU BURY ME", calX(ex2), calY(ey2)+70);
+    text("THE SUFFOCATING, IMPRACTICAL DESIRE TO NAME.", calX(ex2), calY(ey2)+70);
     textSize(16);
-    text("March 2nd", calX(ex2), calY(ey2)+90);
+    text("March 4 / 11 / 19 / 26", calX(ex2), calY(ey2)+90);
+
+    $('#1').hide();
+    // $('#2').hide();
+    $('#3').hide();
+    $('#4').hide();
+    $('#5').hide();
+    $('#6').hide();
+    $('#7').hide();
+    $('#8').hide();
+    $('#9').hide();
+    $('#10').hide();
   }
 
   //ellipse three
   var ex3 = 69.5;
   var ey3 = 55.2;
 
-  noFill();
-  stroke(0);
-  ellipse(calX(ex3), calY(ey3), 50, 50);
 
-  if ((calX(ex3) < mouseX && mouseX < (calX(ex3)+50) && calY(ey3) < mouseY && mouseY < (calY(ey3) + 50)) || mouseY < calY(15) && mouseY > calY(8) && mouseX > drawX && mouseX < drawX + 200){
-
+  if ((calX(ex3) < mouseX && mouseX < (calX(ex3)+50) && calY(ey3) < mouseY && mouseY < (calY(ey3) + 50)) || mouseY < calY(34) && mouseY > calY(26) && mouseX > drawX && mouseX < drawX + 200){
+    noFill();
+    stroke(0);
+    ellipse(calX(ex3), calY(ey3), 50, 50);
     noStroke();
     fill(0);
     textSize(20);
-    text("WOULD YOU BURY ME", calX(ex3), calY(ey3)+70);
+    text("SOUS NOS SOUFFLES //", calX(ex3), calY(ey3)+70);
+    text("VULNERABILITY LINGERS", calX(ex3), calY(ey3)+90);
     textSize(16);
-    text("March 2nd", calX(ex3), calY(ey3)+90);
+    text("March 5th - 17th", calX(ex3), calY(ey3)+110);
+
+    $('#1').hide();
+    $('#2').hide();
+    // $('#3').hide();
+    $('#4').hide();
+    $('#5').hide();
+    $('#6').hide();
+    $('#7').hide();
+    $('#8').hide();
+    $('#9').hide();
+    $('#10').hide();
   }
 
   //ellipse four
-  var ex4 = 45.55;
-  var ey4 = 33.58;
+  var ex4 = 45.05;
+  var ey4 = 33.48;
 
-  noFill();
-  stroke(0);
-  ellipse(calX(ex4), calY(ey4), 50, 50);
 
-  if ((calX(ex4) < mouseX && mouseX < (calX(ex4)+50) && calY(ey4) < mouseY && mouseY < (calY(ey4) + 50)) || mouseY < calY(15) && mouseY > calY(8) && mouseX > drawX && mouseX < drawX + 200){
-
+  if ((calX(ex4)+20 < mouseX && mouseX < (calX(ex4)+50) && calY(ey4)-10 < mouseY && mouseY < (calY(ey4) + 50)) || mouseY < calY(42) && mouseY > calY(34) && mouseX > drawX && mouseX < drawX + 200){
+    noFill();
+    stroke(0);
+    ellipse(calX(ex4), calY(ey4), 50, 50);
     noStroke();
     fill(0);
     textSize(20);
-    text("WOULD YOU BURY ME", calX(ex4), calY(ey4)+70);
+    text("PORPOS", calX(ex4), calY(ey4)+70);
     textSize(16);
-    text("March 2nd", calX(ex4), calY(ey4)+90);
+    text("March 8th", calX(ex4), calY(ey4)+90);
+
+    $('#1').hide();
+    $('#2').hide();
+    $('#3').hide();
+    // $('#4').hide();
+    $('#5').hide();
+    $('#6').hide();
+    $('#7').hide();
+    $('#8').hide();
+    $('#9').hide();
+    $('#10').hide();
   }
 
   //ellipse five
   var ex5 = 42.8;
   var ey5 = 30.58;
 
-  noFill();
-  stroke(0);
-  ellipse(calX(ex5), calY(ey5), 50, 50);
-
-  if ((calX(ex5) < mouseX && mouseX < (calX(ex5)+50) && calY(ey5) < mouseY && mouseY < (calY(ey5) + 50)) || mouseY < calY(15) && mouseY > calY(8) && mouseX > drawX && mouseX < drawX + 200){
-
+  if ((calX(ex5) < mouseX && mouseX < (calX(ex5)+40) && calY(ey5) < mouseY && mouseY < (calY(ey5) + 40)) || mouseY < calY(50) && mouseY > calY(42) && mouseX > drawX && mouseX < drawX + 200){
+    noFill();
+    stroke(0);
+    ellipse(calX(ex5), calY(ey5), 50, 50);
     noStroke();
+    fill(255);
+    textSize(20);
+    text("DIGITAL DREAMS //", calX(ex5)+0.5, calY(ey5)+70);
+    text("I’LL DREAM ABOUT THIS SOMEDAY", calX(ex5)+1, calY(ey5)+90);
+    textSize(16);
+    text("March 6th - 18th", calX(ex5)+0.5, calY(ey5)+110);
     fill(0);
     textSize(20);
-    text("WOULD YOU BURY ME", calX(ex5), calY(ey5)+70);
+    text("DIGITAL DREAMS //", calX(ex5), calY(ey5)+70);
+    text("I’LL DREAM ABOUT THIS SOMEDAY", calX(ex5), calY(ey5)+90);
     textSize(16);
-    text("March 2nd", calX(ex5), calY(ey5)+90);
+    text("March 6th - 18th", calX(ex5), calY(ey5)+110);
+
+    $('#1').hide();
+    $('#2').hide();
+    $('#3').hide();
+    $('#4').hide();
+    // $('#5').hide();
+    $('#6').hide();
+    $('#7').hide();
+    $('#8').hide();
+    $('#9').hide();
+    $('#10').hide();
   }
 
   //ellipse six
   var ex6 = 41.8;
   var ey6 = 22.58;
 
-  noFill();
-  stroke(0);
-  ellipse(calX(ex6), calY(ey6), 50, 50);
 
-  if ((calX(ex6) < mouseX && mouseX < (calX(ex6)+50) && calY(ey6) < mouseY && mouseY < (calY(ey6) + 50)) || mouseY < calY(15) && mouseY > calY(8) && mouseX > drawX && mouseX < drawX + 200){
 
+  if ((calX(ex6) < mouseX && mouseX < (calX(ex6)+50) && calY(ey6) < mouseY && mouseY < (calY(ey6) + 50)) || mouseY < calY(58) && mouseY > calY(50) && mouseX > drawX && mouseX < drawX + 200){
+
+    noFill();
+    stroke(0);
+    ellipse(calX(ex6), calY(ey6), 50, 50);
     noStroke();
     fill(0);
     textSize(20);
-    text("WOULD YOU BURY ME", calX(ex6), calY(ey6)+70);
+    text("INTERFACE", calX(ex6), calY(ey6)+70);
     textSize(16);
-    text("March 2nd", calX(ex6), calY(ey6)+90);
+    text("March 7th - 26th", calX(ex6), calY(ey6)+90);
+
+    $('#1').hide();
+    $('#2').hide();
+    $('#3').hide();
+    $('#4').hide();
+    $('#5').hide();
+    // $('#6').hide();
+    $('#7').hide();
+    $('#8').hide();
+    $('#9').hide();
+    $('#10').hide();
   }
 
   //ellipse seven
   var ex7 = 64.6;
   var ey7 = 32;
 
-  noFill();
-  stroke(0);
-  ellipse(calX(ex7), calY(ey7), 50, 50);
+  if ((calX(ex7) < mouseX && mouseX < (calX(ex7)+50) && calY(ey7) < mouseY && mouseY < (calY(ey7) + 50)) || mouseY < calY(65) && mouseY > calY(58) && mouseX > drawX && mouseX < drawX + 200){
 
-  if ((calX(ex7) < mouseX && mouseX < (calX(ex7)+50) && calY(ey7) < mouseY && mouseY < (calY(ey7) + 50)) || mouseY < calY(15) && mouseY > calY(8) && mouseX > drawX && mouseX < drawX + 200){
-
+    noFill();
+    stroke(0);
+    ellipse(calX(ex7), calY(ey7), 50, 50);
     noStroke();
     fill(0);
     textSize(20);
-    text("WOULD YOU BURY ME", calX(ex7), calY(ey7)+70);
+    text("IN SEARCH OF DELICIOUS", calX(ex7), calY(ey7)+70);
     textSize(16);
-    text("March 2nd", calX(ex7), calY(ey7)+90);
+    text("March 10th - 24th", calX(ex7), calY(ey7)+90);
+
+    $('#1').hide();
+    $('#2').hide();
+    $('#3').hide();
+    $('#4').hide();
+    $('#5').hide();
+    $('#6').hide();
+    // $('#7').hide();
+    $('#8').hide();
+    $('#9').hide();
+    $('#10').hide();
   }
 
   //ellipse eight
   var ex8 = 64.95;
   var ey8 = 70.9;
 
-  noFill();
-  stroke(0);
-  ellipse(calX(ex8), calY(ey8), 50, 50);
 
-  if ((calX(ex8) < mouseX && mouseX < (calX(ex8)+50) && calY(ey8) < mouseY && mouseY < (calY(ey8) + 50)) || mouseY < calY(15) && mouseY > calY(8) && mouseX > drawX && mouseX < drawX + 200){
 
+  if ((calX(ex8) < mouseX && mouseX < (calX(ex8)+50) && calY(ey8) < mouseY && mouseY < (calY(ey8) + 50)) || mouseY < calY(77) && mouseY > calY(65) && mouseX > drawX && mouseX < drawX + 200){
+
+    noFill();
+    stroke(0);
+    ellipse(calX(ex8), calY(ey8), 50, 50);
     noStroke();
     fill(0);
     textSize(20);
-    text("WOULD YOU BURY ME", calX(ex8), calY(ey8)+70);
+    text("SITES OF EMBODIED SILENCE", calX(ex8), calY(ey8)+70);
     textSize(16);
-    text("March 2nd", calX(ex8), calY(ey8)+90);
+    text("March 11th - 22nd", calX(ex8), calY(ey8)+90);
+
+    $('#1').hide();
+    $('#2').hide();
+    $('#3').hide();
+    $('#4').hide();
+    $('#5').hide();
+    $('#6').hide();
+    $('#7').hide();
+    // $('#8').hide();
+    $('#9').hide();
+    $('#10').hide();
   }
 
   //ellipse nine
   var ex9 = 60.95;
   var ey9 = 38.58;
 
-  noFill();
-  stroke(0);
-  ellipse(calX(ex9), calY(ey9), 50, 50);
 
-  if ((calX(ex9) < mouseX && mouseX < (calX(ex9)+50) && calY(ey9) < mouseY && mouseY < (calY(ey9) + 50)) || mouseY < calY(15) && mouseY > calY(8) && mouseX > drawX && mouseX < drawX + 200){
 
+  if ((calX(ex9) < mouseX && mouseX < (calX(ex9)+50) && calY(ey9) < mouseY && mouseY < (calY(ey9) + 50)) || mouseY < calY(85) && mouseY > calY(77) && mouseX > drawX && mouseX < drawX + 200){
+
+    noFill();
+    stroke(0);
+    ellipse(calX(ex9), calY(ey9), 50, 50);
     noStroke();
+    fill(255);
+    textSize(20);
+    text("LOOK WHAT YOU MADE ME DO", calX(ex9)+0.5, calY(ey9)+70);
+    textSize(16);
+    text("March 13th - 24th", calX(ex9)+0.5, calY(ey9)+90);
     fill(0);
     textSize(20);
-    text("WOULD YOU BURY ME", calX(ex9), calY(ey9)+70);
+    text("LOOK WHAT YOU MADE ME DO", calX(ex9), calY(ey9)+70);
     textSize(16);
-    text("March 2nd", calX(ex9), calY(ey9)+90);
+    text("March 13th - 24th", calX(ex9), calY(ey9)+90);
+
+    $('#1').hide();
+    $('#2').hide();
+    $('#3').hide();
+    $('#4').hide();
+    $('#5').hide();
+    $('#6').hide();
+    $('#7').hide();
+    $('#8').hide();
+    // $('#9').hide();
+    $('#10').hide();
   }
 
   //ellipse ten
   var ex10 = 87.85;
   var ey10 = 1.58;
 
-  noFill();
-  stroke(0);
-  ellipse(calX(ex10), calY(ey10), 50, 50);
 
-  if ((calX(ex10) < mouseX && mouseX < (calX(ex10)+50) && calY(ey10) < mouseY && mouseY < (calY(ey10) + 50)) || mouseY < calY(15) && mouseY > calY(8) && mouseX > drawX && mouseX < drawX + 200){
 
+  if ((calX(ex10) < mouseX && mouseX < (calX(ex10)+50) && calY(ey10) < mouseY && mouseY < (calY(ey10) + 50)) || mouseY < calY(92) && mouseY > calY(85) && mouseX > drawX && mouseX < drawX + 200){
+
+    noFill();
+    stroke(0);
+    ellipse(calX(ex10), calY(ey10), 50, 50);
     noStroke();
+    fill(255);
+    textSize(20);
+    text("MALAISE", calX(ex10)+0.5, calY(ey10)+70);
+    textSize(16);
+    text("March 13th - 24th", calX(ex10)+0.5, calY(ey10)+90);
     fill(0);
     textSize(20);
-    text("WOULD YOU BURY ME", calX(ex10), calY(ey10)+70);
+    text("MALAISE", calX(ex10), calY(ey10)+70);
     textSize(16);
-    text("March 2nd", calX(ex10), calY(ey10)+90);
+    text("March 13th - 24th", calX(ex10), calY(ey10)+90);
+
+    $('#1').hide();
+    $('#2').hide();
+    $('#3').hide();
+    $('#4').hide();
+    $('#5').hide();
+    $('#6').hide();
+    $('#7').hide();
+    $('#8').hide();
+    $('#9').hide();
+    // $('#10').hide();
   }
 
 

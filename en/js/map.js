@@ -414,7 +414,7 @@ function draw() {
   var ex7 = 64.6;
   var ey7 = 32;
 
-  if ((calX(ex7) < mouseX && mouseX < (calX(ex7)+50) && calY(ey7) < mouseY && mouseY < (calY(ey7) + 50)) || mouseY < calY(65) && mouseY > calY(58) && mouseX > drawX && mouseX < drawX + 200){
+  if ((calX(ex7) < mouseX +5 && mouseX < (calX(ex7)+45) && calY(ey7) < mouseY && mouseY < (calY(ey7) + 45)) || mouseY < calY(65) && mouseY > calY(58) && mouseX > drawX && mouseX < drawX + 200){
 
     noFill();
     stroke(0);
@@ -474,7 +474,7 @@ function draw() {
 
 
 
-  if ((calX(ex9) < mouseX && mouseX < (calX(ex9)+50) && calY(ey9) < mouseY && mouseY < (calY(ey9) + 50)) || mouseY < calY(85) && mouseY > calY(77) && mouseX > drawX && mouseX < drawX + 200){
+  if ((calX(ex9) < mouseX && mouseX < (calX(ex9)+45) && calY(ey9) < mouseY + 5 && mouseY < (calY(ey9) + 50)) || mouseY < calY(85) && mouseY > calY(77) && mouseX > drawX && mouseX < drawX + 200){
 
     noFill();
     stroke(0);

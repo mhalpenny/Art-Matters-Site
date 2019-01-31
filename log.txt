@@ -8,12 +8,9 @@ WINTER
     Animations Gabor
     Info box
 
-2) Map
+2) Map *DONE*
 
-    Interactive box
-    Background Gabor
-    Animations Gabor
-    Info box
+    Add clickable links to Exhibitions
 
 
 3) Exhibitions
@@ -33,7 +30,7 @@ WINTER
 
     fix nav/icons on all pages
     mobile exhibitions
-    
+
 
 
 

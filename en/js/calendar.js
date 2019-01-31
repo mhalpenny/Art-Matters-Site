@@ -7,26 +7,29 @@
 //     VARIABLES
 //-------------------------------------------------------------
 
-var offset;
-var logoSpin = 0;
-var logoY = 50;
-var animateEx, animateR = false, animateA = false, animateM = false, animateGI = false, animateEx = false, animateAr = false, animateE = false, animateC = false, mainOff = false, animateCSM = false, animateCSC = false, animateCSE = false;
-var fadeEx = 0, fadeR = 0, fadeA = 0, fadeM = 0, fadeE = 0, fadeAr = 0, fadeC = 0, fadeGI = 0, fadeEx, fadeMain = 255, fadeBack= 50;
-var linkOffset, linkBuffer, linkMargin, iconMargin;
-var fadeIncr = 35;
-var bColorVal = 0;
-var widthVal = 12;
-var heightVal = 12;
-var flip = true;
-var spinX, spinY;
-var bodyH, canvasH;
-var isAnimation = 400;
-var refresh = false;
-var refreshArray = [1];
-var valueM = 0, valueC = 0, valueE = 0;
-var nonLoop = false;
-var widthX, heightY;
-var calWidth, calHeight, calOffX, calOffY, calSize;
+let offset;
+let logoSpin = 0;
+let logoY = 50;
+let animateR = false, animateA = false, animateM = false, animateGI = false, animateEx = false, animateAr = false, animateE = false, animateC = false, mainOff = false, animateCSM = false, animateCSC = false, animateCSE = false;
+let fadeEx = 0, fadeR = 0, fadeA = 0, fadeM = 0, fadeE = 0, fadeAr = 0, fadeC = 0, fadeGI = 0, fadeMain = 255, fadeBack= 50;
+let linkOffset, linkBuffer, linkMargin, iconMargin;
+let fadeIncr = 35;
+let bColorVal = 0;
+let widthVal = 12;
+let heightVal = 12;
+let flip = true;
+let spinX, spinY;
+let bodyH, canvasH;
+let isAnimation = 400;
+let refresh = false;
+let refreshArray = [1];
+let valueM = 0, valueC = 0, valueE = 0;
+let nonLoop = false;
+let widthX, heightY;
+let drawX, drawY, drawW, drawH, el, elBound, drawR;
+let textW1, textW2, textH1, textH2;
+let calWidth, calHeight, calOffX, calOffY, calSize;
+let font, fontsize;
 
 
 // var colorCounter = 0;
@@ -50,7 +53,9 @@ function preload() {
   //logo
   amLogo = loadImage('assets/amlogo.png');
   //Calendar
-   calendar = loadImage('assets/calendar.png');
+   calendar = loadImage('assets/calendar/calendar.png');
+   //fonts
+   font = loadFont('fonts/Lack-Regular.otf');
 }
 
 //-------------------------------------------------------------
@@ -77,15 +82,26 @@ function setup() {
   canvas.position(0, 0);
 
 
-  //instantiate animations.
-  // fadeA = 0;
-  // fadeM = 0;
-  // fadeR = 0;
-  // fadeAr = 0;
-  // fadeC = 0;
-  // fadeE = 0;
-  // fadeGI = 0;
-  // fadeBack = 50;
+  textFont(font);
+  textSize(20);
+  textAlign(LEFT, CENTER);
+
+  //-------------------------------------------------------------
+  //     LAYERS FORMATTING (SETUP)
+  //-------------------------------------------------------------
+
+  //align with the cnter of the page
+  imageMode(CORNER);
+
+  el = document.getElementById('imgContainer');
+  elBound = el.getBoundingClientRect();
+  drawX = elBound.left;
+  drawY = elBound.top;
+  drawW = elBound.right-elBound.left;
+  drawH = elBound.bottom-elBound.top;
+  drawR = elBound.right;
+
+  ellipseMode(CORNER);
 
   //-------------------------------------------------------------
   //     LINKS (SETUP)
@@ -194,44 +210,230 @@ function draw() {
   }
   refresh = !refresh;
 
+
   //-------------------------------------------------------------
-//     CALENDAR (DRAW)
-//-------------------------------------------------------------
-
-//declare variable for calendar "div"
-calWidth = windowWidth*0.7;
-calHeight = windowHeight*0.8;
-calOffX = 55*6;
-calOffY = 55;
-calSize = 70;
+  //     MAP (DRAW)
+  //-------------------------------------------------------------
 
 
-rect(calOffX, 55, calWidth, calHeight);
-imageMode(CORNER);
-image(calendar, calOffX, 55, calWidth, calHeight);
-imageMode(CENTER);
+  imageMode(CORNER);
+  image(calendar, drawX, drawY, drawW, drawH);
+  imageMode(CENTER);
 
-var eventBox = document.getElementById("eventBox");
-eventBox.style.display = "none";
+  $('#8').hide();
+  $('#2').hide();
+  $('#7').hide();
+  $('#20').hide();
+  $('#22').hide();
+  $('#21').hide();
+  $('#14').hide();
+  $('#13').hide();
+  $('#15').hide();
+  $('#circ').show();
+  $('#5-17').hide();
+  $('#6-17').hide();
+  $('#6-18').hide();
+  $('#7-26').hide();
+  $('#10-24').hide();
+  $('#11-22').hide();
+  $('#13-24-1').hide();
+  $('#13-24-2').hide();
+  $('#4-11-19-26').hide();
 
 
-//Add interactivity
-noFill();
-noStroke();
-//ellipse one
-var ex1 = 75;
-var ey1 = 30;
-ellipseMode(CORNER);
-ellipse(calX(ex1), calY(ey1), calSize, calSize);
+  //ellipse one
+  var ex1 = 76.4;
+  var ey1 = 67.2;
 
-if (calX(ex1) < mouseX && mouseX < (calX(ex1)+calSize) && calY(ey1) < mouseY && mouseY < (calY(ey1) + calSize)){
-  console.log("works");
-  eventBox.style.display = "block";
-}
+  if (mouseY < calY(14) && mouseY > calY(5) && mouseX > drawR - 280 && mouseX < drawR){
+
+    $('#8').show();
+    // $('#2').show();
+    $('#7').show();
+    $('#20').show();
+    $('#22').show();
+    $('#21').show();
+    $('#14').show();
+    $('#13').show();
+    $('#15').show();
+    $('#circ').hide();
+  }
+
+  //ellipse two
+  var ex2 = 37.8;
+  var ey2 = 87.5;
+
+
+  if (mouseY < calY(24) && mouseY > calY(14) && mouseX > drawR - 280 && mouseX < drawR){
+    $('#8').show();
+    $('#2').show();
+    $('#7').show();
+    $('#20').show();
+    $('#22').show();
+    $('#21').show();
+    $('#14').show();
+    $('#13').show();
+    // $('#15').show();
+    $('#circ').hide();
+    $('#4-11-19-26').show();
+
+  }
+
+  //ellipse three
+  var ex3 = 69.5;
+  var ey3 = 55.2;
+
+
+  if (mouseY < calY(33) && mouseY > calY(24) && mouseX > drawR - 280 && mouseX < drawR){
+    $('#8').show();
+    $('#2').show();
+    $('#7').show();
+    $('#20').show();
+    $('#22').show();
+    $('#21').show();
+    $('#14').show();
+    // $('#13').show();
+    $('#15').show();
+    $('#circ').hide();
+    $('#5-17').show();
+  }
+
+  //ellipse four
+  var ex4 = 45.05;
+  var ey4 = 33.48;
+
+
+  if (mouseY < calY(41) && mouseY > calY(33) && mouseX > drawR - 280 && mouseX < drawR){
+    // $('#8').show();
+    $('#2').show();
+    $('#7').show();
+    $('#20').show();
+    $('#22').show();
+    $('#21').show();
+    $('#14').show();
+    $('#13').show();
+    $('#15').show();
+    $('#circ').hide();
+    $('#6-17').show();
+  }
+
+  //ellipse five
+  var ex5 = 42.8;
+  var ey5 = 30.58;
+
+  if (mouseY < calY(51) && mouseY > calY(41) && mouseX > drawR - 280 && mouseX < drawR){
+    // $('#8').show();
+    $('#2').show();
+    $('#7').show();
+    $('#20').show();
+    $('#22').show();
+    $('#21').show();
+    $('#14').show();
+    $('#13').show();
+    $('#15').show();
+    $('#circ').hide();
+    $('#6-18').show();
+  }
+
+  //ellipse six
+  var ex6 = 41.8;
+  var ey6 = 22.58;
 
 
 
-//ellipse 2
+  if (mouseY < calY(60) && mouseY > calY(51) && mouseX > drawR - 280 && mouseX < drawR){
+    $('#8').show();
+    $('#2').show();
+    // $('#7').show();
+    $('#20').show();
+    $('#22').show();
+    $('#21').show();
+    $('#14').show();
+    $('#13').show();
+    $('#15').show();
+    $('#circ').hide();
+    $('#7-26').show();
+  }
+
+  //ellipse seven
+  var ex7 = 64.6;
+  var ey7 = 32;
+
+  if (mouseY < calY(68) && mouseY > calY(60) && mouseX > drawR - 280 && mouseX < drawR){
+    $('#8').show();
+    $('#2').show();
+    $('#7').show();
+    $('#20').show();
+    $('#22').show();
+    // $('#21').show();
+    $('#14').show();
+    $('#13').show();
+    $('#15').show();
+    $('#circ').hide();
+    $('#10-24').show();
+  }
+
+  //ellipse eight
+  var ex8 = 64.95;
+  var ey8 = 70.9;
+
+
+
+  if (mouseY < calY(77) && mouseY > calY(68) && mouseX > drawR - 280 && mouseX < drawR){
+    $('#8').show();
+    $('#2').show();
+    $('#7').show();
+    $('#20').show();
+    $('#22').show();
+    $('#21').show();
+    // $('#14').show();
+    $('#13').show();
+    $('#15').show();
+    $('#circ').hide();
+    $('#11-22').show();
+  }
+
+  //ellipse nine
+  var ex9 = 60.95;
+  var ey9 = 38.58;
+
+
+
+  if (mouseY < calY(85) && mouseY > calY(77) && mouseX > drawR - 280 && mouseX < drawR){
+    $('#8').show();
+    $('#2').show();
+    $('#7').show();
+    // $('#20').show();
+    $('#22').show();
+    $('#21').show();
+    $('#14').show();
+    $('#13').show();
+    $('#15').show();
+    $('#circ').hide();
+    $('#13-24-1').show();
+  }
+
+  //ellipse ten
+  var ex10 = 87.85;
+  var ey10 = 1.58;
+
+
+
+  if (mouseY < calY(92) && mouseY > calY(85) && mouseX > drawR - 280 && mouseX < drawR){
+    $('#8').show();
+    $('#2').show();
+    $('#7').show();
+    $('#20').show();
+    // $('#22').show();
+    $('#21').show();
+    $('#14').show();
+    $('#13').show();
+    $('#15').show();
+    $('#circ').hide();
+    $('#13-24-2').show();
+  }
+
+
 
 //-------------------------------------------------------------
 //     NAV ANIMATION (DRAW)
@@ -602,6 +804,13 @@ function windowResized() {
 
   resizeCanvas(windowWidth, windowHeight);
 
+  el = document.getElementById('imgContainer');
+  elBound = el.getBoundingClientRect();
+  drawX = elBound.left;
+  drawY = elBound.top;
+  drawW = elBound.right-elBound.left;
+  drawH = elBound.bottom-elBound.top;
+
     background(248, 251, 252);
     nonLoop = false;
 
@@ -610,14 +819,14 @@ function windowResized() {
 
 //calculates position in calendar based on percentage arguement
 function calX(a){
-  var calc = calOffX + (calWidth*(a/100));
+  var calc = drawX + (drawW*(a/100));
   return calc;
 
 }
 
 //calculates position in calendar based on percentage arguement
 function calY(a){
-  var calc = calOffY + (calHeight*(a/100));
+  var calc = drawY + (drawH*(a/100));
   return calc;
 
 }

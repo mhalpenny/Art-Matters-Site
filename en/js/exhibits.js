@@ -103,11 +103,11 @@ function setup() {
   //     LINKS (SETUP)
   //-------------------------------------------------------------
 
-  linkR = createA('#', 'RESOURCES');
+  linkR = createA('resources', 'RESOURCES');
 
   linkA = createA('about', 'ABOUT');
 
-  linkC = createA('#', 'CALENDAR');
+  linkC = createA('calendar', 'CALENDAR');
 
   linkAr = createA('http://artmattersfestival.org/archive/', 'ARCHIVE');
 
@@ -117,7 +117,7 @@ function setup() {
 
   linkEx = createA('exhibitions', 'EXHIBITIONS');
 
-  linkM = createA('#', 'MAPS');
+  linkM = createA('map', 'MAP');
 
   // linkAO = createA('pdf/AM_AntiO.pdf', 'ANTI-OPPRESSION STATEMENT');
 
@@ -274,7 +274,7 @@ function draw() {
 
       }
     } else {
-      fill(255, 192, 203);
+      fill(250, 209, 191);
       noStroke();
       rect(rect1.left, rect1.top + top, (rect1.right - rect1.left), (rect1.bottom - rect1.top));
       img1.hide();
@@ -350,7 +350,8 @@ function draw() {
 
       }
     } else {
-      fill(255, 192, 203);
+      // fill(250, 209, 191);
+      fill(43, 96, 198);
       noStroke();
       rect(rect2.left, rect2.top + top, (rect2.right - rect2.left), (rect2.bottom - rect2.top));
       img1.hide();
@@ -426,7 +427,7 @@ function draw() {
 
       }
     } else {
-      fill(255, 192, 203);
+    fill(250, 209, 191);
       noStroke();
       rect(rect3.left, rect3.top + top, (rect3.right - rect3.left), (rect3.bottom - rect3.top));
       img1.hide();
@@ -503,7 +504,7 @@ function draw() {
 
       }
     } else {
-      fill(255, 192, 203);
+    fill(250, 209, 191);
       noStroke();
       rect(rect4.left, rect4.top + top, (rect4.right - rect4.left), (rect4.bottom - rect4.top));
       img1.hide();
@@ -578,7 +579,7 @@ function draw() {
 
       }
     } else {
-      fill(255, 192, 203);
+      fill(250, 209, 191);
       noStroke();
       rect(rect5.left, rect5.top + top, (rect5.right - rect5.left), (rect5.bottom - rect5.top));
       img1.hide();

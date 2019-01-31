@@ -570,7 +570,7 @@ function overLinkEx() {
 
 function offLinkEx() {
   animateEx = false;
-  fadeE = 0;
+  fadeEx = 0;
   linkEx.style('font-style', 'normal');
   mainOff = false;
 }

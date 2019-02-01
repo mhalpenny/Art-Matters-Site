@@ -90,7 +90,7 @@ function setup() {
 
   linkA = createA('aPropos', 'À PROPOS');
 
-  linkC = createA('#', 'CALENDRIER');
+  linkC = createA('calendrier', 'CALENDRIER');
 
   linkAr = createA('http://artmattersfestival.org/archive/', 'ARCHIVE');
 
@@ -98,7 +98,7 @@ function setup() {
 
   linkE = createA('evenements', 'ÉVÉNEMENTS');
 
-  linkM = createA('#', 'CARTE');
+  linkM = createA('carte', 'CARTE');
 
   // linkAO = createA('pdf/AM_AntiO.pdf', 'ANTI-OPPRESSION STATEMENT');
 

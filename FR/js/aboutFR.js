@@ -80,7 +80,7 @@ function setup() {
 
   linkA = createA('#', 'À PROPOS');
 
-  linkC = createA('#', 'CALENDRIER');
+  linkC = createA('calendrier', 'CALENDRIER');
 
   linkAr = createA('http://artmattersfestival.org/archive/', 'ARCHIVE');
 
@@ -88,7 +88,9 @@ function setup() {
 
   linkE = createA('evenements', 'ÉVÉNEMENTS');
 
-  linkM = createA('#', 'CARTE');
+  linkM = createA('carte', 'CARTE');
+
+    linkEx = createA('expositions', 'EXPOSITIONS');
 
   // linkAO = createA('pdf/AM_AntiO.pdf', 'ANTI-OPPRESSION STATEMENT');
 
@@ -298,6 +300,8 @@ if (windowWidth > 650){
         linkC.style('color', 'black');
     linkE.html('ÉVÉNEMENTS');
     linkE.style('text-align', 'right');
+    linkEx.html('ÉXPOSITIONS');
+    linkEx.style('text-align', 'right');
         linkE.style('color', 'black');
     linkAr.html('ARCHIVE');
     linkAr.style('text-align', 'right');
@@ -341,6 +345,8 @@ if (windowWidth > 650){
     linkC.style('color', 'grey');
     linkE.html('<br> <br> <br> <br> <br>  ÉVÉNEMENTS ');
     linkE.style('text-align', 'left');
+    linkEx.html('<br> <br> <br> <br> <br>  ÉXPOSITIONS');
+    linkEx.style('text-align', 'left');
     linkE.style('color', 'black');
     linkAr.html('<br> <br> <br> <br> <br>  ARCHIVE');
     linkAr.style('text-align', 'left');

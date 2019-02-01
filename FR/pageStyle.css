@@ -6,6 +6,7 @@
 header{
     color: rgb(248, 251, 252);
 }
+
 body{
   position: absolute;
   width: 100%;
@@ -38,6 +39,29 @@ p{
   padding: 3%;
 }
 
+pre{
+  /* font-weight: 50; */
+  font-size: 14px;
+  /* font-family: 'Open Sans', sans-serif; */
+  font-family: 'Quicksand', sans-serif;
+  line-height: 1.5;
+  letter-spacing: 1.5;
+  text-decoration: none;
+  color: black;
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 3%;
+  white-space: pre-wrap;       /* css-3 */
+white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+white-space: -pre-wrap;      /* Opera 4-6 */
+white-space: -o-pre-wrap;    /* Opera 7 */
+word-wrap: break-word;       /* Internet Explorer 5.5+ */
+}
+
+.icon2{
+height: 80px;
+width: 80px;
+}
+
 .nostyle {
   /* font-weight: 50; */
   font-size: 14px;
@@ -46,7 +70,7 @@ p{
   /* font-family: 'Open Sans', sans-serif; */
   font-family: 'Quicksand', sans-serif;
   line-height: 1.5;
-  letter-spacing: 0.5;
+  letter-spacing: 0;
   text-decoration: none;
   color: black;
   background-color: rgba(255, 255, 255, 0);
@@ -84,6 +108,15 @@ a{
   margin-right: 3%;
   color: blue;
   float: right;
+}
+
+#imgContainer{
+  height: 88%;
+  width: 75%;
+  position:absolute;
+  margin-left: 22%;
+  margin-top: 3%;
+  /* background-color: rgba(0, 0, 0, 0.3); */
 }
 
 @font-face {
@@ -274,6 +307,193 @@ text-align: left;
   height:60%;
   /* background-color: rgba(0, 0, 0, 0.5); */
 }
+
+#eventBox
+{
+  position: absolute;
+  left:280px;
+  top: 145px;
+  width: 30%;
+  height:70%;
+  background-color: rgba(0, 0, 0, 0.9);
+  z-index: 1000;
+}
+
+
+/* ----  EXHIBITIONS  ----------------------------------------- */
+
+
+.exTitleA{
+  font-size: 24px;
+
+  /* font-family: 'Quicksand', sans-serif; */
+ font-family: NAV;
+  font-weight: bolder;
+  letter-spacing: 3px;
+  text-decoration: none;
+  color: black;
+  text-align: left;
+  /* text-shadow: 1px 1px white; */
+}
+
+.exTitleB{
+  font-size: 24px;
+
+  /* font-family: 'Quicksand', sans-serif; */
+ font-family: NAV;
+  font-weight: bolder;
+  letter-spacing: 3px;
+  text-decoration: none;
+  color: black;
+  text-align: left;
+  margin-top: 7%;
+  /* text-shadow: 1px 1px white; */
+}
+
+.exTitleC{
+  font-size: 24px;
+
+  /* font-family: 'Quicksand', sans-serif; */
+ font-family: NAV;
+  font-weight: bolder;
+  letter-spacing: 3px;
+  text-decoration: none;
+  color: black;
+  text-align: left;
+  margin-top: 5%;
+  /* text-shadow: 1px 1px white; */
+}
+
+.exSubTitle{
+  font-size: 16px;
+
+  /* font-family: 'Quicksand', sans-serif; */
+ font-family: Quicksand;
+  font-weight: bolder;
+  letter-spacing: 3px;
+  text-decoration: none;
+  color: black;
+  text-align: left;
+  /* text-shadow: 1px 1px white; */
+}
+
+.rBox{
+  position: absolute;
+  float:left;
+  width: 60%;
+  height: 500px;
+  background-color: pink;
+}
+
+.exP{
+  width: 80%;
+  margin-top: 530px;
+}
+
+#pageLinkContainer{
+ width:86%;
+ margin-left: 0;
+ background-color: transparent;
+}
+
+#pageLinkSpacer{
+ margin-left: 45%;
+background-color: transparent;
+}
+
+#pageLink{
+  font-size: 18px;
+  /* font-family: 'Open Sans', sans-serif; */
+  font-family: 'Quicksand', sans-serif;
+  line-height: 1.5;
+  letter-spacing: 1.5;
+  text-decoration: none;
+  color: black;
+  padding:5%;
+   background-color: transparent;
+}
+
+#pageLink:hover{
+  color: pink;
+}
+
+#pageLinkVoid{
+  font-size: 18px;
+  /* font-family: 'Open Sans', sans-serif; */
+  font-family: 'Quicksand', sans-serif;
+  line-height: 1.5;
+  letter-spacing: 1.5;
+  text-decoration: none;
+  color: black;
+  padding:5%;
+   background-color: transparent;
+}
+
+.img1{
+  position: absolute;
+  display: none;
+  width: 100%;
+  height: 100%;
+}
+
+.img2{
+  position: absolute;
+  display: none;
+  width: 100%;
+  height: 100%;
+}
+
+.img3{
+  position: absolute;
+  display: none;
+  width: 100%;
+  height: 100%;
+}
+
+.img4{
+  position: absolute;
+  display: none;
+  width: 100%;
+  height: 100%;
+}
+
+.img5{
+  position: absolute;
+  display: none;
+  width: 100%;
+  height: 100%;
+}
+
+.img6{
+  position: absolute;
+  display: none;
+  width: 100%;
+  height: 100%;
+}
+
+.map{
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.date{
+  position: absolute;
+  display: none;
+  width: 100%;
+  height: 100%;
+}
+
+.circles{
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+
+/* ----  MEDIA QUERIES  ----------------------------------------- */
 
 @media only screen and (max-width: 650px) {
   #gallery{

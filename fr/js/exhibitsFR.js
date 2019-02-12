@@ -643,7 +643,7 @@ function draw() {
     linkOffset = 55;
     linkBuffer = top + 25;
     iconBuffer = top + 45;
-    inkMargin = 30;
+    linkMargin = 30;
     iconMargin = 45;
 
     if (nonLoop == false) {
@@ -694,7 +694,7 @@ function draw() {
     linkM.position(linkMargin, linkBuffer + linkOffset * 5);
     linkC.position(linkMargin, linkBuffer + linkOffset * 6);
     linkE.position(linkMargin, linkBuffer + linkOffset * 4);
-    linkEx.position(linkMargin, linkBuffer + linkOffset * 7.8);
+    linkEx.position(linkMargin, linkBuffer + linkOffset * 7);
     linkAr.position(linkMargin, linkBuffer + linkOffset * 8);
 
     linkEN.position(linkMargin, linkBuffer + linkOffset * 9.4);

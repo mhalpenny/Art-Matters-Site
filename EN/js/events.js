@@ -63,7 +63,11 @@ function setup() {
   //     STYLING (SETUP)
   //-------------------------------------------------------------
 
-  frameRate(15);
+  if (windowWidth >650){
+      frameRate(15);
+  }else{
+    frameRate(5);
+  }
   //retrieve div id
   bodyH = document.getElementById('gallery');
   //use id to get div height for canvas scrolling length
@@ -71,7 +75,11 @@ function setup() {
   //relieve overload on pixel size with reduced width
   canvasW = windowWidth/4;
   //create canvas at appropriate length for page
-  canvas = createCanvas(canvasW, canvasH);
+  if (windowWidth > 650){
+  canvas = createCanvas(windowWidth, canvasH);
+}else{
+    canvas = createCanvas(150, canvasH);
+}
   //basic canvas formatting
   canvas.style("z-index", "-1");
   canvas.position(0, 0);
@@ -564,7 +572,12 @@ function windowResized() {
   var canvasH = bodyH.scrollHeight + 50;
   var canvasW = windowWidth/4;
 
-  resizeCanvas(canvasW, (canvasH));
+  if (windowWidth >650){
+  resizeCanvas(windowWidth, (canvasH));
+} else{
+    resizeCanvas(150, (canvasH));
+}
+
 
   background(248, 251, 252, fadeBack);
   nonLoop = false;

@@ -56,32 +56,31 @@ function preload() {
 //-------------------------------------------------------------
 
 function setup() {
-
   //-------------------------------------------------------------
   //     STYLING (SETUP)
   //-------------------------------------------------------------
 
-  frameRate(15);
+  if (windowWidth >650){
+      frameRate(15);
+  }else{
+    frameRate(5);
+  }
+
   //retrieve div id
   bodyH = document.getElementById('gallery');
   //use id to get div height for canvas scrolling length
   canvasH = bodyH.scrollHeight + 50;
   //create canvas at appropriate length for page
+  if (windowWidth > 650){
   canvas = createCanvas(windowWidth, canvasH);
+  }else{
+    canvas = createCanvas(200, canvasH);
+  }
   //basic canvas formatting
   canvas.style("z-index", "-1");
   canvas.position(0, 0);
 
 
-  //instantiate animations.
-  // fadeA = 0;
-  // fadeM = 0;
-  // fadeR = 0;
-  // fadeAr = 0;
-  // fadeC = 0;
-  // fadeE = 0;
-  // fadeGI = 0;
-  // fadeBack = 50;
   //-------------------------------------------------------------
   //     LINKS (SETUP)
   //-------------------------------------------------------------
@@ -289,7 +288,7 @@ if (windowWidth > 650) {
   linkOffset = 55;
   linkBuffer = top + 25;
   iconBuffer = top + 45;
-  inkMargin = 30;
+  linkMargin = 30;
   iconMargin = 45;
 
   if (nonLoop == false) {
@@ -340,7 +339,7 @@ if (windowWidth > 650) {
   linkM.position(linkMargin, linkBuffer + linkOffset * 5);
   linkC.position(linkMargin, linkBuffer + linkOffset * 6);
   linkE.position(linkMargin, linkBuffer + linkOffset * 4);
-  linkEx.position(linkMargin, linkBuffer + linkOffset * 7.8);
+  linkEx.position(linkMargin, linkBuffer + linkOffset * 7);
   linkAr.position(linkMargin, linkBuffer + linkOffset * 8);
 
   linkEN.position(linkMargin, linkBuffer + linkOffset * 9.4);
@@ -599,6 +598,28 @@ function offLinkEx() {
   linkEx.style('font-style', 'normal');
   mainOff = false;
 }
+
+//-------------------------------------------------------------
+//     RESIZE (FUNCTIONS)
+//-------------------------------------------------------------
+
+function windowResized() {
+
+  var bodyH = document.getElementById('gallery');
+  //use id to get div height for canvas scrolling length
+  var canvasH = bodyH.scrollHeight + 50;
+
+  if (windowWidth >650){
+  resizeCanvas(windowWidth, (canvasH));
+} else{
+    resizeCanvas(200, (canvasH));
+}
+
+  background(248, 251, 252, fadeBack);
+  nonLoop = false;
+
+}
+
 //-------------------------------------------------------------
 //     BOX NIMATION (FUNCTIONS)
 //-------------------------------------------------------------

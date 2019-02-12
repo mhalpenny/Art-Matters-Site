@@ -63,15 +63,22 @@ function setup() {
   //     STYLING (SETUP)
   //-------------------------------------------------------------
 
-  frameRate(15);
+  if (windowWidth >650){
+      frameRate(15);
+  }else{
+    frameRate(5);
+  }
+
   //retrieve div id
   bodyH = document.getElementById('gallery');
   //use id to get div height for canvas scrolling length
-  canvasH = bodyH.scrollHeight + 250;
-
-  var canvasW = windowWidth/4;
+  canvasH = bodyH.scrollHeight + 50;
   //create canvas at appropriate length for page
-  canvas = createCanvas(canvasW, canvasH);
+  if (windowWidth > 650){
+  canvas = createCanvas(windowWidth, canvasH);
+  }else{
+    canvas = createCanvas(200, canvasH);
+  }
   //basic canvas formatting
   canvas.style("z-index", "-1");
   canvas.position(0, 0);
@@ -298,7 +305,7 @@ function draw() {
       linkM.position(linkMargin, linkBuffer + linkOffset * 5);
       linkC.position(linkMargin, linkBuffer + linkOffset * 6);
       linkE.position(linkMargin, linkBuffer + linkOffset * 4);
-      linkEx.position(linkMargin, linkBuffer + linkOffset * 7.8);
+      linkEx.position(linkMargin, linkBuffer + linkOffset * 7);
       linkAr.position(linkMargin, linkBuffer + linkOffset * 8);
 
       linkEN.position(linkMargin, linkBuffer + linkOffset * 9.4);
@@ -568,7 +575,11 @@ function windowResized() {
   var canvasH = bodyH.scrollHeight + 50;
   var canvasW = windowWidth/4
 
-  resizeCanvas(canvasW, (canvasH));
+  if (windowWidth >650){
+  resizeCanvas(windowWidth, (canvasH));
+} else{
+    resizeCanvas(200, (canvasH));
+}
 
   background(248, 251, 252, fadeBack);
   nonLoop = false;

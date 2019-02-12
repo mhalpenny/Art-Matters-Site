@@ -63,6 +63,7 @@ function preload() {
   layerC = loadImage('en/assets/box/greenLayer.png');
   layerAr = loadImage('en/assets/box/orangeLayer.png');
   layerGI = loadImage('en/assets/box/yellowLayer.png');
+  layerEx = loadImage('en/assets/exLayer.png');
   layerMain = loadImage('en/assets/layerAllBox.png');
   //icons
   iconA = loadImage('en/assets/rrIcon.png');
@@ -355,7 +356,7 @@ function draw() {
   if (animateEx == true) {
     tint(255, fadeEx);
     imageMode(CORNER);
-    // image(layerEx, drawX, drawY, drawW, drawH);
+    image(layerEx, drawX, drawY, drawW, drawH);
     imageMode(CENTER);
     image(iconEx, linkMargin, (linkBuffer + linkOffset * 7), 50, 50);
     noTint();

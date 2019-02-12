@@ -30,6 +30,7 @@ let drawX, drawY, drawW, drawH, el, elBound;
 let textW1, textW2, textH1, textH2;
 let calWidth, calHeight, calOffX, calOffY, calSize;
 let font, fontsize;
+let drop = true;
 
 
 // var colorCounter = 0;
@@ -70,7 +71,11 @@ function setup() {
   //     STYLING (SETUP)
   //-------------------------------------------------------------
 
+  if (windowWidth > 650){
   frameRate(15);
+  } else{
+  frameRate(1);
+  }
   //retrieve div id
   bodyH = document.getElementById('gallery');
   //use id to get div height for canvas scrolling length
@@ -127,7 +132,7 @@ function setup() {
 
       // linkEN = createA('#', 'EN');
       // linkEN.id('lang');
-      linkEN = createA('../en/about', 'EN');
+      linkEN = createA('../en/map', 'EN');
       linkEN.id('lang');
 
       home = createA('accueil', 'O');
@@ -542,7 +547,6 @@ function draw() {
   //-------------------------------------------------------------
   //     NAV ANIMATION (DRAW)
   //-------------------------------------------------------------
-
   if (windowWidth > 650) {
     linkOffset = 55;
     linkBuffer = top + 80;
@@ -550,25 +554,41 @@ function draw() {
 
     if (nonLoop == false) {
 
-      linkA.html('À PROPOS');
+
       linkA.style('text-align', 'right');
-      linkR.html('RESSOURCES');
+      linkA.style('font-size', '20px');
+
       linkR.style('text-align', 'right');
-      linkGI.html('IMPLIQUEZ-VOUS');
+        linkR.style('font-size', '20px');
+
       linkGI.style('text-align', 'right');
-      linkM.html('CARTE');
+        linkGI.style('font-size', '20px');
+
       linkM.style('text-align', 'right');
       linkM.style('color', 'black');
-      linkC.html('CALENDRIER');
+        linkM.style('font-size', '20px');
+
       linkC.style('text-align', 'right');
-          linkC.style('color', 'black');
-      linkE.html('ÉVÉNEMENTS');
+      linkC.style('color', 'black');
+        linkC.style('font-size', '20px');
+
       linkE.style('text-align', 'right');
-      linkEx.html('EXPOSITIONS');
+        linkE.style('font-size', '20px');
+
       linkEx.style('text-align', 'right');
-          linkE.style('color', 'black');
-      linkAr.html('ARCHIVE');
+        linkEx.style('font-size', '20px');
+
       linkAr.style('text-align', 'right');
+        linkAr.style('font-size', '20px');
+            linkEN.style('font-size', '12px');
+            linkA.style('color', 'black');
+            linkR.style('color', 'black');
+            linkM.style('color', 'black');
+            linkC.style('color', 'black');
+            linkE.style('color', 'black');
+            linkEx.style('color', 'black');
+            linkAr.style('color', 'black');
+            linkGI.style('color', 'black');
 
       nonLoop = true;
     }
@@ -588,64 +608,105 @@ function draw() {
 
   } else {
     //variable math
-    linkOffset = 55;
-    linkBuffer = top + 25;
-    iconBuffer = top + 45;
-    inkMargin = 30;
-    iconMargin = 45;
+    linkOffset = 20;
+    linkBuffer = 10;
+    iconBuffer = 5;
+    linkMargin = 22;
+    iconMargin = 26;
+    var lBuff = 35;
+
 
     if (nonLoop == false) {
 
-      linkA.html('<br> <br> <br> <br> <br> À PROPOS');
+
       linkA.style('text-align', 'left');
-      linkR.html('<br> <br> <br> <br> <br> RESSOURCES');
+      linkA.style('font-size', '4px');
+
       linkR.style('text-align', 'left');
-      linkGI.html('<br> <br> <br> <br>  IMPLIQUEZ <br> -VOUS');
+      linkR.style('font-size', '4px');
+
       linkGI.style('text-align', 'left');
-      linkM.html('<br> <br> <br> <br> <br>  CARTE');
-      linkM.style('color', 'grey');
+      linkGI.style('font-size', '4px');
+      linkM.style('color', 'black');
       linkM.style('text-align', 'left');
-      linkC.html('<br> <br> <br> <br> <br> CALENDRIER ');
+      linkM.style('font-size', '4px');
+
       linkC.style('text-align', 'left');
-      linkC.style('color', 'grey');
-      linkE.html('<br> <br> <br> <br> <br>  ÉVÉNEMENTS ');
+      linkC.style('font-size', '4px');
+
       linkE.style('text-align', 'left');
-      linkEx.html('<br> <br> <br> <br> <br>  EXPOSITIONS');
+      linkE.style('font-size', '4px');
+
       linkEx.style('text-align', 'left');
-      linkE.style('color', 'black');
-      linkAr.html('<br> <br> <br> <br> <br>  ARCHIVE');
+      linkEx.style('font-size', '4px');
+
       linkAr.style('text-align', 'left');
+      linkAr.style('font-size', '4px');
+        linkA.style('color', 'rgb(248, 251, 252)');
+        linkR.style('color', 'rgb(248, 251, 252)');
+        linkM.style('color', 'rgb(248, 251, 252)');
+        linkC.style('color', 'rgb(248, 251, 252)');
+        linkE.style('color', 'rgb(248, 251, 252)');
+        linkEx.style('color', 'rgb(248, 251, 252)');
+        linkAr.style('color', 'rgb(248, 251, 252)');
+        linkGI.style('color', 'rgb(248, 251, 252)');
+       linkEN.style('font-size', '8px');
 
       nonLoop = true;
     }
 
 
-    tint(255, 255);
+      tint(255, 255);
 
-    imageMode(CENTER);
+    if (drop == false){
 
-    image(iconR, iconMargin, (iconBuffer + linkOffset * 2), 40, 40);
-    image(iconA, iconMargin, (iconBuffer + linkOffset), 40, 40);
-    image(iconGI, iconMargin, (iconBuffer + linkOffset * 3), 40, 40);
-    image(iconAr, iconMargin, (iconBuffer + linkOffset * 8), 40, 40);
-    image(iconM, iconMargin, (iconBuffer + linkOffset * 5), 40, 40);
-    image(iconC, iconMargin, (iconBuffer + linkOffset * 6), 40, 40);
-    image(iconE, iconMargin, (iconBuffer + linkOffset * 4), 40, 40);
-    image(iconEx, iconMargin, (iconBuffer + linkOffset * 7), 40, 40);
+      linkA.style('display', 'none');
+      linkR.style('display', 'none');
+      linkGI.style('display', 'none');
+      linkM.style('display', 'none');
+      linkC.style('display', 'none');
+      linkE.style('display', 'none');
+      linkEx.style('display', 'none');
+      linkAr.style('display', 'none');
+      linkEN.style('display', 'none');
+
+    } else{
+
+      imageMode(CORNER);
+
+      image(iconR, iconMargin*2 + lBuff, (iconBuffer + linkOffset), 20, 20);
+      image(iconA, iconMargin + lBuff, (iconBuffer + linkOffset), 20, 20);
+      image(iconGI, iconMargin*3 + lBuff, (iconBuffer + linkOffset), 20, 20);
+      image(iconAr, iconMargin*8.2 + lBuff, (iconBuffer + linkOffset), 20, 20);
+      image(iconM, iconMargin*5 + lBuff, (iconBuffer + linkOffset), 20, 20);
+      image(iconC, iconMargin*6 + lBuff, (iconBuffer + linkOffset), 20, 20);
+      image(iconE, iconMargin*4 + lBuff, (iconBuffer + linkOffset), 20, 20);
+      image(iconEx, iconMargin*7.2 + lBuff, (iconBuffer + linkOffset), 20, 20);
+
+      linkA.style('display', 'block');
+      linkR.style('display', 'block');
+      linkGI.style('display', 'block');
+      linkM.style('display', 'block');
+      linkC.style('display', 'block');
+      linkE.style('display', 'block');
+      linkEx.style('display', 'block');
+      linkAr.style('display', 'block');
+      linkEN.style('display', 'block');
+    }
 
     noTint();
 
     //positioning
-    linkA.position(linkMargin, linkBuffer + linkOffset);
-    linkR.position(linkMargin, linkBuffer + linkOffset * 2);
-    linkGI.position(linkMargin, linkBuffer + linkOffset * 3);
-    linkM.position(linkMargin, linkBuffer + linkOffset * 5);
-    linkC.position(linkMargin, linkBuffer + linkOffset * 6);
-    linkE.position(linkMargin, linkBuffer + linkOffset * 4);
-    linkEx.position(linkMargin, linkBuffer + linkOffset * 7.8);
-    linkAr.position(linkMargin, linkBuffer + linkOffset * 8);
+    linkA.position(linkMargin + lBuff +10, linkBuffer + linkOffset);
+    linkR.position(linkMargin*2 + lBuff, linkBuffer + linkOffset);
+    linkGI.position(linkMargin*3.35 + lBuff, linkBuffer + linkOffset);
+    linkM.position(linkMargin*5.9 + lBuff, linkBuffer + linkOffset);
+    linkC.position(linkMargin*6.7 + lBuff, linkBuffer + linkOffset);
+    linkE.position(linkMargin*4.45 + lBuff, linkBuffer + linkOffset);
+    linkEx.position(linkMargin*8 + lBuff, linkBuffer + linkOffset);
+    linkAr.position(linkMargin*9 + lBuff, linkBuffer + linkOffset);
 
-    linkEN.position(linkMargin, linkBuffer + linkOffset * 9.4);
+    linkEN.position(linkMargin*13, linkBuffer + linkOffset);
 
   }
 
@@ -747,9 +808,9 @@ if (windowWidth > 650) {
   image(amLogo, 0, 0, 110, 110);
 } else {
   var topNew = top + 45;
-  translate(iconMargin + 5, topNew);
+  translate(30, 36);
   rotate(logoSpin);
-  image(amLogo, 0, 0, 70, 70);
+  image(amLogo, 0, 0, 50, 50);
 }
 pop();
 noTint();
@@ -922,6 +983,12 @@ function windowResized() {
 
     background(248, 251, 252);
     nonLoop = false;
+
+    if (windowWidth > 650){
+    frameRate(15);
+    } else{
+    frameRate(1);
+    }
 
 
 }

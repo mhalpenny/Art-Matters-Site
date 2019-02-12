@@ -10,9 +10,9 @@
 var offset;
 var logoSpin = 0;
 var logoY = 50;
-var animateR = false, animateA = false, animateM = false, animateGI = false, animateAr = false, animateE = false, animateC = false, mainOff = false, animateCSM = false, animateCSC = false, animateCSE = false;
-var fadeR = 0, fadeA = 0, fadeM = 0, fadeE = 0, fadeAr = 0, fadeC = 0, fadeGI = 0, fadeMain = 255, fadeBack= 50;
-var linkOffset, linkBuffer;
+var animateEx = false, animateR = false, animateA = false, animateM = false, animateGI = false, animateAr = false, animateE = false, animateC = false, mainOff = false, animateCSM = false, animateCSC = false, animateCSE = false;
+var fadeEx = 0, fadeR = 0, fadeA = 0, fadeM = 0, fadeE = 0, fadeAr = 0, fadeC = 0, fadeGI = 0, fadeMain = 255, fadeBack= 50;
+var linkOffset, linkBuffer, linkMargin, iconMargin;
 var fadeIncr = 35;
 var bColorVal = 0;
 var widthVal = 12;
@@ -43,6 +43,7 @@ function preload() {
   iconC = loadImage('assets/gIcon.png');
   iconAr = loadImage('assets/oIcon.png');
   iconGI = loadImage('assets/yIcon.png');
+  iconEx = loadImage('assets/gyIcon.png');
   //logo
   amLogo = loadImage('assets/amlogo.png');
 
@@ -81,40 +82,42 @@ function setup() {
   // fadeE = 0;
   // fadeGI = 0;
   // fadeBack = 50;
-
   //-------------------------------------------------------------
   //     LINKS (SETUP)
   //-------------------------------------------------------------
 
-  linkR = createA('#', 'RESSOURCES');
 
-  linkA = createA('aPropos', 'À PROPOS');
+    linkR = createA('#', 'RESSOURCES');
 
-  linkC = createA('calendrier', 'CALENDRIER');
+    linkA = createA('aPropos', 'À PROPOS');
 
-  linkAr = createA('http://artmattersfestival.org/archive/', 'ARCHIVE');
+    linkC = createA('calendrier', 'CALENDRIER');
 
-  linkGI = createA('impliquezVous', 'IMPLIQUEZ-VOUS');
+    linkAr = createA('http://artmattersfestival.org/archive/', 'ARCHIVE');
 
-  linkE = createA('evenements', 'ÉVÉNEMENTS');
+    linkGI = createA('impliquezVous', 'IMPLIQUEZ-VOUS');
 
-  linkM = createA('carte', 'CARTE');
+    linkE = createA('evenements', 'ÉVÉNEMENTS');
 
-  // linkAO = createA('pdf/AM_AntiO.pdf', 'ANTI-OPPRESSION STATEMENT');
+    linkM = createA('carte', 'CARTE');
 
-  // linkEN = createA('#', 'EN');
-  // linkEN.id('lang');
-  linkEN = createA('../en/resources', 'EN');
-  linkEN.id('lang');
+    linkEx = createA('expositions', 'EXPOSITIONS');
 
-  home = createA('accueil', 'O');
-  //debugging
-  // home.style('color', 'black');
-  home.style('color', 'transparent');
-  home.style('font-size', '72px');
-  home.style('text-shadow', 'none');
+    // linkAO = createA('pdf/AM_AntiO.pdf', 'ANTI-OPPRESSION STATEMENT');
 
-  home.class('noselect');
+    // linkEN = createA('#', 'EN');
+    // linkEN.id('lang');
+    linkEN = createA('../en/about', 'EN');
+    linkEN.id('lang');
+
+    home = createA('accueil', 'O');
+    //debugging
+    // home.style('color', 'black');
+    home.style('color', 'transparent');
+    home.style('font-size', '72px');
+    home.style('text-shadow', 'none');
+
+    home.class('noselect');
 
 
 
@@ -137,6 +140,8 @@ function setup() {
     linkC.mouseOut(offlinkC);
     linkAr.mouseOver(overLinkAr);
     linkAr.mouseOut(offLinkAr);
+    linkEx.mouseOver(overLinkEx);
+    linkEx.mouseOut(offLinkEx);
 
 
 }
@@ -232,18 +237,16 @@ if (windowWidth > 650){
   pop();
 }
 
+//-------------------------------------------------------------
+//     NAV ANIMATION (DRAW)
+//-------------------------------------------------------------
 
-  //-------------------------------------------------------------
-  //     NAV ANIMATION (DRAW)
-  //-------------------------------------------------------------
+if (windowWidth > 650) {
+  linkOffset = 55;
+  linkBuffer = top + 80;
+  linkMargin = 35;
 
-  if (windowWidth > 650) {
-    //variable math
-    linkOffset = 55;
-    linkBuffer = top + 80;
-    var linkMargin = 35;
-
-    if (nonLoop == false){
+  if (nonLoop == false) {
 
     linkA.html('À PROPOS');
     linkA.style('text-align', 'right');
@@ -259,6 +262,8 @@ if (windowWidth > 650){
         linkC.style('color', 'black');
     linkE.html('ÉVÉNEMENTS');
     linkE.style('text-align', 'right');
+    linkEx.html('EXPOSITIONS');
+    linkEx.style('text-align', 'right');
         linkE.style('color', 'black');
     linkAr.html('ARCHIVE');
     linkAr.style('text-align', 'right');
@@ -267,26 +272,27 @@ if (windowWidth > 650){
   }
 
 
-    //positioning
-    linkA.position(linkMargin, linkBuffer + linkOffset);
-    linkR.position(linkMargin, linkBuffer + linkOffset * 2);
-    linkGI.position(linkMargin, linkBuffer + linkOffset * 3);
-    linkM.position(linkMargin, linkBuffer + linkOffset * 4);
-    linkC.position(linkMargin, linkBuffer + linkOffset * 5);
-    linkE.position(linkMargin, linkBuffer + linkOffset * 6);
-    linkAr.position(linkMargin, linkBuffer + linkOffset * 7);
+  //positioning
+  linkA.position(linkMargin, linkBuffer + linkOffset);
+  linkR.position(linkMargin, linkBuffer + linkOffset * 2);
+  linkGI.position(linkMargin, linkBuffer + linkOffset * 3);
+  linkE.position(linkMargin, linkBuffer + linkOffset * 4);
+  linkM.position(linkMargin, linkBuffer + linkOffset * 5);
+  linkC.position(linkMargin, linkBuffer + linkOffset * 6);
+  linkEx.position(linkMargin, linkBuffer + linkOffset * 7);
+  linkAr.position(linkMargin, linkBuffer + linkOffset * 8);
 
-    linkEN.position(linkMargin, linkBuffer + linkOffset * 8);
+  linkEN.position(linkMargin, linkBuffer + linkOffset * 9);
 
-  } else {
-    //variable math
-    linkOffset = 55;
-    linkBuffer = top + 25;
-    iconBuffer = top + 45;
-    var linkMargin = 30;
-    var iconMargin = 45;
+} else {
+  //variable math
+  linkOffset = 55;
+  linkBuffer = top + 25;
+  iconBuffer = top + 45;
+  inkMargin = 30;
+  iconMargin = 45;
 
-    if (nonLoop == false){
+  if (nonLoop == false) {
 
     linkA.html('<br> <br> <br> <br> <br> À PROPOS');
     linkA.style('text-align', 'left');
@@ -302,6 +308,8 @@ if (windowWidth > 650){
     linkC.style('color', 'grey');
     linkE.html('<br> <br> <br> <br> <br>  ÉVÉNEMENTS ');
     linkE.style('text-align', 'left');
+    linkEx.html('<br> <br> <br> <br> <br>  EXPOSITIONS');
+    linkEx.style('text-align', 'left');
     linkE.style('color', 'black');
     linkAr.html('<br> <br> <br> <br> <br>  ARCHIVE');
     linkAr.style('text-align', 'left');
@@ -310,31 +318,34 @@ if (windowWidth > 650){
   }
 
 
-    tint(255, 255);
+  tint(255, 255);
 
-    image(iconR, iconMargin, (iconBuffer + linkOffset*2), 40, 40);
-    image(iconA, iconMargin, (iconBuffer + linkOffset), 40, 40);
-    image(iconGI, iconMargin, (iconBuffer + linkOffset * 3), 40, 40);
-    image(iconAr, iconMargin, (iconBuffer + linkOffset * 7), 40, 40);
-    image(iconM, iconMargin, (iconBuffer + linkOffset * 4), 40, 40);
-    image(iconC, iconMargin, (iconBuffer + linkOffset * 5), 40, 40);
-    image(iconE, iconMargin, (iconBuffer + linkOffset * 6), 40, 40);
+  imageMode(CENTER);
 
-    noTint();
+  image(iconR, iconMargin, (iconBuffer + linkOffset * 2), 40, 40);
+  image(iconA, iconMargin, (iconBuffer + linkOffset), 40, 40);
+  image(iconGI, iconMargin, (iconBuffer + linkOffset * 3), 40, 40);
+  image(iconAr, iconMargin, (iconBuffer + linkOffset * 8), 40, 40);
+  image(iconM, iconMargin, (iconBuffer + linkOffset * 5), 40, 40);
+  image(iconC, iconMargin, (iconBuffer + linkOffset * 6), 40, 40);
+  image(iconE, iconMargin, (iconBuffer + linkOffset * 4), 40, 40);
+  image(iconEx, iconMargin, (iconBuffer + linkOffset * 7), 40, 40);
 
-    //positioning
-    linkA.position(linkMargin, linkBuffer + linkOffset);
-    linkR.position(linkMargin, linkBuffer + linkOffset * 2);
-    linkGI.position(linkMargin, linkBuffer + linkOffset * 3);
-    linkM.position(linkMargin, linkBuffer + linkOffset * 4);
-    linkC.position(linkMargin, linkBuffer + linkOffset * 5);
-    linkE.position(linkMargin, linkBuffer + linkOffset * 6);
-    linkAr.position(linkMargin, linkBuffer + linkOffset * 7);
+  noTint();
 
-    linkEN.position(linkMargin, linkBuffer + linkOffset * 8.2);
+  //positioning
+  linkA.position(linkMargin, linkBuffer + linkOffset);
+  linkR.position(linkMargin, linkBuffer + linkOffset * 2);
+  linkGI.position(linkMargin, linkBuffer + linkOffset * 3);
+  linkM.position(linkMargin, linkBuffer + linkOffset * 5);
+  linkC.position(linkMargin, linkBuffer + linkOffset * 6);
+  linkE.position(linkMargin, linkBuffer + linkOffset * 4);
+  linkEx.position(linkMargin, linkBuffer + linkOffset * 7.8);
+  linkAr.position(linkMargin, linkBuffer + linkOffset * 8);
 
-  }
+  linkEN.position(linkMargin, linkBuffer + linkOffset * 9.4);
 
+}
 
 
 
@@ -342,72 +353,78 @@ if (windowWidth > 650){
   //     ICON ANIMATIONS (DRAW)
   //-------------------------------------------------------------
 
-if (windowWidth > 650){
-  linkM.html('CARTE');
-  linkC.html('CALENDRIER');
+  if (windowWidth > 650) {
 
-  //---R---
-  if (animateR == true) {
-    tint(255, fadeR);
-    if (windowWidth > 650){
-    image(iconR, linkMargin, (linkBuffer + linkOffset*2), 50, 50);
-  } else{
+    //---R---
+    if (animateR == true) {
+      tint(255, fadeR);
+      if (windowWidth > 650) {
+        image(iconR, linkMargin, (linkBuffer + linkOffset * 2), 50, 50);
+      } else {
 
-  }
-    noTint();
-    fadeR += fadeIncr;
-  }
-
-  //---A---
-  if (animateA == true) {
-    tint(255, fadeA);
-    image(iconA, linkMargin, (linkBuffer + linkOffset), 50, 50);
+      }
       noTint();
-    fadeA += fadeIncr;
-  }
+      fadeR += fadeIncr;
+    }
 
-  //---GI---
-  if (animateGI == true) {
-    tint(255, fadeGI);
-    image(iconGI, linkMargin, (linkBuffer + linkOffset * 3), 50, 50);
+    //---A---
+    if (animateA == true) {
+      tint(255, fadeA);
+      image(iconA, linkMargin, (linkBuffer + linkOffset), 50, 50);
       noTint();
-    fadeGI += fadeIncr;
-  }
+      fadeA += fadeIncr;
+    }
 
-  //---Ar---
-  if (animateAr == true) {
-    tint(255, fadeAr);
-    image(iconAr, linkMargin, (linkBuffer + linkOffset * 7), 50, 50);
+    //---GI---
+    if (animateGI == true) {
+      tint(255, fadeGI);
+      image(iconGI, linkMargin, (linkBuffer + linkOffset * 3), 50, 50);
       noTint();
-    fadeAr += fadeIncr;
-  }
+      fadeGI += fadeIncr;
+    }
 
-  //---M---
-  if (animateM == true) {
-    tint(255, fadeM);
-    image(iconM, linkMargin, (linkBuffer + linkOffset * 4), 50, 50);
-    noTint();
-      linkM.html('ARRIVE BIENTÔT');
-    fadeM += fadeIncr;
-  }
-
-  //---C---
-  if (animateC == true) {
-    tint(255, fadeC);
-    image(iconC, linkMargin, (linkBuffer + linkOffset * 5), 50, 50);
-    noTint();
-      linkC.html('ARRIVE BIENTÔT');
-    fadeC += fadeIncr;
-  }
-
-  //---E---
-  if (animateE == true) {
-    tint(255, fadeE);
-    image(iconE, linkMargin, (linkBuffer + linkOffset * 6), 50, 50);
+    //---Ar---
+    if (animateAr == true) {
+      tint(255, fadeAr);
+      image(iconAr, linkMargin, (linkBuffer + linkOffset * 8), 50, 50);
       noTint();
-    fadeE += fadeIncr;
+      fadeAr += fadeIncr;
+    }
+
+    //---M---
+    if (animateM == true) {
+      tint(255, fadeM);
+      image(iconM, linkMargin, (linkBuffer + linkOffset * 5), 50, 50);
+      noTint();
+      fadeM += fadeIncr;
+    }
+
+    //---C---
+    if (animateC == true) {
+      tint(255, fadeC);
+      image(iconC, linkMargin, (linkBuffer + linkOffset * 6), 50, 50);
+      noTint();
+      fadeC += fadeIncr;
+    }
+
+    //---E---
+    if (animateE == true) {
+      tint(255, fadeE);
+      image(iconE, linkMargin, (linkBuffer + linkOffset * 4), 50, 50);
+      noTint();
+
+      fadeE += fadeIncr;
+    }
+
+    //---Ex---
+    if (animateEx == true) {
+      tint(255, fadeEx);
+      image(iconEx, linkMargin, (linkBuffer + linkOffset * 7), 50, 50);
+      noTint();
+
+      fadeEx += fadeIncr;
+    }
   }
-}
 
   //-------------------------------------------------------------
   //     LOGO ANIMATION (DRAW)
@@ -430,7 +447,7 @@ if (windowWidth > 650){
     image(amLogo, 0, 0, 110, 110);
   } else {
     var topNew = top + 45;
-    translate(iconMargin+5, topNew);
+    translate(iconMargin + 5, topNew);
     rotate(logoSpin);
     image(amLogo, 0, 0, 70, 70);
   }
@@ -521,7 +538,7 @@ function overlinkM() {
   animateM = true;
   mainOff = true;
   fadeMain = 0;
-  // linkM.style('font-style', 'italic');
+  linkM.style('font-style', 'italic');
 
 }
 
@@ -529,7 +546,7 @@ function offlinkM() {
   animateM = false;
   fadeM = 0;
   mainOff = false;
-  // linkM.style('font-style', 'normal');
+  linkM.style('font-style', 'normal');
 
 }
 
@@ -537,7 +554,7 @@ function offlinkM() {
 
 function overlinkC() {
   animateC = true;
-  // linkC.style('font-style', 'italic');
+  linkC.style('font-style', 'italic');
   mainOff = true;
   fadeMain = 0;
 
@@ -546,7 +563,7 @@ function overlinkC() {
 function offlinkC() {
   animateC = false;
   fadeC = 0;
-  // linkC.style('font-style', 'normal');
+  linkC.style('font-style', 'normal');
   mainOff = false;
 }
 
@@ -567,25 +584,21 @@ function offLinkE() {
   mainOff = false;
 }
 
+//---Ex---
 
-//-------------------------------------------------------------
-//     RESIZE (FUNCTIONS)
-//-------------------------------------------------------------
-
-function windowResized() {
-
-  var bodyH = document.getElementById('gallery');
-  //use id to get div height for canvas scrolling length
-  var canvasH = bodyH.scrollHeight + 50;
-
-  resizeCanvas(windowWidth, (canvasH));
-
-    background(248, 251, 252);
-    nonLoop = false;
-
-
+function overLinkEx() {
+  animateEx = true;
+  linkEx.style('font-style', 'italic');
+  mainOff = true;
+  fadeMain = 0;
 }
 
+function offLinkEx() {
+  animateEx = false;
+  fadeEx = 0;
+  linkEx.style('font-style', 'normal');
+  mainOff = false;
+}
 //-------------------------------------------------------------
 //     BOX NIMATION (FUNCTIONS)
 //-------------------------------------------------------------

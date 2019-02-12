@@ -63,6 +63,7 @@ function preload() {
   layerC = loadImage('assets/box/greenLayer.png');
   layerAr = loadImage('assets/box/orangeLayer.png');
   layerGI = loadImage('assets/box/yellowLayer.png');
+  layerEx = loadImage('assets/exLayer.png');
   layerMain = loadImage('assets/layerAllBox.png');
   //icons
   iconA = loadImage('assets/rrIcon.png');
@@ -76,7 +77,7 @@ function preload() {
   //logo
   amLogo = loadImage('assets/amlogo.png');
   //fonts
-  font = loadFont('fonts/Quicksand-Medium.ttf');
+  // font = loadFont('fonts/Quicksand-Medium.ttf');
 }
 
 //-------------------------------------------------------------
@@ -93,33 +94,47 @@ function setup() {
   canvas.style("z-index", "-1");
   canvas.position(0, 0);
 
-  textFont(font);
-  textSize(28);
-  textAlign(CENTER, CENTER);
+  // textFont(font);
+  // textSize(28);
+  // textAlign(CENTER, CENTER);
 
-  //-------------------------------------------------------------
-  //     LINKS (SETUP)
-  //-------------------------------------------------------------
+      //-------------------------------------------------------------
+      //     LINKS (SETUP)
+      //-------------------------------------------------------------
 
 
-  linkR = createA('resources', 'RESOURCES');
+        linkR = createA('ressources', 'RESSOURCES');
 
-  linkA = createA('about', 'ABOUT');
+        linkA = createA('aPropos', 'À PROPOS');
 
-  linkC = createA('calendar', 'CALENDAR');
+        linkC = createA('calendrier', 'CALENDRIER');
 
-  linkAr = createA('http://artmattersfestival.org/archive/', 'ARCHIVE');
+        linkAr = createA('http://artmattersfestival.org/archive/', 'ARCHIVE');
 
-  linkGI = createA('getInvolved', 'GET INVOLVED');
+        linkGI = createA('impliquezVous', 'IMPLIQUEZ-VOUS');
 
-  linkE = createA('events', 'EVENTS');
+        linkE = createA('evenements', 'ÉVÉNEMENTS');
 
-  linkM = createA('map', 'MAP');
+        linkM = createA('carte', 'CARTE');
 
-  linkEx = createA('exhibitions', 'EXHIBITIONS');
+        linkEx = createA('expositions', 'EXPOSITIONS');
 
-  linkFR = createA('fr/accueil', 'FR');
-  linkFR.id('lang');
+        // linkAO = createA('pdf/AM_AntiO.pdf', 'ANTI-OPPRESSION STATEMENT');
+
+        // linkEN = createA('#', 'EN');
+        // linkEN.id('lang');
+        linkEN = createA('../en/about', 'EN');
+        linkEN.id('lang');
+
+        home = createA('accueil', 'O');
+        //debugging
+        // home.style('color', 'black');
+        home.style('color', 'transparent');
+        home.style('font-size', '72px');
+        home.style('text-shadow', 'none');
+
+        home.class('noselect');
+
 
 
   //-------------------------------------------------------------
@@ -147,7 +162,7 @@ function setup() {
   linkC.position(linkMargin, linkBuffer + linkOffset * 6);
   linkEx.position(linkMargin, linkBuffer + linkOffset * 7);
   linkAr.position(linkMargin, linkBuffer + linkOffset * 8);
-  linkFR.position(linkMargin, linkBuffer + linkOffset * 9);
+  linkEN.position(linkMargin, linkBuffer + linkOffset * 9);
 
 
   //-------------------------------------------------------------
@@ -193,7 +208,7 @@ function setup() {
   linkC.mouseOut(offlinkC);
   linkAr.mouseOver(overLinkAr);
   linkAr.mouseOut(offLinkAr);
-  linkFR.mouseOver(onLang).mouseOut(offLang);
+  linkEN.mouseOver(onLang).mouseOut(offLang);
 
 
 }
@@ -355,7 +370,7 @@ function draw() {
   if (animateEx == true) {
     tint(255, fadeEx);
     imageMode(CORNER);
-    // image(layerEx, drawX, drawY, drawW, drawH);
+    image(layerEx, drawX, drawY, drawW, drawH);
     imageMode(CENTER);
     image(iconEx, linkMargin, (linkBuffer + linkOffset * 7), 50, 50);
     noTint();
@@ -576,18 +591,18 @@ function offLinkEx() {
 }
 
 function onLang() {
-  linkFR.style('color', 'grey');
+  linkEN.style('color', 'grey');
 }
 
 function offLang() {
-  linkFR.style('color', 'black');
+  linkEN.style('color', 'black');
 }
 
 function windowResized() {
   resizeCanvas(windowWidth, windowHeight);
 
   var xPos = (60 + (windowWidth / 50));
-  linkFR.position(windowWidth - xPos, 30);
+  linkEN.position(windowWidth - xPos, 30);
 
   //Nav formatting
   if (windowWidth > 650) {

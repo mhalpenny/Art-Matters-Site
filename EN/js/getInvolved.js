@@ -253,7 +253,7 @@ if (windowWidth > 650) {
     linkR.style('text-align', 'right');
     linkGI.html('GET INVOLVED');
     linkGI.style('text-align', 'right');
-    linkM.html('MAPS');
+    linkM.html('MAP');
     linkM.style('text-align', 'right');
     linkM.style('color', 'black');
     linkC.html('CALENDAR');
@@ -286,7 +286,7 @@ if (windowWidth > 650) {
   linkOffset = 55;
   linkBuffer = top + 25;
   iconBuffer = top + 45;
-  inkMargin = 30;
+  linkMargin = 30;
   iconMargin = 45;
 
   if (nonLoop == false) {
@@ -297,7 +297,7 @@ if (windowWidth > 650) {
     linkR.style('text-align', 'left');
     linkGI.html('<br> <br> <br> <br>  GET <br> INVOLVED');
     linkGI.style('text-align', 'left');
-    linkM.html('<br> <br> <br> <br> <br>  MAPS');
+    linkM.html('<br> <br> <br> <br> <br>  MAP');
     linkM.style('color', 'black');
     linkM.style('text-align', 'left');
     linkC.html('<br> <br> <br> <br> <br> CALENDAR ');

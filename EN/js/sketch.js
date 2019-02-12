@@ -63,6 +63,7 @@ function preload() {
   layerC = loadImage('assets/box/greenLayer.png');
   layerAr = loadImage('assets/box/orangeLayer.png');
   layerGI = loadImage('assets/box/yellowLayer.png');
+  layerEx = loadImage('assets/exLayer.png');
   layerMain = loadImage('assets/layerAllBox.png');
   //icons
   iconA = loadImage('assets/rrIcon.png');
@@ -118,7 +119,7 @@ function setup() {
 
   linkEx = createA('exhibitions', 'EXHIBITIONS');
 
-  linkFR = createA('fr/accueil', 'FR');
+  linkFR = createA('../fr/accueil', 'FR');
   linkFR.id('lang');
 
 
@@ -355,7 +356,7 @@ function draw() {
   if (animateEx == true) {
     tint(255, fadeEx);
     imageMode(CORNER);
-    // image(layerEx, drawX, drawY, drawW, drawH);
+    image(layerEx, drawX, drawY, drawW, drawH);
     imageMode(CENTER);
     image(iconEx, linkMargin, (linkBuffer + linkOffset * 7), 50, 50);
     noTint();

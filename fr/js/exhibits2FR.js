@@ -123,7 +123,7 @@ function setup() {
 
       // linkEN = createA('#', 'EN');
       // linkEN.id('lang');
-      linkEN = createA('../en/about', 'EN');
+      linkEN = createA('../en/exhibitions-2', 'EN');
       linkEN.id('lang');
 
       home = createA('accueil', 'O');
@@ -959,7 +959,7 @@ function windowResized() {
   //use id to get div height for canvas scrolling length
   var canvasH = bodyH.scrollHeight + 50;
 
-  resizeCanvas(windowWidth, canvasH);
+  resizeCanvas(300, canvasH);
 
   background(248, 251, 252);
   nonLoop = false;

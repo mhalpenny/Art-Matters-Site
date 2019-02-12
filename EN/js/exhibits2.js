@@ -122,7 +122,7 @@ function setup() {
 
   // linkEN = createA('#', 'EN');
   // linkEN.id('lang');
-  linkFR = createA('../fr/ressources', 'FR');
+  linkFR = createA('../fr/expositions-2', 'FR');
   linkFR.id('lang');
 
   home = createA('home', 'O');
@@ -253,7 +253,7 @@ function draw() {
     linkOffset = 55;
     linkBuffer = top + 25;
     iconBuffer = top + 45;
-    inkMargin = 30;
+    linkMargin = 30;
     iconMargin = 45;
 
     if (nonLoop == false) {
@@ -281,7 +281,7 @@ function draw() {
 
 
     tint(255, 255);
-    // imageMode(CORNER);
+    imageMode(CENTER);
 
     image(iconR, iconMargin, (iconBuffer + linkOffset * 2), 40, 40);
     image(iconA, iconMargin, (iconBuffer + linkOffset), 40, 40);
@@ -956,7 +956,7 @@ function windowResized() {
   //use id to get div height for canvas scrolling length
   var canvasH = bodyH.scrollHeight + 50;
 
-  resizeCanvas(windowWidth, canvasH);
+  resizeCanvas(300, canvasH);
 
   background(248, 251, 252);
   nonLoop = false;

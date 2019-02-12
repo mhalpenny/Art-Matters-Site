@@ -32,7 +32,7 @@ let fadeR = 0,
   fadeEx = 0,
   fadeMain = 255,
   fadeBack = 50;
-let linkOffset, linkBuffer, linkMargin, iconMargin;
+let linkOffset, linkBuffer, linkMargin, iconMargin, iconBuffer;
 let fadeIncr = 35;
 let bColorVal = 0;
 let widthVal = 12;
@@ -86,13 +86,17 @@ function setup() {
   //     STYLING (SETUP)
   //-------------------------------------------------------------
 
+ if (windowWidth > 650){
   frameRate(15);
+} else{
+  frameRate(5);
+}
   //retrieve div id
   bodyH = document.getElementById('gallery');
   //use id to get div height for canvas scrolling length
   canvasH = bodyH.scrollHeight + 50;
   //create canvas at appropriate length for page
-  canvas = createCanvas(300, canvasH);
+  canvas = createCanvas(150, canvasH);
   //basic canvas formatting
   canvas.style("z-index", "-1");
   canvas.position(0, 0);
@@ -123,7 +127,7 @@ function setup() {
 
   // linkEN = createA('#', 'EN');
   // linkEN.id('lang');
-  linkFR = createA('../fr/ressources', 'FR');
+  linkFR = createA('../fr/expositions', 'FR');
   linkFR.id('lang');
 
   home = createA('home', 'O');
@@ -274,9 +278,6 @@ function draw() {
 
       }
     } else {
-      fill(250, 209, 191);
-      noStroke();
-      rect(rect1.left, rect1.top + top, (rect1.right - rect1.left), (rect1.bottom - rect1.top));
       img1.hide();
       img2.hide();
       img3.hide();
@@ -350,10 +351,6 @@ function draw() {
 
       }
     } else {
-      // fill(250, 209, 191);
-      fill(43, 96, 198);
-      noStroke();
-      rect(rect2.left, rect2.top + top, (rect2.right - rect2.left), (rect2.bottom - rect2.top));
       img1.hide();
       img2.hide();
       img3.hide();
@@ -427,9 +424,6 @@ function draw() {
 
       }
     } else {
-    fill(250, 209, 191);
-      noStroke();
-      rect(rect3.left, rect3.top + top, (rect3.right - rect3.left), (rect3.bottom - rect3.top));
       img1.hide();
       img2.hide();
       img3.hide();
@@ -504,9 +498,6 @@ function draw() {
 
       }
     } else {
-    fill(250, 209, 191);
-      noStroke();
-      rect(rect4.left, rect4.top + top, (rect4.right - rect4.left), (rect4.bottom - rect4.top));
       img1.hide();
       img2.hide();
       img3.hide();
@@ -579,9 +570,7 @@ function draw() {
 
       }
     } else {
-      fill(250, 209, 191);
-      noStroke();
-      rect(rect5.left, rect5.top + top, (rect5.right - rect5.left), (rect5.bottom - rect5.top));
+
       img1.hide();
       img2.hide();
       img3.hide();
@@ -641,7 +630,7 @@ function draw() {
     linkOffset = 55;
     linkBuffer = top + 25;
     iconBuffer = top + 45;
-    inkMargin = 30;
+    linkMargin = 30;
     iconMargin = 45;
 
     if (nonLoop == false) {
@@ -958,10 +947,15 @@ function windowResized() {
   //use id to get div height for canvas scrolling length
   var canvasH = bodyH.scrollHeight + 50;
 
-  resizeCanvas(windowWidth, canvasH);
+  resizeCanvas(150, canvasH);
 
   background(248, 251, 252);
   nonLoop = false;
 
+  if (windowWidth > 650){
+   frameRate(15);
+ } else{
+   frameRate(5);
+ }
 
 }

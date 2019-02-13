@@ -579,17 +579,16 @@ function draw() {
       img6.hide();
     }
 
+    //-------------------------------------------------------------
+    //     NAV ANIMATION (DRAW)
+    //-------------------------------------------------------------
 
-  //-------------------------------------------------------------
-  //     NAV ANIMATION (DRAW)
-  //-------------------------------------------------------------
+    if (windowWidth > 650) {
+      linkOffset = 55;
+      linkBuffer = top + 80;
+      linkMargin = 35;
 
-  if (windowWidth > 650) {
-    linkOffset = 55;
-    linkBuffer = top + 80;
-    linkMargin = 35;
-
-    if (nonLoop == false) {
+      if (nonLoop == false){
 
       linkA.html('ABOUT');
       linkA.style('text-align', 'right');
@@ -602,10 +601,12 @@ function draw() {
       linkM.style('color', 'black');
       linkC.html('CALENDAR');
       linkC.style('text-align', 'right');
-      linkC.style('color', 'black');
+          linkC.style('color', 'black');
       linkE.html('EVENTS');
       linkE.style('text-align', 'right');
-      linkE.style('color', 'black');
+      linkEx.html('EXHIBITIONS');
+      linkEx.style('text-align', 'right');
+          linkE.style('color', 'black');
       linkAr.html('ARCHIVE');
       linkAr.style('text-align', 'right');
 
@@ -625,15 +626,15 @@ function draw() {
 
     linkFR.position(linkMargin, linkBuffer + linkOffset * 9);
 
-  } else {
-    //variable math
-    linkOffset = 55;
-    linkBuffer = top + 25;
-    iconBuffer = top + 45;
-    linkMargin = 30;
-    iconMargin = 45;
+    } else {
+      //variable math
+      linkOffset = 55;
+      linkBuffer = top + 25;
+      iconBuffer = top + 45;
+      var linkMargin = 30;
+      var iconMargin = 45;
 
-    if (nonLoop == false) {
+      if (nonLoop == false){
 
       linkA.html('<br> <br> <br> <br> <br> ABOUT');
       linkA.style('text-align', 'left');
@@ -649,6 +650,8 @@ function draw() {
       linkC.style('color', 'black');
       linkE.html('<br> <br> <br> <br> <br>  EVENTS ');
       linkE.style('text-align', 'left');
+      linkEx.html('<br> <br> <br> <br> <br>  EXHIBITIONS ');
+      linkEx.style('text-align', 'left');
       linkE.style('color', 'black');
       linkAr.html('<br> <br> <br> <br> <br>  ARCHIVE');
       linkAr.style('text-align', 'left');
@@ -657,34 +660,38 @@ function draw() {
     }
 
 
-    tint(255, 255);
+      tint(255, 255);
 
-    imageMode(CENTER);
+      imageMode(CENTER);
 
-    image(iconR, iconMargin, (iconBuffer + linkOffset * 2), 40, 40);
-    image(iconA, iconMargin, (iconBuffer + linkOffset), 40, 40);
-    image(iconGI, iconMargin, (iconBuffer + linkOffset * 3), 40, 40);
-    image(iconAr, iconMargin, (iconBuffer + linkOffset * 8), 40, 40);
-    image(iconM, iconMargin, (iconBuffer + linkOffset * 5), 40, 40);
-    image(iconC, iconMargin, (iconBuffer + linkOffset * 6), 40, 40);
-    image(iconE, iconMargin, (iconBuffer + linkOffset * 4), 40, 40);
-    image(iconEx, iconMargin, (iconBuffer + linkOffset * 7), 40, 40);
+      image(iconR, iconMargin, (iconBuffer + linkOffset * 2), 40, 40);
+      image(iconA, iconMargin, (iconBuffer + linkOffset), 40, 40);
+      image(iconGI, iconMargin, (iconBuffer + linkOffset * 3), 40, 40);
+      image(iconAr, iconMargin, (iconBuffer + linkOffset * 8), 40, 40);
+      image(iconM, iconMargin, (iconBuffer + linkOffset * 5), 40, 40);
+      image(iconC, iconMargin, (iconBuffer + linkOffset * 6), 40, 40);
+      image(iconE, iconMargin, (iconBuffer + linkOffset * 4), 40, 40);
+      image(iconEx, iconMargin, (iconBuffer + linkOffset * 7), 40, 40);
 
-    noTint();
 
-    //positioning
-    linkA.position(linkMargin, linkBuffer + linkOffset);
-    linkR.position(linkMargin, linkBuffer + linkOffset * 2);
-    linkGI.position(linkMargin, linkBuffer + linkOffset * 3);
-    linkM.position(linkMargin, linkBuffer + linkOffset * 5);
-    linkC.position(linkMargin, linkBuffer + linkOffset * 6);
-    linkE.position(linkMargin, linkBuffer + linkOffset * 4);
-    linkEx.position(linkMargin, linkBuffer + linkOffset * 7.8);
-    linkAr.position(linkMargin, linkBuffer + linkOffset * 8);
+      noTint();
 
-    linkFR.position(linkMargin, linkBuffer + linkOffset * 9.4);
+      //positioning
+      linkA.position(linkMargin, linkBuffer + linkOffset);
+      linkR.position(linkMargin, linkBuffer + linkOffset * 2);
+      linkGI.position(linkMargin, linkBuffer + linkOffset * 3);
+      linkM.position(linkMargin, linkBuffer + linkOffset * 5);
+      linkC.position(linkMargin, linkBuffer + linkOffset * 6);
+      linkE.position(linkMargin, linkBuffer + linkOffset * 4);
+      linkEx.position(linkMargin, linkBuffer + linkOffset * 7);
+      linkAr.position(linkMargin, linkBuffer + linkOffset * 8);
 
-  }
+      linkFR.position(linkMargin, linkBuffer + linkOffset * 9.4);
+
+    }
+
+
+
 
   //-------------------------------------------------------------
   //     ICON ANIMATIONS (DRAW)

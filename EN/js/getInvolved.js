@@ -243,7 +243,6 @@ triangle(-130*shift, 230*shift, 0, -330*shift, 200*shift, 230*shift);
 
 }
 
-
 //-------------------------------------------------------------
 //     NAV ANIMATION (DRAW)
 //-------------------------------------------------------------
@@ -253,72 +252,76 @@ if (windowWidth > 650) {
   linkBuffer = top + 80;
   linkMargin = 35;
 
-  if (nonLoop == false) {
+  if (nonLoop == false){
 
-    linkA.html('ABOUT');
-    linkA.style('text-align', 'right');
-    linkR.html('RESOURCES');
-    linkR.style('text-align', 'right');
-    linkGI.html('GET INVOLVED');
-    linkGI.style('text-align', 'right');
-    linkM.html('MAP');
-    linkM.style('text-align', 'right');
-    linkM.style('color', 'black');
-    linkC.html('CALENDAR');
-    linkC.style('text-align', 'right');
-    linkC.style('color', 'black');
-    linkE.html('EVENTS');
-    linkE.style('text-align', 'right');
-    linkE.style('color', 'black');
-    linkAr.html('ARCHIVE');
-    linkAr.style('text-align', 'right');
+  linkA.html('ABOUT');
+  linkA.style('text-align', 'right');
+  linkR.html('RESOURCES');
+  linkR.style('text-align', 'right');
+  linkGI.html('GET INVOLVED');
+  linkGI.style('text-align', 'right');
+  linkM.html('MAPS');
+  linkM.style('text-align', 'right');
+  linkM.style('color', 'black');
+  linkC.html('CALENDAR');
+  linkC.style('text-align', 'right');
+      linkC.style('color', 'black');
+  linkE.html('EVENTS');
+  linkE.style('text-align', 'right');
+  linkEx.html('EXHIBITIONS');
+  linkEx.style('text-align', 'right');
+      linkE.style('color', 'black');
+  linkAr.html('ARCHIVE');
+  linkAr.style('text-align', 'right');
 
-    nonLoop = true;
-  }
+  nonLoop = true;
+}
 
 
-  //positioning
-  linkA.position(linkMargin, linkBuffer + linkOffset);
-  linkR.position(linkMargin, linkBuffer + linkOffset * 2);
-  linkGI.position(linkMargin, linkBuffer + linkOffset * 3);
-  linkE.position(linkMargin, linkBuffer + linkOffset * 4);
-  linkM.position(linkMargin, linkBuffer + linkOffset * 5);
-  linkC.position(linkMargin, linkBuffer + linkOffset * 6);
-  linkEx.position(linkMargin, linkBuffer + linkOffset * 7);
-  linkAr.position(linkMargin, linkBuffer + linkOffset * 8);
+//positioning
+linkA.position(linkMargin, linkBuffer + linkOffset);
+linkR.position(linkMargin, linkBuffer + linkOffset * 2);
+linkGI.position(linkMargin, linkBuffer + linkOffset * 3);
+linkE.position(linkMargin, linkBuffer + linkOffset * 4);
+linkM.position(linkMargin, linkBuffer + linkOffset * 5);
+linkC.position(linkMargin, linkBuffer + linkOffset * 6);
+linkEx.position(linkMargin, linkBuffer + linkOffset * 7);
+linkAr.position(linkMargin, linkBuffer + linkOffset * 8);
 
-  linkFR.position(linkMargin, linkBuffer + linkOffset * 9);
+linkFR.position(linkMargin, linkBuffer + linkOffset * 9);
 
 } else {
   //variable math
   linkOffset = 55;
   linkBuffer = top + 25;
   iconBuffer = top + 45;
-  linkMargin = 30;
-  iconMargin = 45;
+  var linkMargin = 30;
+  var iconMargin = 45;
 
-  if (nonLoop == false) {
+  if (nonLoop == false){
 
-    linkA.html('<br> <br> <br> <br> <br> ABOUT');
-    linkA.style('text-align', 'left');
-    linkR.html('<br> <br> <br> <br> <br> RESOURCES');
-    linkR.style('text-align', 'left');
-    linkGI.html('<br> <br> <br> <br>  GET <br> INVOLVED');
-    linkGI.style('text-align', 'left');
-    linkM.html('<br> <br> <br> <br> <br>  MAP');
-    linkM.style('color', 'black');
-    linkM.style('text-align', 'left');
-    linkC.html('<br> <br> <br> <br> <br> CALENDAR ');
-    linkC.style('text-align', 'left');
-    linkC.style('color', 'black');
-    linkE.html('<br> <br> <br> <br> <br>  EVENTS ');
-    linkE.style('text-align', 'left');
-    linkE.style('color', 'black');
-    linkAr.html('<br> <br> <br> <br> <br>  ARCHIVE');
-    linkAr.style('text-align', 'left');
+  linkA.html('<br> <br> <br> <br> <br> ABOUT');
+  linkA.style('text-align', 'left');
+  linkR.html('<br> <br> <br> <br> <br> RESOURCES');
+  linkR.style('text-align', 'left');
+  linkGI.html('<br> <br> <br> <br>  GET <br> INVOLVED');
+  linkGI.style('text-align', 'left');
+  linkM.html('<br> <br> <br> <br> <br>  MAPS');
+  linkM.style('color', 'black');
+  linkM.style('text-align', 'left');
+  linkC.html('<br> <br> <br> <br> <br> CALENDAR ');
+  linkC.style('text-align', 'left');
+  linkC.style('color', 'black');
+  linkE.html('<br> <br> <br> <br> <br>  EVENTS ');
+  linkE.style('text-align', 'left');
+  linkEx.html('<br> <br> <br> <br> <br>  EXHIBITIONS ');
+  linkEx.style('text-align', 'left');
+  linkE.style('color', 'black');
+  linkAr.html('<br> <br> <br> <br> <br>  ARCHIVE');
+  linkAr.style('text-align', 'left');
 
-    nonLoop = true;
-  }
+  nonLoop = true;
+}
 
 
   tint(255, 255);
@@ -334,6 +337,7 @@ if (windowWidth > 650) {
   image(iconE, iconMargin, (iconBuffer + linkOffset * 4), 40, 40);
   image(iconEx, iconMargin, (iconBuffer + linkOffset * 7), 40, 40);
 
+
   noTint();
 
   //positioning
@@ -343,12 +347,17 @@ if (windowWidth > 650) {
   linkM.position(linkMargin, linkBuffer + linkOffset * 5);
   linkC.position(linkMargin, linkBuffer + linkOffset * 6);
   linkE.position(linkMargin, linkBuffer + linkOffset * 4);
-  linkEx.position(linkMargin, linkBuffer + linkOffset * 7.8);
+  linkEx.position(linkMargin, linkBuffer + linkOffset * 7);
   linkAr.position(linkMargin, linkBuffer + linkOffset * 8);
 
   linkFR.position(linkMargin, linkBuffer + linkOffset * 9.4);
 
 }
+
+
+
+
+
 
 //-------------------------------------------------------------
 //     ICON ANIMATIONS (DRAW)

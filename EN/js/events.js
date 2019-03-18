@@ -76,7 +76,7 @@ function setup() {
   canvasW = windowWidth/4;
   //create canvas at appropriate length for page
   if (windowWidth > 650){
-  canvas = createCanvas(windowWidth, canvasH);
+  canvas = createCanvas(300, canvasH);
 }else{
     canvas = createCanvas(150, canvasH);
 }
@@ -219,7 +219,7 @@ function draw() {
       linkR.style('text-align', 'right');
       linkGI.html('GET INVOLVED');
       linkGI.style('text-align', 'right');
-      linkM.html('MAPS');
+      linkM.html('MAP');
       linkM.style('text-align', 'right');
       linkM.style('color', 'black');
       linkC.html('CALENDAR');
@@ -265,7 +265,7 @@ function draw() {
       linkR.style('text-align', 'left');
       linkGI.html('<br> <br> <br> <br>  GET <br> INVOLVED');
       linkGI.style('text-align', 'left');
-      linkM.html('<br> <br> <br> <br> <br>  MAPS');
+      linkM.html('<br> <br> <br> <br> <br>  MAP');
       linkM.style('color', 'black');
       linkM.style('text-align', 'left');
       linkC.html('<br> <br> <br> <br> <br> CALENDAR ');
@@ -581,7 +581,7 @@ function windowResized() {
   var canvasW = windowWidth/4;
 
   if (windowWidth >650){
-  resizeCanvas(windowWidth, (canvasH));
+  resizeCanvas(300, (canvasH));
 } else{
     resizeCanvas(150, (canvasH));
 }

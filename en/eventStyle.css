@@ -58,6 +58,15 @@ height:100%;
   transform: rotate(180deg);
 }
 
+#eleven{
+  display: none;
+}
+#ten{
+  display: none;
+}
+#nine{
+  display: none;
+}
 #eight{
   display: none;
 }

@@ -1,4 +1,34 @@
 
+function reveal11() {
+var x11 = document.getElementById('eleven');
+
+if (x11.style.display == "none" || x11.style.display == '') {
+x11.style.display = "block";
+} else {
+x11.style.display = "none";
+}
+}
+
+function reveal10() {
+var x10 = document.getElementById('ten');
+
+if (x10.style.display == "none" || x10.style.display == '') {
+x10.style.display = "block";
+} else {
+x10.style.display = "none";
+}
+}
+
+function reveal9() {
+var x9 = document.getElementById('nine');
+
+if (x9.style.display == "none" || x9.style.display == '') {
+x9.style.display = "block";
+} else {
+x9.style.display = "none";
+}
+}
+
 function reveal8() {
 var x8 = document.getElementById('eight');
 
@@ -82,6 +112,15 @@ x1.style.display = "none";
 }
 
 $(document).ready(function() {
+  $('#dropEleven').click(function() {
+    $(this).toggleClass('rotate');
+  });
+  $('#dropTen').click(function() {
+    $(this).toggleClass('rotate');
+  });
+  $('#dropNine').click(function() {
+    $(this).toggleClass('rotate');
+  });
 $('#dropEight').click(function() {
   $(this).toggleClass('rotate');
 });

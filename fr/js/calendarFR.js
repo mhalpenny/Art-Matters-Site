@@ -115,9 +115,9 @@ function setup() {
 
       linkR = createA('ressources', 'RESSOURCES');
 
-      linkA = createA('#', 'À PROPOS');
+      linkA = createA('aPropos', 'À PROPOS');
 
-      linkC = createA('calendrier', 'CALENDRIER');
+      linkC = createA('#', 'CALENDRIER');
 
       linkAr = createA('http://artmattersfestival.org/archive/', 'ARCHIVE');
 

@@ -71,7 +71,7 @@ function setup() {
   //retrieve div id
   bodyH = document.getElementById('gallery');
   //use id to get div height for canvas scrolling length
-  canvasH = bodyH.scrollHeight - 250;
+  canvasH = bodyH.scrollHeight + 400;
   //relieve overload on pixel size with reduced width
   canvasW = windowWidth/4;
   //create canvas at appropriate length for page

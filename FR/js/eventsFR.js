@@ -72,12 +72,12 @@ function setup() {
   //retrieve div id
   bodyH = document.getElementById('gallery');
   //use id to get div height for canvas scrolling length
-  canvasH = bodyH.scrollHeight + 50;
+  canvasH = bodyH.scrollHeight + 400;
   //create canvas at appropriate length for page
   if (windowWidth > 650){
-  canvas = createCanvas(windowWidth, canvasH);
+  canvas = createCanvas(300, canvasH);
   }else{
-    canvas = createCanvas(200, canvasH);
+    canvas = createCanvas(150, canvasH);
   }
   //basic canvas formatting
   canvas.style("z-index", "-1");
@@ -572,13 +572,13 @@ function windowResized() {
 
   var bodyH = document.getElementById('gallery');
   //use id to get div height for canvas scrolling length
-  var canvasH = bodyH.scrollHeight + 50;
+  var canvasH = bodyH.scrollHeight + 400;
   var canvasW = windowWidth/4
 
   if (windowWidth >650){
-  resizeCanvas(windowWidth, (canvasH));
+  resizeCanvas(300, (canvasH));
 } else{
-    resizeCanvas(200, (canvasH));
+    resizeCanvas(150, (canvasH));
 }
 
   background(248, 251, 252, fadeBack);

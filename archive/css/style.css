@@ -1,0 +1,45 @@
+@charset "utf-8";
+/* CSS Document */
+
+
+* {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-size: 100%;
+	line-height: 1.5em;
+	vertical-align: baseline;
+	text-decoration: none;
+}
+
+/*-------limited reset--------*/
+html, body, div, section, article, aside, header, hgroup, footer, nav, h1, h2, h3, h4, h5, h6, p, blockquote, address, time, span, em, strong, img, ol, ul, li, figure, canvas, video, th, td, tr {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	vertical-align: baseline;
+	text-decoration: none;
+}
+
+/*html5 display rule*/
+address, article, aside, canvas, details, figcaption, figure, footer, header, hgroup, nav, menu, nav, section, summary {
+	display: block;
+}
+
+/* WEBFONTS */
+
+@font-face {
+    font-family: 'claire';
+    src: url('../fonts/clairehandregular-webfont.eot');
+    src: url('../fonts/clairehandregular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/clairehandregular-webfont.woff') format('woff'),
+         url('../fonts/clairehandregular-webfont.ttf') format('truetype'),
+         url('../fonts/clairehandregular-webfont.svg#claire_handregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+/* END FONTS */

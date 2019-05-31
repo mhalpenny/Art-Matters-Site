@@ -1,4 +1,24 @@
 
+function reveal13() {
+var x13 = document.getElementById('thirteen');
+
+if (x13.style.display == "none" || x13.style.display == '') {
+x13.style.display = "block";
+} else {
+x13.style.display = "none";
+}
+}
+
+function reveal12() {
+var x12 = document.getElementById('twelve');
+
+if (x12.style.display == "none" || x12.style.display == '') {
+x12.style.display = "block";
+} else {
+x12.style.display = "none";
+}
+}
+
 function reveal11() {
 var x11 = document.getElementById('eleven');
 
@@ -112,6 +132,12 @@ x1.style.display = "none";
 }
 
 $(document).ready(function() {
+  $('#dropThirteen').click(function() {
+    $(this).toggleClass('rotate');
+  });
+  $('#dropTwelve').click(function() {
+    $(this).toggleClass('rotate');
+  });
   $('#dropEleven').click(function() {
     $(this).toggleClass('rotate');
   });
